@@ -83,26 +83,38 @@ data/cache/dart/corp_codes.json
 
 TASK-001의 `document.zip` + `metadata.json` 레이아웃은 읽습니다. 원격 확인 성공 전에는 `remote_verified`로 승격하지 않으며, 확인 후 `versions/`로 이전합니다.
 
+- `versions/<sha256>/version.json`: ZIP 버전 메타
+- `current.json`: "지금 어떤 버전이 현재인가" 포인터
+- `checks.jsonl`: 이번 확인 시도 이력 1줄 append
+
+ingest로 받은 경우 `listing`은 비어있고, sync로 받은 경우에는 `corp_code` / `stock_code` / `report_nm` 등이 들어 있습니다. 다운로드되는 본문 파일 자체는 같으며 차이는 발견·배치 메타와 listing 보강입니다.
+
 ## 결과 상태
 
 | 상태 | 의미 |
 | --- | --- |
-| created | 이 접수번호의 첫 정상 관측 |
-| unchanged | 현재 버전과 원격 ZIP 바이트가 같음 (원본 중복 저장 없음, 확인 시각 갱신) |
-| updated | 바이트가 다름 (이전 버전 보존, 현재 포인터 전환). 본문 정정 확정이 아님 |
-| repaired | 로컬 손상 후 원격으로 복구 |
-| failed | 원격/검증 실패 (이전 정상 원본·성공 확인 시각 유지) |
+| created | 이 접수번호로 처음 정상 ZIP을 저장함. `versions/<sha>/` 생성, `current`가 그걸 가리킴 |
+| unchanged | 원격 ZIP 바이트가 현재 버전과 같음. ZIP 재저장 없음. 확인 시각(`last_success_verified_at`)·check 이력만 갱신 |
+| updated | 원격 바이트가 현재와 다름. 이전 version은 유지하고, 새 sha version을 만든 뒤 `current` 포인터 전환. (본문 정정 확정은 아님 ― ZIP 포장 차이일 수도 있음) |
+| repaired | 로컬이 손상으로 보였고, 원격 ZIP으로 복구함. 손상분은 quarantine 등으로 격리. `unchange`로 숨기지 않음 |
+| failed | 원격 다운로드·검증·저장 실패. 이전 정상 원본과 `last_success_verified_at`은 유지. `last_attempt_at`·`last_result=failed`·check 한 줄만 실패로 기록 |
 
 `unchanged`/`updated`의 “최신”은 **해당 실행에서 검증에 성공한 DART 응답과 일치**한다는 뜻입니다. 서버의 지속적 최신성이나 배치 동일 시점 스냅샷을 보장하지 않습니다.
 
 별도 접수번호의 정정공시는 별도 filing으로 수집합니다.
 
+`dart-corp-codes`의 `status: refreshed` / `cached` ― corp 매핑 캐시를 새로 받았는지, 기존 캐시를 재사용했는지를 뜻함.
+
+`batch_ok` / summary의 created·failed 카운트 ― 배치 집계일 뿐, 단건 enum이 아님
+
+OpenDART API `status` (`013` 없음, `020` 제한 등) ― HTTP API 응답 코드. 로컬 `created`/`failed`와는 별개
+
 ## 실패·배치
 
 - 종료 코드 `2`: 인자/키 오류 (HTTP 전)
-- 종료 코드 `1`: 원격 실패, 또는 배치가 완전 성공이 아님 (`failed`/`deferred`/`aborted`/목록 미완료)
+- 종료 코드 `1`: 원격 실패, 또는 배치가 성공이 아님 (`failed`/`aborted`/목록 미완료). `--max-filings`로 남은 `deferred`는 의도적 상한이라 실패로 보지 않음
 - 일시적 네트워크·서버 오류만 제한 재시도(기본 3회, exponential backoff). 인증·입력 오류는 재시도하지 않음
-- 요청 제한(`020`)·치명적 인증 오류는 배치 중단
+- 요청 제한(`020`)·치명적 인증 오류는 배치 중단 (목록 단계 실패도 `runs/*-summary.json`에 `aborted`로 기록)
 - 개별 문서 실패는 가능한 범위에서 다음 문서로 진행
 - `data/raw/dart/.sync.lock`으로 단일 작성자만 가정 (분산 동시성 미지원)
 

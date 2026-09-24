@@ -271,6 +271,10 @@ def validate_ymd(value: str, *, name: str) -> str:
     text = value.strip()
     if len(text) != 8 or not text.isdigit():
         raise UsageError(f"{name} must be YYYYMMDD")
+    try:
+        datetime.strptime(text, "%Y%m%d")
+    except ValueError as exc:
+        raise UsageError(f"{name} must be a valid calendar date YYYYMMDD") from exc
     return text
 
 

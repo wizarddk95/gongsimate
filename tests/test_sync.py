@@ -338,3 +338,87 @@ def test_bytes_returning_to_previous_version_reuses_dir(tmp_path: Path) -> None:
         sha256_bytes(zip_a),
         sha256_bytes(zip_b),
     }
+
+
+def test_batch_summary_ok_ignores_deferred_and_bump_rejects_unknown() -> None:
+    from disclosure_agent.cli import BatchSummary
+
+    summary = BatchSummary(
+        run_id="r",
+        list_complete=True,
+        selected=1,
+        processed=1,
+        deferred=3,
+    )
+    summary.bump("created")
+    assert summary.ok is True
+    summary.failed = 1
+    assert summary.ok is False
+    with pytest.raises(ValueError, match="unknown sync status"):
+        summary.bump("skipped")
+
+
+def test_list_stage_failure_still_writes_summary(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    import argparse
+
+    from disclosure_agent.cli import run_company_sync
+    from disclosure_agent.discovery import CorpRecord
+    from disclosure_agent.errors import RateLimitError
+
+    monkeypatch.setenv("OPENDART_API_KEY", "test-key")
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    (cache_dir / "dart").mkdir()
+    (cache_dir / "dart" / "corp_codes.json").write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "fetched_at": "2026-01-01T00:00:00+00:00",
+                "count": 1,
+                "companies": [
+                    {
+                        "corp_code": "00126380",
+                        "corp_name": "삼성전자",
+                        "corp_eng_name": "",
+                        "stock_code": "005930",
+                        "modify_date": "",
+                    }
+                ],
+            }
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    def boom(*_args: object, **_kwargs: object) -> None:
+        raise RateLimitError("limited")
+
+    monkeypatch.setattr("disclosure_agent.cli.discover_filings", boom)
+    monkeypatch.setattr(
+        "disclosure_agent.cli.resolve_corp",
+        lambda *a, **k: (
+            CorpRecord("00126380", "삼성전자", "", "005930", ""),
+            {"fetched_at": "2026-01-01T00:00:00+00:00"},
+        ),
+    )
+
+    args = argparse.Namespace(
+        stock_code="005930",
+        corp_code=None,
+        bgn_de="20240301",
+        end_de="20240331",
+        max_filings=None,
+        output_dir=tmp_path / "raw",
+        cache_dir=cache_dir,
+    )
+    summary = run_company_sync(args)
+    assert summary.aborted == "limited"
+    assert summary.list_complete is False
+    assert summary.ok is False
+    path = tmp_path / "raw" / "dart" / "runs" / f"{summary.run_id}-summary.json"
+    assert path.is_file()
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    assert payload["aborted"] == "limited"
+    assert payload["batch_ok"] is False

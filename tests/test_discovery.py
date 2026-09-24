@@ -253,3 +253,38 @@ def test_refresh_corp_cache_records_fetched_at(tmp_path: Path) -> None:
     assert cache["count"] == 1
     assert cache["fetched_at"]
     assert (tmp_path / "dart" / "corp_codes.json").is_file()
+
+
+def test_validate_ymd_rejects_non_calendar_dates() -> None:
+    from disclosure_agent.discovery import validate_ymd
+    from disclosure_agent.errors import UsageError
+
+    assert validate_ymd("20240301", name="--bgn-de") == "20240301"
+    with pytest.raises(UsageError, match="valid calendar date"):
+        validate_ymd("20241399", name="--bgn-de")
+    with pytest.raises(UsageError, match="YYYYMMDD"):
+        validate_ymd("202403", name="--bgn-de")
+
+
+def test_refresh_corp_cache_respects_force(tmp_path: Path) -> None:
+    path = tmp_path / "dart" / "corp_codes.json"
+    path.parent.mkdir(parents=True)
+    path.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "fetched_at": "2020-01-01T00:00:00+00:00",
+                "count": 0,
+                "companies": [],
+            }
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        raise AssertionError("should not download when cache exists and force=False")
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    cached = refresh_corp_cache(tmp_path, "key", client=client, force=False)
+    assert cached["fetched_at"] == "2020-01-01T00:00:00+00:00"
