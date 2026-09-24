@@ -18,6 +18,7 @@ import httpx
 from disclosure_agent.dart import fetch_document
 from disclosure_agent.discovery import (
     discover_filings,
+    load_corp_cache,
     refresh_corp_cache,
     resolve_corp,
     validate_ymd,
@@ -62,25 +63,29 @@ class BatchSummary:
             self.repaired += 1
         elif status == "failed":
             self.failed += 1
+        else:
+            raise ValueError(f"unknown sync status: {status!r}")
 
     @property
     def ok(self) -> bool:
+        # deferred는 --max-filings로 의도적으로 남긴 건수라 실패가 아니다.
         return (
             self.list_complete
             and self.aborted is None
             and self.failed == 0
-            and self.deferred == 0
         )
 
 
+# project.toml의 [project.scripts]가 여기에 연결됨.
+# dart-ingest 명령어를 실행하면 실행되는 함수
 def main(argv: Sequence[str] | None = None) -> None:
     raise SystemExit(run_cli(argv))
 
-
+# dart-corp-codes 명령어를 실행하면 실행되는 함수
 def corp_codes_main(argv: Sequence[str] | None = None) -> None:
     raise SystemExit(run_corp_codes_cli(argv))
 
-
+# dart-sync 명령어를 실행하면 실행되는 함수
 def sync_main(argv: Sequence[str] | None = None) -> None:
     raise SystemExit(run_sync_cli(argv))
 
@@ -102,10 +107,15 @@ def run_cli(argv: Sequence[str] | None = None) -> int:
 
 
 def run_sync_cli(argv: Sequence[str] | None = None) -> int:
+    # sync 파서를 생성
     parser = _build_sync_parser()
     try:
+        # 입력 검증
+        # 파서를 통해 인자를 파싱
         args = parser.parse_args(list(argv) if argv is not None else None)
+        # .env 파일을 로드
         load_dotenv_files()
+        # 회사 동기화 실행
         summary = run_company_sync(args)
     except IngestError as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -134,11 +144,13 @@ def run_corp_codes_cli(argv: Sequence[str] | None = None) -> int:
         args = parser.parse_args(list(argv) if argv is not None else None)
         load_dotenv_files()
         api_key = require_api_key()
-        cache = refresh_corp_cache(args.cache_dir, api_key, force=True)
+        had_cache = load_corp_cache(args.cache_dir) is not None
+        cache = refresh_corp_cache(args.cache_dir, api_key, force=args.force)
     except IngestError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return exc.exit_code
-    print("status: refreshed")
+    reused = had_cache and not args.force
+    print(f"status: {'cached' if reused else 'refreshed'}")
     print(f"fetched_at: {cache.get('fetched_at')}")
     print(f"count: {cache.get('count')}")
     print(f"path: {args.cache_dir / 'dart' / 'corp_codes.json'}")
@@ -146,19 +158,27 @@ def run_corp_codes_cli(argv: Sequence[str] | None = None) -> int:
 
 
 def run_company_sync(args: argparse.Namespace) -> BatchSummary:
+    # API 키 검증
     api_key = require_api_key()
+    # 시작 날짜 검증
     bgn_de = validate_ymd(args.bgn_de, name="--bgn-de")
+    # 종료 날짜 검증
     end_de = validate_ymd(args.end_de, name="--end-de")
+    # 시작 날짜가 종료 날짜보다 이후면 오류
     if bgn_de > end_de:
         raise UsageError("--bgn-de must be on or before --end-de")
+    # 인자에서 종목 코드 또는 회사 코드를 가져옴
     stock_code = args.stock_code
     corp_code = args.corp_code
+    # 종목 코드 또는 회사 코드 검증
     if stock_code:
         stock_code = validate_stock_code(stock_code)
     if corp_code:
         corp_code = validate_corp_code(corp_code)
 
-    run_id = uuid4().hex
+    # 실행 ID 생성
+    run_id = uuid4().hex 
+    # 배치 요약 생성 (목록 전이라 list_complete는 False로 시작)
     summary = BatchSummary(
         run_id=run_id,
         list_complete=False,
@@ -167,8 +187,12 @@ def run_company_sync(args: argparse.Namespace) -> BatchSummary:
         deferred=0,
     )
 
+    # 락 + 공유 HTTP 클라이언트
+    # 락: 같은 output_dir에 대해 ingest/sync 동시 실행 방지
     with output_run_lock(args.output_dir):
+        # 하나의 httpx.Client를 사용해 corp resolve → list → document까지 재사용 
         with httpx.Client(timeout=30.0, follow_redirects=False) as client:
+            # 기업 해석 (캐시가 없으면 여기서 corp ZIP 다운로드)
             corp, cache = resolve_corp(
                 args.cache_dir,
                 stock_code=stock_code,
@@ -178,6 +202,7 @@ def run_company_sync(args: argparse.Namespace) -> BatchSummary:
                 refresh_if_missing=True,
             )
             try:
+                # 공시 목록 검색
                 manifest = discover_filings(
                     api_key,
                     corp=corp,
@@ -188,55 +213,58 @@ def run_company_sync(args: argparse.Namespace) -> BatchSummary:
                     client=client,
                     run_id=run_id,
                 )
-            except (RateLimitError, FatalBatchError) as exc:
-                summary.aborted = str(exc)
-                raise
             except IngestError as exc:
+                # 목록 실패도 summary에 aborted를 남기고 반환 (raise하지 않음)
                 summary.aborted = str(exc)
                 summary.list_complete = False
-                raise
+            else:
+                # manifest 기록·콘솔
+                manifest_path = write_manifest(args.output_dir, manifest)
+                summary.list_complete = manifest.list_complete
+                summary.selected = len(manifest.selected_receipt_nos)
+                summary.deferred = len(manifest.deferred_receipt_nos)
+                print(f"manifest: {manifest_path}")
+                print(f"list_complete: {manifest.list_complete}")
+                print(f"discovered: {len(manifest.items)}")
+                print(f"selected: {summary.selected}")
+                print(f"deferred: {summary.deferred}")
 
-            manifest_path = write_manifest(args.output_dir, manifest)
-            summary.list_complete = manifest.list_complete
-            summary.selected = len(manifest.selected_receipt_nos)
-            summary.deferred = len(manifest.deferred_receipt_nos)
-            print(f"manifest: {manifest_path}")
-            print(f"list_complete: {manifest.list_complete}")
-            print(f"discovered: {len(manifest.items)}")
-            print(f"selected: {summary.selected}")
-            print(f"deferred: {summary.deferred}")
-
-            listing_by_receipt = {
-                item["rcept_no"]: item for item in manifest.items if "rcept_no" in item
-            }
-
-            for receipt_no in manifest.selected_receipt_nos:
-                listing = listing_by_receipt.get(receipt_no)
+                listing_by_receipt = {
+                    item["rcept_no"]: item
+                    for item in manifest.items
+                    if "rcept_no" in item
+                }
 
                 def fetch(r: str, k: str, _client: httpx.Client = client) -> bytes:
                     return fetch_document(r, k, client=_client)
 
-                try:
-                    result = sync_receipt(
-                        receipt_no,
-                        args.output_dir,
-                        api_key,
-                        run_id=run_id,
-                        listing=listing,
-                        fetch=fetch,
-                    )
-                except RateLimitError as exc:
-                    summary.aborted = str(exc)
-                    break
-                except FatalBatchError as exc:
-                    summary.aborted = str(exc)
-                    break
-                summary.processed += 1
-                summary.bump(result.outcome.status)
-                _print_sync_outcome(result.outcome, compact=True)
-                if result.outcome.error_type in {"RateLimitError", "FatalBatchError"}:
-                    summary.aborted = result.outcome.error_message
-                    break
+                for receipt_no in manifest.selected_receipt_nos:
+                    listing = listing_by_receipt.get(receipt_no)
+                    try:
+                        # 접수번호 1건의 "원격 확인 + 로컬 버전 반영"
+                        result = sync_receipt(
+                            receipt_no,
+                            args.output_dir,
+                            api_key,
+                            run_id=run_id,
+                            listing=listing,
+                            fetch=fetch,
+                        )
+                    except RateLimitError as exc:
+                        summary.aborted = str(exc)
+                        break
+                    except FatalBatchError as exc:
+                        summary.aborted = str(exc)
+                        break
+                    summary.processed += 1
+                    summary.bump(result.outcome.status)
+                    _print_sync_outcome(result.outcome, compact=True)
+                    if result.outcome.error_type in {
+                        "RateLimitError",
+                        "FatalBatchError",
+                    }:
+                        summary.aborted = result.outcome.error_message
+                        break
 
     _write_run_summary(args.output_dir, summary)
     return summary
