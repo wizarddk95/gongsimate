@@ -31,6 +31,7 @@ from disclosure_agent.errors import (
     UsageError,
 )
 from disclosure_agent.lock import output_run_lock
+from disclosure_agent.parsing import parse_receipt
 from disclosure_agent.sync import sync_receipt
 
 RECEIPT_NO_RE = re.compile(r"^\d{14}$")
@@ -90,6 +91,10 @@ def sync_main(argv: Sequence[str] | None = None) -> None:
     raise SystemExit(run_sync_cli(argv))
 
 
+def parse_main(argv: Sequence[str] | None = None) -> None:
+    raise SystemExit(run_parse_cli(argv))
+
+
 def run_cli(argv: Sequence[str] | None = None) -> int:
     parser = _build_receipt_parser()
     try:
@@ -122,6 +127,95 @@ def run_sync_cli(argv: Sequence[str] | None = None) -> int:
         return exc.exit_code
     _print_batch_summary(summary)
     return 0 if summary.ok else 1
+
+
+def run_parse_cli(argv: Sequence[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="dart-parse",
+        description="Parse a stored DART original ZIP into document elements. No API key.",
+    )
+    parser.add_argument("--receipt-no", required=True, help="14-digit DART receipt number")
+    parser.add_argument(
+        "--source-sha256",
+        default=None,
+        help="Pinned original SHA-256. If omitted, current.json is read once.",
+    )
+    parser.add_argument(
+        "--raw-dir",
+        type=Path,
+        default=Path("./data/raw"),
+        help="Raw storage root (default: ./data/raw)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("./data/parsed"),
+        help="Parsed output root (default: ./data/parsed)",
+    )
+    try:
+        args = parser.parse_args(list(argv) if argv is not None else None)
+        result = parse_receipt(
+            args.receipt_no,
+            args.raw_dir,
+            args.output_dir,
+            source_sha256=args.source_sha256,
+        )
+    except IngestError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return exc.exit_code
+    _print_parse_result(result)
+    if result["status"] in {"failed", "unsupported"}:
+        return 1
+    return 0
+
+
+_CLI_CODE_LIMIT = 12
+
+
+def _print_parse_result(result: dict[str, Any]) -> None:
+    """Print diagnostics. Search eligibility is read from the manifest, not from this text."""
+    print(f"status: {result['status']}")
+    print(f"search_eligible: {result['search_eligible']}")
+    if result["status"] == "partial":
+        print("quality_note: 처리 완료, 검색 입력 제외")
+    print(f"source_sha256: {result['source_sha256']}")
+    print(f"parser_version: {result['parser_version']}")
+    print(f"preprocess_version: {result['preprocess_version']}")
+    print(f"config_hash: {result['config_hash']}")
+    print(f"reused: {result['reused']}")
+    print(f"manifest: {result['manifest']}")
+    print(f"element_count: {result['element_count']}")
+    print(f"dest: {result['dest']}")
+    omitted = _print_codes("package_warnings", list(result.get("warnings") or []))
+    print("members:")
+    for member in result.get("members") or []:
+        shown, member_omitted = _clip_codes(list(member.get("warnings") or []))
+        omitted += member_omitted
+        reason = member.get("reason")
+        reason_text = f" reason={reason}" if reason else ""
+        print(
+            f"  {member.get('member_index')} {member.get('member_name')} "
+            f"{member.get('status')} {shown}{reason_text}"
+        )
+    if omitted:
+        print(f"warnings_omitted: {omitted}")
+        print(f"warnings_detail: {result['manifest']}")
+
+
+def _print_codes(label: str, codes: list[str]) -> int:
+    shown, omitted = _clip_codes(codes)
+    print(f"{label}: {shown}")
+    return omitted
+
+
+def _clip_codes(codes: list[str]) -> tuple[str, int]:
+    if not codes:
+        return "-", 0
+    if len(codes) <= _CLI_CODE_LIMIT:
+        return ", ".join(codes), 0
+    shown = ", ".join(codes[:_CLI_CODE_LIMIT])
+    omitted = len(codes) - _CLI_CODE_LIMIT
+    return f"{shown} (count={len(codes)}, omitted={omitted})", omitted
 
 
 def run_corp_codes_cli(argv: Sequence[str] | None = None) -> int:

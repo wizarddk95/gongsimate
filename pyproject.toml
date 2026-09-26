@@ -12,6 +12,7 @@ dependencies = [
 dart-ingest = "disclosure_agent.cli:main"
 dart-sync = "disclosure_agent.cli:sync_main"
 dart-corp-codes = "disclosure_agent.cli:corp_codes_main"
+dart-parse = "disclosure_agent.cli:parse_main"
 
 [build-system]
 requires = ["hatchling"]

@@ -49,3 +49,13 @@ class CorpMappingError(IngestError):
 
 class FatalBatchError(IngestError):
     """Authentication or other fatal error that should abort a batch."""
+
+
+class ParseLockTimeout(IngestError):
+    """The local parse-output lock was not acquired before the deadline.
+
+    Not a damaged original and not a parse failure. The lock file is left
+    in place for the process that holds it.
+    """
+
+    exit_code = 3
