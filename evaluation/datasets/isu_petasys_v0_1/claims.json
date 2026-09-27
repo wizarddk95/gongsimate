@@ -1,0 +1,1827 @@
+{
+  "claims": [
+    {
+      "claim_id": "Q01-C1",
+      "question_id": "Q01",
+      "intent_group": "G01",
+      "required": true,
+      "answerability": "supported",
+      "statement": "연결기준 2025년 표의 품목은 매출유형 제품·기타 모두 PCB(인쇄회로기판)이다.",
+      "spans": [
+        {
+          "span_id": "Q01-C1-scope",
+          "element_key": "E81",
+          "element_id": "9381f1567fbe783565a43c392f71aae7fc7f6a4f491befcc005375b2f8a7b8d9",
+          "order_index": 81,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 12,
+          "text": "<연결기준_2025년>"
+        },
+        {
+          "span_id": "Q01-C1-item",
+          "element_key": "E82",
+          "element_id": "f483b0b273de86536c7841d2c38a126125c78a8437346dce45b0a26f4e802711",
+          "order_index": 82,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "품 목"
+            },
+            {
+              "start_row": 2,
+              "start_col": 2,
+              "text": "PCB(인쇄회로기판)"
+            },
+            {
+              "start_row": 3,
+              "start_col": 2,
+              "text": "PCB(인쇄회로기판)"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q01-C2",
+      "question_id": "Q01",
+      "intent_group": "G01",
+      "required": true,
+      "answerability": "supported",
+      "statement": "그 PCB 품목의 구체적용도는 전자부품이다. 표의 전자부품은 포괄 용도다.",
+      "spans": [
+        {
+          "span_id": "Q01-C2-scope",
+          "element_key": "E81",
+          "element_id": "9381f1567fbe783565a43c392f71aae7fc7f6a4f491befcc005375b2f8a7b8d9",
+          "order_index": 81,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 12,
+          "text": "<연결기준_2025년>"
+        },
+        {
+          "span_id": "Q01-C2-use",
+          "element_key": "E82",
+          "element_id": "f483b0b273de86536c7841d2c38a126125c78a8437346dce45b0a26f4e802711",
+          "order_index": 82,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 1,
+              "start_col": 3,
+              "text": "구체적용도"
+            },
+            {
+              "start_row": 2,
+              "start_col": 3,
+              "text": "전자부품"
+            },
+            {
+              "start_row": 3,
+              "start_col": 3,
+              "text": "전자부품"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q01-C3",
+      "question_id": "Q01",
+      "intent_group": "G01",
+      "required": false,
+      "answerability": "supported",
+      "statement": "부가 문맥: PCB의 전기적 연결·고정 기능.",
+      "spans": [
+        {
+          "span_id": "Q01-C3-function",
+          "element_key": "E178",
+          "element_id": "aec51ada2e938335724186ccf0854702ebadb6e864881e04f52e36b90f07a1d0",
+          "order_index": 178,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 359,
+          "text": "1. 산업의 특성 및 현황1) PCB산업의 특성PCB(Printed Circuit Board; 인쇄회로기판)는 절연판 위에 동박(Copper foil)을 적층ㆍ가공하여  회로를 형성하고, 그 회로 위에 반도체와 수동소자 등을 실장하여 각 부품들을 전기적으로 연결해주는 기판입니다.PCB는 각종 전자 부품을 전기적으로 연결하고 기계적으로 고정시켜 주는 기능을 하는 모든 전기/전자 제품에 사용되는 핵심부품입니다. 모든 전기/전자 제품마다 사용하는 PCB가 다르기 때문에, 초기 개발단계에서 양산에 이르기까지 전자제품 제조업체의 주문에 따라 설계 및 생산이 이루어지고 있으며 이에 따라 설계ㆍ시물레이션 역량과 다품종 소량생산 체계가 필수적입니다."
+        }
+      ],
+      "notes": "필수 정답이 아니다. 표의 전자부품보다 자세한 기능을 답할 때만 인용한다."
+    },
+    {
+      "claim_id": "Q01-C4",
+      "question_id": "Q01",
+      "intent_group": "G01",
+      "required": false,
+      "answerability": "supported",
+      "statement": "부가 문맥: 회사 제품의 전방시장으로 서버, AI 가속기, 네트워크 인프라가 서술된다.",
+      "spans": [
+        {
+          "span_id": "Q01-C4-market",
+          "element_key": "E180",
+          "element_id": "3cc3e7b6fee2f01ccacf985671b8a64e9edb94108b9d707d28e713410a73dcb4",
+          "order_index": 180,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 492,
+          "text": "2. 전방시장 현황 및 전망PCB는 전자, 정보통신 제품의 핵심부품이기에 각 전방시장에 의해 영향을 많이 받습니다. PCB 시장은 AI서버 및 관련 장비에 대한 강력한 수요가 지속됨에 따라 계속해서 성장할 것으로 예상이 되고 있습니다. 당사 PCB제품의 주요 전방시장으로는 서버(하이퍼스케일 데이터센터) 시장, AI가속기 시장, 네트워크 인프라 시장 등이 있습니다.해당 시장은 고속신호, 고집적 설계 전력 열 관리 요구가 동시 고도화되고 있어 초다층 PCB에 대한 구조적 수요가 존재합니다.1) 서버 PCB시장(하이퍼스케일 데이터센터)하이퍼스케일 데이터센터는 수천 대 이상의 서버와 초고속 네트워크를 기반으로 방대한 데이터를 처리하고 저장하는 초대규모 데이터센터를 지칭합니다. 아마존, 마이크로소프트, 구글 등 주요 클라우드 서비스 제공업체(CSP)들이 글로벌 데이터센터 시장의 60% 이상을 점유하고 있으며, 이러한 과점 체제는 AI서비스 확산과 함께 지속될 것으로 전망됩니다."
+        }
+      ],
+      "notes": "필수 정답이 아니다. 특정 전방시장만으로 제품 용도를 대체하지 않는다."
+    },
+    {
+      "claim_id": "Q02-C1",
+      "question_id": "Q02",
+      "intent_group": "G02",
+      "required": true,
+      "answerability": "partial",
+      "statement": "표는 연결기준이고 단위는 백만원, %이다.",
+      "spans": [
+        {
+          "span_id": "Q02-C1-scope",
+          "element_key": "E81",
+          "element_id": "9381f1567fbe783565a43c392f71aae7fc7f6a4f491befcc005375b2f8a7b8d9",
+          "order_index": 81,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 12,
+          "text": "<연결기준_2025년>"
+        },
+        {
+          "span_id": "Q02-C1-unit",
+          "element_key": "E82",
+          "element_id": "f483b0b273de86536c7841d2c38a126125c78a8437346dce45b0a26f4e802711",
+          "order_index": 82,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "(단위 : 백만원, %)"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q02-C2",
+      "question_id": "Q02",
+      "intent_group": "G02",
+      "required": true,
+      "answerability": "partial",
+      "statement": "매출유형 제품 행은 품목 PCB, 매출 1,034,652백만원 (95.09%)이다. 별도 제품군이 아니다.",
+      "spans": [
+        {
+          "span_id": "Q02-C2-scope",
+          "element_key": "E81",
+          "element_id": "9381f1567fbe783565a43c392f71aae7fc7f6a4f491befcc005375b2f8a7b8d9",
+          "order_index": 81,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 12,
+          "text": "<연결기준_2025년>"
+        },
+        {
+          "span_id": "Q02-C2-row",
+          "element_key": "E82",
+          "element_id": "f483b0b273de86536c7841d2c38a126125c78a8437346dce45b0a26f4e802711",
+          "order_index": 82,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 1,
+              "start_col": 1,
+              "text": "매출유형"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "품 목"
+            },
+            {
+              "start_row": 1,
+              "start_col": 5,
+              "text": "매출액(비율)"
+            },
+            {
+              "start_row": 2,
+              "start_col": 1,
+              "text": "제품"
+            },
+            {
+              "start_row": 2,
+              "start_col": 2,
+              "text": "PCB(인쇄회로기판)"
+            },
+            {
+              "start_row": 2,
+              "start_col": 5,
+              "text": "1,034,652\n\n(95.09)"
+            }
+          ]
+        }
+      ],
+      "notes": "제품과 기타를 서로 다른 제품군으로 부르면 오답이다."
+    },
+    {
+      "claim_id": "Q02-C3",
+      "question_id": "Q02",
+      "intent_group": "G02",
+      "required": true,
+      "answerability": "partial",
+      "statement": "매출유형 기타 행도 품목은 PCB이고 매출은 53,373백만원 (4.91%)이다.",
+      "spans": [
+        {
+          "span_id": "Q02-C3-scope",
+          "element_key": "E81",
+          "element_id": "9381f1567fbe783565a43c392f71aae7fc7f6a4f491befcc005375b2f8a7b8d9",
+          "order_index": 81,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 12,
+          "text": "<연결기준_2025년>"
+        },
+        {
+          "span_id": "Q02-C3-row",
+          "element_key": "E82",
+          "element_id": "f483b0b273de86536c7841d2c38a126125c78a8437346dce45b0a26f4e802711",
+          "order_index": 82,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 1,
+              "start_col": 1,
+              "text": "매출유형"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "품 목"
+            },
+            {
+              "start_row": 1,
+              "start_col": 5,
+              "text": "매출액(비율)"
+            },
+            {
+              "start_row": 3,
+              "start_col": 1,
+              "text": "기타"
+            },
+            {
+              "start_row": 3,
+              "start_col": 2,
+              "text": "PCB(인쇄회로기판)"
+            },
+            {
+              "start_row": 3,
+              "start_col": 5,
+              "text": "53,373(4.91)"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q02-C4",
+      "question_id": "Q02",
+      "intent_group": "G02",
+      "required": true,
+      "answerability": "partial",
+      "statement": "합계는 1,088,025백만원 (100.00%)이다.",
+      "spans": [
+        {
+          "span_id": "Q02-C4-scope",
+          "element_key": "E81",
+          "element_id": "9381f1567fbe783565a43c392f71aae7fc7f6a4f491befcc005375b2f8a7b8d9",
+          "order_index": 81,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 12,
+          "text": "<연결기준_2025년>"
+        },
+        {
+          "span_id": "Q02-C4-total",
+          "element_key": "E82",
+          "element_id": "f483b0b273de86536c7841d2c38a126125c78a8437346dce45b0a26f4e802711",
+          "order_index": 82,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "(단위 : 백만원, %)"
+            },
+            {
+              "start_row": 4,
+              "start_col": 1,
+              "text": "합계"
+            },
+            {
+              "start_row": 4,
+              "start_col": 5,
+              "text": "1,088,025(100.00)"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q03-C1",
+      "question_id": "Q03",
+      "intent_group": "G03",
+      "required": true,
+      "answerability": "supported",
+      "statement": "회사는 AI 인프라·데이터센터 성장과 고객 수요 확대를 실적 설명에 적었다.",
+      "spans": [
+        {
+          "span_id": "Q03-C1-demand",
+          "element_key": "E184",
+          "element_id": "ea332e20d021a3651962590503237e999e526dc1313a259c659ee64e30fb10f4",
+          "order_index": 184,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 167,
+          "text": "1) 영업개황2025년 글로벌 IT 시장은 AI 인프라 확대와 데이터센터의 구조적 성장으로 고다층 PCB 수요가 지속적으로 증가하였습니다. 이러한 산업 환경 속에서 당사는 AI 가속기·스위치·서버 등 주요 전방산업 전 제품군에서 고객 수요가 크게 확대되며 창사 이래 최대 연간 실적을 달성하였습니다."
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q03-C2",
+      "question_id": "Q03",
+      "intent_group": "G03",
+      "required": true,
+      "answerability": "supported",
+      "statement": "회사는 CAPA 투자, 4공장 양산, 자동화·설비 고도화를 같은 설명에 적었다.",
+      "spans": [
+        {
+          "span_id": "Q03-C2-capa",
+          "element_key": "E185",
+          "element_id": "d92557ab05a00783cc8af185c1572ad8368cfe93852b1f7b728918e6a127212a",
+          "order_index": 185,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 332,
+          "text": "특히 2025년에는 병목공정 해소를 위한 선제적 CAPA 투자 전략을 통해 생산능력 확대 효과를 조기에 확보하였으며, 4공장의 본격적인 양산 가동과 기존 공장의 자동화 , 설비 고도화를 병행함으로써 생산 효율과 품질 경쟁력을 동시에 강화하였습니다그 결과 제54기 연결 기준 매출 1조 880억 원, 영업이익 2,047억 원을 기록하며, 전년 대비 매출 30%, 영업이익 101%의 성장을 이루었습니다.                                                                                                  (단위 : 백만원)"
+        }
+      ],
+      "notes": "이 문단 안의 '1조 880억' 서술은 매출 정답 수치가 아니다. 증가 확인 금액은 Q03-C4다."
+    },
+    {
+      "claim_id": "Q03-C3",
+      "question_id": "Q03",
+      "intent_group": "G03",
+      "required": true,
+      "answerability": "supported",
+      "statement": "경영성과 문단은 고부가·고객다변화와 증설이 매출 증가세 유지에 기여했다고 판단한다.",
+      "spans": [
+        {
+          "span_id": "Q03-C3-judgment",
+          "element_key": "E2353",
+          "element_id": "55b280deb4704c97de115c750eb2976aee4018630a7ab076441a8cfc27a5403e",
+          "order_index": 2353,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 260,
+          "text": "가. 경영성과당사는 글로벌 경기 침체국면에도 불구하고, 연결재무제표 기준 영업이익 2,047억을달성하였습니다. 네트워크 장비, 데이터센터 및 서버 시장의 안정적인 성장속에서 당사는 고부가 및 고객다변화에 집중한 전략이 유효하였다고 판단하고 있습니다. 뿐만 아니라 시장의 수요에 발 맞춰 증설 등의 투자를 통해 매출 증가세를 유지할 수 있었던 것으로 판단됩니다.                                      [ 요 약 연 결 손 익 계 산 서 ]"
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q03-C4",
+      "question_id": "Q03",
+      "intent_group": "G03",
+      "required": true,
+      "answerability": "supported",
+      "statement": "연결 포괄손익계산서의 2025년 매출은 2024년보다 크다. 단위는 원이다.",
+      "spans": [
+        {
+          "span_id": "Q03-C4-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "제 54 기 2025.01.01 부터 2025.12.31 까지"
+            },
+            {
+              "start_row": 2,
+              "start_col": 0,
+              "text": "제 53 기 2024.01.01 부터 2024.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q03-C4-values",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "제 54 기"
+            },
+            {
+              "start_row": 0,
+              "start_col": 2,
+              "text": "제 53 기"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "수익(매출액)"
+            },
+            {
+              "start_row": 1,
+              "start_col": 1,
+              "text": "1,088,025,119,176"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "836,866,961,285"
+            }
+          ]
+        }
+      ],
+      "notes": "E186의 1,880,025는 이 주장의 근거가 아니다."
+    },
+    {
+      "claim_id": "Q04-C1",
+      "question_id": "Q04",
+      "intent_group": "G04",
+      "required": true,
+      "answerability": "partial",
+      "statement": "연결 영업이익은 2025년 204,724,531,402원, 2024년 101,878,836,049원이다.",
+      "spans": [
+        {
+          "span_id": "Q04-C1-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "제 54 기 2025.01.01 부터 2025.12.31 까지"
+            },
+            {
+              "start_row": 2,
+              "start_col": 0,
+              "text": "제 53 기 2024.01.01 부터 2024.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q04-C1-values",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "제 54 기"
+            },
+            {
+              "start_row": 0,
+              "start_col": 2,
+              "text": "제 53 기"
+            },
+            {
+              "start_row": 5,
+              "start_col": 0,
+              "text": "영업이익(손실)"
+            },
+            {
+              "start_row": 5,
+              "start_col": 1,
+              "text": "204,724,531,402"
+            },
+            {
+              "start_row": 5,
+              "start_col": 2,
+              "text": "101,878,836,049"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q04-C2",
+      "question_id": "Q04",
+      "intent_group": "G04",
+      "required": true,
+      "answerability": "partial",
+      "statement": "회사는 수요 확대, 고부가 제품·고객다변화, 생산체제 개선 및 원가절감 노력/효과를 서술한다.",
+      "spans": [
+        {
+          "span_id": "Q04-C2-demand",
+          "element_key": "E2349",
+          "element_id": "1dd68cafb5362d5538d4442ea43716774724cecad3f69f110537ff3011ac67aa",
+          "order_index": 2349,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 230,
+          "text": "2025년도 사업의 성과를 요약하여 본다면,첫째, AI 빅테크 및 글로벌 네트워크 장비 기업 등 우량 고객사들과의 파트너십을 한층 강화하며 고부가가치 제품 중심의 질적 성장을 이루어냈습니다. 글로벌 거시경제의 불확실성 속에서도 AI 데이터센터 구축 경쟁이 심화됨에 따라 고사양 네트워크 장비 및 AI 서버에 대한 수요가 급증하였으며, 당사는 R&D와 맞춤형 품질 대응을 통해 당사의 실적 성장으로 연결시켰습니다."
+        },
+        {
+          "span_id": "Q04-C2-cost",
+          "element_key": "E2350",
+          "element_id": "cb1ba44a66fa9db73a4a352ccef6163a0ed599ced3ad5c7315d26b0a57a9e60d",
+          "order_index": 2350,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 290,
+          "text": "둘째, 제4공장의 생산 안정화에 이어, 제5공장의 투자를 통해 지속적인 매출 성장의 기반 마련이 순항중에 있습니다. 폭발적으로 증가하는 수주 물량을 소화하여 공급망 내 당사의 입지를 더욱 확고히 할 것이며, 이러한 생산 체제의 고도화는 중장기적으로 강력한 성장 동력이 될 것입니다. \n더불어 중국법인과 태국법인을 중심으로 제품군별 생산거점을 최적화하여 글로벌 공급망의 안정성을 확보하고, 고객 요구에 맞춘 리드타임 단축과 원가절감 효과를 동시에 실현함으로써 지역 맞춤형 생산 포트폴리오를 구축을 지속 추진하고 있습니다."
+        },
+        {
+          "span_id": "Q04-C2-result",
+          "element_key": "E2353",
+          "element_id": "55b280deb4704c97de115c750eb2976aee4018630a7ab076441a8cfc27a5403e",
+          "order_index": 2353,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 260,
+          "text": "가. 경영성과당사는 글로벌 경기 침체국면에도 불구하고, 연결재무제표 기준 영업이익 2,047억을달성하였습니다. 네트워크 장비, 데이터센터 및 서버 시장의 안정적인 성장속에서 당사는 고부가 및 고객다변화에 집중한 전략이 유효하였다고 판단하고 있습니다. 뿐만 아니라 시장의 수요에 발 맞춰 증설 등의 투자를 통해 매출 증가세를 유지할 수 있었던 것으로 판단됩니다.                                      [ 요 약 연 결 손 익 계 산 서 ]"
+        }
+      ],
+      "notes": "특정 원재료비·인건비·가동률·감가상각비가 영업이익 증가의 원인이라는 정량 인과는 확인되지 않았다."
+    },
+    {
+      "claim_id": "Q05-C1",
+      "question_id": "Q05",
+      "intent_group": "G05",
+      "required": true,
+      "answerability": "supported",
+      "statement": "진행 중인 투자 표: 신규공장·CAPA와 노후 교체, 단위 백만원, '-'는 표기 그대로다.",
+      "spans": [
+        {
+          "span_id": "Q05-C1-title",
+          "element_key": "E115",
+          "element_id": "fb5968bb7d0696b49a5ba304923aae010b469fc9072703928df9a90596ba4225",
+          "order_index": 115,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 26,
+          "text": "2) 설비의 신설ㆍ매입 계획 등① 진행중인 투자"
+        },
+        {
+          "span_id": "Q05-C1-table",
+          "element_key": "E116",
+          "element_id": "96e5cfe1b7c32ba77ee8048a7c68b70c6a5b7b3823f9798fa681a388d05ae860",
+          "order_index": 116,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "(단위 : 백만원)"
+            },
+            {
+              "start_row": 1,
+              "start_col": 1,
+              "text": "구 분"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "투자기간"
+            },
+            {
+              "start_row": 1,
+              "start_col": 3,
+              "text": "투자대상자산"
+            },
+            {
+              "start_row": 1,
+              "start_col": 4,
+              "text": "투자효과"
+            },
+            {
+              "start_row": 1,
+              "start_col": 5,
+              "text": "총투자액"
+            },
+            {
+              "start_row": 1,
+              "start_col": 6,
+              "text": "기투자액"
+            },
+            {
+              "start_row": 1,
+              "start_col": 7,
+              "text": "향후투자액"
+            },
+            {
+              "start_row": 2,
+              "start_col": 0,
+              "text": "PCB사업부문"
+            },
+            {
+              "start_row": 2,
+              "start_col": 1,
+              "text": "신규공장 건축 및 CAPA 증설"
+            },
+            {
+              "start_row": 2,
+              "start_col": 2,
+              "text": "2025년~2028년"
+            },
+            {
+              "start_row": 2,
+              "start_col": 3,
+              "text": "토지/건축물"
+            },
+            {
+              "start_row": 2,
+              "start_col": 4,
+              "text": "생산능력 향상"
+            },
+            {
+              "start_row": 2,
+              "start_col": 5,
+              "text": "141,300"
+            },
+            {
+              "start_row": 2,
+              "start_col": 6,
+              "text": "46,812"
+            },
+            {
+              "start_row": 2,
+              "start_col": 7,
+              "text": "94,488"
+            },
+            {
+              "start_row": 3,
+              "start_col": 2,
+              "text": "2026년~2028년"
+            },
+            {
+              "start_row": 3,
+              "start_col": 3,
+              "text": "기계장치"
+            },
+            {
+              "start_row": 3,
+              "start_col": 4,
+              "text": "생산능력 향상"
+            },
+            {
+              "start_row": 3,
+              "start_col": 5,
+              "text": "211,000"
+            },
+            {
+              "start_row": 3,
+              "start_col": 6,
+              "text": "-"
+            },
+            {
+              "start_row": 3,
+              "start_col": 7,
+              "text": "211,000"
+            },
+            {
+              "start_row": 4,
+              "start_col": 1,
+              "text": "CAPA 증설 및 노후시설교체"
+            },
+            {
+              "start_row": 4,
+              "start_col": 2,
+              "text": "2025년~2025년"
+            },
+            {
+              "start_row": 4,
+              "start_col": 3,
+              "text": "기계장치"
+            },
+            {
+              "start_row": 4,
+              "start_col": 4,
+              "text": "생산능력 향상 및업무효율증대"
+            },
+            {
+              "start_row": 4,
+              "start_col": 5,
+              "text": "47,700"
+            },
+            {
+              "start_row": 4,
+              "start_col": 6,
+              "text": "47,700"
+            },
+            {
+              "start_row": 4,
+              "start_col": 7,
+              "text": "-"
+            },
+            {
+              "start_row": 5,
+              "start_col": 5,
+              "text": "400,000"
+            },
+            {
+              "start_row": 5,
+              "start_col": 6,
+              "text": "94,512"
+            },
+            {
+              "start_row": 5,
+              "start_col": 7,
+              "text": "305,488"
+            }
+          ]
+        }
+      ],
+      "notes": "E116 (2,1) 신규공장 건축 및 CAPA 증설은 rowspan=2이다. 금액은 행 2·3·4와 합계 행 5에 있다."
+    },
+    {
+      "claim_id": "Q05-C2",
+      "question_id": "Q05",
+      "intent_group": "G05",
+      "required": true,
+      "answerability": "supported",
+      "statement": "향후 투자계획 표는 같은 계획의 재기재다. 진행 중 표와 합산하지 않는다.",
+      "spans": [
+        {
+          "span_id": "Q05-C2-title",
+          "element_key": "E117",
+          "element_id": "dc937b6c2502cd5ffc122459e962b98b34cc4781a62663e5f8964cedd9e81b8c",
+          "order_index": 117,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 9,
+          "text": "② 향후 투자계획"
+        },
+        {
+          "span_id": "Q05-C2-table",
+          "element_key": "E118",
+          "element_id": "dfaf3946f5cf7d6bc76eba6144779150949831af2e365710664826895aa14d8f",
+          "order_index": 118,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "(단위 : 백만원)"
+            },
+            {
+              "start_row": 1,
+              "start_col": 1,
+              "text": "계획명칭"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "예상투자총액"
+            },
+            {
+              "start_row": 1,
+              "start_col": 4,
+              "text": "기투자액"
+            },
+            {
+              "start_row": 1,
+              "start_col": 5,
+              "text": "향후투자액"
+            },
+            {
+              "start_row": 1,
+              "start_col": 6,
+              "text": "투자효과"
+            },
+            {
+              "start_row": 2,
+              "start_col": 2,
+              "text": "자산형태"
+            },
+            {
+              "start_row": 2,
+              "start_col": 3,
+              "text": "금 액"
+            },
+            {
+              "start_row": 2,
+              "start_col": 4,
+              "text": "제54기"
+            },
+            {
+              "start_row": 3,
+              "start_col": 0,
+              "text": "PCB사업부문"
+            },
+            {
+              "start_row": 3,
+              "start_col": 1,
+              "text": "신규공장 건축 및 CAPA 증설"
+            },
+            {
+              "start_row": 3,
+              "start_col": 2,
+              "text": "토지/건축물"
+            },
+            {
+              "start_row": 3,
+              "start_col": 3,
+              "text": "141,300"
+            },
+            {
+              "start_row": 3,
+              "start_col": 4,
+              "text": "46,812"
+            },
+            {
+              "start_row": 3,
+              "start_col": 5,
+              "text": "94,488"
+            },
+            {
+              "start_row": 3,
+              "start_col": 6,
+              "text": "생산능력 향상"
+            },
+            {
+              "start_row": 3,
+              "start_col": 7,
+              "text": "2025년~2028년"
+            },
+            {
+              "start_row": 4,
+              "start_col": 2,
+              "text": "기계장치"
+            },
+            {
+              "start_row": 4,
+              "start_col": 3,
+              "text": "211,000"
+            },
+            {
+              "start_row": 4,
+              "start_col": 4,
+              "text": "-"
+            },
+            {
+              "start_row": 4,
+              "start_col": 5,
+              "text": "211,000"
+            },
+            {
+              "start_row": 4,
+              "start_col": 6,
+              "text": "생산능력 향상"
+            },
+            {
+              "start_row": 4,
+              "start_col": 7,
+              "text": "2026년~2028년"
+            },
+            {
+              "start_row": 5,
+              "start_col": 1,
+              "text": "CAPA 증설 및 노후시설교체"
+            },
+            {
+              "start_row": 5,
+              "start_col": 2,
+              "text": "기계장치"
+            },
+            {
+              "start_row": 5,
+              "start_col": 3,
+              "text": "47,700"
+            },
+            {
+              "start_row": 5,
+              "start_col": 4,
+              "text": "47,700"
+            },
+            {
+              "start_row": 5,
+              "start_col": 5,
+              "text": "-"
+            },
+            {
+              "start_row": 5,
+              "start_col": 6,
+              "text": "생산능력 향상 및업무효율증대"
+            },
+            {
+              "start_row": 5,
+              "start_col": 7,
+              "text": "2025년~2025년"
+            },
+            {
+              "start_row": 6,
+              "start_col": 3,
+              "text": "400,000"
+            },
+            {
+              "start_row": 6,
+              "start_col": 4,
+              "text": "94,512"
+            },
+            {
+              "start_row": 6,
+              "start_col": 5,
+              "text": "305,488"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q05-C3",
+      "question_id": "Q05",
+      "intent_group": "G05",
+      "required": true,
+      "answerability": "supported",
+      "statement": "5공장 증설 서술은 생산능력 확대와 수요 대응이라는 목적의 보조 근거다.",
+      "spans": [
+        {
+          "span_id": "Q05-C3-purpose",
+          "element_key": "E187",
+          "element_id": "7b40a5005d8c306fd245dac295aea412e87e45c33a9cf88333386fa1d08c2948",
+          "order_index": 187,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "paragraph",
+          "char_start": 0,
+          "char_end": 235,
+          "text": "AI,고성능 컴퓨터 환경 확산에 따라 다중적층 중심의 PCB 기술 트렌드가 가속화 됨에 따라 다중적층 기술 경쟁력 강화와 양산을 위하여 적극적으로 대응하고 있으며, 다중적층 기반의 고부가가치 생산체제를 구축하기 위한 5공장 증설 투자를 단계적으로 진행중에 있습니다. 이를 통해 생산 능력을 확장하고 급증하는 전방 산업의 수요에 효과적으로 대응하며,당사의 기술력에 기반해 시장 점유율 확대와 수익성 증대에 기여할 것입니다."
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q06-C1",
+      "question_id": "Q06",
+      "intent_group": "G06",
+      "required": true,
+      "answerability": "supported",
+      "statement": "연결 포괄손익계산서 제54기 매출액은 1,088,025,119,176원이다.",
+      "spans": [
+        {
+          "span_id": "Q06-C1-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "제 54 기 2025.01.01 부터 2025.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q06-C1-value",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "제 54 기"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "수익(매출액)"
+            },
+            {
+              "start_row": 1,
+              "start_col": 1,
+              "text": "1,088,025,119,176"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q06-C2",
+      "question_id": "Q06",
+      "intent_group": "G06",
+      "required": true,
+      "answerability": "supported",
+      "statement": "같은 표의 제54기 영업이익은 204,724,531,402원이다.",
+      "spans": [
+        {
+          "span_id": "Q06-C2-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "제 54 기 2025.01.01 부터 2025.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q06-C2-value",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "제 54 기"
+            },
+            {
+              "start_row": 5,
+              "start_col": 0,
+              "text": "영업이익(손실)"
+            },
+            {
+              "start_row": 5,
+              "start_col": 1,
+              "text": "204,724,531,402"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q06-C3",
+      "question_id": "Q06",
+      "intent_group": "G06",
+      "required": true,
+      "answerability": "supported",
+      "statement": "연결 당기순이익은 160,482,561,697원이다. 지배기업 소유주 귀속액으로 바꾸지 않는다.",
+      "spans": [
+        {
+          "span_id": "Q06-C3-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "제 54 기 2025.01.01 부터 2025.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q06-C3-value",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "제 54 기"
+            },
+            {
+              "start_row": 13,
+              "start_col": 0,
+              "text": "당기순이익(손실)"
+            },
+            {
+              "start_row": 13,
+              "start_col": 1,
+              "text": "160,482,561,697"
+            }
+          ]
+        }
+      ],
+      "notes": "행 14의 160,481,952,837원은 지배기업 소유주 귀속 당기순이익이며 이 주장의 값이 아니다."
+    },
+    {
+      "claim_id": "Q07-C1",
+      "question_id": "Q07",
+      "intent_group": "G07",
+      "required": true,
+      "answerability": "supported",
+      "statement": "FY2025 연결 매출액 1,088,025,119,176원.",
+      "spans": [
+        {
+          "span_id": "Q07-C1-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "제 54 기 2025.01.01 부터 2025.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q07-C1-value",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "제 54 기"
+            },
+            {
+              "start_row": 1,
+              "start_col": 1,
+              "text": "1,088,025,119,176"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q07-C2",
+      "question_id": "Q07",
+      "intent_group": "G07",
+      "required": true,
+      "answerability": "supported",
+      "statement": "FY2024 연결 매출액 836,866,961,285원. S25 비교 열이다.",
+      "spans": [
+        {
+          "span_id": "Q07-C2-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 2,
+              "start_col": 0,
+              "text": "제 53 기 2024.01.01 부터 2024.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q07-C2-value",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 2,
+              "text": "제 53 기"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "836,866,961,285"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q07-C3",
+      "question_id": "Q07",
+      "intent_group": "G07",
+      "required": true,
+      "answerability": "supported",
+      "statement": "FY2025 연결 영업이익 204,724,531,402원.",
+      "spans": [
+        {
+          "span_id": "Q07-C3-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "제 54 기 2025.01.01 부터 2025.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q07-C3-value",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "제 54 기"
+            },
+            {
+              "start_row": 5,
+              "start_col": 1,
+              "text": "204,724,531,402"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q07-C4",
+      "question_id": "Q07",
+      "intent_group": "G07",
+      "required": true,
+      "answerability": "supported",
+      "statement": "FY2024 연결 영업이익 101,878,836,049원. S25 비교 열이다.",
+      "spans": [
+        {
+          "span_id": "Q07-C4-caption",
+          "element_key": "E227",
+          "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+          "order_index": 227,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연결 포괄손익계산서"
+            },
+            {
+              "start_row": 2,
+              "start_col": 0,
+              "text": "제 53 기 2024.01.01 부터 2024.12.31 까지"
+            },
+            {
+              "start_row": 4,
+              "start_col": 0,
+              "text": "(단위 : 원)"
+            }
+          ]
+        },
+        {
+          "span_id": "Q07-C4-value",
+          "element_key": "E228",
+          "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+          "order_index": 228,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 2,
+              "text": "제 53 기"
+            },
+            {
+              "start_row": 5,
+              "start_col": 2,
+              "text": "101,878,836,049"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q08-C1",
+      "question_id": "Q08",
+      "intent_group": "G08",
+      "required": true,
+      "answerability": "partial",
+      "statement": "제54기 연구개발비용 계는 8,395백만원이다.",
+      "spans": [
+        {
+          "span_id": "Q08-C1-cells",
+          "element_key": "E174",
+          "element_id": "ea0ff31378597126c03608c7c99cda781400e466b48959d180dfc2407d60bd5a",
+          "order_index": 174,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "(단위 : 백만원)"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "제54기"
+            },
+            {
+              "start_row": 7,
+              "start_col": 0,
+              "text": "연구개발비용 계"
+            },
+            {
+              "start_row": 7,
+              "start_col": 2,
+              "text": "8,395"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q08-C2",
+      "question_id": "Q08",
+      "intent_group": "G08",
+      "required": true,
+      "answerability": "partial",
+      "statement": "연구개발비/매출액 비율은 0.90%이고 분모 표기는 당기매출액이다. 연결/별도는 적혀 있지 않다.",
+      "spans": [
+        {
+          "span_id": "Q08-C2-cells",
+          "element_key": "E174",
+          "element_id": "ea0ff31378597126c03608c7c99cda781400e466b48959d180dfc2407d60bd5a",
+          "order_index": 174,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "(단위 : 백만원)"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "제54기"
+            },
+            {
+              "start_row": 11,
+              "start_col": 0,
+              "text": "연구개발비 / 매출액 비율[연구개발비용계÷당기매출액×100]"
+            },
+            {
+              "start_row": 11,
+              "start_col": 2,
+              "text": "0.90%"
+            }
+          ]
+        }
+      ],
+      "notes": "0.90%를 연결 매출로 재계산한 비율이라고 단정하지 않는다."
+    },
+    {
+      "claim_id": "Q08-C3",
+      "question_id": "Q08",
+      "intent_group": "G08",
+      "required": true,
+      "answerability": "partial",
+      "statement": "연구개발 실적 ① 1600G Data Center Networking, 기간 2025.01–2028.12.",
+      "spans": [
+        {
+          "span_id": "Q08-C3-header",
+          "element_key": "E176",
+          "element_id": "06f4fd8d0a9012ee1f23c9267bb283a3b24313dd7d48d49a1aee559d725f5d26",
+          "order_index": 176,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연구과제명"
+            },
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "연구기간"
+            },
+            {
+              "start_row": 0,
+              "start_col": 2,
+              "text": "연구실적"
+            },
+            {
+              "start_row": 0,
+              "start_col": 3,
+              "text": "상품화시 주요내용"
+            }
+          ]
+        },
+        {
+          "span_id": "Q08-C3-project",
+          "element_key": "E176",
+          "element_id": "06f4fd8d0a9012ee1f23c9267bb283a3b24313dd7d48d49a1aee559d725f5d26",
+          "order_index": 176,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 1,
+              "start_col": 0,
+              "text": "1. 1600G Data Center Networking"
+            },
+            {
+              "start_row": 1,
+              "start_col": 1,
+              "text": "2025년 01월~2028년 12월"
+            },
+            {
+              "start_row": 1,
+              "start_col": 2,
+              "text": "- 1600G Data Center Network용 PCB 개발"
+            },
+            {
+              "start_row": 1,
+              "start_col": 3,
+              "text": "- 기술력향상 기여"
+            }
+          ]
+        }
+      ],
+      "notes": "여러 해에 걸친 과제다. 2025년에만 달성한 실적으로 귀속하지 않는다."
+    },
+    {
+      "claim_id": "Q08-C4",
+      "question_id": "Q08",
+      "intent_group": "G08",
+      "required": true,
+      "answerability": "partial",
+      "statement": "연구개발 실적 ② AI accelerator, 기간 2023.05–2026.12.",
+      "spans": [
+        {
+          "span_id": "Q08-C4-header",
+          "element_key": "E176",
+          "element_id": "06f4fd8d0a9012ee1f23c9267bb283a3b24313dd7d48d49a1aee559d725f5d26",
+          "order_index": 176,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연구과제명"
+            },
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "연구기간"
+            },
+            {
+              "start_row": 0,
+              "start_col": 2,
+              "text": "연구실적"
+            },
+            {
+              "start_row": 0,
+              "start_col": 3,
+              "text": "상품화시 주요내용"
+            }
+          ]
+        },
+        {
+          "span_id": "Q08-C4-project",
+          "element_key": "E176",
+          "element_id": "06f4fd8d0a9012ee1f23c9267bb283a3b24313dd7d48d49a1aee559d725f5d26",
+          "order_index": 176,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 13,
+              "start_col": 0,
+              "text": "2. AI accelerator"
+            },
+            {
+              "start_row": 13,
+              "start_col": 1,
+              "text": "2023년 05월~2026년 12월"
+            },
+            {
+              "start_row": 13,
+              "start_col": 2,
+              "text": "- AI Accelerator용 PCB 개발 (고밀도 직접 회로)"
+            },
+            {
+              "start_row": 13,
+              "start_col": 3,
+              "text": "- 기술력향상 기여"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    },
+    {
+      "claim_id": "Q08-C5",
+      "question_id": "Q08",
+      "intent_group": "G08",
+      "required": true,
+      "answerability": "partial",
+      "statement": "연구개발 실적 ③ 신규 소재, 신규 공법 개발, 기간 2021.09–2026.12.",
+      "spans": [
+        {
+          "span_id": "Q08-C5-header",
+          "element_key": "E176",
+          "element_id": "06f4fd8d0a9012ee1f23c9267bb283a3b24313dd7d48d49a1aee559d725f5d26",
+          "order_index": 176,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 0,
+              "start_col": 0,
+              "text": "연구과제명"
+            },
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "text": "연구기간"
+            },
+            {
+              "start_row": 0,
+              "start_col": 2,
+              "text": "연구실적"
+            },
+            {
+              "start_row": 0,
+              "start_col": 3,
+              "text": "상품화시 주요내용"
+            }
+          ]
+        },
+        {
+          "span_id": "Q08-C5-project",
+          "element_key": "E176",
+          "element_id": "06f4fd8d0a9012ee1f23c9267bb283a3b24313dd7d48d49a1aee559d725f5d26",
+          "order_index": 176,
+          "document_id": "m0:20260323000847.xml",
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "kind": "table_cells",
+          "cells": [
+            {
+              "start_row": 24,
+              "start_col": 0,
+              "text": "3.신규 소재, 신규 공법 개발"
+            },
+            {
+              "start_row": 24,
+              "start_col": 1,
+              "text": "2021년 09월~2026년 12월"
+            },
+            {
+              "start_row": 24,
+              "start_col": 2,
+              "text": "- Cavity Process 기술 개발"
+            },
+            {
+              "start_row": 24,
+              "start_col": 3,
+              "text": "- 기술력향상 기여"
+            }
+          ]
+        }
+      ],
+      "notes": null
+    }
+  ]
+}

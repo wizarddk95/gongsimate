@@ -15,6 +15,7 @@ from uuid import uuid4
 
 import httpx
 
+from disclosure_agent.chunking import chunk_elements, load_elements, load_json
 from disclosure_agent.dart import fetch_document
 from disclosure_agent.discovery import (
     discover_filings,
@@ -30,6 +31,7 @@ from disclosure_agent.errors import (
     RateLimitError,
     UsageError,
 )
+from disclosure_agent.evaluation import run_baseline
 from disclosure_agent.lock import output_run_lock
 from disclosure_agent.parsing import parse_receipt
 from disclosure_agent.sync import sync_receipt
@@ -93,6 +95,14 @@ def sync_main(argv: Sequence[str] | None = None) -> None:
 
 def parse_main(argv: Sequence[str] | None = None) -> None:
     raise SystemExit(run_parse_cli(argv))
+
+
+def chunk_main(argv: Sequence[str] | None = None) -> None:
+    raise SystemExit(run_chunk_cli(argv))
+
+
+def eval_bm25_main(argv: Sequence[str] | None = None) -> None:
+    raise SystemExit(run_eval_bm25_cli(argv))
 
 
 def run_cli(argv: Sequence[str] | None = None) -> int:
@@ -166,6 +176,90 @@ def run_parse_cli(argv: Sequence[str] | None = None) -> int:
     _print_parse_result(result)
     if result["status"] in {"failed", "unsupported"}:
         return 1
+    return 0
+
+
+def run_chunk_cli(argv: Sequence[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="dart-chunk",
+        description=(
+            "Chunk a parsed document. Eligibility is parse_manifest overall_status=success."
+        ),
+    )
+    parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--elements", type=Path, required=True)
+    parser.add_argument("--document-id", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    try:
+        args = parser.parse_args(list(argv) if argv is not None else None)
+        manifest = load_json(args.manifest)
+        elements = load_elements(args.elements)
+        chunks = chunk_elements(elements, manifest=manifest, document_id=args.document_id)
+    except IngestError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return exc.exit_code
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    with args.output.open("w", encoding="utf-8", newline="\n") as handle:
+        for chunk in chunks:
+            handle.write(json.dumps(chunk, ensure_ascii=False, sort_keys=True) + "\n")
+    print(f"chunks: {len(chunks)}")
+    print(f"document_id: {args.document_id}")
+    print(f"output: {args.output}")
+    return 0
+
+
+def run_eval_bm25_cli(argv: Sequence[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="dart-eval-bm25",
+        description=(
+            "BM25 baseline for the pinned disclosure eval set. "
+            "Recall excludes out-of-scope questions and paraphrase duplicates."
+        ),
+    )
+    parser.add_argument(
+        "--dataset",
+        type=Path,
+        default=Path("evaluation/datasets/isu_petasys_v0_1"),
+    )
+    parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--elements", type=Path, required=True)
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("evaluation/runs/isu_petasys_v0_1"),
+    )
+    try:
+        args = parser.parse_args(list(argv) if argv is not None else None)
+        payload = run_baseline(
+            dataset_dir=args.dataset,
+            manifest_path=args.manifest,
+            elements_path=args.elements,
+            output_dir=args.output_dir,
+        )
+    except IngestError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return exc.exit_code
+    scope = payload["scope"]
+    print(f"chunks: {payload['chunks']['chunk_count']}")
+    print(
+        "index_scope: "
+        f"member {scope['member_index']} {scope['member_name']} "
+        f"document_name={scope['document_name_observed']}"
+    )
+    print(f"positive_questions: {payload['metrics']['positive_question_ids']}")
+    for k, block in payload["metrics"]["at_k"].items():
+        recall = block["claim_set_recall"]
+        single = block["claim_single_chunk_recall"]
+        print(
+            f"claim_set_recall@{k}: {recall['numerator']}/{recall['denominator']}"
+        )
+        print(
+            f"claim_single_chunk_recall@{k}: {single['numerator']}/{single['denominator']}"
+        )
+    print(f"q07_display: {payload['calculation_q07']['display_2dp_half_up']}")
+    failure_count = len(payload["failures"])
+    print(f"failures: {failure_count}")
+    print(f"metrics: {payload['paths']['metrics']}")
     return 0
 
 

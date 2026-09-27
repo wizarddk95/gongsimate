@@ -1,0 +1,22 @@
+{
+  "hard_negatives": [
+    {
+      "element_key": "E186",
+      "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+      "order_index": 186,
+      "document_id": "m0:20260323000847.xml",
+      "purpose": "error_diagnosis",
+      "not_gold_for": [
+        "Q03",
+        "Q06",
+        "Q07"
+      ],
+      "cell": {
+        "start_row": 1,
+        "start_col": 1,
+        "text": "1,880,025"
+      },
+      "note": "영업개황 요약 표의 2025 매출액. 연결 주요제품 합계 및 연결 포괄손익계산서와 충돌한다. 정답 수치로 매핑하지 않는다."
+    }
+  ]
+}

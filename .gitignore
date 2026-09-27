@@ -14,3 +14,4 @@ htmlcov/
 .mypy_cache/
 .DS_Store
 Thumbs.db
+evaluation/runs/**/chunks.jsonl

@@ -13,7 +13,7 @@
 uv sync --locked
 ```
 
-엔트리포인트: `dart-ingest`, `dart-sync`, `dart-corp-codes`, `dart-parse`.
+엔트리포인트: `dart-ingest`, `dart-sync`, `dart-corp-codes`, `dart-parse`, `dart-chunk`, `dart-eval-bm25`.
 
 ## 인증키
 
@@ -85,7 +85,14 @@ locator는 멤버 트리별 컨텍스트입니다. 프로세스 전역 경로 �
 
 괄호로 된 단위 라벨(`(단위 : 백만원)`, `(단위: 백만원, %)`)은 셀·문단 원문 그대로 남습니다. 숫자로 바꾸거나 표 전체에 적용하지 않습니다. 라벨이 보이면 `unit_mentions`에 `raw_text`, 그 요소·셀의 locator, `applies_to: null`을 둡니다. 적용 범위는 확정하지 않습니다(`unknown`). 한 라벨에 단위가 여럿이면 `unresolved`이고 하나의 배수가 아닙니다. 표 앞 문단의 단위는 그 문단의 기록으로 남고 다음 표에 붙이지 않습니다. 라벨이 없으면 `unit_mentions` 키 자체가 없습니다. 이것은 부재이고, 라벨은 있으나 범위가 `unknown`/`unresolved`인 것과 다릅니다. 이 저장소의 이수페타시스 원본에서는 셀 안, 표로 보이는 레이아웃 칸, 표 밖 문단, 쉼표로 섞인 라벨을 봤습니다. 계정 매핑과 단위 환산은 하지 않습니다.
 
-청킹을 만들 때는 요소 텍스트와 함께 이 `unit_mentions`를 문맥으로 실어야 합니다. `unknown`과 `unresolved`는 확정된 재무 사실이 아닙니다. 청커는 아직 없습니다.
+청킹을 만들 때는 요소 텍스트와 함께 이 `unit_mentions`를 문맥으로 실어야 합니다. `unknown`과 `unresolved`는 확정된 재무 사실이 아닙니다. `dart-chunk`가 그 라벨을 청크에 복사하되 `unit_applied`는 항상 false입니다. `TD`/`TE`의 `header_role=unknown`은 헤더 텍스트가 없다는 뜻이 아닙니다.
+
+```powershell
+uv run dart-chunk --manifest data/parsed/dart/<receipt>/<sha>/p2/<prefix>/parse_manifest.json --elements data/parsed/dart/<receipt>/<sha>/p2/<prefix>/elements.jsonl --document-id m0:<member>.xml --output evaluation/runs/chunks.jsonl
+uv run dart-eval-bm25 --dataset evaluation/datasets/isu_petasys_v0_1 --manifest <parse_manifest.json> --elements <elements.jsonl> --output-dir evaluation/runs/isu_petasys_v0_1
+```
+
+검색 자격은 manifest의 `overall_status == success`입니다. 첫 BM25 기준선의 인덱스는 관측된 `document_name=사업보고서`인 멤버 0만 포함합니다. 평가 정답은 청크 ID가 아니라 `evaluation/datasets/isu_petasys_v0_1/`의 원문 근거 범위입니다. 이 10문항 점수는 해당 스냅샷의 회귀 결과이며 전체 기업 성능이 아닙니다.
 
 후속 검색은 `COMPLETE`나 종료 코드, CLI 문장이 아니라 manifest의 `overall_status == success`만 입력으로 받습니다. 초기에는 `partial`을 자동으로 받지 않습니다. 영향 없는 멤버만 받는 품질 정책은 검색을 만들 때 따로 정합니다.
 

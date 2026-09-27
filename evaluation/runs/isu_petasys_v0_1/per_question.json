@@ -1,0 +1,2486 @@
+{
+  "questions": [
+    {
+      "question_id": "Q01",
+      "intent_group": "G01",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": true,
+      "answerability": "supported",
+      "answer_complete_ceiling": true,
+      "text": "FY2025 사업보고서에 따르면 이수페타시스의 주요 제품은 무엇이며 각각 어디에 쓰이나?",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "971adeda1aab4974b37499980fa7a74a40aba671606d53ef1efb618120439f3e",
+          "ordinal": 67,
+          "score": 34.852636,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 5. 정관에 관한 사항 나. 사업보고서 제출 후 정관 변경 안건 본 사업보고서에 첨부된 정관의 최근 개정일은 2024년 3월 29일이며, 2026년 3월 31일 정기주주총회 안건에는 아래와 같이 '정관 일부 변경의 건'이 포함되어 있습니다.  (제3호 의안) 정관 일부 변경의 건      제3-1호 의안 : 개정 상법 반영      제3-2호 의안 : 이사회의 구성과 소",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "1c2ccb936db331a5caf88e1735e52d1045fa7a74ecfc6382bcd9e3e578d2ef61",
+          "ordinal": 2668,
+          "score": 33.571348,
+          "preview": "[section] 목     차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 성명 | 성별 | 출생년월 | 직위 | 등기임원여부 | 상근여부 | 담당업무 | 주요경력 | 소유주식수 | 최대주주와의관계 | 재직기간 | 임기만료일 의결권있는 주식 | 의결권없는 주식 윤경용 | 남 | 1974년 09월 | 상무 | 미등기 | 상근 | 생산담당 | 영남대학교 유기화학 석사(전) (주)이수페타시스 기획",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "71321c5a459cbb91104b8e2b3e6234fecd75f4a9992419cf44bcf946f655e84b",
+          "ordinal": 114,
+          "score": 31.398906,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 4. 매출 및 수주상황 가. 판매조직이수페타시스의 판매조직은 영업본부 아래에 영업1팀 및 영업2팀으로 구성되어 있습니다.나. 판매경로 매출유형 | 품목 | 구분 | 판매경로 제품 | PCB | 수출 | 미주지역 | 직접공급 기타지역 | 직접공급(Local 포함) 내수 | 직접공급",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "12fe361ffb358c978331edcb21dab4f87221a18c99536ca7b2f891a671e9480b",
+          "ordinal": 2664,
+          "score": 31.087909,
+          "preview": "[section] 목     차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 구분 | 성명 | 성별 | 출생년월 | 사외이사후보자해당여부 | 주요경력 | 선ㆍ해임예정일 | 최대주주와의관계 선임 | 최창복 | 남 | 1971년 08월 | 부 | 現) ㈜이수페타시스 대 표이사 | 2026년 03월 31일 | 계열회사 임원 선임 | 오욱현 | 남 | 1971년 09월 | 부 | 現) ㈜이수페타시스 ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "75970dc3dee71d7f374dda7ad014c70be59c8013e2ea484858e5c77dbfe9887c",
+          "ordinal": 113,
+          "score": 30.780759,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 4. 매출 및 수주상황 (*)별도기준(2) 판매경로 및 판매방법 등 가. 판매조직이수페타시스의 판매조직은 영업본부 아래에 영업1팀 및 영업2팀으로 구성되어 있습니다.나. 판매경로",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": false,
+        "hits": []
+      },
+      "span_audit": [
+        {
+          "question_id": "Q01",
+          "claim_id": "Q01-C1",
+          "span_id": "Q01-C1-scope",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q01",
+          "claim_id": "Q01-C1",
+          "span_id": "Q01-C1-item",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q01",
+          "claim_id": "Q01-C2",
+          "span_id": "Q01-C2-scope",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q01",
+          "claim_id": "Q01-C2",
+          "span_id": "Q01-C2-use",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": null,
+      "notes": "제품 전체 설명을 특정 제품의 용도로 옮기지 않는다. 표의 전자부품과 뒤의 전방시장 서술은 구분한다."
+    },
+    {
+      "question_id": "Q02",
+      "intent_group": "G02",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": true,
+      "answerability": "partial",
+      "answer_complete_ceiling": false,
+      "text": "FY2025 사업보고서에 기재된 주요 제품군별 매출액과 매출 비중은 어떻게 되나?",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q02-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q02-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q02-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "13e1c7a84f337339e8dfdbd7c287074c3c7ee9609cac32c9e1f52fc25061e982",
+          "ordinal": 117,
+          "score": 36.586978,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 4. 매출 및 수주상황 (*)연결기준-  2025년 당기 당사의 매출비중이 10%가 넘는 주요 매출처는 1개사입니다. 당사의 주요 매출처에 대한 매출비중은 전체 매출액 대비 약 41%수준입니다.-  당사의 제품은 주로 글로벌 빅테크 기업들에게 공급되고 있습니다. 고객사는 대부분 데이터센터 관련 기업, AI 관련 기업 또는 통신장비제조 기업들입니다.(4) 신규사업 등의 ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q02-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "50a24d4036b96eb8e28a4e8da71e22cd5e0af37f79c46264a6180d0f7d7fe20f",
+          "ordinal": 83,
+          "score": 33.862935,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 2. 주요 제품 및 서비스 1) 산출기준- 산출단위: 원/㎡- 산출방법: 평균단가 = (제품매출액 합계(2025년 연간)) / (매출량(2025년 연간))- 기 간: 2025.01.01. ~ 2025.12.312) 주요 가격변동원인 - 고부가제품군의 매출 비중 확대",
+          "claim_coverage": [
+            {
+              "claim_id": "Q02-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "971adeda1aab4974b37499980fa7a74a40aba671606d53ef1efb618120439f3e",
+          "ordinal": 67,
+          "score": 31.023821,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 5. 정관에 관한 사항 나. 사업보고서 제출 후 정관 변경 안건 본 사업보고서에 첨부된 정관의 최근 개정일은 2024년 3월 29일이며, 2026년 3월 31일 정기주주총회 안건에는 아래와 같이 '정관 일부 변경의 건'이 포함되어 있습니다.  (제3호 의안) 정관 일부 변경의 건      제3-1호 의안 : 개정 상법 반영      제3-2호 의안 : 이사회의 구성과 소",
+          "claim_coverage": [
+            {
+              "claim_id": "Q02-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "ac9a2022062eb14460b4adf5d636c471091a76ecdd9c735b31a1f0ed8fe63bb9",
+          "ordinal": 2507,
+          "score": 28.779043,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 1. 예측정보에 대한 주의사항 회사가 동 사업보고서에서 미래에 발생할 것으로 예상ㆍ예측한 활동, 사건 또는 현상은 당해 공시서류 작성시점의 사건 및 재무성과에 대하여 회사의 견해를 반영한 것입니다. 동 예측정보는 미래 사업환경과 관련된 다양한 가정에 기초하고 있으며, 동 가정들은 결과적으로 부정확한 것으로 판명될 수도 있습니다. 또한, 이러한 가정들에는",
+          "claim_coverage": [
+            {
+              "claim_id": "Q02-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e2f60fc3e4ef3a75fc458807190008018840bfc2e5010437dfde5c4691c10e47",
+          "ordinal": 21,
+          "score": 24.232336,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 1. 회사의 개요 바. 주요 사업의 내용 및 향후 추진하려는 신규사업당사는 전자제품의 핵심부품인 인쇄회로기판(PCB)을 전문으로 생산하고 있으며, 한국 (주)이수페타시스(본사)에는 4개의 공장 및 연구소를 운영하고 있습니다. 종속회사인 해외법인으로 중국 ISU Petasys Hunan Ltd.(PCB제조), 미국 ISU Petasys Corp.(PCB판매)가 있으며, 홍",
+          "claim_coverage": [
+            {
+              "claim_id": "Q02-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q02-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": false,
+        "hits": []
+      },
+      "span_audit": [
+        {
+          "question_id": "Q02",
+          "claim_id": "Q02-C1",
+          "span_id": "Q02-C1-scope",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q02",
+          "claim_id": "Q02-C1",
+          "span_id": "Q02-C1-unit",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q02",
+          "claim_id": "Q02-C2",
+          "span_id": "Q02-C2-scope",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q02",
+          "claim_id": "Q02-C2",
+          "span_id": "Q02-C2-row",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q02",
+          "claim_id": "Q02-C3",
+          "span_id": "Q02-C3-scope",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q02",
+          "claim_id": "Q02-C3",
+          "span_id": "Q02-C3-row",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q02",
+          "claim_id": "Q02-C4",
+          "span_id": "Q02-C4-scope",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q02",
+          "claim_id": "Q02-C4",
+          "span_id": "Q02-C4-total",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": null,
+      "notes": "질문의 제품군별에 대해 표가 나누는 것은 매출유형이다. PCB 한 품목이다."
+    },
+    {
+      "question_id": "Q03",
+      "intent_group": "G03",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": true,
+      "answerability": "supported",
+      "answer_complete_ceiling": true,
+      "text": "FY2025 연결 매출액이 FY2024 대비 증가한 이유를 회사는 사업보고서에서 어떻게 설명하나?",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q03-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q03-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q03-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "ac9a2022062eb14460b4adf5d636c471091a76ecdd9c735b31a1f0ed8fe63bb9",
+          "ordinal": 2507,
+          "score": 27.913383,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 1. 예측정보에 대한 주의사항 회사가 동 사업보고서에서 미래에 발생할 것으로 예상ㆍ예측한 활동, 사건 또는 현상은 당해 공시서류 작성시점의 사건 및 재무성과에 대하여 회사의 견해를 반영한 것입니다. 동 예측정보는 미래 사업환경과 관련된 다양한 가정에 기초하고 있으며, 동 가정들은 결과적으로 부정확한 것으로 판명될 수도 있습니다. 또한, 이러한 가정들에는",
+          "claim_coverage": [
+            {
+              "claim_id": "Q03-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "96c0e59f6bf4664003a32b7310bbc87f016440ff1b2babeb73ca0ee647a6339e",
+          "ordinal": 14,
+          "score": 27.101734,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 1. 회사의 개요 1. 연결대상 종속회사 개황(연결재무제표를 작성하는 주권상장법인이 사업보고서, 반기ㆍ반기보고서를 제출하는 경우에 한함)연결대상 종속회사 현황(요약) (단위 : 사)",
+          "claim_coverage": [
+            {
+              "claim_id": "Q03-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "971adeda1aab4974b37499980fa7a74a40aba671606d53ef1efb618120439f3e",
+          "ordinal": 67,
+          "score": 26.848122,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 5. 정관에 관한 사항 나. 사업보고서 제출 후 정관 변경 안건 본 사업보고서에 첨부된 정관의 최근 개정일은 2024년 3월 29일이며, 2026년 3월 31일 정기주주총회 안건에는 아래와 같이 '정관 일부 변경의 건'이 포함되어 있습니다.  (제3호 의안) 정관 일부 변경의 건      제3-1호 의안 : 개정 상법 반영      제3-2호 의안 : 이사회의 구성과 소",
+          "claim_coverage": [
+            {
+              "claim_id": "Q03-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "ac6f7273ec5c87dad0700d8fa7f1d7e0a5fba9e501ff2d3103ca9a0f07f6b35f",
+          "ordinal": 13,
+          "score": 26.599747,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 1. 회사의 개요 가. 연결대상 종속회사 개황 1. 연결대상 종속회사 개황(연결재무제표를 작성하는 주권상장법인이 사업보고서, 반기ㆍ반기보고서를 제출하는 경우에 한함)연결대상 종속회사 현황(요약)",
+          "claim_coverage": [
+            {
+              "claim_id": "Q03-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "13e1c7a84f337339e8dfdbd7c287074c3c7ee9609cac32c9e1f52fc25061e982",
+          "ordinal": 117,
+          "score": 21.987192,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 4. 매출 및 수주상황 (*)연결기준-  2025년 당기 당사의 매출비중이 10%가 넘는 주요 매출처는 1개사입니다. 당사의 주요 매출처에 대한 매출비중은 전체 매출액 대비 약 41%수준입니다.-  당사의 제품은 주로 글로벌 빅테크 기업들에게 공급되고 있습니다. 고객사는 대부분 데이터센터 관련 기업, AI 관련 기업 또는 통신장비제조 기업들입니다.(4) 신규사업 등의 ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q03-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q03-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": false,
+        "hits": []
+      },
+      "span_audit": [
+        {
+          "question_id": "Q03",
+          "claim_id": "Q03-C1",
+          "span_id": "Q03-C1-demand",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q03",
+          "claim_id": "Q03-C2",
+          "span_id": "Q03-C2-capa",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q03",
+          "claim_id": "Q03-C3",
+          "span_id": "Q03-C3-judgment",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q03",
+          "claim_id": "Q03-C4",
+          "span_id": "Q03-C4-caption",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q03",
+          "claim_id": "Q03-C4",
+          "span_id": "Q03-C4-values",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": null,
+      "notes": "환율·판가를 확정 원인으로 넣지 않는다. E186 매출액은 사용하지 않는다."
+    },
+    {
+      "question_id": "Q04",
+      "intent_group": "G04",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": true,
+      "answerability": "partial",
+      "answer_complete_ceiling": false,
+      "text": "FY2025 연결 영업이익 변동을 회사는 어떻게 설명하며, 원가·비용 측면의 설명도 제시하나?",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q04-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q04-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q04-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q04-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q04-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q04-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "85630be919d240773d95f040fe292a7e2b3c0d26463fc11d9667e78bd1396e97",
+          "ordinal": 2513,
+          "score": 20.872865,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 3. 재무상태 및 영업실적 (단위 : 백만원) 과 목 | 2025년도(제54기) | 2024년도(제53기) | 증감(%) 1.매출액 | 1,088,025 | 836,867 | 30.01% 2.매출원가 | 805,721 | 680,267 | 18.44% 3.매출총이익 | 282,304 | 156,600 | 80.27% 4.영업이익 | 204,725 | 1",
+          "claim_coverage": [
+            {
+              "claim_id": "Q04-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q04-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "f730cd96073c59ed489f3bb0f3d3005cc97037ec5c36c9a0ec4bb03d5991fb66",
+          "ordinal": 2524,
+          "score": 20.105121,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 3. 재무상태 및 영업실적 1) 안정성지표 구 분 | 산 식 | 비 율 당 기 | 전 기 유동비율 | 유동자산　────── ×100　　유동부채 | 207.16% | 138.51% 부채비율 | 부채총계　────── ×100　　자기자본 | 70.53% | 141.24% 차입금의존도 | 차입금　────── ×100　　 총자산 | 18.83% | 31.40% ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q04-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q04-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "e90dca0c009e9b40b6e3181ac8caf86102dba040fee36bacca4fe70eeba036b9",
+          "ordinal": 1303,
+          "score": 19.449846,
+          "preview": "[section] 목     차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 41. 영업부문 (연결) 영업부문에 대한 공시 (단위 : 천원)  | PCB 부문 | 부동산 투자 부문 수익(매출액) | 1,087,415,960 | 609,159 감가상각비 | 28,387,235 | 387,464 무형자산상각비 | 875,583 | 0 영업이익(손실) | 204,977,550 | (253,019)",
+          "claim_coverage": [
+            {
+              "claim_id": "Q04-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q04-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "d7aedcb4338cde65ba1b045612f8181a1255a35ae74b53883830c75e527a1c0f",
+          "ordinal": 170,
+          "score": 18.968065,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 7. 기타 참고사항 1) 영업개황2025년 글로벌 IT 시장은 AI 인프라 확대와 데이터센터의 구조적 성장으로 고다층 PCB 수요가 지속적으로 증가하였습니다. 이러한 산업 환경 속에서 당사는 AI 가속기·스위치·서버 등 주요 전방산업 전 제품군에서 고객 수요가 크게 확대되며 창사 이래 최대 연간 실적을 달성하였습니다. 특히 2025년에는 병목공정 해소를 위한 선제적 C",
+          "claim_coverage": [
+            {
+              "claim_id": "Q04-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q04-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2d79e937d4cbb84f04ec2a888c9c98422cd2ac9cccbbfa6ef495226896437b82",
+          "ordinal": 171,
+          "score": 18.865824,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 7. 기타 참고사항 구분 | 54기(2025년) | 53기 (2024년)_ | 전년동기 대비증감율 매출액 | 1,880,025 | 836,867 | 30% 영업이익 | 204,725 | 101,879 | 101% 당기순이익 | 160,483 | 74,034 | 117%",
+          "claim_coverage": [
+            {
+              "claim_id": "Q04-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q04-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": false,
+        "hits": []
+      },
+      "span_audit": [
+        {
+          "question_id": "Q04",
+          "claim_id": "Q04-C1",
+          "span_id": "Q04-C1-caption",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q04",
+          "claim_id": "Q04-C1",
+          "span_id": "Q04-C1-values",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q04",
+          "claim_id": "Q04-C2",
+          "span_id": "Q04-C2-demand",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q04",
+          "claim_id": "Q04-C2",
+          "span_id": "Q04-C2-cost",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q04",
+          "claim_id": "Q04-C2",
+          "span_id": "Q04-C2-result",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": null,
+      "notes": "원가·비용의 정량 인과는 확인되지 않음. 비용 표 숫자만으로 원인을 확정하지 않는다."
+    },
+    {
+      "question_id": "Q05",
+      "intent_group": "G05",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": true,
+      "answerability": "supported",
+      "answer_complete_ceiling": true,
+      "text": "FY2025 사업보고서에 기재된 시설투자의 현황·계획과 그 목적은 무엇인가?",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q05-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 3,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q05-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 3,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q05-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 3,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "971adeda1aab4974b37499980fa7a74a40aba671606d53ef1efb618120439f3e",
+          "ordinal": 67,
+          "score": 31.023821,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 5. 정관에 관한 사항 나. 사업보고서 제출 후 정관 변경 안건 본 사업보고서에 첨부된 정관의 최근 개정일은 2024년 3월 29일이며, 2026년 3월 31일 정기주주총회 안건에는 아래와 같이 '정관 일부 변경의 건'이 포함되어 있습니다.  (제3호 의안) 정관 일부 변경의 건      제3-1호 의안 : 개정 상법 반영      제3-2호 의안 : 이사회의 구성과 소",
+          "claim_coverage": [
+            {
+              "claim_id": "Q05-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "ac9a2022062eb14460b4adf5d636c471091a76ecdd9c735b31a1f0ed8fe63bb9",
+          "ordinal": 2507,
+          "score": 28.779043,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 1. 예측정보에 대한 주의사항 회사가 동 사업보고서에서 미래에 발생할 것으로 예상ㆍ예측한 활동, 사건 또는 현상은 당해 공시서류 작성시점의 사건 및 재무성과에 대하여 회사의 견해를 반영한 것입니다. 동 예측정보는 미래 사업환경과 관련된 다양한 가정에 기초하고 있으며, 동 가정들은 결과적으로 부정확한 것으로 판명될 수도 있습니다. 또한, 이러한 가정들에는",
+          "claim_coverage": [
+            {
+              "claim_id": "Q05-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "96c0e59f6bf4664003a32b7310bbc87f016440ff1b2babeb73ca0ee647a6339e",
+          "ordinal": 14,
+          "score": 24.676247,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 1. 회사의 개요 1. 연결대상 종속회사 개황(연결재무제표를 작성하는 주권상장법인이 사업보고서, 반기ㆍ반기보고서를 제출하는 경우에 한함)연결대상 종속회사 현황(요약) (단위 : 사)",
+          "claim_coverage": [
+            {
+              "claim_id": "Q05-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "ac6f7273ec5c87dad0700d8fa7f1d7e0a5fba9e501ff2d3103ca9a0f07f6b35f",
+          "ordinal": 13,
+          "score": 23.857943,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 1. 회사의 개요 가. 연결대상 종속회사 개황 1. 연결대상 종속회사 개황(연결재무제표를 작성하는 주권상장법인이 사업보고서, 반기ㆍ반기보고서를 제출하는 경우에 한함)연결대상 종속회사 현황(요약)",
+          "claim_coverage": [
+            {
+              "claim_id": "Q05-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "d5fb9f886e8829bada9b0444770488897d407bb3d0ec0d93efaceec1cdc0fde7",
+          "ordinal": 2442,
+          "score": 18.988011,
+          "preview": "[section] 목     차 > III. 재무에 관한 사항 > 7. 증권의 발행을 통한 자금조달에 관한 사항 > 7-2. 증권의 발행을 통해 조달된 자금의 사용실적 구 분 | 회차 | 납입일 | 증권신고서 등의 자금사용 계획 | 실제 자금사용 내역 | 금액차이발생사유 | 용도차이발생사유 사용용도 | 조달금액 | 사용내용 | 사용금액 유상증자 | - | 2025년 04월 17일 | 시설자금 | 282,526 | 시설자금 | ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q05-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q05-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": false,
+        "hits": []
+      },
+      "span_audit": [
+        {
+          "question_id": "Q05",
+          "claim_id": "Q05-C1",
+          "span_id": "Q05-C1-title",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q05",
+          "claim_id": "Q05-C1",
+          "span_id": "Q05-C1-table",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q05",
+          "claim_id": "Q05-C2",
+          "span_id": "Q05-C2-title",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q05",
+          "claim_id": "Q05-C2",
+          "span_id": "Q05-C2-table",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q05",
+          "claim_id": "Q05-C3",
+          "span_id": "Q05-C3-purpose",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": {
+        "id": "do_not_sum_progress_and_plan",
+        "claim_ids": [
+          "Q05-C1",
+          "Q05-C2"
+        ],
+        "unique_totals_million_krw": [
+          "400,000",
+          "94,512",
+          "305,488"
+        ]
+      },
+      "notes": "보고서 속 계획을 2026-09-26 현재 진행 상태로 단정하지 않는다. '-'를 0으로 바꾸지 않는다."
+    },
+    {
+      "question_id": "Q06",
+      "intent_group": "G06",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": true,
+      "answerability": "supported",
+      "answer_complete_ceiling": true,
+      "text": "FY2025 연결 포괄손익계산서에 기재된 매출액, 영업이익, 연결 당기순이익은 각각 얼마인가?",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q06-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q06-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q06-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 3,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q06-C1",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            },
+            {
+              "claim_id": "Q06-C2",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q06-C3",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            }
+          ],
+          "claim_set_full": 2,
+          "claim_single_full": 2,
+          "required_claims": 3,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q06-C1",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            },
+            {
+              "claim_id": "Q06-C2",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q06-C3",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            }
+          ],
+          "claim_set_full": 2,
+          "claim_single_full": 2,
+          "required_claims": 3,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "f3e45384b374c4674cbed5f7266ebbde7d82f2ccfe7ab691418a5231aeeda370",
+          "ordinal": 2526,
+          "score": 45.093084,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 3. 재무상태 및 영업실적 2) 수익성지표 구 분 | 산 식 | 비 율 당 기 | 전 기 매출액영업이익률 | 영업이익──────── ×100　　　매출액 | 18.82% | 12.17% 매출액순이익률 | 당기순이익--─────── ×100　　매출액 | 14.75% | 8.85% 총자산순이익률 | 당기순이익-─────── ×100　　총자산 | 12.45% ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q06-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q06-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q06-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "684404eb409ba68deabdfad25b29a3e8a61a81b07a41347dfcea91e18ee1fab8",
+          "ordinal": 223,
+          "score": 43.078248,
+          "preview": "[section] 목     차 > III. 재무에 관한 사항 > 2. 연결재무제표 > 2-2. 연결 포괄손익계산서 연결 포괄손익계산서 제 54 기 2025.01.01 부터 2025.12.31 까지 제 53 기 2024.01.01 부터 2024.12.31 까지 제 52 기 2023.01.01 부터 2023.12.31 까지 (단위 : 원) 기본주당이익(손실) (단위 : 원) | 2,278 | 1,171 | 755 희석주당이익(손",
+          "claim_coverage": [
+            {
+              "claim_id": "Q06-C1",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            },
+            {
+              "claim_id": "Q06-C2",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            },
+            {
+              "claim_id": "Q06-C3",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "b55a9049f9824a5d8cc17b6e75f712d5cc33d2ee1ad657e2060da730ad4390a0",
+          "ordinal": 221,
+          "score": 41.851609,
+          "preview": "[section] 목     차 > III. 재무에 관한 사항 > 2. 연결재무제표 > 2-2. 연결 포괄손익계산서 연결 포괄손익계산서 제 54 기 2025.01.01 부터 2025.12.31 까지 제 53 기 2024.01.01 부터 2024.12.31 까지 제 52 기 2023.01.01 부터 2023.12.31 까지 (단위 : 원) 기본주당이익(손실) (단위 : 원) | 2,278 | 1,171 | 755 희석주당이익(손",
+          "claim_coverage": [
+            {
+              "claim_id": "Q06-C1",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            },
+            {
+              "claim_id": "Q06-C2",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q06-C3",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "cdf99b83b2b6176238b6bb418e171dcc3cce9a057ae46a79eea73b5d4e85c665",
+          "ordinal": 1342,
+          "score": 41.1826,
+          "preview": "[section] 목     차 > III. 재무에 관한 사항 > 4. 재무제표 > 4-2. 포괄손익계산서 포괄손익계산서 제 54 기 2025.01.01 부터 2025.12.31 까지 제 53 기 2024.01.01 부터 2024.12.31 까지 제 52 기 2023.01.01 부터 2023.12.31 까지 (단위 : 원) 기본주당이익(손실) (단위 : 원) | 2,240 | 1,032 | 576 희석주당이익(손실) (단위 :",
+          "claim_coverage": [
+            {
+              "claim_id": "Q06-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q06-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q06-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "2d79e937d4cbb84f04ec2a888c9c98422cd2ac9cccbbfa6ef495226896437b82",
+          "ordinal": 171,
+          "score": 40.761786,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 7. 기타 참고사항 구분 | 54기(2025년) | 53기 (2024년)_ | 전년동기 대비증감율 매출액 | 1,880,025 | 836,867 | 30% 영업이익 | 204,725 | 101,879 | 101% 당기순이익 | 160,483 | 74,034 | 117%",
+          "claim_coverage": [
+            {
+              "claim_id": "Q06-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q06-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q06-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": true,
+        "hits": [
+          {
+            "element_key": "E186",
+            "rank": 5,
+            "chunk_id": "2d79e937d4cbb84f04ec2a888c9c98422cd2ac9cccbbfa6ef495226896437b82"
+          }
+        ]
+      },
+      "span_audit": [
+        {
+          "question_id": "Q06",
+          "claim_id": "Q06-C1",
+          "span_id": "Q06-C1-value",
+          "in_index": "full",
+          "in_topk": "partial",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": null,
+      "notes": "지배기업 소유주 귀속 당기순이익으로 대체하지 않는다."
+    },
+    {
+      "question_id": "Q07",
+      "intent_group": "G07",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": true,
+      "answerability": "supported",
+      "answer_complete_ceiling": true,
+      "text": "FY2024 대비 FY2025의 연결 영업이익률은 몇 %p 변했나?",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q07-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q07-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q07-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 4,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "f3e45384b374c4674cbed5f7266ebbde7d82f2ccfe7ab691418a5231aeeda370",
+          "ordinal": 2526,
+          "score": 26.274918,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 3. 재무상태 및 영업실적 2) 수익성지표 구 분 | 산 식 | 비 율 당 기 | 전 기 매출액영업이익률 | 영업이익──────── ×100　　　매출액 | 18.82% | 12.17% 매출액순이익률 | 당기순이익--─────── ×100　　매출액 | 14.75% | 8.85% 총자산순이익률 | 당기순이익-─────── ×100　　총자산 | 12.45% ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q07-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "2d79e937d4cbb84f04ec2a888c9c98422cd2ac9cccbbfa6ef495226896437b82",
+          "ordinal": 171,
+          "score": 18.548928,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 7. 기타 참고사항 구분 | 54기(2025년) | 53기 (2024년)_ | 전년동기 대비증감율 매출액 | 1,880,025 | 836,867 | 30% 영업이익 | 204,725 | 101,879 | 101% 당기순이익 | 160,483 | 74,034 | 117%",
+          "claim_coverage": [
+            {
+              "claim_id": "Q07-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "f730cd96073c59ed489f3bb0f3d3005cc97037ec5c36c9a0ec4bb03d5991fb66",
+          "ordinal": 2524,
+          "score": 17.867775,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 3. 재무상태 및 영업실적 1) 안정성지표 구 분 | 산 식 | 비 율 당 기 | 전 기 유동비율 | 유동자산　────── ×100　　유동부채 | 207.16% | 138.51% 부채비율 | 부채총계　────── ×100　　자기자본 | 70.53% | 141.24% 차입금의존도 | 차입금　────── ×100　　 총자산 | 18.83% | 31.40% ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q07-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "d7aedcb4338cde65ba1b045612f8181a1255a35ae74b53883830c75e527a1c0f",
+          "ordinal": 170,
+          "score": 14.69393,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 7. 기타 참고사항 1) 영업개황2025년 글로벌 IT 시장은 AI 인프라 확대와 데이터센터의 구조적 성장으로 고다층 PCB 수요가 지속적으로 증가하였습니다. 이러한 산업 환경 속에서 당사는 AI 가속기·스위치·서버 등 주요 전방산업 전 제품군에서 고객 수요가 크게 확대되며 창사 이래 최대 연간 실적을 달성하였습니다. 특히 2025년에는 병목공정 해소를 위한 선제적 C",
+          "claim_coverage": [
+            {
+              "claim_id": "Q07-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e90dca0c009e9b40b6e3181ac8caf86102dba040fee36bacca4fe70eeba036b9",
+          "ordinal": 1303,
+          "score": 14.042865,
+          "preview": "[section] 목     차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 41. 영업부문 (연결) 영업부문에 대한 공시 (단위 : 천원)  | PCB 부문 | 부동산 투자 부문 수익(매출액) | 1,087,415,960 | 609,159 감가상각비 | 28,387,235 | 387,464 무형자산상각비 | 875,583 | 0 영업이익(손실) | 204,977,550 | (253,019)",
+          "claim_coverage": [
+            {
+              "claim_id": "Q07-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q07-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": true,
+        "hits": [
+          {
+            "element_key": "E186",
+            "rank": 2,
+            "chunk_id": "2d79e937d4cbb84f04ec2a888c9c98422cd2ac9cccbbfa6ef495226896437b82"
+          }
+        ]
+      },
+      "span_audit": [
+        {
+          "question_id": "Q07",
+          "claim_id": "Q07-C1",
+          "span_id": "Q07-C1-caption",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q07",
+          "claim_id": "Q07-C1",
+          "span_id": "Q07-C1-value",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q07",
+          "claim_id": "Q07-C2",
+          "span_id": "Q07-C2-caption",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q07",
+          "claim_id": "Q07-C2",
+          "span_id": "Q07-C2-value",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q07",
+          "claim_id": "Q07-C3",
+          "span_id": "Q07-C3-caption",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q07",
+          "claim_id": "Q07-C3",
+          "span_id": "Q07-C3-value",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q07",
+          "claim_id": "Q07-C4",
+          "span_id": "Q07-C4-caption",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q07",
+          "claim_id": "Q07-C4",
+          "span_id": "Q07-C4-value",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": null,
+      "notes": "반올림한 표시 비율끼리 빼지 않는다. 계산은 검색과 별도다."
+    },
+    {
+      "question_id": "Q08",
+      "intent_group": "G08",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": true,
+      "answerability": "partial",
+      "answer_complete_ceiling": false,
+      "text": "FY2025 사업보고서상 연구개발비와 매출액 대비 비중은 얼마이고, 당해 연도 주요 연구개발 실적은 무엇인가?",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q08-C1",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            },
+            {
+              "claim_id": "Q08-C2",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q08-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C5",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 1,
+          "claim_single_full": 1,
+          "required_claims": 5,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q08-C1",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q08-C2",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q08-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C5",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 2,
+          "claim_single_full": 2,
+          "required_claims": 5,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q08-C1",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q08-C2",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q08-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C5",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 2,
+          "claim_single_full": 2,
+          "required_claims": 5,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "083a9ce340687dfcfd2e6c04e3dc952bd5e8d9b50438cbc0c2b1a415a79a86ac",
+          "ordinal": 161,
+          "score": 57.642719,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 6. 주요계약 및 연구개발활동 (2) 연구개발 비용 (단위 : 백만원) 과 목 | 제54기 | 제53기 | 제52기 | 비 고 연구개발비 / 매출액 비율[연구개발비용계÷당기매출액×100] | 0.90% | 0,94% | 0.91% | -",
+          "claim_coverage": [
+            {
+              "claim_id": "Q08-C1",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            },
+            {
+              "claim_id": "Q08-C2",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q08-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C5",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "ec67464a70d5fe0e6f5751c63be34cf30b72880d3560ece6fc5d6dcd622741dc",
+          "ordinal": 160,
+          "score": 46.645003,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 6. 주요계약 및 연구개발활동 (2) 연구개발 비용 (단위 : 백만원) 과 목 | 제54기 | 제53기 | 제52기 | 비 고 기 타 | 3,350 | 2,515 | 1,970 | - 연구개발비용 계 | 8,395 | 6,773 | 5,257 | - 회계처리 | 판매비와 관리비 | - | - | - | - 제조경비 | 8,395 | 6,773 | 5,257 | - 개발",
+          "claim_coverage": [
+            {
+              "claim_id": "Q08-C1",
+              "single_chunk": "full",
+              "chunk_set": "full"
+            },
+            {
+              "claim_id": "Q08-C2",
+              "single_chunk": "partial",
+              "chunk_set": "partial"
+            },
+            {
+              "claim_id": "Q08-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C5",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "d8db700d47d2fdd17480125f400ea85731432be87778f53a214bf6a2e4d71eb3",
+          "ordinal": 162,
+          "score": 45.779142,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 6. 주요계약 및 연구개발활동 (3) 연구개발 실적",
+          "claim_coverage": [
+            {
+              "claim_id": "Q08-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C5",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "0ef95ceddfa2e5eb3b99c9930f4847d7fd84404565935859090c325dd6b67f70",
+          "ordinal": 158,
+          "score": 40.769414,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 6. 주요계약 및 연구개발활동 (2) 연구개발 비용",
+          "claim_coverage": [
+            {
+              "claim_id": "Q08-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C5",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "4546b43a32526fcdd6ee9af45e96336a5ad70173cdabe9b9ecb72b15db934108",
+          "ordinal": 154,
+          "score": 37.919123,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 6. 주요계약 및 연구개발활동 (1) 연구개발 담당조직- 조직형태 : 기업부설연구소- 연구소는 연구개발그룹으로 연구개발팀, 기술1팀, 기술2팀으로 구성되어 있습니다.",
+          "claim_coverage": [
+            {
+              "claim_id": "Q08-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C3",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C4",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q08-C5",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": false,
+        "hits": []
+      },
+      "span_audit": [
+        {
+          "question_id": "Q08",
+          "claim_id": "Q08-C3",
+          "span_id": "Q08-C3-header",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q08",
+          "claim_id": "Q08-C3",
+          "span_id": "Q08-C3-project",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q08",
+          "claim_id": "Q08-C4",
+          "span_id": "Q08-C4-header",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q08",
+          "claim_id": "Q08-C4",
+          "span_id": "Q08-C4-project",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q08",
+          "claim_id": "Q08-C5",
+          "span_id": "Q08-C5-header",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q08",
+          "claim_id": "Q08-C5",
+          "span_id": "Q08-C5-project",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": null,
+      "notes": "과제 성과를 2025년 한 해의 실적으로 소급하지 않는다. 비율 분모의 연결/별도 표시는 없다."
+    },
+    {
+      "question_id": "Q09",
+      "intent_group": "G01",
+      "paraphrase_of": "Q01",
+      "independent_intent": false,
+      "in_positive_recall_denominator": false,
+      "answerability": "supported",
+      "answer_complete_ceiling": true,
+      "text": "이 회사가 주력으로 만드는 물건이 뭔지, 각각 어디에 쓰이는지 알려줘.",
+      "at_k": {
+        "1": {
+          "claims": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 2,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "11e2a4e7ac3d03dfe61f43b57133d68ff552ef5a34d1a13b2607bfc581a0b950",
+          "ordinal": 39,
+          "score": 15.836252,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 2. 회사의 연혁 주1) 최대주주 관련 자세한 사항은 'VII. 주주에 관한 사항'을 참조하시기 바랍니다. 라. 상호의 변경 - 해당사항 없음 - 마. 회사가 화의, 회사정리절차 그 밖에 이에 준하는 절차를 밟은 적이 있거나 현재 진행중인 경우 그 내용과 결과 - 해당사항 없음 - 바. 회사가 합병등을 한 경우 그 내용 - 해당사항 없음 - 사. 회사의 업종 또는 주된 ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "chunk_id": "ac9a2022062eb14460b4adf5d636c471091a76ecdd9c735b31a1f0ed8fe63bb9",
+          "ordinal": 2507,
+          "score": 15.684928,
+          "preview": "[section] 목     차 > IV. 이사의 경영진단 및 분석의견 > 1. 예측정보에 대한 주의사항 회사가 동 사업보고서에서 미래에 발생할 것으로 예상ㆍ예측한 활동, 사건 또는 현상은 당해 공시서류 작성시점의 사건 및 재무성과에 대하여 회사의 견해를 반영한 것입니다. 동 예측정보는 미래 사업환경과 관련된 다양한 가정에 기초하고 있으며, 동 가정들은 결과적으로 부정확한 것으로 판명될 수도 있습니다. 또한, 이러한 가정들에는",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "chunk_id": "c67202c29ae2a1651c0a87da4b5916f35476db5b6a6fa0fd5f8f164d4963e9be",
+          "ordinal": 19,
+          "score": 13.748217,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 1. 회사의 개요 나. 회사의 법적ㆍ상업적 명칭 당사의 명칭은 '주식회사 이수페타시스'라고 표기합니다. 또한 영문으로는 ISU Petasys Co., Ltd.라 표기합니다. 단, 약식으로 표기할 경우에는 (주)이수페타시스 라고 표기합니다.  다. 설립일자 및 존속기간 당사는 1972년 2월 14일에 대양상선(주)로 설립되어 1986년 11월 대양물산(주)로 상호를 변경하",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "chunk_id": "586caddda65981e9b5e7657d4b5f93da07676d4f5ea6eba0e973d23f0f97214b",
+          "ordinal": 40,
+          "score": 13.516274,
+          "preview": "[section] 목     차 > I. 회사의 개요 > 2. 회사의 연혁 라. 상호의 변경 - 해당사항 없음 - 마. 회사가 화의, 회사정리절차 그 밖에 이에 준하는 절차를 밟은 적이 있거나 현재 진행중인 경우 그 내용과 결과 - 해당사항 없음 - 바. 회사가 합병등을 한 경우 그 내용 - 해당사항 없음 - 사. 회사의 업종 또는 주된 사업의 변화 - 해당사항 없음 - 아. 그 밖에 경영활동과 관련된 중요한 사항의 발생내용 ",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "chunk_id": "e72c07cbcd6bbc4546e803946e201b9e6e60391109ee419aaac897498375ee6f",
+          "ordinal": 2625,
+          "score": 12.805242,
+          "preview": "[section] 목     차 > VI. 이사회 등 회사의 기관에 관한 사항 > 3. 주주총회 등에 관한 사항 당사가 발행한 보통주식수는 73,409,219주이며, 이는 정관상의 총발행주식수의 약 73.41%에 해당합니다. 또한 보통주 외에 우선주 등 의결권 행사가 제한된 주식을 발행하지 않았습니다.마. 주식의 사무",
+          "claim_coverage": [
+            {
+              "claim_id": "Q01-C1",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            },
+            {
+              "claim_id": "Q01-C2",
+              "single_chunk": "none",
+              "chunk_set": "none"
+            }
+          ]
+        }
+      ],
+      "hard_negative": {
+        "in_top5": false,
+        "hits": []
+      },
+      "span_audit": [
+        {
+          "question_id": "Q09",
+          "claim_id": "Q01-C1",
+          "span_id": "Q01-C1-scope",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q09",
+          "claim_id": "Q01-C1",
+          "span_id": "Q01-C1-item",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q09",
+          "claim_id": "Q01-C2",
+          "span_id": "Q01-C2-scope",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        },
+        {
+          "question_id": "Q09",
+          "claim_id": "Q01-C2",
+          "span_id": "Q01-C2-use",
+          "in_index": "full",
+          "in_topk": "none",
+          "cause": "retrieval"
+        }
+      ],
+      "amount_policy": null,
+      "notes": "Q01과 같은 근거다. 독립 의도로 세지 않는다."
+    },
+    {
+      "question_id": "Q10",
+      "intent_group": "G09",
+      "paraphrase_of": null,
+      "independent_intent": true,
+      "in_positive_recall_denominator": false,
+      "answerability": "out_of_scope",
+      "answer_complete_ceiling": false,
+      "text": "이수페타시스의 2026년 3분기 연결 확정 매출액과 영업이익은 얼마인가?",
+      "at_k": {
+        "1": {
+          "claims": [],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 0,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "3": {
+          "claims": [],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 0,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        },
+        "5": {
+          "claims": [],
+          "claim_set_full": 0,
+          "claim_single_full": 0,
+          "required_claims": 0,
+          "evidence_set_satisfied": false,
+          "evidence_single_chunk_satisfied": false
+        }
+      },
+      "top5": [
+        {
+          "rank": 1,
+          "chunk_id": "12fe361ffb358c978331edcb21dab4f87221a18c99536ca7b2f891a671e9480b",
+          "ordinal": 2664,
+          "score": 39.340525,
+          "preview": "[section] 목     차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 구분 | 성명 | 성별 | 출생년월 | 사외이사후보자해당여부 | 주요경력 | 선ㆍ해임예정일 | 최대주주와의관계 선임 | 최창복 | 남 | 1971년 08월 | 부 | 現) ㈜이수페타시스 대 표이사 | 2026년 03월 31일 | 계열회사 임원 선임 | 오욱현 | 남 | 1971년 09월 | 부 | 現) ㈜이수페타시스 ",
+          "claim_coverage": []
+        },
+        {
+          "rank": 2,
+          "chunk_id": "1c2ccb936db331a5caf88e1735e52d1045fa7a74ecfc6382bcd9e3e578d2ef61",
+          "ordinal": 2668,
+          "score": 36.203057,
+          "preview": "[section] 목     차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 성명 | 성별 | 출생년월 | 직위 | 등기임원여부 | 상근여부 | 담당업무 | 주요경력 | 소유주식수 | 최대주주와의관계 | 재직기간 | 임기만료일 의결권있는 주식 | 의결권없는 주식 윤경용 | 남 | 1974년 09월 | 상무 | 미등기 | 상근 | 생산담당 | 영남대학교 유기화학 석사(전) (주)이수페타시스 기획",
+          "claim_coverage": []
+        },
+        {
+          "rank": 3,
+          "chunk_id": "7810726193a3f4ff0a1390474936ccdf98ec4c6f66f755e3f6531e32ca846a46",
+          "ordinal": 2661,
+          "score": 35.672812,
+          "preview": "[section] 목     차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 성명 | 성별 | 출생년월 | 직위 | 등기임원여부 | 상근여부 | 담당업무 | 주요경력 | 소유주식수 | 최대주주와의관계 | 재직기간 | 임기만료일 의결권있는 주식 | 의결권없는 주식 최창복 | 남 | 1971년 08월 | 사장 | 사내이사 | 상근 | 대표이사 | 서강대학원 MBA 석사(전) (주)이수페타시스 기획",
+          "claim_coverage": []
+        },
+        {
+          "rank": 4,
+          "chunk_id": "75970dc3dee71d7f374dda7ad014c70be59c8013e2ea484858e5c77dbfe9887c",
+          "ordinal": 113,
+          "score": 35.467359,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 4. 매출 및 수주상황 (*)별도기준(2) 판매경로 및 판매방법 등 가. 판매조직이수페타시스의 판매조직은 영업본부 아래에 영업1팀 및 영업2팀으로 구성되어 있습니다.나. 판매경로",
+          "claim_coverage": []
+        },
+        {
+          "rank": 5,
+          "chunk_id": "71321c5a459cbb91104b8e2b3e6234fecd75f4a9992419cf44bcf946f655e84b",
+          "ordinal": 114,
+          "score": 33.224838,
+          "preview": "[section] 목     차 > II. 사업의 내용 > 4. 매출 및 수주상황 가. 판매조직이수페타시스의 판매조직은 영업본부 아래에 영업1팀 및 영업2팀으로 구성되어 있습니다.나. 판매경로 매출유형 | 품목 | 구분 | 판매경로 제품 | PCB | 수출 | 미주지역 | 직접공급 기타지역 | 직접공급(Local 포함) 내수 | 직접공급",
+          "claim_coverage": []
+        }
+      ],
+      "hard_negative": {
+        "in_top5": false,
+        "hits": []
+      },
+      "span_audit": [],
+      "amount_policy": null,
+      "notes": "양성 원문 근거 없음. 정보 기준시점 2026-09-26 00:00 KST는 2026년 3분기 종료 전이고 S25는 FY2025 문서다."
+    }
+  ]
+}
