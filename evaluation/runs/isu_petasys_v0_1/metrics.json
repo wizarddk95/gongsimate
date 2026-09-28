@@ -1,14 +1,78 @@
 {
   "dataset": "evaluation\\datasets\\isu_petasys_v0_1",
   "dataset_sha256": "e1eab06e59a4b0a96eb6d5dfa81cae3c39b8880f03f154b4fecbc862791c858b",
+  "reproducibility": {
+    "source": {
+      "receipt_no": "20260323000847",
+      "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+      "parser_version": "2",
+      "preprocess_version": "2",
+      "parser_config_hash": "2d75d2abcee582315a440b126806f22760c813a3f14cf4b16d563b517dc7f0e7",
+      "indexed_members": [
+        {
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "document_id": "m0:20260323000847.xml",
+          "document_name_observed": "사업보고서"
+        }
+      ],
+      "document_ids": [
+        "m0:20260323000847.xml"
+      ]
+    },
+    "chunking": {
+      "chunker_version": "1",
+      "chunker_config_hash": "9720cb472675c5299b77c3a60e05c4318edcb6a7ef7e1c0f5d11d93be8c1fdc9",
+      "artifact_sha256": "86d4832dc32bbf1ffbc286d976de1d7f34c79dc38dd1aafbd3f0dbec0ca28972",
+      "chunk_id_sha256": "a247c2d42a2ae5e95f92d41780cd44c3cd829e7849f77037f9108fabe059492b",
+      "chunk_count": 2803,
+      "chunk_id_fields": [
+        "chunker_version",
+        "chunker_config_hash",
+        "parser_config_hash",
+        "source_sha256",
+        "document_id",
+        "ordinal",
+        "text_hash",
+        "sources.element_id",
+        "sources.role",
+        "sources.char_start",
+        "sources.char_end",
+        "sources.cells[start_row,start_col,rowspan,colspan]"
+      ]
+    },
+    "retrieval": {
+      "tokenizer_version": "ko-mixed-v1",
+      "k1": 1.2,
+      "b": 0.75,
+      "zero_score_omitted_from_topk": true
+    },
+    "evaluation": {
+      "dataset_sha256": "e1eab06e59a4b0a96eb6d5dfa81cae3c39b8880f03f154b4fecbc862791c858b",
+      "git_commit": "236c2a335b102993b0998846ddf5376bb43632e9",
+      "git_dirty": true,
+      "generated_at": "2026-09-27T07:01:45.816012+00:00"
+    }
+  },
   "scope": {
     "corp_code": "00107613",
     "receipt_no": "20260323000847",
     "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+    "parser_version": "2",
+    "preprocess_version": "2",
+    "parser_config_hash": "2d75d2abcee582315a440b126806f22760c813a3f14cf4b16d563b517dc7f0e7",
     "document_id": "m0:20260323000847.xml",
     "member_index": 0,
     "member_name": "20260323000847.xml",
     "document_name_observed": "사업보고서",
+    "indexed_members": [
+      {
+        "member_index": 0,
+        "member_name": "20260323000847.xml",
+        "document_id": "m0:20260323000847.xml",
+        "document_name_observed": "사업보고서"
+      }
+    ],
     "excluded_members": [
       {
         "member_index": 1,
@@ -19,11 +83,14 @@
         "document_name_observed": "감사보고서"
       }
     ],
+    "chunk_count": 2803,
     "not_company_wide_performance": true,
-    "eligibility": "parse_manifest.overall_status=success"
+    "eligibility": "parse_manifest.overall_status=success",
+    "q09": "excluded from positive Recall; paraphrase of Q01",
+    "q10": "excluded from positive Recall; no positive evidence"
   },
   "chunker_version": "1",
-  "chunker_config_hash": "91ff1b496d5d2ae4f5f6bbed1510dce7bfa6cb041cd67c535f42b91150d2f7a5",
+  "chunker_config_hash": "9720cb472675c5299b77c3a60e05c4318edcb6a7ef7e1c0f5d11d93be8c1fdc9",
   "tokenizer_version": "ko-mixed-v1",
   "bm25": {
     "k1": 1.2,
@@ -34,11 +101,12 @@
     "schema_version": 1,
     "chunker_version": "1",
     "chunk_count": 2803,
-    "chunk_id_sha256": "2b416b63bb2fcea4d74ec2fcebd196488379758196025450efb97f392b9460ec",
+    "chunk_id_sha256": "a247c2d42a2ae5e95f92d41780cd44c3cd829e7849f77037f9108fabe059492b",
+    "artifact_sha256": "86d4832dc32bbf1ffbc286d976de1d7f34c79dc38dd1aafbd3f0dbec0ca28972",
     "document_ids": [
       "m0:20260323000847.xml"
     ],
-    "chunker_config_hash": "91ff1b496d5d2ae4f5f6bbed1510dce7bfa6cb041cd67c535f42b91150d2f7a5"
+    "chunker_config_hash": "9720cb472675c5299b77c3a60e05c4318edcb6a7ef7e1c0f5d11d93be8c1fdc9"
   },
   "index": {
     "tokenizer_version": "ko-mixed-v1",
@@ -59,16 +127,27 @@
       "idf": "log(1 + (N - df + 0.5) / (df + 0.5))"
     },
     "document_count": 2803,
-    "average_document_length": 84.8180520870496,
+    "average_document_length": 84.59686050660007,
     "vocabulary_size": 16443,
     "index_scope": {
       "corp_code": "00107613",
       "receipt_no": "20260323000847",
       "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+      "parser_version": "2",
+      "preprocess_version": "2",
+      "parser_config_hash": "2d75d2abcee582315a440b126806f22760c813a3f14cf4b16d563b517dc7f0e7",
       "document_id": "m0:20260323000847.xml",
       "member_index": 0,
       "member_name": "20260323000847.xml",
       "document_name_observed": "사업보고서",
+      "indexed_members": [
+        {
+          "member_index": 0,
+          "member_name": "20260323000847.xml",
+          "document_id": "m0:20260323000847.xml",
+          "document_name_observed": "사업보고서"
+        }
+      ],
       "excluded_members": [
         {
           "member_index": 1,
@@ -79,8 +158,11 @@
           "document_name_observed": "감사보고서"
         }
       ],
+      "chunk_count": 2803,
       "not_company_wide_performance": true,
-      "eligibility": "parse_manifest.overall_status=success"
+      "eligibility": "parse_manifest.overall_status=success",
+      "q09": "excluded from positive Recall; paraphrase of Q01",
+      "q10": "excluded from positive Recall; no positive evidence"
     },
     "zero_score_omitted_from_topk": true
   },
@@ -123,104 +205,1019 @@
       "Q08"
     ],
     "positive_question_count": 8,
+    "answer_complete_question_ids": [
+      "Q01",
+      "Q03",
+      "Q05",
+      "Q06",
+      "Q07"
+    ],
+    "answer_complete_excluded_question_ids": [
+      "Q02",
+      "Q04",
+      "Q08"
+    ],
+    "answer_complete_definition": "Numerator counts supported questions whose required source spans are fully covered. Denominator is only answer_complete_ceiling=true. Partial questions cannot reach a complete answer, so they are outside this denominator.",
+    "source_ceiling_definition": "Required source spans are covered. For a partial question this is the document ceiling of the supported claims. It is not a complete answer and it does not measure abstention, because there is no generation layer.",
     "intent_group_G01_counted_once": true,
     "q09_excluded_as_paraphrase": true,
     "q10_excluded_from_positive_recall": true,
+    "index_scope": {
+      "receipt_no": "20260323000847",
+      "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+      "member": "m0:20260323000847.xml",
+      "chunk_count": 2803,
+      "excluded_from_positive_denominator": [
+        "Q09 paraphrase duplicate intent",
+        "Q10 no positive evidence"
+      ]
+    },
     "at_k": {
       "1": {
         "claim_set_recall": {
           "numerator": 1,
           "denominator": 27,
-          "value": 0.037037037037037035
+          "value": 0.037037037037037035,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "claim_single_chunk_recall": {
           "numerator": 1,
           "denominator": 27,
-          "value": 0.037037037037037035
+          "value": 0.037037037037037035,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_evidence_satisfied": {
           "numerator": 0,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.0,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_single_chunk_satisfied": {
           "numerator": 0,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.0,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_answer_complete": {
           "numerator": 0,
+          "denominator": 5,
+          "value": 0.0,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_source_ceiling_satisfied": {
+          "numerator": 0,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.0,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         }
       },
       "3": {
         "claim_set_recall": {
           "numerator": 4,
           "denominator": 27,
-          "value": 0.14814814814814814
+          "value": 0.14814814814814814,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "claim_single_chunk_recall": {
           "numerator": 4,
           "denominator": 27,
-          "value": 0.14814814814814814
+          "value": 0.14814814814814814,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_evidence_satisfied": {
           "numerator": 0,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.0,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_single_chunk_satisfied": {
           "numerator": 0,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.0,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_answer_complete": {
           "numerator": 0,
+          "denominator": 5,
+          "value": 0.0,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_source_ceiling_satisfied": {
+          "numerator": 0,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.0,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         }
       },
       "5": {
         "claim_set_recall": {
-          "numerator": 4,
+          "numerator": 5,
           "denominator": 27,
-          "value": 0.14814814814814814
+          "value": 0.18518518518518517,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "claim_single_chunk_recall": {
-          "numerator": 4,
+          "numerator": 5,
           "denominator": 27,
-          "value": 0.14814814814814814
+          "value": 0.18518518518518517,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_evidence_satisfied": {
-          "numerator": 0,
+          "numerator": 1,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.125,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_single_chunk_satisfied": {
-          "numerator": 0,
+          "numerator": 1,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.125,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         },
         "question_answer_complete": {
-          "numerator": 0,
+          "numerator": 1,
+          "denominator": 5,
+          "value": 0.2,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_source_ceiling_satisfied": {
+          "numerator": 1,
           "denominator": 8,
-          "value": 0.0
+          "value": 0.125,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        }
+      },
+      "10": {
+        "claim_set_recall": {
+          "numerator": 14,
+          "denominator": 27,
+          "value": 0.5185185185185185,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "claim_single_chunk_recall": {
+          "numerator": 14,
+          "denominator": 27,
+          "value": 0.5185185185185185,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_evidence_satisfied": {
+          "numerator": 2,
+          "denominator": 8,
+          "value": 0.25,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_single_chunk_satisfied": {
+          "numerator": 2,
+          "denominator": 8,
+          "value": 0.25,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_answer_complete": {
+          "numerator": 1,
+          "denominator": 5,
+          "value": 0.2,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_source_ceiling_satisfied": {
+          "numerator": 2,
+          "denominator": 8,
+          "value": 0.25,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        }
+      },
+      "20": {
+        "claim_set_recall": {
+          "numerator": 19,
+          "denominator": 27,
+          "value": 0.7037037037037037,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "claim_single_chunk_recall": {
+          "numerator": 19,
+          "denominator": 27,
+          "value": 0.7037037037037037,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_evidence_satisfied": {
+          "numerator": 3,
+          "denominator": 8,
+          "value": 0.375,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_single_chunk_satisfied": {
+          "numerator": 3,
+          "denominator": 8,
+          "value": 0.375,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_answer_complete": {
+          "numerator": 1,
+          "denominator": 5,
+          "value": 0.2,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
+        },
+        "question_source_ceiling_satisfied": {
+          "numerator": 3,
+          "denominator": 8,
+          "value": 0.375,
+          "index_scope": {
+            "receipt_no": "20260323000847",
+            "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+            "member": "m0:20260323000847.xml",
+            "chunk_count": 2803,
+            "excluded_from_positive_denominator": [
+              "Q09 paraphrase duplicate intent",
+              "Q10 no positive evidence"
+            ]
+          }
         }
       }
     },
+    "failure_taxonomy_at_5": {
+      "k": 5,
+      "unit": "missed required spans of positive questions",
+      "causes": {
+        "retrieval_ranking_failure": 41
+      },
+      "details": {
+        "ranked_outside_topk": 41
+      },
+      "categories": [
+        "parsing_loss",
+        "chunking_loss",
+        "index_eligibility_loss",
+        "retrieval_ranking_failure",
+        "answerability_limitation",
+        "calculation_issue",
+        "evaluation_bug"
+      ]
+    },
+    "question_diagnosis": [
+      {
+        "question_id": "Q01",
+        "answerability": "supported",
+        "answer_complete_ceiling": true,
+        "in_positive_recall_denominator": true,
+        "positive_claim_count": 2,
+        "first_positive_evidence_rank": 31,
+        "first_evidence_set_rank": 41,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 3,
+        "failure_categories": [
+          "retrieval_ranking_failure"
+        ],
+        "claim_ranks": [
+          {
+            "claim_id": "Q01-C1",
+            "first_single_full_rank": 41,
+            "first_set_full_rank": 41,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q01-C2",
+            "first_single_full_rank": 41,
+            "first_set_full_rank": 41,
+            "single_chunk_possible": true
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 286,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": false,
+            "labeled_not_gold_for_this_question": false,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": false,
+        "evidence_set_satisfied_at_20": false
+      },
+      {
+        "question_id": "Q02",
+        "answerability": "partial",
+        "answer_complete_ceiling": false,
+        "in_positive_recall_denominator": true,
+        "positive_claim_count": 4,
+        "first_positive_evidence_rank": 9,
+        "first_evidence_set_rank": 9,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 5,
+        "failure_categories": [
+          "answerability_limitation",
+          "retrieval_ranking_failure"
+        ],
+        "claim_ranks": [
+          {
+            "claim_id": "Q02-C1",
+            "first_single_full_rank": 9,
+            "first_set_full_rank": 9,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q02-C2",
+            "first_single_full_rank": 9,
+            "first_set_full_rank": 9,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q02-C3",
+            "first_single_full_rank": 9,
+            "first_set_full_rank": 9,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q02-C4",
+            "first_single_full_rank": 9,
+            "first_set_full_rank": 9,
+            "single_chunk_possible": true
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 44,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": false,
+            "labeled_not_gold_for_this_question": false,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": true,
+        "evidence_set_satisfied_at_20": true
+      },
+      {
+        "question_id": "Q03",
+        "answerability": "supported",
+        "answer_complete_ceiling": true,
+        "in_positive_recall_denominator": true,
+        "positive_claim_count": 4,
+        "first_positive_evidence_rank": 18,
+        "first_evidence_set_rank": 148,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 7,
+        "failure_categories": [
+          "retrieval_ranking_failure"
+        ],
+        "claim_ranks": [
+          {
+            "claim_id": "Q03-C1",
+            "first_single_full_rank": 18,
+            "first_set_full_rank": 18,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q03-C2",
+            "first_single_full_rank": 18,
+            "first_set_full_rank": 18,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q03-C3",
+            "first_single_full_rank": 57,
+            "first_set_full_rank": 57,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q03-C4",
+            "first_single_full_rank": 148,
+            "first_set_full_rank": 148,
+            "single_chunk_possible": true
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 12,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": false,
+            "labeled_not_gold_for_this_question": true,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": false,
+        "evidence_set_satisfied_at_20": false
+      },
+      {
+        "question_id": "Q04",
+        "answerability": "partial",
+        "answer_complete_ceiling": false,
+        "in_positive_recall_denominator": true,
+        "positive_claim_count": 2,
+        "first_positive_evidence_rank": 7,
+        "first_evidence_set_rank": 676,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 6,
+        "failure_categories": [
+          "answerability_limitation",
+          "retrieval_ranking_failure"
+        ],
+        "claim_ranks": [
+          {
+            "claim_id": "Q04-C1",
+            "first_single_full_rank": 7,
+            "first_set_full_rank": 7,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q04-C2",
+            "first_single_full_rank": null,
+            "first_set_full_rank": 676,
+            "single_chunk_possible": false
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 5,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": true,
+            "labeled_not_gold_for_this_question": false,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": false,
+        "evidence_set_satisfied_at_20": false
+      },
+      {
+        "question_id": "Q05",
+        "answerability": "supported",
+        "answer_complete_ceiling": true,
+        "in_positive_recall_denominator": true,
+        "positive_claim_count": 3,
+        "first_positive_evidence_rank": 6,
+        "first_evidence_set_rank": 448,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 4,
+        "failure_categories": [
+          "retrieval_ranking_failure"
+        ],
+        "claim_ranks": [
+          {
+            "claim_id": "Q05-C1",
+            "first_single_full_rank": 10,
+            "first_set_full_rank": 10,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q05-C2",
+            "first_single_full_rank": 6,
+            "first_set_full_rank": 6,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q05-C3",
+            "first_single_full_rank": 448,
+            "first_set_full_rank": 448,
+            "single_chunk_possible": true
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 406,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": false,
+            "labeled_not_gold_for_this_question": false,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": false,
+        "evidence_set_satisfied_at_20": false
+      },
+      {
+        "question_id": "Q06",
+        "answerability": "supported",
+        "answer_complete_ceiling": true,
+        "in_positive_recall_denominator": true,
+        "positive_claim_count": 3,
+        "first_positive_evidence_rank": 2,
+        "first_evidence_set_rank": 5,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 11,
+        "failure_categories": [],
+        "claim_ranks": [
+          {
+            "claim_id": "Q06-C1",
+            "first_single_full_rank": 5,
+            "first_set_full_rank": 5,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q06-C2",
+            "first_single_full_rank": 3,
+            "first_set_full_rank": 3,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q06-C3",
+            "first_single_full_rank": 2,
+            "first_set_full_rank": 2,
+            "single_chunk_possible": true
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 6,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": false,
+            "labeled_not_gold_for_this_question": true,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": true,
+        "evidence_set_satisfied_at_10": true,
+        "evidence_set_satisfied_at_20": true
+      },
+      {
+        "question_id": "Q07",
+        "answerability": "supported",
+        "answer_complete_ceiling": true,
+        "in_positive_recall_denominator": true,
+        "positive_claim_count": 4,
+        "first_positive_evidence_rank": 17,
+        "first_evidence_set_rank": 220,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 2,
+        "failure_categories": [
+          "retrieval_ranking_failure"
+        ],
+        "claim_ranks": [
+          {
+            "claim_id": "Q07-C1",
+            "first_single_full_rank": 220,
+            "first_set_full_rank": 220,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q07-C2",
+            "first_single_full_rank": 220,
+            "first_set_full_rank": 220,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q07-C3",
+            "first_single_full_rank": 17,
+            "first_set_full_rank": 17,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q07-C4",
+            "first_single_full_rank": 17,
+            "first_set_full_rank": 17,
+            "single_chunk_possible": true
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 2,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": true,
+            "labeled_not_gold_for_this_question": true,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": false,
+        "evidence_set_satisfied_at_20": false
+      },
+      {
+        "question_id": "Q08",
+        "answerability": "partial",
+        "answer_complete_ceiling": false,
+        "in_positive_recall_denominator": true,
+        "positive_claim_count": 5,
+        "first_positive_evidence_rank": 1,
+        "first_evidence_set_rank": 15,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 8,
+        "failure_categories": [
+          "answerability_limitation",
+          "retrieval_ranking_failure"
+        ],
+        "claim_ranks": [
+          {
+            "claim_id": "Q08-C1",
+            "first_single_full_rank": 2,
+            "first_set_full_rank": 2,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q08-C2",
+            "first_single_full_rank": 1,
+            "first_set_full_rank": 1,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q08-C3",
+            "first_single_full_rank": 15,
+            "first_set_full_rank": 15,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q08-C4",
+            "first_single_full_rank": 10,
+            "first_set_full_rank": 10,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q08-C5",
+            "first_single_full_rank": 8,
+            "first_set_full_rank": 8,
+            "single_chunk_possible": true
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 23,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": false,
+            "labeled_not_gold_for_this_question": false,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": false,
+        "evidence_set_satisfied_at_20": true
+      },
+      {
+        "question_id": "Q09",
+        "answerability": "supported",
+        "answer_complete_ceiling": true,
+        "in_positive_recall_denominator": false,
+        "positive_claim_count": 2,
+        "first_positive_evidence_rank": null,
+        "first_evidence_set_rank": null,
+        "zero_score_omitted": true,
+        "token_overlap_with_first_claim_full_chunk": 0,
+        "failure_categories": [
+          "retrieval_ranking_failure"
+        ],
+        "claim_ranks": [
+          {
+            "claim_id": "Q01-C1",
+            "first_single_full_rank": null,
+            "first_set_full_rank": null,
+            "single_chunk_possible": true
+          },
+          {
+            "claim_id": "Q01-C2",
+            "first_single_full_rank": null,
+            "first_set_full_rank": null,
+            "single_chunk_possible": true
+          }
+        ],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": null,
+            "chunk_id": null,
+            "in_top5": false,
+            "labeled_not_gold_for_this_question": false,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": false,
+        "evidence_set_satisfied_at_20": false
+      },
+      {
+        "question_id": "Q10",
+        "answerability": "out_of_scope",
+        "answer_complete_ceiling": false,
+        "in_positive_recall_denominator": false,
+        "positive_claim_count": 0,
+        "first_positive_evidence_rank": null,
+        "first_evidence_set_rank": null,
+        "zero_score_omitted": false,
+        "token_overlap_with_first_claim_full_chunk": 0,
+        "failure_categories": [],
+        "claim_ranks": [],
+        "hard_negative_ranks": [
+          {
+            "element_key": "E186",
+            "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+            "rank": 15,
+            "chunk_id": "d68b4750f229c5ff11da3459e5b964ff32c2ec6a67e6ecc2b1e3d7135a03d2c2",
+            "in_top5": false,
+            "labeled_not_gold_for_this_question": false,
+            "counted_as_positive_evidence": false
+          }
+        ],
+        "evidence_set_satisfied_at_5": false,
+        "evidence_set_satisfied_at_10": false,
+        "evidence_set_satisfied_at_20": false
+      }
+    ],
     "paraphrase_q01_q09": {
       "shared_claim_ids": [
         "Q01-C1",
         "Q01-C2"
       ],
       "q09_uses_same_claim_ids": true,
-      "q01_top1": "971adeda1aab4974b37499980fa7a74a40aba671606d53ef1efb618120439f3e",
-      "q09_top1": "11e2a4e7ac3d03dfe61f43b57133d68ff552ef5a34d1a13b2607bfc581a0b950",
+      "q01_top1": "54dd5c10f97f7b0fe30df056f0c324ec58d7ffce56c716feda551a2cc0a40f4c",
+      "q09_top1": "df857509758b37e95dad460226ae0eded526474c01b1dd885f2fa4ef00cad17f",
       "top1_changed": true,
+      "q01_first_positive_evidence_rank": 31,
+      "q09_first_positive_evidence_rank": null,
+      "gold_rank_delta": null,
+      "q01_token_overlap_with_first_claim_full_chunk": 3,
+      "q09_token_overlap_with_first_claim_full_chunk": 0,
+      "q09_zero_score_omitted": true,
+      "top5_overlap_count": 0,
+      "top20_overlap_count": 3,
+      "q01_evidence_set_satisfied_at_5": false,
+      "q09_evidence_set_satisfied_at_5": false,
       "counted_as_independent_intents": 1
     },
-    "q10": "Q10"
+    "q10": {
+      "question_id": "Q10",
+      "answerability": "out_of_scope",
+      "in_positive_recall_denominator": false,
+      "positive_claim_count": 0,
+      "reason": "no_positive_evidence",
+      "search_hits_are_not_recall_failures": true,
+      "abstention_required": true,
+      "abstention_generation_measured": false
+    }
   },
   "failures": [
     {
@@ -230,7 +1227,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -239,7 +1236,9 @@
           "span_id": "Q01-C1-scope",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 31
         },
         {
           "question_id": "Q01",
@@ -247,7 +1246,9 @@
           "span_id": "Q01-C1-item",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 41
         }
       ]
     },
@@ -258,7 +1259,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -267,7 +1268,9 @@
           "span_id": "Q01-C2-scope",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 31
         },
         {
           "question_id": "Q01",
@@ -275,7 +1278,9 @@
           "span_id": "Q01-C2-use",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 41
         }
       ]
     },
@@ -286,7 +1291,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -295,7 +1300,9 @@
           "span_id": "Q02-C1-scope",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 9
         },
         {
           "question_id": "Q02",
@@ -303,7 +1310,9 @@
           "span_id": "Q02-C1-unit",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 9
         }
       ]
     },
@@ -314,7 +1323,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -323,7 +1332,9 @@
           "span_id": "Q02-C2-scope",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 9
         },
         {
           "question_id": "Q02",
@@ -331,7 +1342,9 @@
           "span_id": "Q02-C2-row",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 9
         }
       ]
     },
@@ -342,7 +1355,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -351,7 +1364,9 @@
           "span_id": "Q02-C3-scope",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 9
         },
         {
           "question_id": "Q02",
@@ -359,7 +1374,9 @@
           "span_id": "Q02-C3-row",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 9
         }
       ]
     },
@@ -370,7 +1387,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -379,7 +1396,9 @@
           "span_id": "Q02-C4-scope",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 9
         },
         {
           "question_id": "Q02",
@@ -387,7 +1406,9 @@
           "span_id": "Q02-C4-total",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 9
         }
       ]
     },
@@ -398,7 +1419,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -407,7 +1428,9 @@
           "span_id": "Q03-C1-demand",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 18
         }
       ]
     },
@@ -418,7 +1441,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -427,7 +1450,9 @@
           "span_id": "Q03-C2-capa",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 18
         }
       ]
     },
@@ -438,7 +1463,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -447,7 +1472,9 @@
           "span_id": "Q03-C3-judgment",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 57
         }
       ]
     },
@@ -458,7 +1485,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -467,7 +1494,9 @@
           "span_id": "Q03-C4-caption",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 148
         },
         {
           "question_id": "Q03",
@@ -475,7 +1504,9 @@
           "span_id": "Q03-C4-values",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 148
         }
       ]
     },
@@ -486,7 +1517,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -495,7 +1526,9 @@
           "span_id": "Q04-C1-caption",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 7
         },
         {
           "question_id": "Q04",
@@ -503,7 +1536,9 @@
           "span_id": "Q04-C1-values",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 7
         }
       ]
     },
@@ -514,7 +1549,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -523,7 +1558,9 @@
           "span_id": "Q04-C2-demand",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 319
         },
         {
           "question_id": "Q04",
@@ -531,7 +1568,9 @@
           "span_id": "Q04-C2-cost",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 676
         },
         {
           "question_id": "Q04",
@@ -539,7 +1578,9 @@
           "span_id": "Q04-C2-result",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 13
         }
       ]
     },
@@ -550,7 +1591,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -559,7 +1600,9 @@
           "span_id": "Q05-C1-title",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 10
         },
         {
           "question_id": "Q05",
@@ -567,7 +1610,9 @@
           "span_id": "Q05-C1-table",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 10
         }
       ]
     },
@@ -578,7 +1623,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -587,7 +1632,9 @@
           "span_id": "Q05-C2-title",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 6
         },
         {
           "question_id": "Q05",
@@ -595,7 +1642,9 @@
           "span_id": "Q05-C2-table",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 6
         }
       ]
     },
@@ -606,7 +1655,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -615,27 +1664,9 @@
           "span_id": "Q05-C3-purpose",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
-        }
-      ]
-    },
-    {
-      "question_id": "Q06",
-      "claim_id": "Q06-C1",
-      "k": 5,
-      "chunk_set": "partial",
-      "single_chunk": "partial",
-      "causes": [
-        "retrieval"
-      ],
-      "spans": [
-        {
-          "question_id": "Q06",
-          "claim_id": "Q06-C1",
-          "span_id": "Q06-C1-value",
-          "in_index": "full",
-          "in_topk": "partial",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 448
         }
       ]
     },
@@ -646,7 +1677,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -655,7 +1686,9 @@
           "span_id": "Q07-C1-caption",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 17
         },
         {
           "question_id": "Q07",
@@ -663,7 +1696,9 @@
           "span_id": "Q07-C1-value",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 220
         }
       ]
     },
@@ -674,7 +1709,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -683,7 +1718,9 @@
           "span_id": "Q07-C2-caption",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 17
         },
         {
           "question_id": "Q07",
@@ -691,7 +1728,9 @@
           "span_id": "Q07-C2-value",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 220
         }
       ]
     },
@@ -702,7 +1741,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -711,7 +1750,9 @@
           "span_id": "Q07-C3-caption",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 17
         },
         {
           "question_id": "Q07",
@@ -719,7 +1760,9 @@
           "span_id": "Q07-C3-value",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 17
         }
       ]
     },
@@ -730,7 +1773,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -739,7 +1782,9 @@
           "span_id": "Q07-C4-caption",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 17
         },
         {
           "question_id": "Q07",
@@ -747,7 +1792,9 @@
           "span_id": "Q07-C4-value",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 17
         }
       ]
     },
@@ -758,7 +1805,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -767,7 +1814,9 @@
           "span_id": "Q08-C3-header",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 8
         },
         {
           "question_id": "Q08",
@@ -775,7 +1824,9 @@
           "span_id": "Q08-C3-project",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 15
         }
       ]
     },
@@ -786,7 +1837,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -795,7 +1846,9 @@
           "span_id": "Q08-C4-header",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 8
         },
         {
           "question_id": "Q08",
@@ -803,7 +1856,9 @@
           "span_id": "Q08-C4-project",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 10
         }
       ]
     },
@@ -814,7 +1869,7 @@
       "chunk_set": "none",
       "single_chunk": "none",
       "causes": [
-        "retrieval"
+        "retrieval_ranking_failure"
       ],
       "spans": [
         {
@@ -823,7 +1878,9 @@
           "span_id": "Q08-C5-header",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 8
         },
         {
           "question_id": "Q08",
@@ -831,7 +1888,9 @@
           "span_id": "Q08-C5-project",
           "in_index": "full",
           "in_topk": "none",
-          "cause": "retrieval"
+          "cause": "retrieval_ranking_failure",
+          "detail": "ranked_outside_topk",
+          "first_full_rank": 8
         }
       ]
     }

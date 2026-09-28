@@ -15,3 +15,4 @@ htmlcov/
 .DS_Store
 Thumbs.db
 evaluation/runs/**/chunks.jsonl
+evaluation/runs/**/embeddings.f32

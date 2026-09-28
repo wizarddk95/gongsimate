@@ -1,0 +1,31 @@
+{
+  "hard_negatives": [
+    {
+      "element_key": "E186",
+      "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+      "order_index": 186,
+      "document_id": "m0:20260323000847.xml",
+      "purpose": "error_diagnosis",
+      "not_gold_for": [
+        "Q03",
+        "Q06",
+        "Q07"
+      ],
+      "evidence_class": "relevant_conflicting",
+      "topical_relevance": true,
+      "answer_valid_evidence": false,
+      "conflicting_evidence": true,
+      "classified_for": [
+        "Q03",
+        "Q06",
+        "Q07"
+      ],
+      "cell": {
+        "start_row": 1,
+        "start_col": 1,
+        "text": "1,880,025"
+      },
+      "note": "영업개황 요약 표의 2025 매출액 1,880,025백만원. 연결 주요제품 합계, IV 연결 경영성과, 연결 포괄손익계산서의 1,088,025백만원/1,088,025,119,176원과 충돌한다. 주제적으로는 매출액 질문과 관련 있지만 정답 근거는 아니다. 원문 수치는 고치지 않는다."
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "questions": [
+    {
+      "question_id": "Q01",
+      "intent_group": "G01",
+      "text": "FY2025 사업보고서에 따르면 이수페타시스의 주요 제품은 무엇이며 각각 어디에 쓰이나?",
+      "answerability": "supported",
+      "in_positive_recall_denominator": true,
+      "independent_intent": true,
+      "claim_ids": [
+        "Q01-C1",
+        "Q01-C2"
+      ],
+      "supplementary": [
+        "Q01-C3",
+        "Q01-C4"
+      ],
+      "period": "FY2025 보고서 기재 기준",
+      "scope": "회계 범위 해당 없음",
+      "notes": "제품 전체 설명을 특정 제품의 용도로 옮기지 않는다. 표의 전자부품과 뒤의 전방시장 서술은 구분한다."
+    },
+    {
+      "question_id": "Q02",
+      "intent_group": "G02",
+      "text": "FY2025 사업보고서에 기재된 주요 제품군별 매출액과 매출 비중은 어떻게 되나?",
+      "answerability": "partial",
+      "in_positive_recall_denominator": true,
+      "independent_intent": true,
+      "claim_ids": [
+        "Q02-C1",
+        "Q02-C2",
+        "Q02-C3",
+        "Q02-C4"
+      ],
+      "period": "FY2025",
+      "scope": "표에 명시된 연결 기준",
+      "notes": "질문의 제품군별에 대해 표가 나누는 것은 매출유형이다. PCB 한 품목이다."
+    },
+    {
+      "question_id": "Q03",
+      "intent_group": "G03",
+      "text": "FY2025 연결 매출액이 FY2024 대비 증가한 이유를 회사는 사업보고서에서 어떻게 설명하나?",
+      "answerability": "supported",
+      "in_positive_recall_denominator": true,
+      "independent_intent": true,
+      "claim_ids": [
+        "Q03-C1",
+        "Q03-C2",
+        "Q03-C3",
+        "Q03-C4"
+      ],
+      "period": "FY2025 대 FY2024",
+      "scope": "연결",
+      "notes": "환율·판가를 확정 원인으로 넣지 않는다. E186 매출액은 사용하지 않는다."
+    },
+    {
+      "question_id": "Q04",
+      "intent_group": "G04",
+      "text": "FY2025 연결 영업이익 변동을 회사는 어떻게 설명하며, 원가·비용 측면의 설명도 제시하나?",
+      "answerability": "partial",
+      "in_positive_recall_denominator": true,
+      "independent_intent": true,
+      "claim_ids": [
+        "Q04-C1",
+        "Q04-C2"
+      ],
+      "period": "FY2025 대 FY2024",
+      "scope": "연결",
+      "notes": "원가·비용의 정량 인과는 확인되지 않음. 비용 표 숫자만으로 원인을 확정하지 않는다.",
+      "unsupported": [
+        {
+          "part": "specific_cost_item_causality",
+          "answerability": "unsupported"
+        }
+      ]
+    },
+    {
+      "question_id": "Q05",
+      "intent_group": "G05",
+      "text": "FY2025 사업보고서에 기재된 시설투자의 현황·계획과 그 목적은 무엇인가?",
+      "answerability": "supported",
+      "in_positive_recall_denominator": true,
+      "independent_intent": true,
+      "claim_ids": [
+        "Q05-C1",
+        "Q05-C2",
+        "Q05-C3"
+      ],
+      "period": "FY2025 보고서 기재 시점",
+      "scope": "문서가 명시한 주체·범위",
+      "notes": "보고서 속 계획을 2026-09-26 현재 진행 상태로 단정하지 않는다. '-'를 0으로 바꾸지 않는다.",
+      "amount_policy": {
+        "id": "do_not_sum_progress_and_plan",
+        "claim_ids": [
+          "Q05-C1",
+          "Q05-C2"
+        ],
+        "unique_totals_million_krw": [
+          "400,000",
+          "94,512",
+          "305,488"
+        ]
+      }
+    },
+    {
+      "question_id": "Q06",
+      "intent_group": "G06",
+      "text": "FY2025 연결 포괄손익계산서에 기재된 매출액, 영업이익, 연결 당기순이익은 각각 얼마인가?",
+      "answerability": "supported",
+      "in_positive_recall_denominator": true,
+      "independent_intent": true,
+      "claim_ids": [
+        "Q06-C1",
+        "Q06-C2",
+        "Q06-C3"
+      ],
+      "period": "FY2025",
+      "scope": "연결",
+      "notes": "지배기업 소유주 귀속 당기순이익으로 대체하지 않는다.",
+      "substitution_guard": {
+        "element_key": "E228",
+        "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+        "start_row": 14,
+        "start_col": 1,
+        "text": "160,481,952,837",
+        "does_not_satisfy": "Q06-C3"
+      }
+    },
+    {
+      "question_id": "Q07",
+      "intent_group": "G07",
+      "text": "FY2024 대비 FY2025의 연결 영업이익률은 몇 %p 변했나?",
+      "answerability": "supported",
+      "in_positive_recall_denominator": true,
+      "independent_intent": true,
+      "claim_ids": [
+        "Q07-C1",
+        "Q07-C2",
+        "Q07-C3",
+        "Q07-C4"
+      ],
+      "period": "FY2024 대 FY2025",
+      "scope": "연결, S25 비교 열",
+      "notes": "Retrieval gold는 direct_reported_metric 또는 derived_operands 중 하나의 경로면 된다. legacy claim_ids는 derived operand 4개이며 claim_set_recall 분모에만 들어간다. 계산 테스트는 derived operand 경로만 사용한다.",
+      "calculation": {
+        "operands": {
+          "fy2025_revenue": "1088025119176",
+          "fy2024_revenue": "836866961285",
+          "fy2025_operating_income": "204724531402",
+          "fy2024_operating_income": "101878836049"
+        },
+        "unit": "원",
+        "published_10dp": {
+          "fy2025": "18.8161585421",
+          "fy2024": "12.1738389448",
+          "delta_pp": "6.6423195973"
+        },
+        "display_2dp_half_up": {
+          "fy2025": "18.82",
+          "fy2024": "12.17",
+          "delta_pp": "6.64"
+        },
+        "uses_evidence_path": "derived_operands",
+        "independent_of_retrieval": true
+      },
+      "evidence_paths": [
+        {
+          "path_id": "direct_reported_metric",
+          "description": "IV. 경영진단 수익성지표에 기재된 연결 매출액영업이익률 당기 18.82%, 전기 12.17%",
+          "satisfies": "retrieval_answer_evidence",
+          "claim_ids": [
+            "Q07-A1",
+            "Q07-A2"
+          ]
+        },
+        {
+          "path_id": "derived_operands",
+          "description": "연결 포괄손익계산서의 FY2025·FY2024 매출액과 영업이익 원값 4개",
+          "satisfies": "retrieval_answer_evidence",
+          "also_used_by": "deterministic_calculation",
+          "claim_ids": [
+            "Q07-C1",
+            "Q07-C2",
+            "Q07-C3",
+            "Q07-C4"
+          ]
+        }
+      ],
+      "retrieval_success": "any_evidence_path",
+      "period_binding": {
+        "indicator_columns": {
+          "current": "당 기",
+          "prior": "전 기"
+        },
+        "maps_to": {
+          "당 기": "FY2025 / 제54기 / 2025-01-01~2025-12-31",
+          "전 기": "FY2024 / 제53기 / 2024-01-01~2024-12-31"
+        },
+        "scope_sentence_retrieval_required": true,
+        "year_header_retrieval_required": false,
+        "binding_evidence": [
+          {
+            "role": "scope_and_current_prior",
+            "element_key": "E2357",
+            "element_id": "a1e286435bd81607af861e8e7c86ebe870ed8879e66dbfd569871790c9a4d60f",
+            "text": "※ 아래는 회사의 당기 및 전기 비교식 주요경영지표입니다.(연결기준)",
+            "retrieval_required": true
+          },
+          {
+            "role": "same_section_consolidated_income_year_headers",
+            "element_key": "E2354",
+            "element_id": "10aea1aba8f5499d3f5ea4886713166c52d5bb2783ce7cf84b68b79511745b7e",
+            "cells": [
+              {
+                "start_row": 1,
+                "start_col": 1,
+                "text": "2025년도(제54기)"
+              },
+              {
+                "start_row": 1,
+                "start_col": 2,
+                "text": "2024년도(제53기)"
+              }
+            ],
+            "retrieval_required": false,
+            "reason": "수익성지표 표의 열 이름은 당기/전기뿐이다. 같은 절의 요약 연결손익계산서 열이 그 당기/전기를 제54기·제53기로 고정한다. 이 셀은 검수 근거이며 Path A의 검색 필수 span은 아니다."
+          }
+        ],
+        "numeric_identity": "18.82%와 12.17%는 연결 포괄손익계산서 원값을 영업이익/매출액×100으로 계산한 뒤 소수 둘째 자리에서 반올림한 값과 같다. 같은 절 요약 연결손익의 백만원 금액과도 같다."
+      },
+      "precision_policy": {
+        "direct_reported_metric": {
+          "source_values_already_rounded_2dp": true,
+          "fy2025": "18.82",
+          "fy2024": "12.17",
+          "delta_pp_rule": "subtract the two reported percentages",
+          "delta_pp": "6.65"
+        },
+        "derived_operands": {
+          "delta_pp_rule": "subtract exact margins, then round half-up to 2dp",
+          "delta_pp": "6.64",
+          "do_not_subtract_rounded_margins": true
+        },
+        "calculation_test_uses": "derived_operands",
+        "policies_are_not_interchangeable": true
+      }
+    },
+    {
+      "question_id": "Q08",
+      "intent_group": "G08",
+      "text": "FY2025 사업보고서상 연구개발비와 매출액 대비 비중은 얼마이고, 당해 연도 주요 연구개발 실적은 무엇인가?",
+      "answerability": "partial",
+      "in_positive_recall_denominator": true,
+      "independent_intent": true,
+      "claim_ids": [
+        "Q08-C1",
+        "Q08-C2",
+        "Q08-C3",
+        "Q08-C4",
+        "Q08-C5"
+      ],
+      "period": "FY2025",
+      "scope": "각 표의 명시 범위",
+      "notes": "과제 성과를 2025년 한 해의 실적으로 소급하지 않는다. 비율 분모의 연결/별도 표시는 없다.",
+      "unsupported": [
+        {
+          "part": "fy2025_only_achievement_and_consolidated_ratio",
+          "answerability": "unsupported"
+        }
+      ]
+    },
+    {
+      "question_id": "Q09",
+      "intent_group": "G01",
+      "text": "이 회사가 주력으로 만드는 물건이 뭔지, 각각 어디에 쓰이는지 알려줘.",
+      "answerability": "supported",
+      "in_positive_recall_denominator": false,
+      "independent_intent": false,
+      "claim_ids": [
+        "Q01-C1",
+        "Q01-C2"
+      ],
+      "period": "FY2025 보고서 기재 기준",
+      "scope": "해당 없음",
+      "paraphrase_of": "Q01",
+      "notes": "Q01과 같은 근거다. 독립 의도로 세지 않는다."
+    },
+    {
+      "question_id": "Q10",
+      "intent_group": "G09",
+      "text": "이수페타시스의 2026년 3분기 연결 확정 매출액과 영업이익은 얼마인가?",
+      "answerability": "out_of_scope",
+      "in_positive_recall_denominator": false,
+      "independent_intent": true,
+      "claim_ids": [],
+      "period": "2026년 3분기",
+      "scope": "연결",
+      "notes": "양성 원문 근거 없음. 정보 기준시점 2026-09-26 00:00 KST는 2026년 3분기 종료 전이고 S25는 FY2025 문서다.",
+      "abstain": {
+        "reason": "document_scope_mismatch/quarter_not_ended",
+        "as_of": "2026-09-26T00:00:00+09:00",
+        "document_period_end": "2025-12-31",
+        "positive_evidence": false
+      }
+    }
+  ]
+}

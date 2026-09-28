@@ -1,0 +1,201 @@
+{
+  "dataset_id": "isu_petasys_v0_3",
+  "evaluation_schema_version": 2,
+  "gold_answer_evidence_same_as": "isu_petasys_v0_2",
+  "chunker_unchanged_from": "isu_petasys_v0_2",
+  "label_source": "docs/tasks/DISCLOSURE_EVALSET_V0_1.md sections ③ and ④, plus v0.2 Q07 direct-metric evidence path. v0.3 adds evidence_class on hard negatives and does not change answer-valid gold.",
+  "population": "10-question regression set for one filing. Not company-wide performance.",
+  "gold_is": "source spans and cell coordinates, not chunk ids",
+  "corp_code": "00107613",
+  "corp_name": "이수페타시스",
+  "as_of": "2026-09-26T00:00:00+09:00",
+  "receipt_no": "20260323000847",
+  "source_sha256": "ff2ee7ca28c18ac6487ea4349cfde9d8dca4d03771c2a8a1bd37c9d81cfd7bb6",
+  "member_byte_sha256": "75eb517e52573845f80424cee1fc4c047f11237db60a45313bb63370956e588e",
+  "parser_version": "2",
+  "preprocess_version": "2",
+  "config_hash": "2d75d2abcee582315a440b126806f22760c813a3f14cf4b16d563b517dc7f0e7",
+  "element_count": 3664,
+  "search_eligibility": "parse_manifest.overall_status=success",
+  "index_scope": {
+    "document_id": "m0:20260323000847.xml",
+    "member_index": 0,
+    "member_name": "20260323000847.xml",
+    "document_name_observed": "사업보고서",
+    "excluded_members": [
+      {
+        "member_index": 1,
+        "document_name_observed": "연결감사보고서"
+      },
+      {
+        "member_index": 2,
+        "document_name_observed": "감사보고서"
+      }
+    ]
+  },
+  "elements": [
+    {
+      "key": "E81",
+      "order_index": 81,
+      "element_id": "9381f1567fbe783565a43c392f71aae7fc7f6a4f491befcc005375b2f8a7b8d9",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E82",
+      "order_index": 82,
+      "element_id": "f483b0b273de86536c7841d2c38a126125c78a8437346dce45b0a26f4e802711",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E115",
+      "order_index": 115,
+      "element_id": "fb5968bb7d0696b49a5ba304923aae010b469fc9072703928df9a90596ba4225",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E116",
+      "order_index": 116,
+      "element_id": "96e5cfe1b7c32ba77ee8048a7c68b70c6a5b7b3823f9798fa681a388d05ae860",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E117",
+      "order_index": 117,
+      "element_id": "dc937b6c2502cd5ffc122459e962b98b34cc4781a62663e5f8964cedd9e81b8c",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E118",
+      "order_index": 118,
+      "element_id": "dfaf3946f5cf7d6bc76eba6144779150949831af2e365710664826895aa14d8f",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E174",
+      "order_index": 174,
+      "element_id": "ea0ff31378597126c03608c7c99cda781400e466b48959d180dfc2407d60bd5a",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E176",
+      "order_index": 176,
+      "element_id": "06f4fd8d0a9012ee1f23c9267bb283a3b24313dd7d48d49a1aee559d725f5d26",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E178",
+      "order_index": 178,
+      "element_id": "aec51ada2e938335724186ccf0854702ebadb6e864881e04f52e36b90f07a1d0",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E180",
+      "order_index": 180,
+      "element_id": "3cc3e7b6fee2f01ccacf985671b8a64e9edb94108b9d707d28e713410a73dcb4",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E184",
+      "order_index": 184,
+      "element_id": "ea332e20d021a3651962590503237e999e526dc1313a259c659ee64e30fb10f4",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E185",
+      "order_index": 185,
+      "element_id": "d92557ab05a00783cc8af185c1572ad8368cfe93852b1f7b728918e6a127212a",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E186",
+      "order_index": 186,
+      "element_id": "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E187",
+      "order_index": 187,
+      "element_id": "7b40a5005d8c306fd245dac295aea412e87e45c33a9cf88333386fa1d08c2948",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E227",
+      "order_index": 227,
+      "element_id": "9f1d0a924bf776e4107153d15dd62dfbd92be3d0b82c2fa604f665ae1bf01b0b",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E228",
+      "order_index": 228,
+      "element_id": "f55b61e36dd52bfcfeda562f3dcc163dd8bc4051f2176d3b248b13034f60f244",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E2349",
+      "order_index": 2349,
+      "element_id": "1dd68cafb5362d5538d4442ea43716774724cecad3f69f110537ff3011ac67aa",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E2350",
+      "order_index": 2350,
+      "element_id": "cb1ba44a66fa9db73a4a352ccef6163a0ed599ced3ad5c7315d26b0a57a9e60d",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E2353",
+      "order_index": 2353,
+      "element_id": "55b280deb4704c97de115c750eb2976aee4018630a7ab076441a8cfc27a5403e",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E2354",
+      "order_index": 2354,
+      "element_id": "10aea1aba8f5499d3f5ea4886713166c52d5bb2783ce7cf84b68b79511745b7e",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml",
+      "role": "q07_period_binding_not_a_retrieval_gold_span"
+    },
+    {
+      "key": "E2357",
+      "order_index": 2357,
+      "element_id": "a1e286435bd81607af861e8e7c86ebe870ed8879e66dbfd569871790c9a4d60f",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E2361",
+      "order_index": 2361,
+      "element_id": "af118098848327c5bfb3f4768cfc6b36d6fd34c59044b42638f467f506e512aa",
+      "element_type": "paragraph",
+      "document_id": "m0:20260323000847.xml"
+    },
+    {
+      "key": "E2362",
+      "order_index": 2362,
+      "element_id": "9b792cedd0b5cac5fb96d20943d300ae51dcf509b090e917367dad1152e341de",
+      "element_type": "table",
+      "document_id": "m0:20260323000847.xml"
+    }
+  ],
+  "supersedes": "isu_petasys_v0_2"
+}

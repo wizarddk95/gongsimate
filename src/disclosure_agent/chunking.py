@@ -21,8 +21,27 @@ from disclosure_agent.parsing import SEARCH_ELIGIBLE_STATUSES
 
 CHUNKER_VERSION = "1"
 SCHEMA_VERSION = 1
+UNIT_ROW_POLICY = "entire-cell-parenthesized-unit-phrase"
 
-_UNIT_RE = re.compile(r"\(\s*단위\s*[:：]")
+# chunk_id is the SHA-256 of the canonical JSON for this identity.
+# section_path, unit mentions, and row_rects are not separate inputs:
+# section_path is already inside text_hash, and row_rects are derived from cells.
+CHUNK_ID_FIELDS = (
+    "chunker_version",
+    "chunker_config_hash",
+    "parser_config_hash",
+    "source_sha256",
+    "document_id",
+    "ordinal",
+    "text_hash",
+    "sources.element_id",
+    "sources.role",
+    "sources.char_start",
+    "sources.char_end",
+    "sources.cells[start_row,start_col,rowspan,colspan]",
+)
+
+_PURE_UNIT_RE = re.compile(r"^\s*\(\s*단위\s*[:：][^)]*\)\s*$")
 _AMOUNT_RE = re.compile(
     r"(?<![\d.])(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d{7,}|\d+\.\d+%|\d+%)"
 )
@@ -40,6 +59,7 @@ DEFAULT_CHUNKER_CONFIG: dict[str, Any] = {
     "unknown_header_role_means_missing_text": False,
     "repeat_unit_and_header_on_split": True,
     "link_preceding_scope_or_caption": True,
+    "unit_row": UNIT_ROW_POLICY,
 }
 
 
@@ -103,6 +123,13 @@ def chunk_elements(
     """Chunk one parsed document. Element order inside the document is kept."""
     assert_search_eligible(manifest)
     resolved = dict(DEFAULT_CHUNKER_CONFIG if config is None else config)
+    unit_row = resolved.get("unit_row", UNIT_ROW_POLICY)
+    if unit_row != UNIT_ROW_POLICY:
+        raise UsageError(
+            f"unsupported unit_row policy {unit_row!r}. "
+            f"Expected {UNIT_ROW_POLICY!r}."
+        )
+    resolved["unit_row"] = unit_row
     member = member_for_document(manifest, document_id)
     selected = _select_elements(elements, manifest, document_id)
     config_hash = chunker_config_hash(resolved)
@@ -141,6 +168,11 @@ def chunk_elements(
     return [_finalize(item, ordinal, lineage) for ordinal, item in enumerate(raw)]
 
 
+def chunks_artifact_sha256(chunks: list[dict[str, Any]]) -> str:
+    """Hash the full canonical chunk records, not only chunk ids."""
+    return sha256_text("\n".join(canonical_dumps(chunk) for chunk in chunks))
+
+
 def chunk_manifest_summary(chunks: list[dict[str, Any]]) -> dict[str, Any]:
     ids = [chunk["chunk_id"] for chunk in chunks]
     return {
@@ -148,6 +180,7 @@ def chunk_manifest_summary(chunks: list[dict[str, Any]]) -> dict[str, Any]:
         "chunker_version": CHUNKER_VERSION,
         "chunk_count": len(chunks),
         "chunk_id_sha256": sha256_text("\n".join(ids)),
+        "artifact_sha256": chunks_artifact_sha256(chunks),
         "document_ids": sorted({chunk["lineage"]["document_id"] for chunk in chunks}),
         "chunker_config_hash": None if not chunks else chunks[0]["chunker_config_hash"],
     }
@@ -398,8 +431,17 @@ def _looks_like_label_row(cells: list[dict[str, Any]]) -> bool:
     return max(len(text) for text in texts) <= 24
 
 
+def _is_unit_text(text: str) -> bool:
+    """A unit caption is the whole cell, such as ``(단위 : 원)``.
+
+    A label that merely contains that phrase, such as ``수권주식수(단위: 주)``
+    or ``기본주당이익(손실) (단위 : 원)``, stays a body or header cell.
+    """
+    return _PURE_UNIT_RE.fullmatch(text or "") is not None
+
+
 def _is_unit_row(cells: list[dict[str, Any]]) -> bool:
-    return any(_UNIT_RE.search(cell.get("text") or "") for cell in cells)
+    return any(_is_unit_text(cell.get("text") or "") for cell in cells)
 
 
 def _body_groups(
@@ -448,7 +490,7 @@ def _preface(
     cols = int(table.get("col_count") or 0)
     if rows > int(config["caption_table_max_rows"]) or cols > int(config["caption_table_max_cols"]):
         return None
-    if not any(_UNIT_RE.search(cell.get("text") or "") for cell in table.get("cells") or []):
+    if not any(_is_unit_text(cell.get("text") or "") for cell in table.get("cells") or []):
         return None
     return ("caption_table", prev)
 
@@ -481,7 +523,7 @@ def _group_caption_cells(
 
 
 def _caption_role(text: str) -> str:
-    if _UNIT_RE.search(text):
+    if _is_unit_text(text):
         return "context_unit"
     if "부터" in text and "까지" in text:
         return "context_period"
@@ -495,10 +537,27 @@ def _cells_on_rows(cells: list[dict[str, Any]], rows: list[int]) -> list[dict[st
     return found
 
 
+def _row_rects(rows: list[int]) -> list[dict[str, int]]:
+    unique = sorted(set(rows))
+    if not unique:
+        return []
+    rects: list[dict[str, int]] = []
+    start = previous = unique[0]
+    for row in unique[1:]:
+        if row == previous + 1:
+            previous = row
+            continue
+        rects.append({"start": start, "end": previous})
+        start = previous = row
+    rects.append({"start": start, "end": previous})
+    return rects
+
+
 def _table_source(
     element: dict[str, Any], role: str, cells: list[dict[str, Any]]
 ) -> dict[str, Any]:
-    rows = [int(cell["start_row"]) for cell in cells]
+    rects = _row_rects([int(cell["start_row"]) for cell in cells])
+    contiguous = len(rects) == 1
     return {
         "element_id": element["element_id"],
         "element_type": "table",
@@ -506,7 +565,9 @@ def _table_source(
         "document_id": element.get("document_id"),
         "kind": "table",
         "role": role,
-        "rows": {"start": min(rows), "end": max(rows)} if rows else None,
+        "rows": dict(rects[0]) if contiguous else None,
+        "row_rects": rects,
+        "rows_contiguous": contiguous,
         "cells": [_cell_ref(cell) for cell in cells],
     }
 

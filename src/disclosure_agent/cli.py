@@ -15,7 +15,12 @@ from uuid import uuid4
 
 import httpx
 
-from disclosure_agent.chunking import chunk_elements, load_elements, load_json
+from disclosure_agent.chunking import (
+    chunk_elements,
+    chunks_artifact_sha256,
+    load_elements,
+    load_json,
+)
 from disclosure_agent.dart import fetch_document
 from disclosure_agent.discovery import (
     discover_filings,
@@ -103,6 +108,10 @@ def chunk_main(argv: Sequence[str] | None = None) -> None:
 
 def eval_bm25_main(argv: Sequence[str] | None = None) -> None:
     raise SystemExit(run_eval_bm25_cli(argv))
+
+
+def eval_dense_main(argv: Sequence[str] | None = None) -> None:
+    raise SystemExit(run_eval_dense_cli(argv))
 
 
 def run_cli(argv: Sequence[str] | None = None) -> int:
@@ -203,6 +212,7 @@ def run_chunk_cli(argv: Sequence[str] | None = None) -> int:
         for chunk in chunks:
             handle.write(json.dumps(chunk, ensure_ascii=False, sort_keys=True) + "\n")
     print(f"chunks: {len(chunks)}")
+    print(f"artifact_sha256: {chunks_artifact_sha256(chunks)}")
     print(f"document_id: {args.document_id}")
     print(f"output: {args.output}")
     return 0
@@ -250,15 +260,100 @@ def run_eval_bm25_cli(argv: Sequence[str] | None = None) -> int:
     for k, block in payload["metrics"]["at_k"].items():
         recall = block["claim_set_recall"]
         single = block["claim_single_chunk_recall"]
+        complete = block["question_answer_complete"]
+        ceiling = block["question_source_ceiling_satisfied"]
         print(
             f"claim_set_recall@{k}: {recall['numerator']}/{recall['denominator']}"
         )
         print(
             f"claim_single_chunk_recall@{k}: {single['numerator']}/{single['denominator']}"
         )
+        print(
+            "question_answer_complete@"
+            f"{k}: {complete['numerator']}/{complete['denominator']}"
+        )
+        print(
+            "question_source_ceiling_satisfied@"
+            f"{k}: {ceiling['numerator']}/{ceiling['denominator']}"
+        )
+        path_recall = block["answer_evidence_path_recall"]
+        path_questions = block["question_answer_evidence_satisfied"]
+        print(
+            "answer_evidence_path_recall@"
+            f"{k}: {path_recall['numerator']}/{path_recall['denominator']}"
+        )
+        print(
+            "question_answer_evidence_satisfied@"
+            f"{k}: {path_questions['numerator']}/{path_questions['denominator']}"
+        )
     print(f"q07_display: {payload['calculation_q07']['display_2dp_half_up']}")
     failure_count = len(payload["failures"])
     print(f"failures: {failure_count}")
+    print(f"metrics: {payload['paths']['metrics']}")
+    return 0
+
+
+def run_eval_dense_cli(argv: Sequence[str] | None = None) -> int:
+    from disclosure_agent.dense import run_dense_baseline
+
+    parser = argparse.ArgumentParser(
+        prog="dart-eval-dense",
+        description=(
+            "Pure dense baseline on the same chunks, gold, and filters as BM25. "
+            "Uses BGE-M3 dense vectors only."
+        ),
+    )
+    parser.add_argument("--dataset", type=Path, required=True)
+    parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--elements", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--device", default="auto")
+    parser.add_argument("--batch-size", type=int, default=8)
+    parser.add_argument("--bm25-per-question", type=Path, default=None)
+    try:
+        args = parser.parse_args(list(argv) if argv is not None else None)
+        payload = run_dense_baseline(
+            dataset_dir=args.dataset,
+            manifest_path=args.manifest,
+            elements_path=args.elements,
+            output_dir=args.output_dir,
+            device=args.device,
+            batch_size=args.batch_size,
+            bm25_per_question=args.bm25_per_question,
+        )
+    except IngestError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return exc.exit_code
+    dense = payload["dense"]
+    runtime = payload["runtime"]
+    print(f"retriever_type: {payload['retriever_type']}")
+    print(f"embedding_model: {dense['embedding_model']}")
+    print(f"embedding_model_revision: {dense['embedding_model_revision']}")
+    print(f"embedding_dimension: {dense['embedding_dimension']}")
+    print(f"similarity_metric: {dense['similarity_metric']}")
+    print(f"device: {runtime['device']}")
+    print(f"document_embedding_seconds: {runtime['document_embedding_seconds']:.3f}")
+    print(f"chunks: {payload['chunks']['chunk_count']}")
+    for k, block in payload["metrics"]["at_k"].items():
+        satisfied = block["question_answer_evidence_satisfied"]
+        conflict = block["relevant_conflict_hit"]
+        print(
+            "question_answer_evidence_satisfied@"
+            f"{k}: {satisfied['numerator']}/{satisfied['denominator']}"
+        )
+        print(
+            "relevant_conflict_hit@"
+            f"{k}: {conflict['numerator']}/{conflict['denominator']}"
+        )
+    paraphrase = payload["metrics"]["paraphrase_q01_q09"]
+    print(
+        "q01_answer_evidence_rank: "
+        f"{paraphrase['q01_first_positive_answer_evidence_rank']}"
+    )
+    print(
+        "q09_answer_evidence_rank: "
+        f"{paraphrase['q09_first_positive_answer_evidence_rank']}"
+    )
     print(f"metrics: {payload['paths']['metrics']}")
     return 0
 
