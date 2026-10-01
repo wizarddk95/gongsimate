@@ -14,5 +14,17 @@ htmlcov/
 .mypy_cache/
 .DS_Store
 Thumbs.db
+_tmp*
+
+# Score records stay tracked: metrics.json, per_question.json.
+# These intermediates are regenerated from the dataset and source.
 evaluation/runs/**/chunks.jsonl
 evaluation/runs/**/embeddings.f32
+evaluation/runs/**/retrieval_units.jsonl
+evaluation/runs/**/representations.jsonl
+evaluation/runs/**/candidates.jsonl
+evaluation/runs/**/rankings.jsonl
+evaluation/runs/**/embedding_metadata.jsonl
+
+# Local probes that read data/ and run artifacts not stored in git.
+evaluation/audits/
