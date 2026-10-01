@@ -261,19 +261,10 @@ def _span_status(sources: list[dict[str, Any]], span: dict[str, Any]) -> str:
             if source.get("kind") == "paragraph"
         ]
         return _interval_status(intervals, int(span.get("char_start") or 0), int(span["char_end"]))
-    needed = {(int(cell["start_row"]), int(cell["start_col"])) for cell in span.get("cells") or []}
+    needed = [_cell_coord(cell) for cell in span.get("cells") or []]
     if not needed:
         return "none"
-    found: set[tuple[int, int]] = set()
-    for source in matched:
-        for cell in source.get("cells") or []:
-            found.add((int(cell["start_row"]), int(cell["start_col"])))
-    hit = needed & found
-    if hit == needed:
-        return "full"
-    if hit:
-        return "partial"
-    return "none"
+    return _table_cover_status(needed, _table_cover_state(matched))
 
 
 def _span_accumulator(span: dict[str, Any]) -> dict[str, Any]:
@@ -288,10 +279,10 @@ def _span_accumulator(span: dict[str, Any]) -> dict[str, Any]:
     return {
         "element_id": span["element_id"],
         "kind": "table_cells",
-        "needed": {
-            (int(cell["start_row"]), int(cell["start_col"])) for cell in span.get("cells") or []
-        },
-        "found": set(),
+        "needed": [_cell_coord(cell) for cell in span.get("cells") or []],
+        "whole": set(),
+        "partials": {},
+        "lengths": {},
     }
 
 
@@ -307,21 +298,66 @@ def _absorb_span(state: dict[str, Any], sources: list[dict[str, Any]]) -> None:
             )
             continue
         for cell in source.get("cells") or []:
-            state["found"].add((int(cell["start_row"]), int(cell["start_col"])))
+            _absorb_table_cell(state, cell)
+
+
+def _cell_coord(cell: dict[str, Any]) -> tuple[int, int]:
+    return (int(cell["start_row"]), int(cell["start_col"]))
+
+
+def _partial_cell_span(cell: dict[str, Any]) -> tuple[int, int, int] | None:
+    """A cell citation covers the whole cell unless it records a text slice."""
+    if "text_char_start" not in cell or "text_char_end" not in cell:
+        return None
+    return (
+        int(cell["text_char_start"]),
+        int(cell["text_char_end"]),
+        int(cell.get("text_char_length") or 0),
+    )
+
+
+def _table_cover_state(sources: list[dict[str, Any]]) -> dict[str, Any]:
+    state: dict[str, Any] = {"whole": set(), "partials": {}, "lengths": {}}
+    for source in sources:
+        for cell in source.get("cells") or []:
+            _absorb_table_cell(state, cell)
+    return state
+
+
+def _absorb_table_cell(state: dict[str, Any], cell: dict[str, Any]) -> None:
+    key = _cell_coord(cell)
+    partial = _partial_cell_span(cell)
+    if partial is None:
+        state["whole"].add(key)
+        return
+    start, end, length = partial
+    state["partials"].setdefault(key, []).append((start, end))
+    state["lengths"][key] = length
+
+
+def _table_cover_status(needed: list[tuple[int, int]], state: dict[str, Any]) -> str:
+    if not needed:
+        return "none"
+    statuses = []
+    for key in needed:
+        if key in state["whole"]:
+            statuses.append("full")
+            continue
+        intervals = state["partials"].get(key) or []
+        length = int(state["lengths"].get(key) or 0)
+        if intervals and length > 0 and _interval_status(intervals, 0, length) == "full":
+            statuses.append("full")
+        elif intervals:
+            statuses.append("partial")
+        else:
+            statuses.append("none")
+    return _combine(statuses)
 
 
 def _accumulator_status(state: dict[str, Any]) -> str:
     if state["kind"] == "paragraph":
         return _interval_status(state["intervals"], state["start"], state["end"])
-    needed = state["needed"]
-    if not needed:
-        return "none"
-    hit = needed & state["found"]
-    if hit == needed:
-        return "full"
-    if hit:
-        return "partial"
-    return "none"
+    return _table_cover_status(state["needed"], state)
 
 
 def _interval_status(intervals: list[tuple[int, int]], start: int, end: int) -> str:
@@ -398,6 +434,85 @@ def operating_margin_change(operands: dict[str, str]) -> dict[str, Any]:
         "rounded_display_difference": format(rounded_subtraction, "f"),
         "used_rounded_display_difference": False,
     }
+
+
+def q07_precision_contract(question: dict[str, Any]) -> dict[str, Any]:
+    """Both Q07 displays are valid when the evidence path matches the arithmetic.
+
+    ``reported_metric_precision_policy`` subtracts the percentages printed in
+    the profitability table. ``raw_operand_precision_policy`` divides the
+    statement amounts at full precision and rounds the delta half-up to 2dp.
+    """
+    policy = question["precision_policy"]
+    reported = policy["direct_reported_metric"]
+    raw = policy["derived_operands"]
+    reported_delta = str(reported["delta_pp"])
+    raw_delta = str(raw["delta_pp"])
+    return {
+        "reported_metric_precision_policy": {
+            "evidence_path": "direct_reported_metric",
+            "answer_variant": "reported_margin_subtraction",
+            "fy2025": str(reported["fy2025"]),
+            "fy2024": str(reported["fy2024"]),
+            "delta_pp": reported_delta,
+            "rule": reported["delta_pp_rule"],
+        },
+        "raw_operand_precision_policy": {
+            "evidence_path": "derived_operands",
+            "answer_variant": "raw_operand_full_precision_then_half_up_2dp",
+            "delta_pp": raw_delta,
+            "rule": raw["delta_pp_rule"],
+            "do_not_subtract_rounded_margins": bool(raw["do_not_subtract_rounded_margins"]),
+        },
+        "valid_combinations": [
+            {
+                "evidence_path": "direct_reported_metric",
+                "precision_policy": "reported_metric_precision_policy",
+                "answer_variant": "reported_margin_subtraction",
+                "delta_pp": reported_delta,
+            },
+            {
+                "evidence_path": "derived_operands",
+                "precision_policy": "raw_operand_precision_policy",
+                "answer_variant": "raw_operand_full_precision_then_half_up_2dp",
+                "delta_pp": raw_delta,
+            },
+        ],
+        "invalid_combinations": [
+            {
+                "evidence_path": "direct_reported_metric",
+                "delta_pp": raw_delta,
+                "reason": (
+                    "A direct reported-metric path does not produce the raw-operand "
+                    "rounded delta unless that rounding is itself the cited evidence."
+                ),
+            },
+            {
+                "evidence_path": "derived_operands",
+                "delta_pp": reported_delta,
+                "reason": (
+                    "A raw-operand path does not subtract the already rounded "
+                    "reported percentages."
+                ),
+            },
+        ],
+        "both_paths_may_be_stated_together": True,
+        "both_paths_statement": (
+            "공시에 표시된 비율 기준으로는 +6.65%p이며, "
+            "원재무제표의 원수치를 재계산하면 반올림 시점 차이로 +6.64%p입니다."
+        ),
+        "generation_implemented": False,
+    }
+
+
+def precision_combination_valid(
+    question: dict[str, Any], evidence_path: str, delta_pp: str
+) -> bool:
+    contract = q07_precision_contract(question)
+    return any(
+        row["evidence_path"] == evidence_path and row["delta_pp"] == delta_pp
+        for row in contract["valid_combinations"]
+    )
 
 
 def q05_unique_amounts(claim_a: dict[str, Any], claim_b: dict[str, Any]) -> dict[str, Any]:
@@ -969,7 +1084,7 @@ def _hit_view(
         {"claim_id": claim["claim_id"], **single_and_set([chunk], claim)}
         for claim in required
     ]
-    return {
+    view = {
         "rank": hit["rank"],
         "score": round(hit["score"], 6),
         "chunk_id": hit["chunk_id"],
@@ -985,6 +1100,11 @@ def _hit_view(
         "claim_coverage": coverage,
         "preview": preview,
     }
+    if chunk.get("canonical_chunk_id"):
+        view["canonical_chunk_id"] = chunk["canonical_chunk_id"]
+    if chunk.get("retrieval_unit_id"):
+        view["retrieval_unit_id"] = chunk["retrieval_unit_id"]
+    return view
 
 
 def _hit_evidence_classes(
@@ -1247,6 +1367,8 @@ def _q07_calculation(dataset: dict[str, Any]) -> dict[str, Any]:
         "Subtracting the source-rounded margins 18.82 and 12.17 yields 6.65. "
         "This test checks only the raw-won operand path."
     )
+    if "precision_policy" in question:
+        result["precision_contract"] = q07_precision_contract(question)
     return result
 
 
@@ -1308,13 +1430,28 @@ def _aggregate(
         for question in conflict_population:
             conflict_hit += int(question["at_k"][key]["relevant_conflicting_hit"])
         conflict_ratio = _ratio(conflict_hit, len(conflict_population), index_scope)
+        conflict_ratio["role"] = "diagnostic"
         conflict_ratio["diagnostic"] = True
         conflict_ratio["not_a_quality_score"] = True
+        conflict_ratio["interpretation"] = (
+            "A higher value is not better and a lower value is not better."
+        )
         conflict_ratio["question_ids"] = [
             item["question_id"] for item in conflict_population
         ]
+        claim_recall = _ratio(claim_hit, claim_total, index_scope)
+        claim_recall["role"] = "headline"
+        question_satisfied = _ratio(path_question_hit, len(positive), index_scope)
+        question_satisfied["role"] = "headline"
+        path_recall = _ratio(path_hit, path_total, index_scope)
+        path_recall["role"] = "diagnostic"
+        path_recall["diagnostic"] = True
+        path_recall["reason"] = (
+            "The denominator follows the selected alternative evidence path, "
+            "so this is not a headline comparison."
+        )
         by_k[key] = {
-            "claim_set_recall": _ratio(claim_hit, claim_total, index_scope),
+            "claim_set_recall": claim_recall,
             "claim_single_chunk_recall": _ratio(claim_single, claim_total, index_scope),
             "question_evidence_satisfied": _ratio(question_hit, len(positive), index_scope),
             "question_single_chunk_satisfied": _ratio(
@@ -1324,10 +1461,8 @@ def _aggregate(
             "question_source_ceiling_satisfied": _ratio(
                 source_ceiling, len(positive), index_scope
             ),
-            "answer_evidence_path_recall": _ratio(path_hit, path_total, index_scope),
-            "question_answer_evidence_satisfied": _ratio(
-                path_question_hit, len(positive), index_scope
-            ),
+            "answer_evidence_path_recall": path_recall,
+            "question_answer_evidence_satisfied": question_satisfied,
             "relevant_conflict_hit": conflict_ratio,
             "answer_evidence_path_selection": path_selections,
         }
@@ -1351,33 +1486,42 @@ def _aggregate(
             "ceiling of the supported claims. It is not a complete answer and it does not "
             "measure abstention, because there is no generation layer."
         ),
+        "headline_metrics": [
+            "claim_set_recall",
+            "question_answer_evidence_satisfied",
+        ],
+        "diagnostic_metrics": [
+            "answer_evidence_path_recall",
+            "relevant_conflict_hit",
+        ],
         "metric_semantics": {
             "claim_set_recall": (
-                "Legacy AND of question.claim_ids whose claim.required is true. "
-                "Alternative evidence paths are not in this denominator. "
-                "On a single-path dataset this matches answer_evidence_path_recall."
+                "Headline. Required answer-valid claims fully covered by the top-k "
+                "candidate set, over all required claims. Alternative evidence paths "
+                "are not in this denominator. Numerator and denominator are both kept."
             ),
             "question_evidence_satisfied": (
                 "Legacy question-level AND of those required claims. "
                 "Not the OR of evidence paths."
             ),
             "answer_evidence_path_recall": (
-                "Each positive question contributes exactly one selected evidence path. "
-                "The first fully covered path wins; otherwise the path with the highest "
-                "claim-set coverage wins, and declared order breaks ties. "
-                "The denominator is the sum of selected-path claim counts, so it can "
-                "change with k and is not comparable to the legacy claim denominator."
+                "Diagnostic, not a headline. Each positive question contributes exactly "
+                "one selected evidence path. The first fully covered path wins; otherwise "
+                "the path with the highest claim-set coverage wins, and declared order "
+                "breaks ties. The denominator is the sum of selected-path claim counts, "
+                "so it can change with the path that is selected."
             ),
             "question_answer_evidence_satisfied": (
-                "A positive question succeeds when at least one evidence path is fully "
-                "covered. Paths are OR, not AND. Denominator is the positive question count. "
-                "This is answer-valid evidence, not topical relevance."
+                "Headline. A positive question succeeds when at least one allowed evidence "
+                "path is fully covered in the top-k set. Paths are OR, not AND. "
+                "Denominator is the positive question count. Q09 is excluded as a "
+                "paraphrase and Q10 is excluded as out of scope."
             ),
             "relevant_conflict_hit": (
                 "Diagnostic only. Numerator is questions whose labeled "
                 "relevant_conflicting element appears at rank <= k. "
                 "Denominator is questions that carry that label. "
-                "A hit is not retrieval success and a miss is not retrieval failure."
+                "A higher value is not better and a lower value is not better."
             ),
             "deterministic_calculation": (
                 "Q07 calculation_q07 is a separate test. It uses the derived operand path "

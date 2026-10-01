@@ -294,7 +294,7 @@ def run_eval_bm25_cli(argv: Sequence[str] | None = None) -> int:
 
 
 def run_eval_dense_cli(argv: Sequence[str] | None = None) -> int:
-    from disclosure_agent.dense import run_dense_baseline
+    from disclosure_agent.dense import run_dense_baseline, run_retrieval_unit_dense
 
     parser = argparse.ArgumentParser(
         prog="dart-eval-dense",
@@ -310,17 +310,41 @@ def run_eval_dense_cli(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--device", default="auto")
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--bm25-per-question", type=Path, default=None)
+    parser.add_argument(
+        "--representation",
+        default="canonical",
+        choices=("canonical", "structured-table-v1", "d2a", "d2b"),
+    )
+    parser.add_argument("--reuse-embeddings", type=Path, default=None)
+    parser.add_argument("--compare-dense-per-question", type=Path, default=None)
     try:
         args = parser.parse_args(list(argv) if argv is not None else None)
-        payload = run_dense_baseline(
-            dataset_dir=args.dataset,
-            manifest_path=args.manifest,
-            elements_path=args.elements,
-            output_dir=args.output_dir,
-            device=args.device,
-            batch_size=args.batch_size,
-            bm25_per_question=args.bm25_per_question,
-        )
+        if args.representation in {"d2a", "d2b"}:
+            payload = run_retrieval_unit_dense(
+                dataset_dir=args.dataset,
+                manifest_path=args.manifest,
+                elements_path=args.elements,
+                output_dir=args.output_dir,
+                mode=args.representation,
+                device=args.device,
+                batch_size=args.batch_size,
+                reuse_embeddings=args.reuse_embeddings,
+                compare_dense_per_question=args.compare_dense_per_question,
+                bm25_per_question=args.bm25_per_question,
+            )
+        else:
+            payload = run_dense_baseline(
+                dataset_dir=args.dataset,
+                manifest_path=args.manifest,
+                elements_path=args.elements,
+                output_dir=args.output_dir,
+                device=args.device,
+                batch_size=args.batch_size,
+                bm25_per_question=args.bm25_per_question,
+                representation_mode=args.representation,
+                reuse_embeddings=args.reuse_embeddings,
+                compare_dense_per_question=args.compare_dense_per_question,
+            )
     except IngestError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return exc.exit_code
@@ -334,16 +358,26 @@ def run_eval_dense_cli(argv: Sequence[str] | None = None) -> int:
     print(f"device: {runtime['device']}")
     print(f"document_embedding_seconds: {runtime['document_embedding_seconds']:.3f}")
     print(f"chunks: {payload['chunks']['chunk_count']}")
+    print(f"representation_mode: {dense.get('representation_mode')}")
+    retrieval_units = payload.get("retrieval_units")
+    if retrieval_units is not None:
+        summary = retrieval_units["summary"]
+        print(f"retrieval_units: {summary['retrieval_unit_count']}")
+        print(f"one_to_n_canonical_chunks: {summary['one_to_n_count']}")
+        print(f"max_tokens: {summary['max_tokens']}")
+        print(f"embedding_truncated: {summary['embedding_truncated']}")
     for k, block in payload["metrics"]["at_k"].items():
+        claim = block["claim_set_recall"]
         satisfied = block["question_answer_evidence_satisfied"]
         conflict = block["relevant_conflict_hit"]
+        print(f"claim_set_recall@{k}: {claim['numerator']}/{claim['denominator']}")
         print(
             "question_answer_evidence_satisfied@"
             f"{k}: {satisfied['numerator']}/{satisfied['denominator']}"
         )
         print(
-            "relevant_conflict_hit@"
-            f"{k}: {conflict['numerator']}/{conflict['denominator']}"
+            f"relevant_conflict_hit@{k} diagnostic: "
+            f"{conflict['numerator']}/{conflict['denominator']}"
         )
     paraphrase = payload["metrics"]["paraphrase_q01_q09"]
     print(
