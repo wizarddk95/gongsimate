@@ -38,15 +38,29 @@ from disclosure_agent.representation import (
 )
 from disclosure_agent.retrieval_unit import (
     D2A_VERSION,
+    D2B_ORIGINAL_HYPOTHESIS_VALIDITY,
     D2B_VERSION,
+    D2C_VERSION,
     build_retrieval_units,
+    compact_representation_examples,
     compact_row_examples,
+    project_representation_only,
     retrieval_units_sha256,
     scope_inheritance_audit,
     scoring_chunks,
     slot_diagnostic,
     summarize_retrieval_units,
 )
+
+_LOCKED_RUN_NAMES = {
+    "isu_petasys_v0_3",
+    "isu_petasys_v0_3_dense",
+    "isu_petasys_v0_3_dense_d1",
+    "isu_petasys_v0_3_dense_d2a",
+    "isu_petasys_v0_3_dense_d2b",
+    "isu_petasys_v0_3_bm25_ru_d2a",
+    "isu_petasys_v0_3_rrf_d2a",
+}
 
 DENSE_MODEL_ID = "BAAI/bge-m3"
 DENSE_MODEL_REVISION = "5617a9f61b028005a4858fdac845db406aefb181"
@@ -686,12 +700,17 @@ def run_retrieval_unit_dense(
     device: str = "auto",
     batch_size: int = 8,
     reuse_embeddings: Path | None = None,
+    reuse_unit_embeddings: Path | None = None,
     compare_dense_per_question: Path | None = None,
+    compare_d2a_per_question: Path | None = None,
     bm25_per_question: Path | None = None,
+    d2b_metrics_path: Path | None = None,
 ) -> dict[str, Any]:
-    """Dense exact search over D2a or D2b retrieval units. Canonical chunks stay put."""
-    if mode not in {"d2a", "d2b"}:
-        raise UsageError(f"retrieval unit dense mode must be d2a or d2b, got {mode!r}")
+    """Dense exact search over retrieval units. Canonical chunks stay put."""
+    if output_dir.name in _LOCKED_RUN_NAMES:
+        raise UsageError(f"refusing to overwrite locked run {output_dir.name}")
+    if mode not in {"d2a", "d2b", "d2c"}:
+        raise UsageError(f"retrieval unit dense mode must be d2a, d2b, or d2c, got {mode!r}")
     if batch_size < 1:
         raise UsageError("--batch-size must be >= 1")
     corpus = load_eval_corpus(
@@ -704,13 +723,22 @@ def run_retrieval_unit_dense(
     model = load_dense_model(resolved)
     model_load_seconds = time.perf_counter() - load_started
     token_counter = _bge_token_counter(model.tokenizer)
+    baseline_units = None
+    representation_report = None
     try:
-        units = build_retrieval_units(
-            corpus["chunks"],
-            corpus["elements_by_id"],
-            mode=mode,
-            token_counter=token_counter,
-        )
+        if mode == "d2c":
+            units, baseline_units, representation_report = project_representation_only(
+                corpus["chunks"],
+                corpus["elements_by_id"],
+                token_counter=token_counter,
+            )
+        else:
+            units = build_retrieval_units(
+                corpus["chunks"],
+                corpus["elements_by_id"],
+                mode=mode,
+                token_counter=token_counter,
+            )
     finally:
         _restore_tokenizer_limit(model.tokenizer)
     summary = summarize_retrieval_units(
@@ -719,8 +747,13 @@ def run_retrieval_unit_dense(
         hard_max_tokens=1024,
         model_max_tokens=MAX_SEQ_LENGTH,
     )
-    if summary["embedding_truncated"] and mode == "d2a":
-        raise UsageError("D2a left an embedding-truncated retrieval unit")
+    if summary["embedding_truncated"] and mode in {"d2a", "d2c"}:
+        raise UsageError(f"{mode} left an embedding-truncated retrieval unit")
+    if mode == "d2c" and representation_report is not None:
+        if not representation_report["retrieval_unit_count_matches_baseline"]:
+            raise UsageError("D2c retrieval unit count does not match D2a")
+        if representation_report["retrieval_unit_count"] != len(units):
+            raise UsageError("D2c summary does not match the unit list")
     view = scoring_chunks(units)
     embed_started = time.perf_counter()
     matrix, reuse_info = _encode_retrieval_units(
@@ -729,6 +762,8 @@ def run_retrieval_unit_dense(
         corpus["chunks"],
         batch_size,
         reuse_embeddings,
+        baseline_units=baseline_units,
+        reuse_unit_embeddings=reuse_unit_embeddings,
     )
     document_embedding_seconds = time.perf_counter() - embed_started
     index_started = time.perf_counter()
@@ -774,12 +809,13 @@ def run_retrieval_unit_dense(
         / "e2357_e2362_scope_audit.json"
     )
     audit_path.parent.mkdir(parents=True, exist_ok=True)
-    audit_path.write_text(
-        json.dumps(scope_audit, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
-    version = D2A_VERSION if mode == "d2a" else D2B_VERSION
+    if mode != "d2c" or not audit_path.exists():
+        audit_path.write_text(
+            json.dumps(scope_audit, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+    version = {"d2a": D2A_VERSION, "d2b": D2B_VERSION, "d2c": D2C_VERSION}[mode]
     runtime = _runtime_report(
         device=resolved,
         batch_size=batch_size,
@@ -802,11 +838,11 @@ def run_retrieval_unit_dense(
         "normalization": NORMALIZATION,
         "similarity_metric": SIMILARITY_METRIC,
         "query_encoding_policy": QUERY_ENCODING_POLICY,
-        "document_encoding_policy": (
-            "d2a_bounded_retrieval_unit"
-            if mode == "d2a"
-            else "d2b_compact_table_row_or_canonical_text"
-        ),
+        "document_encoding_policy": {
+            "d2a": "d2a_bounded_retrieval_unit",
+            "d2b": "d2b_compact_table_row_or_canonical_text",
+            "d2c": "d2c_compact_table_representation_same_d2a_topology",
+        }[mode],
         "representation_mode": mode,
         "representation_version": version,
         "max_seq_length": MAX_SEQ_LENGTH,
@@ -848,6 +884,30 @@ def run_retrieval_unit_dense(
         dense_comparison = compare_retrievers(
             load_json(compare_dense_per_question)["questions"], questions
         )
+    d2a_comparison = None
+    if compare_d2a_per_question is not None:
+        d2a_comparison = compare_retrievers(
+            load_json(compare_d2a_per_question)["questions"], questions
+        )
+    d2b_validity = dict(D2B_ORIGINAL_HYPOTHESIS_VALIDITY)
+    if d2b_metrics_path is not None and d2b_metrics_path.exists():
+        d2b_metrics = load_json(d2b_metrics_path)
+        d2b_summary = d2b_metrics.get("retrieval_units", {}).get("summary", {})
+        d2b_validity["observed_from_preserved_artifact"] = {
+            "retrieval_unit_count": d2b_summary.get("retrieval_unit_count"),
+            "one_to_n_canonical_chunks": d2b_summary.get("one_to_n_count"),
+            "representation_type_counts": d2b_summary.get("representation_type_counts"),
+            "metrics_path": str(d2b_metrics_path),
+            "artifact_rewritten": False,
+        }
+        if mode == "d2c":
+            audit_dir = Path(__file__).resolve().parents[2] / "evaluation" / "audits"
+            audit_dir.mkdir(parents=True, exist_ok=True)
+            (audit_dir / "d2b_row_atomic_confounded.json").write_text(
+                json.dumps(d2b_validity, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+                newline="\n",
+            )
     payload = {
         "retriever_type": "dense",
         "dataset": str(dataset_dir),
@@ -868,6 +928,8 @@ def run_retrieval_unit_dense(
         ),
         "comparison_to_bm25": comparison,
         "comparison_to_dense_d0": dense_comparison,
+        "comparison_to_dense_d2a": d2a_comparison,
+        "prior_d2b_experimental_validity": d2b_validity if mode == "d2c" else None,
         "retrieval_units": {
             "mode": mode,
             "version": version,
@@ -878,6 +940,10 @@ def run_retrieval_unit_dense(
             "slot_diagnostic_mean": _mean_slot_diagnostic(positive_slots),
             "focus_questions": _focus_question_report(questions),
             "compact_row_examples": compact_row_examples(units) if mode == "d2b" else None,
+            "representation_only": representation_report,
+            "compact_representation_examples": (
+                compact_representation_examples(units) if mode == "d2c" else None
+            ),
             "scope_audit_path": str(audit_path),
             "canonical_chunk_artifact_unchanged": True,
             "combined_with_other_experiment": False,
@@ -900,6 +966,8 @@ def run_retrieval_unit_dense(
         "metrics",
         "comparison_to_bm25",
         "comparison_to_dense_d0",
+        "comparison_to_dense_d2a",
+        "prior_d2b_experimental_validity",
         "retrieval_units",
         "failures",
     ]
@@ -936,16 +1004,35 @@ def _encode_retrieval_units(
     chunks: list[dict[str, Any]],
     batch_size: int,
     reuse_embeddings: Path | None,
+    baseline_units: list[dict[str, Any]] | None = None,
+    reuse_unit_embeddings: Path | None = None,
 ) -> tuple[Any, dict[str, Any]]:
     import numpy as np
 
     matrix = np.zeros((len(units), EMBEDDING_DIMENSION), dtype=np.float32)
     index_by_id = {chunk["chunk_id"]: index for index, chunk in enumerate(chunks)}
     reused_ordinals: list[int] = []
+    reused_unit_rows = 0
     encode_at: list[int] = []
     texts: list[str] = []
     baseline = None
     reused_sha = None
+    unit_matrix = None
+    unit_sha = None
+    if reuse_unit_embeddings is not None:
+        if baseline_units is None or len(baseline_units) != len(units):
+            raise UsageError("unit embedding reuse requires one baseline unit per row")
+        raw_units = reuse_unit_embeddings.read_bytes()
+        expected_units = len(units) * EMBEDDING_DIMENSION * 4
+        if len(raw_units) != expected_units:
+            raise UsageError(
+                f"reused unit embedding file has {len(raw_units)} bytes; "
+                f"expected {expected_units}"
+            )
+        unit_matrix = np.frombuffer(raw_units, dtype=np.float32).reshape(
+            len(units), EMBEDDING_DIMENSION
+        ).copy()
+        unit_sha = hashlib.sha256(raw_units).hexdigest()
     if reuse_embeddings is not None:
         raw = reuse_embeddings.read_bytes()
         expected = len(chunks) * EMBEDDING_DIMENSION * 4
@@ -956,6 +1043,15 @@ def _encode_retrieval_units(
         baseline = np.frombuffer(raw, dtype=np.float32).reshape(len(chunks), EMBEDDING_DIMENSION)
         reused_sha = hashlib.sha256(raw).hexdigest()
     for index, unit in enumerate(units):
+        if (
+            unit_matrix is not None
+            and baseline_units is not None
+            and unit["text"] == baseline_units[index]["text"]
+            and unit["retrieval_unit_id"] == baseline_units[index]["retrieval_unit_id"]
+        ):
+            matrix[index] = unit_matrix[index]
+            reused_unit_rows += 1
+            continue
         chunk_index = index_by_id[unit["canonical_chunk_id"]]
         same_text = unit["text"] == (chunks[chunk_index].get("text") or "")
         if (
@@ -966,6 +1062,9 @@ def _encode_retrieval_units(
             matrix[index] = baseline[chunk_index]
             reused_ordinals.append(int(unit["canonical_ordinal"]))
             continue
+        if unit.get("representation_changed") and unit_matrix is not None:
+            if unit["text"] == baseline_units[index]["text"]:
+                raise UsageError("changed representation reused an unchanged vector")
         encode_at.append(index)
         texts.append(unit["text"])
     if texts:
@@ -977,6 +1076,9 @@ def _encode_retrieval_units(
         "reused_row_count": len(reused_ordinals),
         "encoded_row_count": len(texts),
         "reused_only_when_text_matches_canonical_chunk": True,
+        "reused_unit_embedding_sha256": unit_sha,
+        "reused_unit_row_count": reused_unit_rows,
+        "reused_unit_only_when_text_and_id_match_baseline": True,
     }
 
 

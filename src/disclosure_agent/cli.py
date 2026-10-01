@@ -114,6 +114,18 @@ def eval_dense_main(argv: Sequence[str] | None = None) -> None:
     raise SystemExit(run_eval_dense_cli(argv))
 
 
+def eval_rrf_main(argv: Sequence[str] | None = None) -> None:
+    raise SystemExit(run_eval_rrf_cli(argv))
+
+
+def eval_rrf_zero_tie_main(argv: Sequence[str] | None = None) -> None:
+    raise SystemExit(run_eval_rrf_zero_tie_cli(argv))
+
+
+def eval_rerank_main(argv: Sequence[str] | None = None) -> None:
+    raise SystemExit(run_eval_rerank_cli(argv))
+
+
 def run_cli(argv: Sequence[str] | None = None) -> int:
     parser = _build_receipt_parser()
     try:
@@ -313,13 +325,16 @@ def run_eval_dense_cli(argv: Sequence[str] | None = None) -> int:
     parser.add_argument(
         "--representation",
         default="canonical",
-        choices=("canonical", "structured-table-v1", "d2a", "d2b"),
+        choices=("canonical", "structured-table-v1", "d2a", "d2b", "d2c"),
     )
     parser.add_argument("--reuse-embeddings", type=Path, default=None)
+    parser.add_argument("--reuse-unit-embeddings", type=Path, default=None)
     parser.add_argument("--compare-dense-per-question", type=Path, default=None)
+    parser.add_argument("--compare-d2a-per-question", type=Path, default=None)
+    parser.add_argument("--d2b-metrics", type=Path, default=None)
     try:
         args = parser.parse_args(list(argv) if argv is not None else None)
-        if args.representation in {"d2a", "d2b"}:
+        if args.representation in {"d2a", "d2b", "d2c"}:
             payload = run_retrieval_unit_dense(
                 dataset_dir=args.dataset,
                 manifest_path=args.manifest,
@@ -329,8 +344,11 @@ def run_eval_dense_cli(argv: Sequence[str] | None = None) -> int:
                 device=args.device,
                 batch_size=args.batch_size,
                 reuse_embeddings=args.reuse_embeddings,
+                reuse_unit_embeddings=args.reuse_unit_embeddings,
                 compare_dense_per_question=args.compare_dense_per_question,
+                compare_d2a_per_question=args.compare_d2a_per_question,
                 bm25_per_question=args.bm25_per_question,
+                d2b_metrics_path=args.d2b_metrics,
             )
         else:
             payload = run_dense_baseline(
@@ -366,6 +384,11 @@ def run_eval_dense_cli(argv: Sequence[str] | None = None) -> int:
         print(f"one_to_n_canonical_chunks: {summary['one_to_n_count']}")
         print(f"max_tokens: {summary['max_tokens']}")
         print(f"embedding_truncated: {summary['embedding_truncated']}")
+        report = retrieval_units.get("representation_only")
+        if report is not None:
+            print(f"changed_retrieval_units: {report['changed_retrieval_unit_count']}")
+            print(f"passthrough_retrieval_units: {report['passthrough_retrieval_unit_count']}")
+            print(f"changed_table_elements: {report['changed_table_element_count']}")
     for k, block in payload["metrics"]["at_k"].items():
         claim = block["claim_set_recall"]
         satisfied = block["question_answer_evidence_satisfied"]
@@ -388,6 +411,191 @@ def run_eval_dense_cli(argv: Sequence[str] | None = None) -> int:
         "q09_answer_evidence_rank: "
         f"{paraphrase['q09_first_positive_answer_evidence_rank']}"
     )
+    print(f"metrics: {payload['paths']['metrics']}")
+    return 0
+
+
+def run_eval_rrf_cli(argv: Sequence[str] | None = None) -> int:
+    from disclosure_agent.hybrid import run_d2a_rrf_experiment
+
+    parser = argparse.ArgumentParser(
+        prog="dart-eval-rrf",
+        description=(
+            "BM25-RU and fixed k=60 RRF hybrid on the locked D2a retrieval-unit corpus. "
+            "Does not rewrite the D2a or canonical BM25 runs."
+        ),
+    )
+    parser.add_argument("--dataset", type=Path, required=True)
+    parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--elements", type=Path, required=True)
+    parser.add_argument("--d2a-run", type=Path, required=True)
+    parser.add_argument("--bm25-canonical-run", type=Path, required=True)
+    parser.add_argument("--bm25-output-dir", type=Path, required=True)
+    parser.add_argument("--hybrid-output-dir", type=Path, required=True)
+    parser.add_argument("--device", default="cpu")
+    try:
+        args = parser.parse_args(list(argv) if argv is not None else None)
+        payload = run_d2a_rrf_experiment(
+            dataset_dir=args.dataset,
+            manifest_path=args.manifest,
+            elements_path=args.elements,
+            d2a_run=args.d2a_run,
+            bm25_canonical_run=args.bm25_canonical_run,
+            bm25_output_dir=args.bm25_output_dir,
+            hybrid_output_dir=args.hybrid_output_dir,
+            device=args.device,
+        )
+    except IngestError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return exc.exit_code
+    for label in ("bm25_ru", "hybrid"):
+        metrics = payload[label]["metrics"]["at_k"]
+        print(label)
+        for k, block in metrics.items():
+            claim = block["claim_set_recall"]
+            question = block["question_answer_evidence_satisfied"]
+            print(
+                f"  @{k} claim {claim['numerator']}/{claim['denominator']} "
+                f"question {question['numerator']}/{question['denominator']}"
+            )
+        print(f"  metrics: {payload[label]['paths']['metrics']}")
+    return 0
+
+
+def run_eval_rrf_zero_tie_cli(argv: Sequence[str] | None = None) -> int:
+    from disclosure_agent.hybrid import run_d2a_rrf_zero_tie_experiment
+
+    parser = argparse.ArgumentParser(
+        prog="dart-eval-rrf-zero-tie",
+        description=(
+            "RRF-zero-tie on the locked D2a retrieval-unit corpus. "
+            "BM25 score 0 contributes 0. Does not rewrite locked runs."
+        ),
+    )
+    parser.add_argument("--dataset", type=Path, required=True)
+    parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--elements", type=Path, required=True)
+    parser.add_argument("--d2a-run", type=Path, required=True)
+    parser.add_argument("--bm25-canonical-run", type=Path, required=True)
+    parser.add_argument("--bm25-ru-run", type=Path, required=True)
+    parser.add_argument("--original-rrf-run", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--device", default="cpu")
+    try:
+        args = parser.parse_args(list(argv) if argv is not None else None)
+        payload = run_d2a_rrf_zero_tie_experiment(
+            dataset_dir=args.dataset,
+            manifest_path=args.manifest,
+            elements_path=args.elements,
+            d2a_run=args.d2a_run,
+            bm25_canonical_run=args.bm25_canonical_run,
+            bm25_ru_run=args.bm25_ru_run,
+            original_rrf_run=args.original_rrf_run,
+            output_dir=args.output_dir,
+            device=args.device,
+        )
+    except IngestError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return exc.exit_code
+    written = payload["hybrid_rrf_zero_tie"]
+    print(f"zero_score_policy: {written['rrf']['zero_score_policy']}")
+    print(f"config_sha256: {written['rrf']['config_sha256']}")
+    print(f"ranking_sha256: {written['rrf']['ranking_sha256']}")
+    for k, block in written["summary"]["headline"].items():
+        zero = block["hybrid_rrf_zero_tie"]
+        original = block["hybrid_rrf_original"]
+        print(
+            f"@{k} original claim {original['claim']} question {original['question']} | "
+            f"zero-tie claim {zero['claim']} question {zero['question']}"
+        )
+    print(f"metrics: {written['paths']['metrics']}")
+    return 0
+
+
+def run_eval_rerank_cli(argv: Sequence[str] | None = None) -> int:
+    from disclosure_agent.rerank import (
+        POLICY_DENSE_ONLY,
+        POLICY_UNION,
+        run_cross_encoder_experiment,
+    )
+
+    parser = argparse.ArgumentParser(
+        prog="dart-eval-rerank",
+        description=(
+            "Cross-encoder rerank. The default candidate policy is the BM25-RU top-100 "
+            "and Dense-D2a top-100 union. dense_top100 keeps Dense top-100 only. "
+            "Does not rewrite locked retrieval runs or retrieval units."
+        ),
+    )
+    parser.add_argument("--dataset", type=Path, required=True)
+    parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--elements", type=Path, required=True)
+    parser.add_argument("--d2a-run", type=Path, required=True)
+    parser.add_argument("--bm25-canonical-run", type=Path, required=True)
+    parser.add_argument("--bm25-ru-run", type=Path, required=True)
+    parser.add_argument("--zero-tie-run", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--union-run", type=Path)
+    parser.add_argument(
+        "--candidate-policy",
+        choices=(POLICY_UNION, POLICY_DENSE_ONLY),
+        default=POLICY_UNION,
+    )
+    parser.add_argument("--device", default="cpu")
+    parser.add_argument("--batch-size", type=int, default=4)
+    try:
+        args = parser.parse_args(list(argv) if argv is not None else None)
+        payload = run_cross_encoder_experiment(
+            dataset_dir=args.dataset,
+            manifest_path=args.manifest,
+            elements_path=args.elements,
+            d2a_run=args.d2a_run,
+            bm25_canonical_run=args.bm25_canonical_run,
+            bm25_ru_run=args.bm25_ru_run,
+            zero_tie_run=args.zero_tie_run,
+            output_dir=args.output_dir,
+            device=args.device,
+            batch_size=args.batch_size,
+            candidate_policy=args.candidate_policy,
+            union_run=args.union_run,
+        )
+    except IngestError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return exc.exit_code
+    print(f"candidate_policy: {payload['candidate_policy']['name']}")
+    print(f"model: {payload['cross_encoder']['model_id']}")
+    print(f"revision: {payload['cross_encoder']['revision']}")
+    identity = payload.get("pair_score_identity")
+    if identity is not None:
+        print(
+            "pair_score_identity: "
+            f"common={identity['common_pair_count']} "
+            f"max_abs={identity['max_absolute_difference']} "
+            f"mismatches={identity['mismatch_count']}"
+        )
+    truncation = payload["cross_encoder"]["truncation"]
+    print(
+        "truncation: "
+        f"{truncation['truncated_candidates']}/{truncation['total_candidates']} "
+        f"max_input_tokens={truncation['max_input_tokens']}"
+    )
+    candidate = payload["candidate_generation"]
+    claim = candidate["claim_recall"]
+    question = candidate["question_answer_evidence_satisfied"]
+    print(f"candidate_claim_recall: {claim['numerator']}/{claim['denominator']}")
+    print(
+        "candidate_question_answer_evidence_satisfied: "
+        f"{question['numerator']}/{question['denominator']}"
+    )
+    for k, block in payload["comparison"]["headline"].items():
+        rerank = block["cross_encoder"]
+        print(
+            f"@{k} rerank claim "
+            f"{rerank['claim_recall']['numerator']}/{rerank['claim_recall']['denominator']} "
+            "question "
+            f"{rerank['question_answer_evidence_satisfied']['numerator']}/"
+            f"{rerank['question_answer_evidence_satisfied']['denominator']}"
+        )
     print(f"metrics: {payload['paths']['metrics']}")
     return 0
 

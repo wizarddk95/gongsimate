@@ -69,13 +69,37 @@ class Bm25Index:
         self.avgdl = (sum(self.doc_len) / self.n) if self.n else 0.0
 
     def search(self, query: str, k: int) -> list[dict[str, Any]]:
+        """Top-k among documents with a positive score. Zero scores stay omitted."""
         if k < 1 or self.n == 0:
             return []
+        ranked = self._ranked(query, include_zero=False)
+        return [
+            self._hit(rank, score, index)
+            for rank, (score, index) in enumerate(ranked[:k], start=1)
+        ]
+
+    def rank_all(self, query: str) -> list[dict[str, Any]]:
+        """1-based rank of every document.
+
+        Positive scores keep the same order as ``search``. Zero-score documents
+        follow them, ordered by ordinal then chunk id. Fusion uses this list so
+        a top-N cutoff is not an extra experimental factor. The BM25 headline
+        still uses ``search`` and omits zero scores.
+        """
+        if self.n == 0:
+            return []
+        ranked = self._ranked(query, include_zero=True)
+        return [
+            self._hit(rank, score, index)
+            for rank, (score, index) in enumerate(ranked, start=1)
+        ]
+
+    def _ranked(self, query: str, *, include_zero: bool) -> list[tuple[float, int]]:
         terms = sorted(set(tokenize(query)))
         ranked: list[tuple[float, int]] = []
         for index, counts in enumerate(self.doc_tokens):
             score = self._score(terms, counts, self.doc_len[index])
-            if score > 0:
+            if score > 0 or include_zero:
                 ranked.append((score, index))
         ranked.sort(
             key=lambda item: (
@@ -84,18 +108,23 @@ class Bm25Index:
                 self.chunks[item[1]]["chunk_id"],
             )
         )
-        hits = []
-        for rank, (score, index) in enumerate(ranked[:k], start=1):
-            chunk = self.chunks[index]
-            hits.append(
-                {
-                    "rank": rank,
-                    "chunk_id": chunk["chunk_id"],
-                    "ordinal": chunk["ordinal"],
-                    "score": score,
-                }
-            )
-        return hits
+        return ranked
+
+    def _hit(self, rank: int, score: float, index: int) -> dict[str, Any]:
+        chunk = self.chunks[index]
+        hit = {
+            "rank": rank,
+            "chunk_id": chunk["chunk_id"],
+            "ordinal": chunk["ordinal"],
+            "score": score,
+        }
+        if chunk.get("canonical_chunk_id"):
+            hit["canonical_chunk_id"] = chunk["canonical_chunk_id"]
+        if chunk.get("retrieval_unit_id"):
+            hit["retrieval_unit_id"] = chunk["retrieval_unit_id"]
+        if "unit_index" in chunk:
+            hit["unit_index"] = int(chunk["unit_index"])
+        return hit
 
     def _score(self, terms: list[str], counts: Counter[str], length: int) -> float:
         if not terms or self.avgdl <= 0:

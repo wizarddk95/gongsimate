@@ -16,6 +16,9 @@ dart-parse = "disclosure_agent.cli:parse_main"
 dart-chunk = "disclosure_agent.cli:chunk_main"
 dart-eval-bm25 = "disclosure_agent.cli:eval_bm25_main"
 dart-eval-dense = "disclosure_agent.cli:eval_dense_main"
+dart-eval-rrf = "disclosure_agent.cli:eval_rrf_main"
+dart-eval-rrf-zero-tie = "disclosure_agent.cli:eval_rrf_zero_tie_main"
+dart-eval-rerank = "disclosure_agent.cli:eval_rerank_main"
 
 [build-system]
 requires = ["hatchling"]

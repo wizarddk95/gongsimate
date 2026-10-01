@@ -21,7 +21,11 @@ from disclosure_agent.evaluation import (
 )
 from disclosure_agent.retrieval_unit import (
     D2A_VERSION,
+    D2B_ORIGINAL_HYPOTHESIS_VALIDITY,
     D2B_VERSION,
+    D2C_VERSION,
+    apply_compact_table_representation,
+    assert_representation_only_topology,
     build_retrieval_units,
     cell_slices_cover_text,
     retrieval_units_sha256,
@@ -55,6 +59,20 @@ ELEMENTS_PATH = (
     / "elements.jsonl"
 )
 E186 = "78be6e94020c610d2411a83f2187ca58f098c8d9f071da7c4d78cb9db0ae5b62"
+D2A_UNITS = (
+    Path(__file__).resolve().parents[1]
+    / "evaluation"
+    / "runs"
+    / "isu_petasys_v0_3_dense_d2a"
+    / "retrieval_units.jsonl"
+)
+D2B_METRICS = (
+    Path(__file__).resolve().parents[1]
+    / "evaluation"
+    / "runs"
+    / "isu_petasys_v0_3_dense_d2b"
+    / "metrics.json"
+)
 
 
 def _chars(text: str) -> int:
@@ -361,6 +379,280 @@ def test_d2b_row_text_is_deterministic_and_does_not_invent_fields() -> None:
     assert "18.82%" not in residual["text"]
 
 
+def test_d2c_rewrites_one_table_unit_without_splitting_rows() -> None:
+    chunk, elements = _profitability_chunk()
+    before = chunk["text"]
+    sources = list(chunk["chunk_sources"])
+    d2a = build_retrieval_units([chunk], elements, mode="d2a", token_counter=_chars)
+    d2b = build_retrieval_units([chunk], elements, mode="d2b", token_counter=_chars)
+    d2c = build_retrieval_units([chunk], elements, mode="d2c", token_counter=_chars)
+    again = build_retrieval_units([chunk], elements, mode="d2c", token_counter=_chars)
+    assert len(d2a) == len(d2c) == 1
+    assert len(d2b) > 1
+    assert d2c[0]["retrieval_unit_id"] == d2a[0]["retrieval_unit_id"]
+    assert d2c[0]["canonical_chunk_id"] == chunk["chunk_id"]
+    assert d2c[0]["unit_index"] == 0
+    assert d2c[0]["source_refs"] == d2a[0]["source_refs"] == sources
+    assert d2c[0]["split_reason"] == d2a[0]["split_reason"]
+    assert d2c[0]["representation_version"] == D2C_VERSION
+    assert d2c[0]["representation_changed"] is True
+    text = d2c[0]["text"]
+    assert text == (
+        "2) 수익성지표\n"
+        "매출액영업이익률 | 산 식=영업이익──────── ×100 매출액 | "
+        "비 율 / 당 기=18.82% | 비 율 / 전 기=12.17%\n"
+        "빈행"
+    )
+    assert "연결" not in text
+    assert "FY2025" not in text
+    assert "항목=" not in text
+    assert retrieval_units_sha256(d2c) == retrieval_units_sha256(again)
+    assert chunk["text"] == before
+    assert chunk["chunk_sources"] == sources
+
+
+def test_d2c_copies_unit_and_period_without_inventing_scope() -> None:
+    chunk, elements = _profitability_chunk()
+    chunk["chunk_sources"].append(
+        {
+            "element_id": "unit",
+            "kind": "paragraph",
+            "role": "context_unit",
+            "char_start": 0,
+            "char_end": 8,
+            "cells": [],
+        }
+    )
+    chunk["chunk_sources"].append(
+        {
+            "element_id": "period",
+            "kind": "paragraph",
+            "role": "context_period",
+            "char_start": 0,
+            "char_end": 4,
+            "cells": [],
+        }
+    )
+    chunk["chunk_sources"].append(
+        {
+            "element_id": "scope",
+            "kind": "paragraph",
+            "role": "context_scope",
+            "char_start": 0,
+            "char_end": 4,
+            "cells": [],
+        }
+    )
+    elements["unit"] = {"element_id": "unit", "text": "(단위 : 원)"}
+    elements["period"] = {"element_id": "period", "text": "제54기"}
+    elements["scope"] = {"element_id": "scope", "text": "연결기준"}
+    units = build_retrieval_units([chunk], elements, mode="d2c", token_counter=_chars)
+    assert len(units) == 1
+    assert units[0]["text"].endswith("기간=제54기\n단위=(단위 : 원)")
+    assert "연결기준" not in units[0]["text"]
+    assert units[0]["omitted_context_scope"] is True
+    assert any(source.get("role") == "context_scope" for source in units[0]["source_refs"])
+
+
+def test_d2c_uses_a_blank_corner_as_the_row_label() -> None:
+    header = [
+        _cell(0, 0, ""),
+        _cell(0, 1, "제 54 기"),
+        _cell(0, 2, "제 53 기"),
+    ]
+    for cell in header:
+        cell["header_role"] = "header"
+    body = [
+        _cell(1, 0, "매출액"),
+        _cell(1, 1, "10"),
+        _cell(1, 2, "9"),
+        _cell(2, 0, "영업이익"),
+        _cell(2, 1, "4"),
+        _cell(2, 2, "3"),
+    ]
+    elements = {
+        "title": {"element_id": "title", "text": "연결 포괄손익계산서"},
+        "table": {"element_id": "table", "table": {"cells": header + body}},
+    }
+    chunk = {
+        "chunk_id": "income",
+        "ordinal": 3,
+        "text": "canonical income",
+        "section_path": ["재무제표"],
+        "chunk_sources": [
+            {
+                "element_id": "title",
+                "kind": "paragraph",
+                "role": "context_title",
+                "char_start": 0,
+                "char_end": len("연결 포괄손익계산서"),
+                "cells": [],
+            },
+            {
+                "element_id": "table",
+                "kind": "table",
+                "role": "header",
+                "cells": [_ref(cell) for cell in header],
+            },
+            {
+                "element_id": "table",
+                "kind": "table",
+                "role": "body",
+                "cells": [_ref(cell) for cell in body],
+            },
+        ],
+    }
+    units = build_retrieval_units([chunk], elements, mode="d2c", token_counter=_chars)
+    assert len(units) == 1
+    assert units[0]["text"] == (
+        "연결 포괄손익계산서\n"
+        "매출액 | 제 54 기=10 | 제 53 기=9\n"
+        "영업이익 | 제 54 기=4 | 제 53 기=3"
+    )
+
+
+def test_d2c_does_not_fold_a_header_band_record_into_the_column_path() -> None:
+    header = [
+        _cell(0, 0, "구  분"),
+        _cell(0, 1, "의  미"),
+        _cell(1, 0, "AAA"),
+        _cell(1, 1, "원리금 지급능력이 최상급임."),
+    ]
+    body = [
+        _cell(2, 0, "AA"),
+        _cell(2, 1, "매우 우수"),
+    ]
+    elements = {"table": {"element_id": "table", "table": {"cells": header + body}}}
+    chunk = {
+        "chunk_id": "grades",
+        "ordinal": 8,
+        "text": "canonical grades",
+        "section_path": ["개요"],
+        "chunk_sources": [
+            {
+                "element_id": "table",
+                "kind": "table",
+                "role": "header",
+                "cells": [_ref(cell) for cell in header],
+            },
+            {
+                "element_id": "table",
+                "kind": "table",
+                "role": "body",
+                "cells": [_ref(cell) for cell in body],
+            },
+        ],
+    }
+    units = build_retrieval_units([chunk], elements, mode="d2c", token_counter=_chars)
+    assert len(units) == 1
+    assert units[0]["text"] == (
+        "AAA | 의 미=원리금 지급능력이 최상급임.\n"
+        "AA | 의 미=매우 우수"
+    )
+    assert "구  분 / AAA" not in units[0]["text"]
+
+
+def test_d2c_passthrough_keeps_a_flat_inferred_header() -> None:
+    header = [_cell(0, 0, "제출대상법인 유형 :"), _cell(0, 1, "주권상장법인")]
+    body = [_cell(1, 0, "면제사유발생 :"), _cell(1, 1, "해당사항 없음")]
+    elements = {"table": {"element_id": "table", "table": {"cells": header + body}}}
+    chunk = {
+        "chunk_id": "cover",
+        "ordinal": 1,
+        "text": "canonical cover",
+        "section_path": ["표지"],
+        "chunk_sources": [
+            {
+                "element_id": "table",
+                "kind": "table",
+                "role": "header",
+                "cells": [_ref(cell) for cell in header],
+            },
+            {
+                "element_id": "table",
+                "kind": "table",
+                "role": "body",
+                "cells": [_ref(cell) for cell in body],
+            },
+        ],
+    }
+    units = build_retrieval_units([chunk], elements, mode="d2c", token_counter=_chars)
+    assert units[0]["text"] == "canonical cover"
+    assert units[0]["representation_eligibility"] == "header_not_reliable"
+
+
+def test_d2c_passthrough_keeps_the_same_candidate_when_ineligible() -> None:
+    unlabeled, elements = _profitability_chunk()
+    for cell in elements["table"]["table"]["cells"]:
+        if cell["text"] in {"비 율", "당 기"}:
+            cell["text"] = ""
+    for source in unlabeled["chunk_sources"]:
+        for ref in source.get("cells") or []:
+            match = next(
+                cell
+                for cell in elements["table"]["table"]["cells"]
+                if cell["start_row"] == ref["start_row"] and cell["start_col"] == ref["start_col"]
+            )
+            ref["text_sha256"] = sha256_text(match["text"])
+    baseline = build_retrieval_units([unlabeled], elements, mode="d2a", token_counter=_chars)
+    rewritten = build_retrieval_units([unlabeled], elements, mode="d2c", token_counter=_chars)
+    assert rewritten[0]["text"] == baseline[0]["text"]
+    assert rewritten[0]["retrieval_unit_id"] == baseline[0]["retrieval_unit_id"]
+    assert rewritten[0]["representation_eligibility"] == "unlabeled_body_cell"
+    assert rewritten[0]["representation_version"] == D2A_VERSION
+
+    sliced, sliced_elements = _profitability_chunk()
+    sliced["chunk_sources"][2]["cells"][0]["text_char_start"] = 0
+    sliced["chunk_sources"][2]["cells"][0]["text_char_end"] = 2
+    sliced_units = build_retrieval_units(
+        [sliced], sliced_elements, mode="d2c", token_counter=_chars
+    )
+    assert sliced_units[0]["representation_eligibility"] == "partial_cell_slice"
+    assert sliced_units[0]["text"] == sliced["text"]
+
+    narrative, narrative_elements = _narrative("(1) 정책 문장")
+    kept = build_retrieval_units(
+        [narrative], narrative_elements, mode="d2c", token_counter=_chars
+    )
+    assert len(kept) == 1
+    assert kept[0]["text"] == narrative["text"]
+    assert kept[0]["representation_eligibility"] == "no_header"
+
+
+def test_d2c_refuses_a_compact_form_that_exceeds_the_unit_limit() -> None:
+    chunk, elements = _profitability_chunk()
+
+    def _count(text: str) -> int:
+        if "비 율 / 당 기" in text:
+            return 5000
+        return 12
+
+    units = build_retrieval_units([chunk], elements, mode="d2c", token_counter=_count)
+    assert units[0]["text"] == chunk["text"]
+    assert units[0]["representation_eligibility"] == "compact_exceeds_hard_max"
+    assert units[0]["representation_changed"] is False
+
+
+def test_preserved_d2b_is_not_valid_for_the_representation_hypothesis() -> None:
+    record = D2B_ORIGINAL_HYPOTHESIS_VALIDITY
+    assert record["experimental_validity_for_original_hypothesis"] is False
+    assert record["recommended_name"] == "D2b-row-atomic-confounded"
+    assert record["confounders"] == [
+        "retrieval_granularity_changed",
+        "candidate_count_changed",
+        "duplicate_same_source_competition",
+    ]
+    assert record["artifacts_overwritten"] is False
+    if not D2B_METRICS.exists():
+        return
+    metrics = json.loads(D2B_METRICS.read_text(encoding="utf-8"))
+    observed = metrics["reproducibility"]["retrieval_unit"]
+    summary = metrics["retrieval_units"]["summary"]["representation_type_counts"]
+    assert observed["retrieval_unit_count"] == 5296
+    assert summary["table_row"] == 3367
+    assert metrics["dense"]["representation_mode"] == "d2b"
+
+
 def test_d2b_keeps_a_single_cell_narrative_as_one_canonical_unit() -> None:
     chunk, elements = _narrative("(1) 긴 정책 " + ("가" * 50))
     units = build_retrieval_units([chunk], elements, mode="d2b", token_counter=_chars)
@@ -413,6 +705,8 @@ def test_slot_diagnostic_counts_duplicate_canonical_sources() -> None:
     assert report["1"]["duplicate_same_source_ru_count"] == 0
     assert report["3"]["unique_canonical_chunks"] == 2
     assert report["3"]["duplicate_same_source_ru_count"] == 1
+    assert report["1"]["max_same_canonical_occupancy"] == 1
+    assert report["3"]["max_same_canonical_occupancy"] == 2
     assert report["3"]["not_a_headline_metric"] is True
 
 
@@ -488,3 +782,35 @@ def test_pinned_oversized_cells_split_on_numbered_headings_and_rebuild() -> None
             for marker in markers:
                 found[marker] += unit["text"].count(marker)
         assert all(count >= 1 for count in found.values())
+
+
+@pytest.mark.skipif(
+    not D2A_UNITS.exists() or not ELEMENTS_PATH.exists(),
+    reason="pinned D2a units",
+)
+def test_pinned_d2c_representation_keeps_d2a_topology() -> None:
+    baseline = _load_jsonl(D2A_UNITS)
+    elements = {row["element_id"]: row for row in _load_jsonl(ELEMENTS_PATH)}
+    rewritten = apply_compact_table_representation(
+        baseline,
+        elements,
+        token_counter=lambda text: 32,
+        hard_max_tokens=1024,
+        model_max_tokens=8192,
+    )
+    again = apply_compact_table_representation(
+        baseline,
+        elements,
+        token_counter=lambda text: 32,
+        hard_max_tokens=1024,
+        model_max_tokens=8192,
+    )
+    assert_representation_only_topology(baseline, rewritten)
+    assert len(rewritten) == len(baseline) == 2869
+    assert retrieval_units_sha256(rewritten) == retrieval_units_sha256(again)
+    changed = [unit for unit in rewritten if unit["representation_changed"]]
+    assert changed
+    assert all(unit["representation_version"] == D2C_VERSION for unit in changed)
+    assert {unit["retrieval_unit_id"] for unit in rewritten} == {
+        unit["retrieval_unit_id"] for unit in baseline
+    }

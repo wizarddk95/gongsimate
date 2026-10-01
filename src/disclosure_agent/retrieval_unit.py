@@ -10,7 +10,7 @@ from __future__ import annotations
 import copy
 import math
 import re
-from collections import defaultdict
+from collections import Counter, defaultdict
 from collections.abc import Callable
 from typing import Any
 
@@ -25,6 +25,35 @@ from disclosure_agent.representation import _flat, _table_cells
 
 D2A_VERSION = "retrieval-unit-d2a-v1"
 D2B_VERSION = "retrieval-unit-d2b-v1"
+D2C_VERSION = "retrieval-unit-d2c-v1"
+
+# The preserved D2b run changed representation and candidate granularity together.
+# It is not evidence for a representation-only effect. Artifacts stay in place.
+D2B_ORIGINAL_HYPOTHESIS_VALIDITY = {
+    "recommended_name": "D2b-row-atomic-confounded",
+    "preserved_run": "evaluation/runs/isu_petasys_v0_3_dense_d2b",
+    "artifacts_overwritten": False,
+    "experimental_validity_for_original_hypothesis": False,
+    "original_hypothesis": (
+        "Holding the retrieval unit and the candidate corpus fixed, "
+        "what happens to BGE-M3 dense retrieval if only the table "
+        "representation changes to a compact deterministic form?"
+    ),
+    "actual_simultaneous_changes": [
+        "table_chunk_decomposed_into_row_level_retrieval_units",
+        "retrieval_unit_count_increased",
+        "candidate_granularity_changed",
+        "compact_serialization_applied",
+    ],
+    "confounders": [
+        "retrieval_granularity_changed",
+        "candidate_count_changed",
+        "duplicate_same_source_competition",
+    ],
+    "not_evidence_for": (
+        "the effect of compact table representation at a fixed retrieval granularity"
+    ),
+}
 
 _HEADER_ROLES = {"header", "repeated_header"}
 _UNIT_ROLES = {"unit", "repeated_unit", "context_unit"}
@@ -32,6 +61,15 @@ _TITLE_ROLES = {"context_title"}
 _PERIOD_ROLES = {"context_period"}
 _LABEL_HEADERS = {"구분", "항목", "과목", "계정과목", "계정"}
 _FORMULA_HEADERS = {"산식", "계산식", "공식", "산출식"}
+_SCOPE_ROLES = {"context_scope"}
+_COMPACT_KNOWN_ROLES = (
+    _HEADER_ROLES
+    | _UNIT_ROLES
+    | _TITLE_ROLES
+    | _PERIOD_ROLES
+    | _SCOPE_ROLES
+    | {"body"}
+)
 _NUMBERED_RE = re.compile(
     r"(?:(?<=^)|(?<=[\s.!?。]))\((\d{1,2})\)(?=\s*[가-힣A-Za-z「『\[])"
 )
@@ -54,6 +92,16 @@ def build_retrieval_units(
     model_max_tokens: int = EMBEDDING_MODEL_MAX_TOKENS,
 ) -> list[dict[str, Any]]:
     """Project canonical chunks into retrieval units without editing the chunks."""
+    if mode == "d2c":
+        units, _baseline, _report = project_representation_only(
+            chunks,
+            elements_by_id,
+            token_counter=token_counter,
+            target_tokens=target_tokens,
+            hard_max_tokens=hard_max_tokens,
+            model_max_tokens=model_max_tokens,
+        )
+        return units
     if mode not in {"d2a", "d2b"}:
         raise UsageError(f"unknown retrieval unit mode {mode!r}")
     if target_tokens < 1 or hard_max_tokens < target_tokens or model_max_tokens < hard_max_tokens:
@@ -91,6 +139,309 @@ def build_retrieval_units(
         if chunk.get("chunk_sources") != sources:
             raise UsageError("retrieval unit projection edited canonical source refs")
     return units
+
+
+def project_representation_only(
+    chunks: list[dict[str, Any]],
+    elements_by_id: dict[str, dict[str, Any]],
+    *,
+    token_counter: TokenCounter,
+    target_tokens: int = RETRIEVAL_UNIT_TARGET_TOKENS,
+    hard_max_tokens: int = RETRIEVAL_UNIT_HARD_MAX_TOKENS,
+    model_max_tokens: int = EMBEDDING_MODEL_MAX_TOKENS,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
+    """Rewrite eligible D2a table text without adding or removing a candidate.
+
+    One D2a retrieval unit stays one unit. A newline inside the new text is
+    serialization syntax, not a candidate boundary.
+    """
+    baseline = build_retrieval_units(
+        chunks,
+        elements_by_id,
+        mode="d2a",
+        token_counter=token_counter,
+        target_tokens=target_tokens,
+        hard_max_tokens=hard_max_tokens,
+        model_max_tokens=model_max_tokens,
+    )
+    rewritten = apply_compact_table_representation(
+        baseline,
+        elements_by_id,
+        token_counter=token_counter,
+        hard_max_tokens=hard_max_tokens,
+        model_max_tokens=model_max_tokens,
+    )
+    assert_representation_only_topology(baseline, rewritten)
+    report = representation_change_summary(baseline, rewritten)
+    if not report["retrieval_unit_count_matches_baseline"]:
+        raise UsageError("representation-only run changed the retrieval unit count")
+    return rewritten, baseline, report
+
+
+def apply_compact_table_representation(
+    baseline: list[dict[str, Any]],
+    elements_by_id: dict[str, dict[str, Any]],
+    *,
+    token_counter: TokenCounter,
+    hard_max_tokens: int,
+    model_max_tokens: int,
+) -> list[dict[str, Any]]:
+    """Return a 1:1 copy of ``baseline`` with eligible table text replaced."""
+    rewritten = []
+    for unit in baseline:
+        decision = _compact_table_decision(
+            unit,
+            elements_by_id,
+            token_counter,
+            hard_max_tokens=hard_max_tokens,
+            model_max_tokens=model_max_tokens,
+        )
+        clone = copy.deepcopy(unit)
+        clone["baseline_representation_hash"] = unit["representation_hash"]
+        clone["baseline_representation_version"] = unit["representation_version"]
+        clone["representation_eligibility"] = decision["reason"]
+        clone["omitted_context_scope"] = decision["omitted_context_scope"]
+        clone["representation_changed"] = decision["text"] is not None
+        if decision["text"] is None:
+            rewritten.append(clone)
+            continue
+        text = decision["text"]
+        clone["text"] = text
+        clone["representation_hash"] = sha256_text(text)
+        clone["representation_version"] = D2C_VERSION
+        clone["representation_type"] = "compact_table"
+        clone["token_count"] = decision["token_count"]
+        clone["embedding_truncated"] = decision["token_count"] > model_max_tokens
+        if clone["token_count"] > hard_max_tokens or clone["embedding_truncated"]:
+            raise UsageError(
+                "compact table text exceeded the retrieval unit limit "
+                f"ordinal={unit.get('canonical_ordinal')} tokens={clone['token_count']}"
+            )
+        rewritten.append(clone)
+    return rewritten
+
+
+def assert_representation_only_topology(
+    baseline: list[dict[str, Any]], rewritten: list[dict[str, Any]]
+) -> None:
+    """Fail unless the candidate identity and source spans match D2a."""
+    if len(baseline) != len(rewritten):
+        raise UsageError(
+            "representation-only topology changed retrieval unit count: "
+            f"{len(baseline)} -> {len(rewritten)}"
+        )
+    baseline_ids = [unit["retrieval_unit_id"] for unit in baseline]
+    rewritten_ids = [unit["retrieval_unit_id"] for unit in rewritten]
+    if baseline_ids != rewritten_ids or set(baseline_ids) != set(rewritten_ids):
+        raise UsageError("representation-only run changed retrieval_unit_id values")
+    for left, right in zip(baseline, rewritten, strict=True):
+        for key in ("canonical_chunk_id", "canonical_ordinal", "unit_index", "split_reason"):
+            if left[key] != right[key]:
+                raise UsageError(
+                    f"representation-only run changed {key} "
+                    f"for retrieval unit {left['retrieval_unit_id']}"
+                )
+        if left["source_refs"] != right["source_refs"]:
+            raise UsageError(
+                "representation-only run changed source spans "
+                f"for retrieval unit {left['retrieval_unit_id']}"
+            )
+        if right["text"] == left["text"]:
+            if right["representation_hash"] != left["representation_hash"]:
+                raise UsageError("unchanged text changed representation_hash")
+            if right["representation_version"] != left["representation_version"]:
+                raise UsageError("unchanged text changed representation_version")
+            continue
+        if right["representation_version"] != D2C_VERSION:
+            raise UsageError("changed table text kept the D2a representation version")
+        if right["representation_hash"] == left["representation_hash"]:
+            raise UsageError("changed table text kept the D2a representation hash")
+        if right.get("retrieval_unit_id") != left["retrieval_unit_id"]:
+            raise UsageError("changed table text minted a new retrieval unit id")
+
+
+def representation_change_summary(
+    baseline: list[dict[str, Any]], rewritten: list[dict[str, Any]]
+) -> dict[str, Any]:
+    reasons: dict[str, int] = defaultdict(int)
+    changed_chunks: set[str] = set()
+    changed_tables: set[str] = set()
+    changed = 0
+    passthrough = 0
+    omitted_scope = 0
+    for left, right in zip(baseline, rewritten, strict=True):
+        reason = str(right.get("representation_eligibility") or "missing")
+        reasons[reason] += 1
+        if right.get("omitted_context_scope"):
+            omitted_scope += 1
+        if right["text"] == left["text"]:
+            passthrough += 1
+            continue
+        changed += 1
+        changed_chunks.add(right["canonical_chunk_id"])
+        for source in right["source_refs"]:
+            if source.get("kind") == "table" and source.get("role") in {"body", "repeated_body"}:
+                changed_tables.add(source["element_id"])
+    return {
+        "retrieval_unit_count": len(rewritten),
+        "baseline_retrieval_unit_count": len(baseline),
+        "retrieval_unit_count_matches_baseline": len(rewritten) == len(baseline),
+        "changed_retrieval_unit_count": changed,
+        "passthrough_retrieval_unit_count": passthrough,
+        "changed_canonical_chunk_count": len(changed_chunks),
+        "changed_table_element_count": len(changed_tables),
+        "eligibility_reason_counts": dict(sorted(reasons.items())),
+        "units_with_omitted_context_scope": omitted_scope,
+        "independent_variable": "table_retrieval_unit_text",
+        "fixed": [
+            "retrieval_unit_count",
+            "retrieval_unit_id",
+            "canonical_chunk_id",
+            "source_refs",
+            "unit_index",
+            "split_reason",
+        ],
+    }
+
+
+def compact_representation_examples(
+    units: list[dict[str, Any]], *, limit: int = 5
+) -> list[dict[str, Any]]:
+    """Deterministic real serializations. Selection does not read gold ids."""
+    changed = [unit for unit in units if unit.get("representation_changed")]
+
+    def take(predicate: Any) -> dict[str, Any] | None:
+        found = next((unit for unit in changed if predicate(unit)), None)
+        if found is None:
+            return None
+        return _compact_example(found)
+
+    selected = [
+        take(lambda unit: unit["text"].count("\n") >= 2 and "단위=" in unit["text"]),
+        take(lambda unit: "기간=" in unit["text"] and "단위=" in unit["text"]),
+        take(lambda unit: "단위=" in unit["text"]),
+        take(lambda unit: "기간=" in unit["text"]),
+        take(lambda unit: unit["text"].count("\n") >= 3),
+        take(lambda unit: "=" in unit["text"] and "\n" not in unit["text"]),
+        take(lambda unit: " | " in unit["text"]),
+    ]
+    examples = []
+    seen: set[str] = set()
+    for item in selected:
+        if item is None or item["retrieval_unit_id"] in seen:
+            continue
+        seen.add(item["retrieval_unit_id"])
+        examples.append(item)
+        if len(examples) >= limit:
+            return examples
+    for unit in changed:
+        if unit["retrieval_unit_id"] in seen:
+            continue
+        seen.add(unit["retrieval_unit_id"])
+        examples.append(_compact_example(unit))
+        if len(examples) >= limit:
+            break
+    return examples
+
+
+def _compact_example(unit: dict[str, Any]) -> dict[str, Any]:
+    text = unit["text"]
+    stored = text if len(text) <= 1200 else text[:1200]
+    return {
+        "canonical_ordinal": unit["canonical_ordinal"],
+        "retrieval_unit_id": unit["retrieval_unit_id"],
+        "representation_type": unit["representation_type"],
+        "representation_eligibility": unit.get("representation_eligibility"),
+        "split_reason": unit["split_reason"],
+        "token_count": unit["token_count"],
+        "text_chars": len(text),
+        "text_truncated_for_report": len(text) > 1200,
+        "text": stored,
+    }
+
+
+def _compact_table_decision(
+    unit: dict[str, Any],
+    elements_by_id: dict[str, dict[str, Any]],
+    token_counter: TokenCounter,
+    *,
+    hard_max_tokens: int,
+    model_max_tokens: int,
+) -> dict[str, Any]:
+    """Decide whether this one unit can be rewritten. Never splits the unit."""
+    empty = {
+        "reason": "not_table",
+        "text": None,
+        "token_count": None,
+        "omitted_context_scope": False,
+    }
+    sources = list(unit.get("source_refs") or [])
+    if _has_partial_cell(sources):
+        return {**empty, "reason": "partial_cell_slice"}
+    table_body = [
+        source
+        for source in sources
+        if source.get("kind") == "table" and source.get("role") == "body"
+    ]
+    if not table_body:
+        return empty
+    if _has_mixed_paragraph(sources):
+        return {**empty, "reason": "mixed_paragraph_body"}
+    unknown = _unknown_source_role(sources)
+    if unknown is not None:
+        return {**empty, "reason": f"unhandled_source_role:{unknown}"}
+    omitted_scope = _has_nonempty_role(sources, elements_by_id, _SCOPE_ROLES)
+    header_sources = [source for source in sources if source.get("role") in _HEADER_ROLES]
+    if not header_sources:
+        return {**empty, "reason": "no_header", "omitted_context_scope": omitted_scope}
+    header_cells = _materialize_sources(header_sources, elements_by_id)
+    body_cells = _materialize_sources(table_body, elements_by_id)
+    if _origin_conflict(header_cells):
+        return {
+            **empty,
+            "reason": "conflicting_header_cell",
+            "omitted_context_scope": omitted_scope,
+        }
+    if not _header_is_reliable(header_cells):
+        return {**empty, "reason": "header_not_reliable", "omitted_context_scope": omitted_scope}
+    column_cells, record_cells = _split_header_cells(header_cells)
+    paths = _header_paths(column_cells)
+    if not any(paths.values()):
+        return {**empty, "reason": "no_leaf_header", "omitted_context_scope": omitted_scope}
+    rendered = _render_compact_table(
+        unit,
+        sources,
+        elements_by_id,
+        body_cells,
+        paths,
+        record_cells,
+    )
+    if rendered is None:
+        return {**empty, "reason": "table_not_lossless", "omitted_context_scope": omitted_scope}
+    text, reason = rendered
+    if reason != "eligible_compact_table":
+        return {**empty, "reason": reason, "omitted_context_scope": omitted_scope}
+    if text == (unit.get("text") or ""):
+        return {
+            "reason": "compact_identical_to_baseline",
+            "text": None,
+            "token_count": None,
+            "omitted_context_scope": omitted_scope,
+        }
+    token_count = int(token_counter(text))
+    if token_count > hard_max_tokens or token_count > model_max_tokens:
+        return {
+            "reason": "compact_exceeds_hard_max",
+            "text": None,
+            "token_count": None,
+            "omitted_context_scope": omitted_scope,
+        }
+    return {
+        "reason": "eligible_compact_table",
+        "text": text,
+        "token_count": token_count,
+        "omitted_context_scope": omitted_scope,
+    }
 
 
 def retrieval_units_sha256(units: list[dict[str, Any]]) -> str:
@@ -204,10 +555,12 @@ def slot_diagnostic(
             hit.get("canonical_chunk_id") or hit.get("chunk_id") for hit in window
         ]
         unique = len(set(identities))
+        occupancy = Counter(identities)
         report[str(k)] = {
             "retrieval_unit_slots": len(window),
             "unique_canonical_chunks": unique,
             "duplicate_same_source_ru_count": len(window) - unique,
+            "max_same_canonical_occupancy": max(occupancy.values()) if occupancy else 0,
             "role": "diagnostic",
             "not_a_headline_metric": True,
         }
@@ -1315,6 +1668,273 @@ def _render(header: str, body: str) -> str:
     if header and body:
         return f"{header}\n{body}"
     return header or body
+
+
+def _has_partial_cell(sources: list[dict[str, Any]]) -> bool:
+    for source in sources:
+        for cell in source.get("cells") or []:
+            if "text_char_start" in cell or "text_char_end" in cell:
+                return True
+    return False
+
+
+def _has_mixed_paragraph(sources: list[dict[str, Any]]) -> bool:
+    return any(
+        source.get("kind") != "table" and source.get("role") == "body" for source in sources
+    )
+
+
+def _unknown_source_role(sources: list[dict[str, Any]]) -> str | None:
+    for source in sources:
+        role = source.get("role")
+        if role not in _COMPACT_KNOWN_ROLES:
+            return str(role)
+    return None
+
+
+def _has_nonempty_role(
+    sources: list[dict[str, Any]],
+    elements_by_id: dict[str, dict[str, Any]],
+    roles: set[str],
+) -> bool:
+    for source in sources:
+        if source.get("role") not in roles:
+            continue
+        if _source_texts(source, elements_by_id):
+            return True
+    return False
+
+
+def _materialize_sources(
+    sources: list[dict[str, Any]], elements_by_id: dict[str, dict[str, Any]]
+) -> list[dict[str, Any]]:
+    cells: list[dict[str, Any]] = []
+    seen: set[tuple[Any, ...]] = set()
+    for source in sources:
+        element = elements_by_id[source["element_id"]]
+        catalog = {
+            (int(cell["start_row"]), int(cell["start_col"])): cell
+            for cell in (element.get("table") or {}).get("cells") or []
+        }
+        for cell in _table_cells(source, elements_by_id):
+            origin = catalog.get((int(cell["start_row"]), int(cell["start_col"])), {})
+            cell["header_role"] = origin.get("header_role")
+            key = (
+                int(cell["start_row"]),
+                int(cell["start_col"]),
+                int(cell["rowspan"]),
+                int(cell["colspan"]),
+                _compact(cell["text"]),
+            )
+            if key in seen:
+                continue
+            seen.add(key)
+            cells.append(cell)
+    return cells
+
+
+def _header_is_reliable(header_cells: list[dict[str, Any]]) -> bool:
+    """A header band is a column header, not the first data row.
+
+    TH cells, a real span, or an explicit label header are structural evidence.
+    A flat inferred TD row is not enough: the chunker can park the first record there.
+    """
+    if any(cell.get("header_role") == "header" for cell in header_cells):
+        return True
+    if any(
+        int(cell.get("colspan") or 1) > 1 or int(cell.get("rowspan") or 1) > 1
+        for cell in header_cells
+    ):
+        return True
+    return any(_norm_header(cell.get("text") or "") in _LABEL_HEADERS for cell in header_cells)
+
+
+def _split_header_cells(
+    header_cells: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Separate column titles from data rows that share the header role."""
+    rows = sorted({int(cell["start_row"]) for cell in header_cells})
+    by_row: dict[int, list[dict[str, Any]]] = defaultdict(list)
+    for cell in header_cells:
+        by_row[int(cell["start_row"])].append(cell)
+    column_cells = list(by_row[rows[0]])
+    record_cells: list[dict[str, Any]] = []
+    for row in rows[1:]:
+        if _is_subheader_row(by_row[row], column_cells):
+            column_cells.extend(by_row[row])
+            continue
+        record_cells.extend(by_row[row])
+    return column_cells, record_cells
+
+
+def _is_subheader_row(row_cells: list[dict[str, Any]], column_cells: list[dict[str, Any]]) -> bool:
+    nonempty = [cell for cell in row_cells if _compact(cell["text"])]
+    if not nonempty:
+        return True
+    for cell in nonempty:
+        if any(
+            int(existing["start_row"]) == int(cell["start_row"])
+            and int(existing["start_col"]) == int(cell["start_col"])
+            for existing in column_cells
+        ):
+            continue
+        if not _has_colspan_parent(cell, column_cells):
+            return False
+    return True
+
+
+def _has_colspan_parent(cell: dict[str, Any], column_cells: list[dict[str, Any]]) -> bool:
+    start = int(cell["start_col"])
+    span = int(cell.get("colspan") or 1)
+    for column in range(start, start + span):
+        found = False
+        for ancestor in column_cells:
+            if int(ancestor["start_row"]) >= int(cell["start_row"]):
+                continue
+            if int(ancestor.get("colspan") or 1) <= 1:
+                continue
+            origin = int(ancestor["start_col"])
+            if origin <= column < origin + int(ancestor.get("colspan") or 1):
+                found = True
+                break
+        if not found:
+            return False
+    return True
+
+
+def _origin_conflict(cells: list[dict[str, Any]]) -> bool:
+    seen: dict[tuple[int, int], str] = {}
+    for cell in cells:
+        origin = (int(cell["start_row"]), int(cell["start_col"]))
+        text = _compact(cell["text"])
+        if origin in seen and seen[origin] != text:
+            return True
+        seen[origin] = text
+    return False
+
+
+def _header_paths(header_cells: list[dict[str, Any]]) -> dict[int, str]:
+    if not header_cells:
+        return {}
+    rows = sorted({int(cell["start_row"]) for cell in header_cells})
+    last_col = max(
+        int(cell["start_col"]) + int(cell.get("colspan") or 1) - 1 for cell in header_cells
+    )
+    labels: dict[int, str] = {}
+    for column in range(last_col + 1):
+        parts: list[str] = []
+        for row in rows:
+            for cell in header_cells:
+                if not _covers(cell, row, column):
+                    continue
+                text = _compact(cell["text"])
+                if text and (not parts or parts[-1] != text):
+                    parts.append(text)
+        labels[column] = " / ".join(parts)
+    return labels
+
+
+def _explicit_label_column(paths: dict[int, str]) -> int | None:
+    for column, path in sorted(paths.items()):
+        leaf = path.split(" / ")[-1] if path else ""
+        if _norm_header(leaf) in _LABEL_HEADERS or _norm_header(path) in _LABEL_HEADERS:
+            return column
+    if paths and not paths.get(0) and any(path for column, path in paths.items() if column != 0):
+        return 0
+    return None
+
+
+def _render_compact_row(
+    nonempty: list[dict[str, Any]], paths: dict[int, str], label_column: int | None
+) -> tuple[str | None, str]:
+    if len(nonempty) == 1 and int(nonempty[0].get("colspan") or 1) > 1:
+        return _compact(nonempty[0]["text"]), "ok"
+    label = ""
+    fields: list[str] = []
+    for cell in nonempty:
+        text = _compact(cell["text"])
+        start = int(cell["start_col"])
+        span = int(cell.get("colspan") or 1)
+        covered: list[str] = []
+        for column in range(start, start + span):
+            path = paths.get(column, "")
+            if path and path not in covered:
+                covered.append(path)
+        if len(covered) > 1:
+            return None, "ambiguous_colspan"
+        path = covered[0] if covered else ""
+        if label_column is not None and start == label_column and span == 1:
+            if paths.get(start) == "" and _looks_like_amount(text):
+                return None, "unlabeled_body_cell"
+            label = text
+            continue
+        if not path:
+            return None, "unlabeled_body_cell"
+        fields.append(f"{path}={text}")
+    if label and fields:
+        return " | ".join([label, *fields]), "ok"
+    if label:
+        return label, "ok"
+    if fields:
+        return " | ".join(fields), "ok"
+    return None, "unlabeled_body_cell"
+
+
+def _render_compact_table(
+    unit: dict[str, Any],
+    sources: list[dict[str, Any]],
+    elements_by_id: dict[str, dict[str, Any]],
+    body_cells: list[dict[str, Any]],
+    paths: dict[int, str],
+    record_cells: list[dict[str, Any]] | None = None,
+) -> tuple[str, str] | None:
+    del unit
+    if _origin_conflict(body_cells) or _origin_conflict(record_cells or []):
+        return "", "conflicting_body_cell"
+    by_row: dict[int, list[dict[str, Any]]] = defaultdict(list)
+    for cell in [*(record_cells or []), *body_cells]:
+        by_row[int(cell["start_row"])].append(cell)
+    label_column = _explicit_label_column(paths)
+    row_lines: list[str] = []
+    nonempty_count = 0
+    for row in sorted(by_row):
+        ordered = sorted(by_row[row], key=lambda cell: int(cell["start_col"]))
+        nonempty = [cell for cell in ordered if _compact(cell["text"])]
+        nonempty_count += len(nonempty)
+        if not nonempty:
+            continue
+        line, status = _render_compact_row(nonempty, paths, label_column)
+        if status != "ok" or line is None:
+            return "", status
+        row_lines.append(line)
+    if nonempty_count == 0 or not row_lines:
+        return "", "no_nonempty_body"
+    titles: list[str] = []
+    periods: list[str] = []
+    units: list[str] = []
+    for source in sources:
+        role = source.get("role")
+        texts = _source_texts(source, elements_by_id)
+        if role in _TITLE_ROLES:
+            titles.extend(texts)
+        elif role in _PERIOD_ROLES:
+            periods.extend(texts)
+        elif role in _UNIT_ROLES:
+            units.extend(texts)
+    parts: list[str] = []
+    parts.extend(_unique(titles))
+    parts.extend(row_lines)
+    parts.extend(f"기간={text}" for text in _unique(periods))
+    parts.extend(f"단위={text}" for text in _unique(units))
+    text = "\n".join(parts)
+    for cell in [*(record_cells or []), *body_cells]:
+        copied = _compact(cell["text"])
+        if copied and copied not in text:
+            return "", "table_not_lossless"
+    for copied in [*_unique(titles), *_unique(periods), *_unique(units)]:
+        if copied not in text:
+            return "", "table_not_lossless"
+    return text, "eligible_compact_table"
 
 
 def _finish_pieces(
