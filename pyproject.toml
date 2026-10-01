@@ -5,7 +5,10 @@ description = "DART disclosure discovery and versioned raw sync"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "fastapi>=0.115",
     "httpx>=0.27",
+    "numpy>=1.26",
+    "uvicorn>=0.32",
 ]
 
 [project.scripts]
@@ -19,6 +22,7 @@ dart-eval-dense = "disclosure_agent.cli:eval_dense_main"
 dart-eval-rrf = "disclosure_agent.cli:eval_rrf_main"
 dart-eval-rrf-zero-tie = "disclosure_agent.cli:eval_rrf_zero_tie_main"
 dart-eval-rerank = "disclosure_agent.cli:eval_rerank_main"
+dart-agent = "disclosure_agent.agent.api:main"
 
 [build-system]
 requires = ["hatchling"]

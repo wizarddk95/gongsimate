@@ -1,0 +1,26 @@
+"""Citations may point only at evidence ids from the current run."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from disclosure_agent.agent.errors import CitationValidationFailure
+
+
+@dataclass(frozen=True)
+class Citation:
+    citation_id: str
+    evidence_id: str
+
+    def to_dict(self) -> dict[str, str]:
+        return {"citation_id": self.citation_id, "evidence_id": self.evidence_id}
+
+
+class CitationValidator:
+    def validate(self, citations: list[Citation], evidence_ids: set[str]) -> None:
+        for citation in citations:
+            if citation.evidence_id not in evidence_ids:
+                raise CitationValidationFailure(
+                    f"citation {citation.citation_id} references {citation.evidence_id}, "
+                    "which is not in the current run"
+                )
