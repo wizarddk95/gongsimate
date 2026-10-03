@@ -1,0 +1,484 @@
+[
+  {
+    "question": "이수페타시스의 2025년 매출은?",
+    "status": "completed",
+    "action": "search_disclosures",
+    "tool_call_count": 1,
+    "calls": [
+      {
+        "status": "success",
+        "period": {
+          "year": 2025,
+          "quarter": null,
+          "half": null,
+          "mode": "exact",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": [
+          "annual"
+        ],
+        "as_of": "2026-09-25T10:26:24+09:00",
+        "top_k": 5,
+        "query": "2025년 매출액 실적",
+        "matched_filings": [
+          {
+            "receipt_no": "20260323000847",
+            "report_name": "사업보고서 (2025.12)",
+            "filing_period": "2025.12"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260323000847"
+        ]
+      }
+    ],
+    "citation_count": 2,
+    "generator_type": "openai",
+    "answer_excerpt": "2025년 연결 기준 매출액은 1조 880억 2,511만 9,176원입니다.\n별도재무제표 기준 매출액은 9,296억 6,487만 6,365원입니다.",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "이수페타시스의 2025년 1분기 매출은?",
+    "status": "completed",
+    "action": "search_disclosures",
+    "tool_call_count": 1,
+    "calls": [
+      {
+        "status": "success",
+        "period": {
+          "year": 2025,
+          "quarter": 1,
+          "half": null,
+          "mode": "exact",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": [
+          "quarterly"
+        ],
+        "as_of": null,
+        "top_k": 5,
+        "query": "2025년 1분기 매출액",
+        "matched_filings": [
+          {
+            "receipt_no": "20250514001051",
+            "report_name": "분기보고서 (2025.03)",
+            "filing_period": "2025.03"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20250514001051"
+        ]
+      }
+    ],
+    "citation_count": 2,
+    "generator_type": "openai",
+    "answer_excerpt": "연결 기준으로 이수페타시스의 2025년 1분기 매출은 252,489,862,715원(약 2,524억 9,000만 원)입니다.\n별도 기준 매출은 209,603,611,907원입니다.",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "이수페타시스 2025년 상반기 매출",
+    "status": "completed",
+    "action": "search_disclosures",
+    "tool_call_count": 2,
+    "calls": [
+      {
+        "status": "success",
+        "period": {
+          "year": 2025,
+          "quarter": null,
+          "half": 1,
+          "mode": "exact",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": [
+          "semiannual"
+        ],
+        "as_of": null,
+        "top_k": 5,
+        "query": "이수페타시스 2025년 상반기 매출액, 매출 실적",
+        "matched_filings": [
+          {
+            "receipt_no": "20250814003472",
+            "report_name": "반기보고서 (2025.06)",
+            "filing_period": "2025.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20250814003472"
+        ]
+      },
+      {
+        "status": "success",
+        "period": {
+          "year": 2025,
+          "quarter": null,
+          "half": 1,
+          "mode": "exact",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": [
+          "semiannual"
+        ],
+        "as_of": null,
+        "top_k": 5,
+        "query": "이수페타시스 2025년 상반기 매출액, 연결 및 별도 매출 실적",
+        "matched_filings": [
+          {
+            "receipt_no": "20250814003472",
+            "report_name": "반기보고서 (2025.06)",
+            "filing_period": "2025.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20250814003472"
+        ]
+      }
+    ],
+    "citation_count": 1,
+    "generator_type": "openai",
+    "answer_excerpt": "이수페타시스의 2025년 상반기 연결 매출액은 493,909,332,376원(약 4,939억 원)입니다.",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "이수페타시스 최근 실적은?",
+    "status": "completed",
+    "action": "search_disclosures",
+    "tool_call_count": 2,
+    "calls": [
+      {
+        "status": "success",
+        "period": {
+          "year": null,
+          "quarter": null,
+          "half": null,
+          "mode": "latest",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": null,
+        "as_of": null,
+        "top_k": 5,
+        "query": "이수페타시스 최근 실적 매출액 영업이익 당기순이익 및 전년 동기 대비",
+        "matched_filings": [
+          {
+            "receipt_no": "20260814002283",
+            "report_name": "반기보고서 (2026.06)",
+            "filing_period": "2026.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260814002283"
+        ]
+      },
+      {
+        "status": "success",
+        "period": {
+          "year": null,
+          "quarter": null,
+          "half": null,
+          "mode": "latest",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": null,
+        "as_of": null,
+        "top_k": 10,
+        "query": "2026년 상반기 최근 실적 매출액 영업이익 당기순이익 전년 동기 대비 연결 기준",
+        "matched_filings": [
+          {
+            "receipt_no": "20260814002283",
+            "report_name": "반기보고서 (2026.06)",
+            "filing_period": "2026.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260814002283"
+        ]
+      }
+    ],
+    "citation_count": 2,
+    "generator_type": "openai",
+    "answer_excerpt": "제공된 공시에서 확인되는 2026년 상반기 연결 실적은 매출액 720,170백만원, 영업이익 144,285백만원, 반기순이익 110,152백만원입니다. 전년 동기 대비 각각 46%, 61%, 58% 증가했습니다.\n다만 2026년 상반기 영업활동현금흐름은 496억원 유출로, 전년 동기 495억원 유입과 달랐습니다.",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "이수페타시스 요즘 실적 어때?",
+    "status": "company_ambiguous",
+    "action": "ask_clarification",
+    "tool_call_count": 0,
+    "calls": [],
+    "citation_count": 0,
+    "generator_type": "openai",
+    "answer_excerpt": "이수페타시스 또는 요즘 중 어느 기업을 말씀하시는 건가요?",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "이수페타시스의 주요 사업은?",
+    "status": "completed",
+    "action": "search_disclosures",
+    "tool_call_count": 2,
+    "calls": [
+      {
+        "status": "success",
+        "period": {
+          "year": 2026,
+          "quarter": 2,
+          "half": null,
+          "mode": "latest",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": [
+          "semiannual"
+        ],
+        "as_of": null,
+        "top_k": 5,
+        "query": "회사의 주요 사업 및 사업부문, 주요 제품과 서비스. 이수페타시스의 영업 개요",
+        "matched_filings": [
+          {
+            "receipt_no": "20260814002283",
+            "report_name": "반기보고서 (2026.06)",
+            "filing_period": "2026.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260814002283"
+        ]
+      },
+      {
+        "status": "success",
+        "period": {
+          "year": null,
+          "quarter": null,
+          "half": null,
+          "mode": "latest",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": null,
+        "as_of": null,
+        "top_k": 5,
+        "query": "이수페타시스의 주요 사업은 무엇인지, 주요 제품 및 서비스와 사업 개요. 인쇄회로기판(PCB)의 생산 및 적용 분야",
+        "matched_filings": [
+          {
+            "receipt_no": "20260814002283",
+            "report_name": "반기보고서 (2026.06)",
+            "filing_period": "2026.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260814002283"
+        ]
+      }
+    ],
+    "citation_count": 3,
+    "generator_type": "openai",
+    "answer_excerpt": "이수페타시스의 주요 사업은 전자제품의 핵심부품인 인쇄회로기판(PCB)의 제조와 판매이며, 한국 법인은 고다층 PCB(MLB)를 양산·판매합니다.\n2026년 반기 연결 기준 매출은 PCB 제품이 95.92%, PCB 상품이 4.08%를 차지했습니다.",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "이수페타시스 2025년 매출이 왜 늘었어?",
+    "status": "completed",
+    "action": "search_disclosures",
+    "tool_call_count": 2,
+    "calls": [
+      {
+        "status": "success",
+        "period": {
+          "year": 2025,
+          "quarter": null,
+          "half": null,
+          "mode": "exact",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": [
+          "annual"
+        ],
+        "as_of": null,
+        "top_k": 10,
+        "query": "2025년 매출 증가한 이유, 매출액 변동 원인 및 제품·시장·수요·판매량 관련 설명",
+        "matched_filings": [
+          {
+            "receipt_no": "20260323000847",
+            "report_name": "사업보고서 (2025.12)",
+            "filing_period": "2025.12"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260323000847"
+        ]
+      },
+      {
+        "status": "success",
+        "period": {
+          "year": 2025,
+          "quarter": null,
+          "half": null,
+          "mode": "exact",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": [
+          "annual"
+        ],
+        "as_of": null,
+        "top_k": 10,
+        "query": "2025년 매출 증가 원인 전년 대비 AI 가속기 스위치 서버 고다층 PCB 제품군 고객 수요 확대, 제품별 매출 및 판매량",
+        "matched_filings": [
+          {
+            "receipt_no": "20260323000847",
+            "report_name": "사업보고서 (2025.12)",
+            "filing_period": "2025.12"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260323000847"
+        ]
+      }
+    ],
+    "citation_count": 2,
+    "generator_type": "openai",
+    "answer_excerpt": "회사는 2025년 글로벌 IT 시장에서 AI 인프라 확대와 데이터센터의 성장으로 고다층 PCB 수요가 계속 늘었고, AI 가속기·스위치·서버 등 주요 전방산업 전반에서 고객 수요가 크게 확대됐다고 설명했습니다.\n회사는 병목공정 해소를 위한 선제적 생산능력 투자와 4공장의 본격 양산, 기존 공장의 자동화·설비 고도화로 생산능력을 확대했다고 밝혔습니다.\n연결 기준 2025년 매출은 1조 880억 원으로 전년보다 30.01% 증가했습니다.",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "이수페타시스 2035년 매출 목표를 제시했어?",
+    "status": "abstained",
+    "action": "abstain",
+    "tool_call_count": 2,
+    "calls": [
+      {
+        "status": "success",
+        "period": {
+          "year": null,
+          "quarter": null,
+          "half": null,
+          "mode": "latest",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": null,
+        "as_of": "2026-09-25T10:26:24+09:00",
+        "top_k": 20,
+        "query": "이수페타시스 2035년 매출 목표 매출액 목표 제시",
+        "matched_filings": [
+          {
+            "receipt_no": "20260814002283",
+            "report_name": "반기보고서 (2026.06)",
+            "filing_period": "2026.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260814002283"
+        ]
+      },
+      {
+        "status": "success",
+        "period": {
+          "year": null,
+          "quarter": null,
+          "half": null,
+          "mode": "latest",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": null,
+        "as_of": "2026-09-25T10:26:24+09:00",
+        "top_k": 10,
+        "query": "2035년 매출 목표, 장기 성장 전략, 2035년 매출액 전망 목표를 제시했는지",
+        "matched_filings": [
+          {
+            "receipt_no": "20260814002283",
+            "report_name": "반기보고서 (2026.06)",
+            "filing_period": "2026.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260814002283"
+        ]
+      }
+    ],
+    "citation_count": 0,
+    "generator_type": "openai",
+    "answer_excerpt": "검색된 공시에서 요청한 내용을 확인하지 못했습니다.",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "이수페타시스 2035년 확정 매출은?",
+    "status": "abstained",
+    "action": "abstain",
+    "tool_call_count": 2,
+    "calls": [
+      {
+        "status": "success",
+        "period": {
+          "year": null,
+          "quarter": null,
+          "half": null,
+          "mode": "latest",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": null,
+        "as_of": null,
+        "top_k": 20,
+        "query": "이수페타시스 2035년 확정 매출, 매출 목표 또는 전망",
+        "matched_filings": [
+          {
+            "receipt_no": "20260814002283",
+            "report_name": "반기보고서 (2026.06)",
+            "filing_period": "2026.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260814002283"
+        ]
+      },
+      {
+        "status": "success",
+        "period": {
+          "year": null,
+          "quarter": null,
+          "half": null,
+          "mode": "latest",
+          "year_from": null,
+          "year_to": null
+        },
+        "report_types": null,
+        "as_of": "2026-09-25T10:26:24+09:00",
+        "top_k": 10,
+        "query": "이수페타시스 2035년 확정 매출 목표 중장기 매출 목표",
+        "matched_filings": [
+          {
+            "receipt_no": "20260814002283",
+            "report_name": "반기보고서 (2026.06)",
+            "filing_period": "2026.06"
+          }
+        ],
+        "retrieved_receipt_nos": [
+          "20260814002283"
+        ]
+      }
+    ],
+    "citation_count": 0,
+    "generator_type": "openai",
+    "answer_excerpt": "검색된 공시에서 요청한 내용을 확인하지 못했습니다.",
+    "contains_2035_amount": false
+  },
+  {
+    "question": "안녕",
+    "status": "completed",
+    "action": "answer_directly",
+    "tool_call_count": 0,
+    "calls": [],
+    "citation_count": 0,
+    "generator_type": "direct",
+    "answer_excerpt": "안녕하세요. 기업 이름을 포함한 질문을 주시면 공시를 찾아 근거와 함께 답하겠습니다.",
+    "contains_2035_amount": false
+  }
+]

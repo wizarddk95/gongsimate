@@ -24,6 +24,7 @@ from disclosure_agent.retrieval_unit import (
     D2B_ORIGINAL_HYPOTHESIS_VALIDITY,
     D2B_VERSION,
     D2C_VERSION,
+    _explode_span,
     apply_compact_table_representation,
     assert_representation_only_topology,
     build_retrieval_units,
@@ -814,3 +815,150 @@ def test_pinned_d2c_representation_keeps_d2a_topology() -> None:
     assert {unit["retrieval_unit_id"] for unit in rewritten} == {
         unit["retrieval_unit_id"] for unit in baseline
     }
+
+
+def test_table_row_pack_keeps_body_text_that_has_no_row_index() -> None:
+    paragraph = "본문 설명"
+    cells = [_cell(0, 0, "매출"), _cell(0, 1, "100"), _cell(1, 0, "이익"), _cell(1, 1, "20")]
+    table_id = "table-1"
+    paragraph_id = "para-1"
+    lines = ["[section] 정책", paragraph, "매출 | 100", "이익 | 20"]
+    text = "\n".join(lines)
+    chunk = {
+        "chunk_id": "mixed-body",
+        "ordinal": 7,
+        "text": text,
+        "section_path": ["정책"],
+        "chunk_sources": [
+            {
+                "element_id": paragraph_id,
+                "kind": "paragraph",
+                "role": "body",
+                "char_start": 0,
+                "char_end": len(paragraph),
+            },
+            {
+                "element_id": table_id,
+                "kind": "table",
+                "role": "body",
+                "cells": [_ref(cell) for cell in cells],
+            },
+        ],
+    }
+    elements = {
+        paragraph_id: {"element_id": paragraph_id, "text": paragraph},
+        table_id: {
+            "element_id": table_id,
+            "table": {"cells": cells},
+        },
+    }
+
+    def counter(value: str) -> int:
+        return value.count("\n") + 1
+
+    units = build_retrieval_units(
+        [chunk],
+        elements,
+        mode="d2a",
+        token_counter=counter,
+        target_tokens=2,
+        hard_max_tokens=2,
+        model_max_tokens=8,
+    )
+    assert any(paragraph in unit["text"] for unit in units)
+    paragraph_refs = [
+        source
+        for unit in units
+        for source in unit["source_refs"]
+        if source.get("element_id") == paragraph_id
+    ]
+    assert paragraph_refs
+    assert "rows" not in paragraph_refs[0]
+    table_refs = [
+        source
+        for unit in units
+        for source in unit["source_refs"]
+        if source.get("element_id") == table_id and source.get("rows")
+    ]
+    assert {source["rows"]["start"] for source in table_refs} == {0, 1}
+
+
+def test_oversized_body_line_beside_table_rows_splits_on_its_source_span() -> None:
+    paragraph = " ".join(["설명"] * 40)
+    cells = [_cell(0, 0, "매출"), _cell(0, 1, "100"), _cell(1, 0, "이익"), _cell(1, 1, "20")]
+    table_id = "table-1"
+    paragraph_id = "para-1"
+    text = "\n".join(["[section] 정책", paragraph, "매출 | 100", "이익 | 20"])
+    chunk = {
+        "chunk_id": "long-body",
+        "ordinal": 8,
+        "text": text,
+        "section_path": ["정책"],
+        "chunk_sources": [
+            {
+                "element_id": paragraph_id,
+                "kind": "paragraph",
+                "role": "body",
+                "char_start": 0,
+                "char_end": len(paragraph),
+            },
+            {
+                "element_id": table_id,
+                "kind": "table",
+                "role": "body",
+                "cells": [_ref(cell) for cell in cells],
+            },
+        ],
+    }
+    elements = {
+        paragraph_id: {"element_id": paragraph_id, "text": paragraph},
+        table_id: {"element_id": table_id, "table": {"cells": cells}},
+    }
+    header = "[section] 정책"
+    hard_max = len(header) + 1 + len("매출 | 100")
+    units = build_retrieval_units(
+        [chunk],
+        elements,
+        mode="d2a",
+        token_counter=len,
+        target_tokens=max(1, hard_max // 2),
+        hard_max_tokens=hard_max,
+        model_max_tokens=hard_max * 4,
+    )
+    paragraph_units = [unit for unit in units if paragraph_id in unit["source_element_ids"]]
+    assert len(paragraph_units) > 1
+    assert all(unit["token_count"] <= hard_max for unit in units)
+    covered = "".join(
+        source["char_end"] - source["char_start"]
+        and paragraph[source["char_start"] : source["char_end"]]
+        for unit in paragraph_units
+        for source in unit["source_refs"]
+        if source.get("element_id") == paragraph_id
+    )
+    assert covered == paragraph
+
+
+def test_long_sentence_chain_does_not_use_the_call_stack() -> None:
+    import sys
+
+    body = "문장입니다. " * 1500
+    previous = sys.getrecursionlimit()
+    sys.setrecursionlimit(64)
+    try:
+        atoms = _explode_span(
+            body,
+            0,
+            len(body),
+            "numbered_heading",
+            "",
+            len,
+            hard_max_tokens=24,
+            first_cut=True,
+        )
+    finally:
+        sys.setrecursionlimit(previous)
+    assert atoms[0]["start"] == 0
+    assert atoms[-1]["end"] == len(body)
+    for left, right in zip(atoms, atoms[1:], strict=False):
+        assert left["end"] == right["start"]
+    assert len(atoms) > 100

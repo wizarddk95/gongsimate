@@ -1,0 +1,68 @@
+{
+  "device": "cuda",
+  "batch_size": 32,
+  "model_load_seconds": 9.602,
+  "isu_product_index_mtime_unchanged": true,
+  "partial_chunk_gate": [
+    {
+      "corp_code": "00126380",
+      "receipt_no": "20250311001085",
+      "report_nm": "사업보고서 (2024.12)",
+      "parse_status": "partial",
+      "chunk_result": "search input requires parse_manifest overall_status='success', got 'partial'. COMPLETE and the process exit code are not used."
+    }
+  ],
+  "indexes": [
+    {
+      "corp_code": "00126955",
+      "company_name": "삼양식품(주)",
+      "index_dir": "data/product/indexes/generalization/00126955",
+      "filings": 4,
+      "retrieval_unit_count": 8674,
+      "encode_seconds": 112.993,
+      "corpus_as_of": "2026-10-02T15:19:22+09:00",
+      "embedding_model": "BAAI/bge-m3",
+      "receipt_nos": [
+        "20260318001082",
+        "20250318001186",
+        "20260814003053",
+        "20260513000571"
+      ]
+    },
+    {
+      "corp_code": "00989619",
+      "company_name": "(주)알테오젠",
+      "index_dir": "data/product/indexes/generalization/00989619",
+      "filings": 4,
+      "retrieval_unit_count": 8986,
+      "encode_seconds": 165.096,
+      "corpus_as_of": "2026-10-02T15:19:23+09:00",
+      "embedding_model": "BAAI/bge-m3",
+      "receipt_nos": [
+        "20260323001596",
+        "20250321000557",
+        "20260814001294",
+        "20260515001517"
+      ]
+    },
+    {
+      "corp_code": "00121941",
+      "company_name": "대상(주)",
+      "index_dir": "data/product/indexes/generalization/00121941",
+      "filings": 7,
+      "retrieval_unit_count": 18261,
+      "encode_seconds": 295.34,
+      "corpus_as_of": "2026-10-02T15:19:27+09:00",
+      "embedding_model": "BAAI/bge-m3",
+      "receipt_nos": [
+        "20260318000733",
+        "20250319001095",
+        "20260814003187",
+        "20260515002571",
+        "20260911000415",
+        "20260327000936",
+        "20250321000555"
+      ]
+    }
+  ]
+}

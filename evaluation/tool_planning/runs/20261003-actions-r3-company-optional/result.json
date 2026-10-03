@@ -1,0 +1,3803 @@
+{
+  "model": "gpt-6-luna",
+  "request_time": {
+    "timezone": "Asia/Seoul",
+    "local": "2026-10-03 11:50:10",
+    "iso": "2026-10-03T11:50:10+09:00",
+    "weekday": "토요일",
+    "display": "2026-10-03 토요일 11:50:10 KST"
+  },
+  "corpus_as_of": "2026-09-25T10:26:24+09:00",
+  "latest_period": {
+    "year": 2026,
+    "month": 6
+  },
+  "elapsed_ms": 184596.718,
+  "summary": {
+    "cases": 49,
+    "passed": 47,
+    "failed": 2,
+    "errors": {
+      "excessive_repeated_tool_calls": 1,
+      "required_search_omitted": 1
+    },
+    "second_tool_calls": 39,
+    "usage": {
+      "input_tokens": 232212,
+      "output_tokens": 11002,
+      "total_tokens": 243214
+    },
+    "latency_ms": 184578.493
+  },
+  "cases": [
+    {
+      "id": "annual-2025-sales",
+      "category": "annual",
+      "question": "이수페타시스의 2025년 매출은?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 연간 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 2779.861,
+          "usage": {
+            "input_tokens": 2550,
+            "output_tokens": 92,
+            "total_tokens": 2642
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 연간 매출액, 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1879.786,
+          "usage": {
+            "input_tokens": 2620,
+            "output_tokens": 110,
+            "total_tokens": 2730
+          }
+        }
+      ],
+      "latency_ms": 4659.647,
+      "usage": {
+        "input_tokens": 5170,
+        "output_tokens": 202,
+        "total_tokens": 5372
+      }
+    },
+    {
+      "id": "annual-2025-sales-alt",
+      "category": "annual",
+      "question": "이수페타시스 25년도 매출액 알려줘",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출액, 연결 기준 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1850.149,
+          "usage": {
+            "input_tokens": 2550,
+            "output_tokens": 96,
+            "total_tokens": 2646
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출액 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1878.732,
+          "usage": {
+            "input_tokens": 2620,
+            "output_tokens": 92,
+            "total_tokens": 2712
+          }
+        }
+      ],
+      "latency_ms": 3728.881,
+      "usage": {
+        "input_tokens": 5170,
+        "output_tokens": 188,
+        "total_tokens": 5358
+      }
+    },
+    {
+      "id": "annual-fy2025",
+      "category": "annual",
+      "question": "이수페타시스 FY2025 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 FY2025 연간 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1759.909,
+          "usage": {
+            "input_tokens": 2547,
+            "output_tokens": 113,
+            "total_tokens": 2660
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 FY2025 연간 매출액 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1760.598,
+          "usage": {
+            "input_tokens": 2617,
+            "output_tokens": 115,
+            "total_tokens": 2732
+          }
+        }
+      ],
+      "latency_ms": 3520.507,
+      "usage": {
+        "input_tokens": 5164,
+        "output_tokens": 228,
+        "total_tokens": 5392
+      }
+    },
+    {
+      "id": "annual-2025-yearly",
+      "category": "annual",
+      "question": "이수페타시스의 2025년 연간 매출은 얼마야?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 연간 매출액, 연결 기준 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 1966.727,
+          "usage": {
+            "input_tokens": 2554,
+            "output_tokens": 119,
+            "total_tokens": 2673
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 연간 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1653.262,
+          "usage": {
+            "input_tokens": 2589,
+            "output_tokens": 114,
+            "total_tokens": 2703
+          }
+        }
+      ],
+      "latency_ms": 3619.989,
+      "usage": {
+        "input_tokens": 5143,
+        "output_tokens": 233,
+        "total_tokens": 5376
+      }
+    },
+    {
+      "id": "annual-2025-front",
+      "category": "annual",
+      "question": "2025년 이수페타시스 매출액",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 연간 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1601.39,
+          "usage": {
+            "input_tokens": 2548,
+            "output_tokens": 92,
+            "total_tokens": 2640
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 연간 매출액(매출, 연결 기준 및 별도 기준)",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1849.012,
+          "usage": {
+            "input_tokens": 2618,
+            "output_tokens": 103,
+            "total_tokens": 2721
+          }
+        }
+      ],
+      "latency_ms": 3450.402,
+      "usage": {
+        "input_tokens": 5166,
+        "output_tokens": 195,
+        "total_tokens": 5361
+      }
+    },
+    {
+      "id": "annual-2025-report",
+      "category": "annual",
+      "question": "이수페타시스 2025년 사업보고서 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 사업보고서 매출액, 연결 및 별도 기준",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 2796.779,
+          "usage": {
+            "input_tokens": 2551,
+            "output_tokens": 121,
+            "total_tokens": 2672
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 사업보고서 매출액 매출액(수익) 연결 및 별도 손익계산서",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 2149.613,
+          "usage": {
+            "input_tokens": 2621,
+            "output_tokens": 151,
+            "total_tokens": 2772
+          }
+        }
+      ],
+      "latency_ms": 4946.392,
+      "usage": {
+        "input_tokens": 5172,
+        "output_tokens": 272,
+        "total_tokens": 5444
+      }
+    },
+    {
+      "id": "annual-2025-confirmed",
+      "category": "annual",
+      "question": "이수페타시스의 2025년 확정 매출은?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 확정 매출액, 연결 기준 연간 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1843.751,
+          "usage": {
+            "input_tokens": 2552,
+            "output_tokens": 115,
+            "total_tokens": 2667
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 확정 연간 매출액, 연결 기준 매출 및 별도 기준 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 2038.103,
+          "usage": {
+            "input_tokens": 2622,
+            "output_tokens": 120,
+            "total_tokens": 2742
+          }
+        }
+      ],
+      "latency_ms": 3881.854,
+      "usage": {
+        "input_tokens": 5174,
+        "output_tokens": 235,
+        "total_tokens": 5409
+      }
+    },
+    {
+      "id": "annual-2025-result",
+      "category": "annual",
+      "question": "이수페타시스 25년 연간 실적",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 연간 실적 매출액 영업이익 당기순이익 연결 기준",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1857.98,
+          "usage": {
+            "input_tokens": 2549,
+            "output_tokens": 105,
+            "total_tokens": 2654
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 연간 실적 매출액 영업이익 당기순이익",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1755.712,
+          "usage": {
+            "input_tokens": 2619,
+            "output_tokens": 118,
+            "total_tokens": 2737
+          }
+        }
+      ],
+      "latency_ms": 3613.692,
+      "usage": {
+        "input_tokens": 5168,
+        "output_tokens": 223,
+        "total_tokens": 5391
+      }
+    },
+    {
+      "id": "q1-2025",
+      "category": "quarter",
+      "question": "이수페타시스의 2025년 1분기 매출은?",
+      "action": "search_disclosures",
+      "pass": false,
+      "errors": [
+        "excessive_repeated_tool_calls"
+      ],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 1분기 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250514001051",
+              "report_name": "분기보고서 (2025.03)",
+              "filing_period": "2025.03"
+            }
+          ],
+          "latency_ms": 1712.0,
+          "usage": {
+            "input_tokens": 2554,
+            "output_tokens": 95,
+            "total_tokens": 2649
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 1분기 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250514001051",
+              "report_name": "분기보고서 (2025.03)",
+              "filing_period": "2025.03"
+            }
+          ],
+          "latency_ms": 1619.593,
+          "usage": {
+            "input_tokens": 2625,
+            "output_tokens": 95,
+            "total_tokens": 2720
+          }
+        }
+      ],
+      "latency_ms": 3331.593,
+      "usage": {
+        "input_tokens": 5179,
+        "output_tokens": 190,
+        "total_tokens": 5369
+      }
+    },
+    {
+      "id": "q1-2025-short",
+      "category": "quarter",
+      "question": "이수페타시스 25년 Q1 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 1분기 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250514001051",
+              "report_name": "분기보고서 (2025.03)",
+              "filing_period": "2025.03"
+            }
+          ],
+          "latency_ms": 1419.658,
+          "usage": {
+            "input_tokens": 2549,
+            "output_tokens": 95,
+            "total_tokens": 2644
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 1분기 매출액 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250514001051",
+              "report_name": "분기보고서 (2025.03)",
+              "filing_period": "2025.03"
+            }
+          ],
+          "latency_ms": 1763.1,
+          "usage": {
+            "input_tokens": 2620,
+            "output_tokens": 104,
+            "total_tokens": 2724
+          }
+        }
+      ],
+      "latency_ms": 3182.758,
+      "usage": {
+        "input_tokens": 5169,
+        "output_tokens": 199,
+        "total_tokens": 5368
+      }
+    },
+    {
+      "id": "q3-2025",
+      "category": "quarter",
+      "question": "이수페타시스 2025년 3분기 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 3분기 매출액, 해당 분기 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 3,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20251114002130",
+              "report_name": "분기보고서 (2025.09)",
+              "filing_period": "2025.09"
+            }
+          ],
+          "latency_ms": 1746.989,
+          "usage": {
+            "input_tokens": 2552,
+            "output_tokens": 108,
+            "total_tokens": 2660
+          }
+        },
+        {
+          "action": "answer_directly",
+          "text": "이수페타시스의 2025년 3분기는 이미 지난 기간이지만, 현재 확인된 검색 결과에는 해당 분기 매출 수치가 포함되어 있지 않습니다. 제공된 선행 검색 상태상 2025년 3분기 분기보고서는 매칭됐으나 관련 내용 검색 결과(hits)가 없습니다.",
+          "company_mention": "이수페타시스",
+          "latency_ms": 1862.519,
+          "usage": {
+            "input_tokens": 2623,
+            "output_tokens": 102,
+            "total_tokens": 2725
+          }
+        }
+      ],
+      "latency_ms": 3609.508,
+      "usage": {
+        "input_tokens": 5175,
+        "output_tokens": 210,
+        "total_tokens": 5385
+      }
+    },
+    {
+      "id": "q1-2025-result",
+      "category": "quarter",
+      "question": "2025년 이수페타시스 1분기 실적 얼마야?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 1분기 실적 매출액 영업이익 당기순이익",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250514001051",
+              "report_name": "분기보고서 (2025.03)",
+              "filing_period": "2025.03"
+            }
+          ],
+          "latency_ms": 1702.757,
+          "usage": {
+            "input_tokens": 2553,
+            "output_tokens": 106,
+            "total_tokens": 2659
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 1분기 매출액 영업이익 당기순이익 실적",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 1618.155,
+          "usage": {
+            "input_tokens": 2624,
+            "output_tokens": 121,
+            "total_tokens": 2745
+          }
+        }
+      ],
+      "latency_ms": 3320.912,
+      "usage": {
+        "input_tokens": 5177,
+        "output_tokens": 227,
+        "total_tokens": 5404
+      }
+    },
+    {
+      "id": "q3-2024",
+      "category": "quarter",
+      "question": "이수페타시스 2024년 3분기 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 2024년 3분기 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2024,
+              "quarter": 3,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20241114002025",
+              "report_name": "분기보고서 (2024.09)",
+              "filing_period": "2024.09"
+            }
+          ],
+          "latency_ms": 1713.631,
+          "usage": {
+            "input_tokens": 2552,
+            "output_tokens": 102,
+            "total_tokens": 2654
+          }
+        },
+        {
+          "arguments": {
+            "query": "2024년 3분기 매출액, 당분기(2024년 7~9월)와 누적 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2024,
+              "quarter": 3,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20241114002025",
+              "report_name": "분기보고서 (2024.09)",
+              "filing_period": "2024.09"
+            }
+          ],
+          "latency_ms": 1699.764,
+          "usage": {
+            "input_tokens": 2623,
+            "output_tokens": 115,
+            "total_tokens": 2738
+          }
+        }
+      ],
+      "latency_ms": 3413.395,
+      "usage": {
+        "input_tokens": 5175,
+        "output_tokens": 217,
+        "total_tokens": 5392
+      }
+    },
+    {
+      "id": "q1-2026",
+      "category": "quarter",
+      "question": "이수페타시스 2026년 1분기 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 2026년 1분기 매출액",
+            "company_id": "00107613",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260515002006",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ],
+          "latency_ms": 1992.403,
+          "usage": {
+            "input_tokens": 2552,
+            "output_tokens": 125,
+            "total_tokens": 2677
+          }
+        },
+        {
+          "action": "answer_directly",
+          "text": "이수페타시스의 2026년 1분기 매출은 아직 실적이 아니어서 확정 수치로 답할 수 없습니다.",
+          "company_mention": "이수페타시스",
+          "latency_ms": 1714.031,
+          "usage": {
+            "input_tokens": 2623,
+            "output_tokens": 62,
+            "total_tokens": 2685
+          }
+        }
+      ],
+      "latency_ms": 3706.434,
+      "usage": {
+        "input_tokens": 5175,
+        "output_tokens": 187,
+        "total_tokens": 5362
+      }
+    },
+    {
+      "id": "h1-2025",
+      "category": "half",
+      "question": "이수페타시스 2025년 상반기 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 상반기 매출액, 연결 및 별도 기준",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250814003472",
+              "report_name": "반기보고서 (2025.06)",
+              "filing_period": "2025.06"
+            }
+          ],
+          "latency_ms": 1741.858,
+          "usage": {
+            "input_tokens": 2551,
+            "output_tokens": 107,
+            "total_tokens": 2658
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 상반기 매출액(수익) 연결 및 별도 재무제표 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250814003472",
+              "report_name": "반기보고서 (2025.06)",
+              "filing_period": "2025.06"
+            }
+          ],
+          "latency_ms": 2141.942,
+          "usage": {
+            "input_tokens": 2622,
+            "output_tokens": 157,
+            "total_tokens": 2779
+          }
+        }
+      ],
+      "latency_ms": 3883.8,
+      "usage": {
+        "input_tokens": 5173,
+        "output_tokens": 264,
+        "total_tokens": 5437
+      }
+    },
+    {
+      "id": "h1-2025-semi",
+      "category": "half",
+      "question": "이수페타시스의 2025년 반기 실적은?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 상반기 반기 실적 매출액 영업이익 당기순이익",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": 2,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "no_matching_filing",
+          "matched_filings": [],
+          "latency_ms": 2137.63,
+          "usage": {
+            "input_tokens": 2552,
+            "output_tokens": 153,
+            "total_tokens": 2705
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 상반기 반기 실적 매출액 영업이익 당기순이익",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250814003472",
+              "report_name": "반기보고서 (2025.06)",
+              "filing_period": "2025.06"
+            }
+          ],
+          "latency_ms": 2371.475,
+          "usage": {
+            "input_tokens": 2584,
+            "output_tokens": 148,
+            "total_tokens": 2732
+          }
+        }
+      ],
+      "latency_ms": 4509.105,
+      "usage": {
+        "input_tokens": 5136,
+        "output_tokens": 301,
+        "total_tokens": 5437
+      }
+    },
+    {
+      "id": "h1-2025-short",
+      "category": "half",
+      "question": "이수페타시스 25년 상반기 매출액",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 상반기 매출액(매출액)",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250814003472",
+              "report_name": "반기보고서 (2025.06)",
+              "filing_period": "2025.06"
+            }
+          ],
+          "latency_ms": 2254.241,
+          "usage": {
+            "input_tokens": 2551,
+            "output_tokens": 99,
+            "total_tokens": 2650
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 상반기 매출액 (연결 기준 및 별도 기준 매출액)",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250814003472",
+              "report_name": "반기보고서 (2025.06)",
+              "filing_period": "2025.06"
+            }
+          ],
+          "latency_ms": 1760.032,
+          "usage": {
+            "input_tokens": 2622,
+            "output_tokens": 106,
+            "total_tokens": 2728
+          }
+        }
+      ],
+      "latency_ms": 4014.273,
+      "usage": {
+        "input_tokens": 5173,
+        "output_tokens": 205,
+        "total_tokens": 5378
+      }
+    },
+    {
+      "id": "h1-2026",
+      "category": "half",
+      "question": "이수페타시스 2026년 상반기 실적",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 2026년 상반기 실적 매출액 영업이익 당기순이익",
+            "company_id": "00107613",
+            "period": {
+              "year": 2026,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1473.814,
+          "usage": {
+            "input_tokens": 2551,
+            "output_tokens": 112,
+            "total_tokens": 2663
+          }
+        },
+        {
+          "arguments": {
+            "query": "2026년 상반기 실적 매출액 영업이익 당기순이익 전년 동기 대비",
+            "company_id": "00107613",
+            "period": {
+              "year": 2026,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2587.665,
+          "usage": {
+            "input_tokens": 2622,
+            "output_tokens": 125,
+            "total_tokens": 2747
+          }
+        }
+      ],
+      "latency_ms": 4061.479,
+      "usage": {
+        "input_tokens": 5173,
+        "output_tokens": 237,
+        "total_tokens": 5410
+      }
+    },
+    {
+      "id": "latest-recent",
+      "category": "latest",
+      "question": "이수페타시스 최근 실적은?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "최근 실적 매출액 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2263.512,
+          "usage": {
+            "input_tokens": 2546,
+            "output_tokens": 118,
+            "total_tokens": 2664
+          }
+        },
+        {
+          "arguments": {
+            "query": "2026년 최근 실적 매출액 영업이익 당기순이익 전년 동기 대비",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2545.426,
+          "usage": {
+            "input_tokens": 2617,
+            "output_tokens": 105,
+            "total_tokens": 2722
+          }
+        }
+      ],
+      "latency_ms": 4808.938,
+      "usage": {
+        "input_tokens": 5163,
+        "output_tokens": 223,
+        "total_tokens": 5386
+      }
+    },
+    {
+      "id": "latest-nowadays",
+      "category": "latest",
+      "question": "이수페타시스 요즘 실적 어때?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "최근 실적 매출액 영업이익 당기순이익 전년 동기 대비 실적 추이",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 3011.299,
+          "usage": {
+            "input_tokens": 2548,
+            "output_tokens": 211,
+            "total_tokens": 2759
+          }
+        },
+        {
+          "arguments": {
+            "query": "최근 실적 매출액 영업이익 순이익 전년 동기 대비 2026년 상반기 및 2026년 2분기 실적 추이, 실적 변동 원인",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 2359.317,
+          "usage": {
+            "input_tokens": 2619,
+            "output_tokens": 142,
+            "total_tokens": 2761
+          }
+        }
+      ],
+      "latency_ms": 5370.616,
+      "usage": {
+        "input_tokens": 5167,
+        "output_tokens": 353,
+        "total_tokens": 5520
+      }
+    },
+    {
+      "id": "latest-most-recent",
+      "category": "latest",
+      "question": "이수페타시스 가장 최근 매출 알려줘",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "가장 최근 매출액, 매출액 금액",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 1837.396,
+          "usage": {
+            "input_tokens": 2548,
+            "output_tokens": 109,
+            "total_tokens": 2657
+          }
+        },
+        {
+          "arguments": {
+            "query": "가장 최근 매출액, 매출 실적",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2205.135,
+          "usage": {
+            "input_tokens": 2583,
+            "output_tokens": 137,
+            "total_tokens": 2720
+          }
+        }
+      ],
+      "latency_ms": 4042.531,
+      "usage": {
+        "input_tokens": 5131,
+        "output_tokens": 246,
+        "total_tokens": 5377
+      }
+    },
+    {
+      "id": "latest-announced",
+      "category": "latest",
+      "question": "이수페타시스가 최근 발표한 실적",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "최근 발표한 실적의 매출액, 영업이익, 당기순이익 및 전년 동기 대비 증감",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2450.883,
+          "usage": {
+            "input_tokens": 2548,
+            "output_tokens": 125,
+            "total_tokens": 2673
+          }
+        },
+        {
+          "arguments": {
+            "query": "최근 발표한 실적 매출액 영업이익 당기순이익 2026년 상반기 반기 실적",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1875.126,
+          "usage": {
+            "input_tokens": 2619,
+            "output_tokens": 125,
+            "total_tokens": 2744
+          }
+        }
+      ],
+      "latency_ms": 4326.009,
+      "usage": {
+        "input_tokens": 5167,
+        "output_tokens": 250,
+        "total_tokens": 5417
+      }
+    },
+    {
+      "id": "latest-available",
+      "category": "latest",
+      "question": "이수페타시스 지금 확인 가능한 최신 실적",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 최신 실적 매출액 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 1906.933,
+          "usage": {
+            "input_tokens": 2548,
+            "output_tokens": 124,
+            "total_tokens": 2672
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 최신 실적 매출액 영업이익 당기순이익 2026년 상반기 반기 누적 및 2분기",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1870.726,
+          "usage": {
+            "input_tokens": 2583,
+            "output_tokens": 134,
+            "total_tokens": 2717
+          }
+        }
+      ],
+      "latency_ms": 3777.659,
+      "usage": {
+        "input_tokens": 5131,
+        "output_tokens": 258,
+        "total_tokens": 5389
+      }
+    },
+    {
+      "id": "latest-last",
+      "category": "latest",
+      "question": "이수페타시스 마지막으로 나온 실적",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스 가장 최근 발표된 실적의 매출액, 영업이익, 당기순이익 및 전년 동기 대비",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1921.885,
+          "usage": {
+            "input_tokens": 2547,
+            "output_tokens": 130,
+            "total_tokens": 2677
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 가장 최근 발표된 실적: 2026년 상반기 누적 및 2026년 2분기 매출액, 영업이익, 당기순이익과 전년 동기 대비 증감",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2565.261,
+          "usage": {
+            "input_tokens": 2618,
+            "output_tokens": 135,
+            "total_tokens": 2753
+          }
+        }
+      ],
+      "latency_ms": 4487.146,
+      "usage": {
+        "input_tokens": 5165,
+        "output_tokens": 265,
+        "total_tokens": 5430
+      }
+    },
+    {
+      "id": "latest-sales",
+      "category": "latest",
+      "question": "이수페타시스 최근 매출 얼마야?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "가장 최근 매출액, 매출 실적. 해당 보고기간의 매출액 수치와 단위",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1905.422,
+          "usage": {
+            "input_tokens": 2547,
+            "output_tokens": 121,
+            "total_tokens": 2668
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스의 최근 매출액, 가장 최근 공시된 2026년 상반기 매출액을 확인하고 매출 금액을 답변해 주세요.",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 2406.061,
+          "usage": {
+            "input_tokens": 2618,
+            "output_tokens": 136,
+            "total_tokens": 2754
+          }
+        }
+      ],
+      "latency_ms": 4311.483,
+      "usage": {
+        "input_tokens": 5165,
+        "output_tokens": 257,
+        "total_tokens": 5422
+      }
+    },
+    {
+      "id": "latest-newest",
+      "category": "latest",
+      "question": "이수페타시스의 최신 실적 알려줘",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "최신 실적 매출액 영업이익 당기순이익 전년 동기 대비",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 20
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1852.909,
+          "usage": {
+            "input_tokens": 2548,
+            "output_tokens": 118,
+            "total_tokens": 2666
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 최신 실적 2026년 상반기 매출액 영업이익 당기순이익 전년 동기 비교 연결 기준",
+            "company_id": "00107613",
+            "period": {
+              "year": 2026,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1850.622,
+          "usage": {
+            "input_tokens": 2619,
+            "output_tokens": 135,
+            "total_tokens": 2754
+          }
+        }
+      ],
+      "latency_ms": 3703.531,
+      "usage": {
+        "input_tokens": 5167,
+        "output_tokens": 253,
+        "total_tokens": 5420
+      }
+    },
+    {
+      "id": "why-2025",
+      "category": "explanation",
+      "question": "이수페타시스 2025년 매출이 왜 늘었어?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출 증가 원인, 매출액 증감 사유, 제품 및 고객/수요 변화",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 2068.263,
+          "usage": {
+            "input_tokens": 2553,
+            "output_tokens": 123,
+            "total_tokens": 2676
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출 증가 원인 매출액 증가 배경 사업부문 제품 판매량 고객사 수요 고다층 PCB AI 가속기 네트워크",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1983.986,
+          "usage": {
+            "input_tokens": 2623,
+            "output_tokens": 134,
+            "total_tokens": 2757
+          }
+        }
+      ],
+      "latency_ms": 4052.249,
+      "usage": {
+        "input_tokens": 5176,
+        "output_tokens": 257,
+        "total_tokens": 5433
+      }
+    },
+    {
+      "id": "why-2025-background",
+      "category": "explanation",
+      "question": "이수페타시스 25년 매출 증가 배경",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출 증가 배경, 매출액 증감 원인, 제품·지역별 매출, AI·데이터센터·통신장비용 PCB 수요와 고객 및 가동률 변화",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 2100.826,
+          "usage": {
+            "input_tokens": 2550,
+            "output_tokens": 129,
+            "total_tokens": 2679
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출액 증가 배경 및 원인. 전년 대비 매출 증가 요인, 제품·사업부문별 매출 및 수요, AI 가속기·데이터센터 네트워크 등 관련 설명",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 2116.014,
+          "usage": {
+            "input_tokens": 2620,
+            "output_tokens": 147,
+            "total_tokens": 2767
+          }
+        }
+      ],
+      "latency_ms": 4216.84,
+      "usage": {
+        "input_tokens": 5170,
+        "output_tokens": 276,
+        "total_tokens": 5446
+      }
+    },
+    {
+      "id": "why-yoy",
+      "category": "explanation",
+      "question": "이수페타시스 전년 대비 매출 증가 원인",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "전년 대비 매출액 증가 원인 및 매출 실적 증가 배경",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 1692.977,
+          "usage": {
+            "input_tokens": 2550,
+            "output_tokens": 101,
+            "total_tokens": 2651
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출액 전년 대비 증가 원인 매출 증가 배경 제품별 수요 판매량 가격 제품 믹스",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 1961.945,
+          "usage": {
+            "input_tokens": 2620,
+            "output_tokens": 127,
+            "total_tokens": 2747
+          }
+        }
+      ],
+      "latency_ms": 3654.922,
+      "usage": {
+        "input_tokens": 5170,
+        "output_tokens": 228,
+        "total_tokens": 5398
+      }
+    },
+    {
+      "id": "why-that-year",
+      "category": "explanation",
+      "question": "이수페타시스 그해 매출이 좋아진 이유",
+      "action": "ask_clarification",
+      "pass": false,
+      "errors": [
+        "required_search_omitted"
+      ],
+      "tool_called": false,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "action": "ask_clarification",
+          "text": "몇 년도의 매출이 좋아진 이유를 말씀하시는 건가요? 예를 들어 2024년 또는 2025년처럼 연도를 알려 주세요.",
+          "company_mention": "이수페타시스",
+          "latency_ms": 2591.391,
+          "usage": {
+            "input_tokens": 2550,
+            "output_tokens": 159,
+            "total_tokens": 2709
+          }
+        }
+      ],
+      "latency_ms": 2591.391,
+      "usage": {
+        "input_tokens": 2550,
+        "output_tokens": 159,
+        "total_tokens": 2709
+      }
+    },
+    {
+      "id": "why-2025-reason",
+      "category": "explanation",
+      "question": "이수페타시스의 2025년 매출 증가 이유는?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출 증가 원인, 매출액 증가 배경, 제품별 판매량 및 수요 변화, 사업부문별 실적 증감 요인",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 2760.658,
+          "usage": {
+            "input_tokens": 2552,
+            "output_tokens": 185,
+            "total_tokens": 2737
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 2025년 매출 증가 이유 및 배경. 2024년 대비 매출 증대 원인, 제품·수요·고객·AI 서버 및 네트워크용 고다층 인쇄회로기판(MLB) 판매 증가 여부",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "range",
+              "year_from": 2025,
+              "year_to": 2026
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 20
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            },
+            {
+              "receipt_no": "20260515002006",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            },
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            },
+            {
+              "receipt_no": "20251114002130",
+              "report_name": "분기보고서 (2025.09)",
+              "filing_period": "2025.09"
+            },
+            {
+              "receipt_no": "20250814003472",
+              "report_name": "반기보고서 (2025.06)",
+              "filing_period": "2025.06"
+            },
+            {
+              "receipt_no": "20250514001051",
+              "report_name": "분기보고서 (2025.03)",
+              "filing_period": "2025.03"
+            }
+          ],
+          "latency_ms": 4268.532,
+          "usage": {
+            "input_tokens": 2622,
+            "output_tokens": 314,
+            "total_tokens": 2936
+          }
+        }
+      ],
+      "latency_ms": 7029.19,
+      "usage": {
+        "input_tokens": 5174,
+        "output_tokens": 499,
+        "total_tokens": 5673
+      }
+    },
+    {
+      "id": "why-2024-drop",
+      "category": "explanation",
+      "question": "이수페타시스가 2024년에 매출이 줄어든 이유는?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2024년 매출액이 2023년보다 감소한 원인, 제품·지역별 매출 변화 및 사업보고서상 경영진 설명",
+            "company_id": "00107613",
+            "period": {
+              "year": 2024,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20250320001435",
+              "report_name": "사업보고서 (2024.12)",
+              "filing_period": "2024.12"
+            }
+          ],
+          "latency_ms": 2030.304,
+          "usage": {
+            "input_tokens": 2555,
+            "output_tokens": 117,
+            "total_tokens": 2672
+          }
+        },
+        {
+          "arguments": {
+            "query": "2024년 매출액이 전년 대비 감소한 원인, 매출 감소 배경 및 제품·지역별 매출 변동",
+            "company_id": "00107613",
+            "period": {
+              "year": 2024,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 8
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 2329.204,
+          "usage": {
+            "input_tokens": 2625,
+            "output_tokens": 128,
+            "total_tokens": 2753
+          }
+        }
+      ],
+      "latency_ms": 4359.508,
+      "usage": {
+        "input_tokens": 5180,
+        "output_tokens": 245,
+        "total_tokens": 5425
+      }
+    },
+    {
+      "id": "forecast-2035-target",
+      "category": "forecast",
+      "question": "이수페타시스 2035년 목표가 있어?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2035년 목표, 중장기 비전·사업목표·매출 목표 또는 계획",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 3313.94,
+          "usage": {
+            "input_tokens": 2549,
+            "output_tokens": 176,
+            "total_tokens": 2725
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 2035년 목표, 중장기 목표, 사업 목표 및 전망",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 1864.083,
+          "usage": {
+            "input_tokens": 2620,
+            "output_tokens": 118,
+            "total_tokens": 2738
+          }
+        }
+      ],
+      "latency_ms": 5178.023,
+      "usage": {
+        "input_tokens": 5169,
+        "output_tokens": 294,
+        "total_tokens": 5463
+      }
+    },
+    {
+      "id": "forecast-2030-target",
+      "category": "forecast",
+      "question": "이수페타시스 2030년 목표가 있어?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2030년 목표, 중장기 목표, 매출·이익·사업 목표 및 전망",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2435.342,
+          "usage": {
+            "input_tokens": 2549,
+            "output_tokens": 174,
+            "total_tokens": 2723
+          }
+        },
+        {
+          "arguments": {
+            "query": "2030년 목표, 중장기 경영목표, 매출 및 영업이익 목표, 생산능력·사업계획 목표",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 20
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1884.973,
+          "usage": {
+            "input_tokens": 2620,
+            "output_tokens": 127,
+            "total_tokens": 2747
+          }
+        }
+      ],
+      "latency_ms": 4320.315,
+      "usage": {
+        "input_tokens": 5169,
+        "output_tokens": 301,
+        "total_tokens": 5470
+      }
+    },
+    {
+      "id": "forecast-outlook",
+      "category": "forecast",
+      "question": "이수페타시스 향후 매출 전망",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "향후 매출 전망, 매출 목표 및 계획, 주요 제품별 수요·수주 전망과 실적 전망의 근거",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2029.401,
+          "usage": {
+            "input_tokens": 2547,
+            "output_tokens": 125,
+            "total_tokens": 2672
+          }
+        },
+        {
+          "arguments": {
+            "query": "향후 매출 전망, 매출액 목표·계획·예상 및 성장 전망, 주요 사업·수주·생산능력 관련 전망",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2032.492,
+          "usage": {
+            "input_tokens": 2618,
+            "output_tokens": 129,
+            "total_tokens": 2747
+          }
+        }
+      ],
+      "latency_ms": 4061.893,
+      "usage": {
+        "input_tokens": 5165,
+        "output_tokens": 254,
+        "total_tokens": 5419
+      }
+    },
+    {
+      "id": "forecast-forward",
+      "category": "forecast",
+      "question": "이수페타시스는 앞으로 얼마나 팔겠다고 했어?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "앞으로의 매출 목표·전망·계획, 향후 얼마나 판매하겠다고 했는지 매출액 목표 또는 수주·판매 계획",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "corpus_not_fresh_enough",
+          "matched_filings": [],
+          "latency_ms": 2703.629,
+          "usage": {
+            "input_tokens": 2550,
+            "output_tokens": 169,
+            "total_tokens": 2719
+          }
+        },
+        {
+          "arguments": {
+            "query": "향후 매출 목표 전망 매출액 얼마나 판매하겠다고 했는지",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2784.64,
+          "usage": {
+            "input_tokens": 2585,
+            "output_tokens": 167,
+            "total_tokens": 2752
+          }
+        }
+      ],
+      "latency_ms": 5488.269,
+      "usage": {
+        "input_tokens": 5135,
+        "output_tokens": 336,
+        "total_tokens": 5471
+      }
+    },
+    {
+      "id": "forecast-long-term",
+      "category": "forecast",
+      "question": "이수페타시스가 장기 매출 목표를 제시했나?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "장기 매출 목표, 중장기 매출 목표 또는 매출 전망을 제시했는지와 목표 금액·시점·관련 설명",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1914.451,
+          "usage": {
+            "input_tokens": 2553,
+            "output_tokens": 129,
+            "total_tokens": 2682
+          }
+        },
+        {
+          "arguments": {
+            "query": "회사가 제시한 장기 매출 목표, 중장기 매출 목표·계획·전망이 있는지와 목표 금액·목표 연도 또는 기간",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 20
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2234.322,
+          "usage": {
+            "input_tokens": 2624,
+            "output_tokens": 134,
+            "total_tokens": 2758
+          }
+        }
+      ],
+      "latency_ms": 4148.773,
+      "usage": {
+        "input_tokens": 5177,
+        "output_tokens": 263,
+        "total_tokens": 5440
+      }
+    },
+    {
+      "id": "forecast-2035-presented",
+      "category": "forecast",
+      "question": "이수페타시스 2035년 매출 목표를 제시했어?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "이수페타시스가 제시한 2035년 매출 목표, 2035년 매출액 목표 또는 장기 매출 계획·전망이 있는지와 목표 금액",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 20
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2728.274,
+          "usage": {
+            "input_tokens": 2554,
+            "output_tokens": 184,
+            "total_tokens": 2738
+          }
+        },
+        {
+          "arguments": {
+            "query": "2035년 매출 목표, 장기 매출 목표, 중장기 사업 목표 또는 매출 전망을 제시했는지",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1904.34,
+          "usage": {
+            "input_tokens": 2625,
+            "output_tokens": 110,
+            "total_tokens": 2735
+          }
+        }
+      ],
+      "latency_ms": 4632.614,
+      "usage": {
+        "input_tokens": 5179,
+        "output_tokens": 294,
+        "total_tokens": 5473
+      }
+    },
+    {
+      "id": "confirmed-2035",
+      "category": "confirmed_future",
+      "question": "이수페타시스 2035년 확정 매출은?",
+      "action": "answer_directly",
+      "pass": true,
+      "errors": [],
+      "tool_called": false,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "action": "answer_directly",
+          "text": "2035년은 아직 오지 않은 기간이므로 이수페타시스의 확정 매출은 아직 없습니다. 확정 실적이 아닌 목표나 전망을 찾으시는 거라면 말씀해 주세요.",
+          "company_mention": "이수페타시스",
+          "latency_ms": 1788.362,
+          "usage": {
+            "input_tokens": 2551,
+            "output_tokens": 74,
+            "total_tokens": 2625
+          }
+        }
+      ],
+      "latency_ms": 1788.362,
+      "usage": {
+        "input_tokens": 2551,
+        "output_tokens": 74,
+        "total_tokens": 2625
+      }
+    },
+    {
+      "id": "confirmed-2035-tell",
+      "category": "confirmed_future",
+      "question": "2035년 이수페타시스 확정 매출 알려줘",
+      "action": "answer_directly",
+      "pass": true,
+      "errors": [],
+      "tool_called": false,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "action": "answer_directly",
+          "text": "2035년은 아직 오지 않은 기간이므로 이수페타시스의 확정 매출은 없습니다. 실현된 실적으로 확인할 수 없습니다.",
+          "company_mention": "이수페타시스",
+          "latency_ms": 1424.99,
+          "usage": {
+            "input_tokens": 2551,
+            "output_tokens": 63,
+            "total_tokens": 2614
+          }
+        }
+      ],
+      "latency_ms": 1424.99,
+      "usage": {
+        "input_tokens": 2551,
+        "output_tokens": 63,
+        "total_tokens": 2614
+      }
+    },
+    {
+      "id": "confirmed-2035-annual",
+      "category": "confirmed_future",
+      "question": "이수페타시스의 2035년 연간 확정 실적은?",
+      "action": "answer_directly",
+      "pass": true,
+      "errors": [],
+      "tool_called": false,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "action": "answer_directly",
+          "text": "2035년은 현재(2026년 10월 3일)보다 미래이므로 이수페타시스의 연간 확정 실적은 아직 존재하지 않습니다.",
+          "company_mention": "이수페타시스",
+          "latency_ms": 1748.586,
+          "usage": {
+            "input_tokens": 2554,
+            "output_tokens": 67,
+            "total_tokens": 2621
+          }
+        }
+      ],
+      "latency_ms": 1748.586,
+      "usage": {
+        "input_tokens": 2554,
+        "output_tokens": 67,
+        "total_tokens": 2621
+      }
+    },
+    {
+      "id": "none-hello",
+      "category": "no_search",
+      "question": "안녕",
+      "action": "answer_directly",
+      "pass": true,
+      "errors": [],
+      "tool_called": false,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "action": "answer_directly",
+          "text": "안녕하세요! 무엇을 도와드릴까요?",
+          "company_mention": null,
+          "latency_ms": 1031.144,
+          "usage": {
+            "input_tokens": 2538,
+            "output_tokens": 35,
+            "total_tokens": 2573
+          }
+        }
+      ],
+      "latency_ms": 1031.144,
+      "usage": {
+        "input_tokens": 2538,
+        "output_tokens": 35,
+        "total_tokens": 2573
+      }
+    },
+    {
+      "id": "none-rag",
+      "category": "no_search",
+      "question": "RAG가 뭐야?",
+      "action": "answer_directly",
+      "pass": true,
+      "errors": [],
+      "tool_called": false,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "action": "answer_directly",
+          "text": "RAG는 **Retrieval-Augmented Generation(검색 증강 생성)**의 약자예요. AI가 답을 만들기 전에 관련 문서나 데이터베이스에서 정보를 검색해, 그 내용을 참고해 답변하는 방식입니다.\n\n예를 들어 사내 규정 문서를 찾아 관련 조항을 확인한 뒤 질문에 답하게 하면, 모델의 기억에만 의존하는 것보다 최신·전문적인 정보를 반영하고 근거를 제시하기 쉬워집니다. 다만 검색된 자료가 부정확하거나 빠져 있으면 답도 틀릴 수 있어요.",
+          "company_mention": null,
+          "latency_ms": 2616.958,
+          "usage": {
+            "input_tokens": 2541,
+            "output_tokens": 151,
+            "total_tokens": 2692
+          }
+        }
+      ],
+      "latency_ms": 2616.958,
+      "usage": {
+        "input_tokens": 2541,
+        "output_tokens": 151,
+        "total_tokens": 2692
+      }
+    },
+    {
+      "id": "none-thanks",
+      "category": "no_search",
+      "question": "고마워",
+      "action": "answer_directly",
+      "pass": true,
+      "errors": [],
+      "tool_called": false,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "action": "answer_directly",
+          "text": "천만에요! 더 궁금한 점 있으면 언제든 말씀해 주세요.",
+          "company_mention": null,
+          "latency_ms": 1533.017,
+          "usage": {
+            "input_tokens": 2539,
+            "output_tokens": 41,
+            "total_tokens": 2580
+          }
+        }
+      ],
+      "latency_ms": 1533.017,
+      "usage": {
+        "input_tokens": 2539,
+        "output_tokens": 41,
+        "total_tokens": 2580
+      }
+    },
+    {
+      "id": "none-weather",
+      "category": "no_search",
+      "question": "오늘 날씨 어때?",
+      "action": "answer_directly",
+      "pass": true,
+      "errors": [],
+      "tool_called": false,
+      "second_tool_call": false,
+      "turns": [
+        {
+          "action": "answer_directly",
+          "text": "실시간 날씨 정보에는 접근할 수 없어 오늘 날씨를 확인해 드리기 어렵습니다. 계신 지역을 알려 주시면 날씨 앱이나 기상청에서 확인할 때 필요한 정보를 안내해 드릴게요.",
+          "company_mention": null,
+          "latency_ms": 1910.052,
+          "usage": {
+            "input_tokens": 2541,
+            "output_tokens": 72,
+            "total_tokens": 2613
+          }
+        }
+      ],
+      "latency_ms": 1910.052,
+      "usage": {
+        "input_tokens": 2541,
+        "output_tokens": 72,
+        "total_tokens": 2613
+      }
+    },
+    {
+      "id": "business-main",
+      "category": "business",
+      "question": "이수페타시스의 주요 사업은?",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "회사의 주요 사업 및 사업부문, 제품: 인쇄회로기판(PCB) 제조·판매, 사업 내용",
+            "company_id": "00107613",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 2056.997,
+          "usage": {
+            "input_tokens": 2546,
+            "output_tokens": 123,
+            "total_tokens": 2669
+          }
+        },
+        {
+          "arguments": {
+            "query": "회사의 주요 사업, 영위 사업 및 주요 제품. PCB 인쇄회로기판 사업 내용",
+            "company_id": "00107613",
+            "period": {
+              "year": 2026,
+              "quarter": 2,
+              "half": 2,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": "2026-10-03T11:50:10+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "invalid_arguments",
+          "matched_filings": [],
+          "latency_ms": 1899.364,
+          "usage": {
+            "input_tokens": 2617,
+            "output_tokens": 121,
+            "total_tokens": 2738
+          }
+        }
+      ],
+      "latency_ms": 3956.361,
+      "usage": {
+        "input_tokens": 5163,
+        "output_tokens": 244,
+        "total_tokens": 5407
+      }
+    },
+    {
+      "id": "business-what",
+      "category": "business",
+      "question": "이수페타시스 무슨 회사야? 주요 사업 알려줘",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "회사의 개요 및 주요 사업 내용, 주요 제품과 용도 (인쇄회로기판 PCB, MLB 다층인쇄회로기판 등)",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323000847",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ],
+          "latency_ms": 2016.714,
+          "usage": {
+            "input_tokens": 2551,
+            "output_tokens": 118,
+            "total_tokens": 2669
+          }
+        },
+        {
+          "arguments": {
+            "query": "이수페타시스 회사 개요 및 주요 사업 제품, 인쇄회로기판(PCB) 사업, 적용 분야",
+            "company_id": "00107613",
+            "period": {
+              "year": 2026,
+              "quarter": 2,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814002283",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ],
+          "latency_ms": 1964.656,
+          "usage": {
+            "input_tokens": 2621,
+            "output_tokens": 127,
+            "total_tokens": 2748
+          }
+        }
+      ],
+      "latency_ms": 3981.37,
+      "usage": {
+        "input_tokens": 5172,
+        "output_tokens": 245,
+        "total_tokens": 5417
+      }
+    },
+    {
+      "id": "through-q3-2025",
+      "category": "through_quarter",
+      "question": "이수페타시스 2025년 3분기까지 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 3분기까지 누적 매출액, 연결 기준 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 3,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20251114002130",
+              "report_name": "분기보고서 (2025.09)",
+              "filing_period": "2025.09"
+            }
+          ],
+          "latency_ms": 1719.123,
+          "usage": {
+            "input_tokens": 2553,
+            "output_tokens": 118,
+            "total_tokens": 2671
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 3분기 누적 매출액(2025년 1월 1일부터 9월 30일까지 연결 기준 및 별도 기준)",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 3,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 10
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20251114002130",
+              "report_name": "분기보고서 (2025.09)",
+              "filing_period": "2025.09"
+            }
+          ],
+          "latency_ms": 2062.969,
+          "usage": {
+            "input_tokens": 2624,
+            "output_tokens": 135,
+            "total_tokens": 2759
+          }
+        }
+      ],
+      "latency_ms": 3782.092,
+      "usage": {
+        "input_tokens": 5177,
+        "output_tokens": 253,
+        "total_tokens": 5430
+      }
+    },
+    {
+      "id": "through-q3-2025-cumulative",
+      "category": "through_quarter",
+      "question": "이수페타시스 2025년 3분기까지의 누적 매출",
+      "action": "search_disclosures",
+      "pass": true,
+      "errors": [],
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 3분기까지 누적 매출액(매출)",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 3,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20251114002130",
+              "report_name": "분기보고서 (2025.09)",
+              "filing_period": "2025.09"
+            }
+          ],
+          "latency_ms": 1916.917,
+          "usage": {
+            "input_tokens": 2556,
+            "output_tokens": 117,
+            "total_tokens": 2673
+          }
+        },
+        {
+          "arguments": {
+            "query": "2025년 3분기까지 누적 매출액, 매출",
+            "company_id": "00107613",
+            "period": {
+              "year": 2025,
+              "quarter": 3,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-09-25T10:26:24+09:00",
+            "top_k": 5
+          },
+          "schema_error": null,
+          "status": "success",
+          "matched_filings": [
+            {
+              "receipt_no": "20251114002130",
+              "report_name": "분기보고서 (2025.09)",
+              "filing_period": "2025.09"
+            }
+          ],
+          "latency_ms": 1872.123,
+          "usage": {
+            "input_tokens": 2627,
+            "output_tokens": 116,
+            "total_tokens": 2743
+          }
+        }
+      ],
+      "latency_ms": 3789.04,
+      "usage": {
+        "input_tokens": 5183,
+        "output_tokens": 233,
+        "total_tokens": 5416
+      }
+    }
+  ]
+}

@@ -1,0 +1,5656 @@
+{
+  "model": "gpt-6-luna",
+  "openai_key_source": "dotenv_replaced_unequal_process_value",
+  "request_time": {
+    "timezone": "Asia/Seoul",
+    "local": "2026-10-02 15:34:44",
+    "iso": "2026-10-02T15:34:44+09:00",
+    "weekday": "금요일",
+    "display": "2026-10-02 금요일 15:34:44 KST"
+  },
+  "elapsed_seconds": 140.712,
+  "usage": {
+    "input_tokens": 91332,
+    "output_tokens": 8379,
+    "total_tokens": 99711
+  },
+  "planning": [
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "latest",
+      "question": "삼성전자의 최근 실적은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼성전자 최근 실적 매출 영업이익 당기순이익 및 실적 내용",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "삼성전자 최근 실적 매출 영업이익 당기순이익 및 실적 내용",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "삼성전자 최근 실적 매출 영업이익 당기순이익 실적 요약",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-02T15:19:20+09:00",
+            "top_k": 10
+          },
+          "raw": {
+            "query": "삼성전자 최근 실적 매출 영업이익 당기순이익 실적 요약",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-02T15:19:20+09:00",
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": true,
+      "final_status": "ok",
+      "latency_ms": 5732.278,
+      "usage": {
+        "input_tokens": 2561,
+        "output_tokens": 269,
+        "total_tokens": 2830
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "business",
+      "question": "삼성전자의 주요 사업이 뭐야?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼성전자의 주요 사업 및 사업부문, 각 사업부문에서 영위하는 주요 사업 내용",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 5
+          },
+          "raw": {
+            "query": "삼성전자의 주요 사업 및 사업부문, 각 사업부문에서 영위하는 주요 사업 내용",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 5
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "삼성전자의 주요 사업 부문, 각 부문에서 영위하는 주요 사업과 제품",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "삼성전자의 주요 사업 부문, 각 부문에서 영위하는 주요 사업과 제품",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": true,
+      "final_status": "ok",
+      "latency_ms": 4322.648,
+      "usage": {
+        "input_tokens": 2563,
+        "output_tokens": 265,
+        "total_tokens": 2828
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "annual",
+      "question": "삼성전자의 2025년 매출은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼성전자 2025년 연간 매출액",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "삼성전자 2025년 연간 매출액",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260310002820",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "삼성전자 2025년 매출액 연간 실적 연결 매출액",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "삼성전자 2025년 매출액 연간 실적 연결 매출액",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260310002820",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": true,
+      "final_status": "ok",
+      "latency_ms": 3453.097,
+      "usage": {
+        "input_tokens": 2566,
+        "output_tokens": 198,
+        "total_tokens": 2764
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "historical",
+      "question": "삼성전자의 2025년 매출이 늘어난 이유는?",
+      "probe_kind": "development_probe",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출 증가 이유 및 배경, 사업부문별 매출 증가 요인, 전년 대비 매출 변동 원인",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "2025년 매출 증가 이유 및 배경, 사업부문별 매출 증가 요인, 전년 대비 매출 변동 원인",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260310002820",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출 증가한 이유, 전년 대비 매출 증가 배경 및 사업부문별 매출 변동 요인",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "2025년 매출 증가한 이유, 전년 대비 매출 증가 배경 및 사업부문별 매출 변동 요인",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260310002820",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": true,
+      "final_status": "ok",
+      "latency_ms": 3912.181,
+      "usage": {
+        "input_tokens": 2574,
+        "output_tokens": 226,
+        "total_tokens": 2800
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "quarter",
+      "question": "삼성전자의 2026년 1분기 매출은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼성전자 2026년 1분기 매출액 매출",
+            "company_id": "00126380",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "삼성전자 2026년 1분기 매출액 매출",
+            "company_id": "00126380",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260515002181",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "삼성전자 2026년 1분기 매출액 연결 기준 매출",
+            "company_id": "00126380",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:20+09:00",
+            "top_k": 10
+          },
+          "raw": {
+            "query": "삼성전자 2026년 1분기 매출액 연결 기준 매출",
+            "company_id": "00126380",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:20+09:00",
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260515002181",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "분기보고서 (2026.03)",
+      "first_matched_product_eligible": true,
+      "final_status": "ok",
+      "latency_ms": 4978.777,
+      "usage": {
+        "input_tokens": 2575,
+        "output_tokens": 277,
+        "total_tokens": 2852
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "forecast",
+      "question": "삼성전자의 향후 매출 목표가 있어?",
+      "probe_kind": "development_probe",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "향후 매출 목표, 매출 전망, 중장기 매출 목표 및 사업 부문별 매출 목표",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "향후 매출 목표, 매출 전망, 중장기 매출 목표 및 사업 부문별 매출 목표",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "향후 매출 목표, 매출 전망, 중장기 매출 목표 또는 미래 매출 가이던스",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "향후 매출 목표, 매출 전망, 중장기 매출 목표 또는 미래 매출 가이던스",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": true,
+      "final_status": "ok",
+      "latency_ms": 3486.052,
+      "usage": {
+        "input_tokens": 2567,
+        "output_tokens": 212,
+        "total_tokens": 2779
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼양식품",
+      "corp_code": "00126955",
+      "key": "latest",
+      "question": "삼양식품의 최근 실적은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼양식품 최근 실적, 매출액 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "raw": {
+            "query": "삼양식품 최근 실적, 매출액 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003053",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "삼양식품 최근 실적 매출액 영업이익 당기순이익 전년 동기 대비",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "삼양식품 최근 실적 매출액 영업이익 당기순이익 전년 동기 대비",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003053",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 4213.368,
+      "usage": {
+        "input_tokens": 2565,
+        "output_tokens": 301,
+        "total_tokens": 2866
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼양식품",
+      "corp_code": "00126955",
+      "key": "business",
+      "question": "삼양식품의 주요 사업이 뭐야?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼양식품의 주요 사업 및 사업부문, 주요 제품과 사업 내용",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 5
+          },
+          "raw": {
+            "query": "삼양식품의 주요 사업 및 사업부문, 주요 제품과 사업 내용",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 5
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003053",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "삼양식품의 주요 사업, 사업 내용 및 사업부문, 주요 제품과 영업 활동",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "삼양식품의 주요 사업, 사업 내용 및 사업부문, 주요 제품과 영업 활동",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003053",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3920.47,
+      "usage": {
+        "input_tokens": 2567,
+        "output_tokens": 269,
+        "total_tokens": 2836
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼양식품",
+      "corp_code": "00126955",
+      "key": "annual",
+      "question": "삼양식품의 2025년 매출은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼양식품 2025년 매출액, 연간 매출 실적",
+            "company_id": "00126955",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "raw": {
+            "query": "삼양식품 2025년 매출액, 연간 매출 실적",
+            "company_id": "00126955",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260318001082",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출액, 매출 실적",
+            "company_id": "00126955",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "raw": {
+            "query": "2025년 매출액, 매출 실적",
+            "company_id": "00126955",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260318001082",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3115.619,
+      "usage": {
+        "input_tokens": 2570,
+        "output_tokens": 197,
+        "total_tokens": 2767
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼양식품",
+      "corp_code": "00126955",
+      "key": "historical",
+      "question": "삼양식품의 2025년 매출이 늘어난 이유는?",
+      "probe_kind": "development_probe",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼양식품 2025년 매출 증가 이유, 매출액 성장 배경 및 제품·지역별 매출 증가 원인",
+            "company_id": "00126955",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "삼양식품 2025년 매출 증가 이유, 매출액 성장 배경 및 제품·지역별 매출 증가 원인",
+            "company_id": "00126955",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260318001082",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출 증가 이유 및 배경, 매출 성장 요인 제품별·지역별 실적과 수출, 불닭볶음면 등 주요 제품 판매 증가 원인",
+            "company_id": "00126955",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "raw": {
+            "query": "2025년 매출 증가 이유 및 배경, 매출 성장 요인 제품별·지역별 실적과 수출, 불닭볶음면 등 주요 제품 판매 증가 원인",
+            "company_id": "00126955",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260318001082",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3463.389,
+      "usage": {
+        "input_tokens": 2578,
+        "output_tokens": 253,
+        "total_tokens": 2831
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼양식품",
+      "corp_code": "00126955",
+      "key": "quarter",
+      "question": "삼양식품의 2026년 1분기 매출은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "삼양식품의 2026년 1분기 매출",
+            "company_id": "00126955",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "raw": {
+            "query": "삼양식품의 2026년 1분기 매출",
+            "company_id": "00126955",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260513000571",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "2026년 1분기 매출액 실적",
+            "company_id": "00126955",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "raw": {
+            "query": "2026년 1분기 매출액 실적",
+            "company_id": "00126955",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260513000571",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "분기보고서 (2026.03)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3461.537,
+      "usage": {
+        "input_tokens": 2579,
+        "output_tokens": 251,
+        "total_tokens": 2830
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "삼양식품",
+      "corp_code": "00126955",
+      "key": "forecast",
+      "question": "삼양식품의 향후 매출 목표가 있어?",
+      "probe_kind": "development_probe",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "향후 매출 목표, 매출 전망, 중장기 매출 목표, 회사가 제시한 매출 가이던스",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "향후 매출 목표, 매출 전망, 중장기 매출 목표, 회사가 제시한 매출 가이던스",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003053",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "향후 매출 목표 매출액 목표 매출 전망 중장기 매출 목표 2026년 매출 목표",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "range",
+              "year_from": 2024,
+              "year_to": 2026
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "raw": {
+            "query": "향후 매출 목표 매출액 목표 매출 전망 중장기 매출 목표 2026년 매출 목표",
+            "company_id": "00126955",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "range",
+              "year_from": 2024,
+              "year_to": 2026
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:22+09:00",
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003053",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            },
+            {
+              "receipt_no": "20260513000571",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            },
+            {
+              "receipt_no": "20260318001082",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            },
+            {
+              "receipt_no": "20250318001186",
+              "report_name": "사업보고서 (2024.12)",
+              "filing_period": "2024.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 5038.368,
+      "usage": {
+        "input_tokens": 2571,
+        "output_tokens": 355,
+        "total_tokens": 2926
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "알테오젠",
+      "corp_code": "00989619",
+      "key": "latest",
+      "question": "알테오젠의 최근 실적은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "알테오젠의 최근 실적, 매출액 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00989619",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "알테오젠의 최근 실적, 매출액 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00989619",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814001294",
+              "report_name": "[첨부추가]반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "알테오젠 최근 실적 2026년 상반기 매출 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00989619",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-02T15:19:23+09:00",
+            "top_k": 10
+          },
+          "raw": {
+            "query": "알테오젠 최근 실적 2026년 상반기 매출 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00989619",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-02T15:19:23+09:00",
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814001294",
+              "report_name": "[첨부추가]반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "[첨부추가]반기보고서 (2026.06)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3381.52,
+      "usage": {
+        "input_tokens": 2590,
+        "output_tokens": 237,
+        "total_tokens": 2827
+      },
+      "latest_available": "[첨부추가]반기보고서 (2026.06)"
+    },
+    {
+      "company": "알테오젠",
+      "corp_code": "00989619",
+      "key": "business",
+      "question": "알테오젠의 주요 사업이 뭐야?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "회사의 주요 사업, 사업의 내용 및 주요 제품·서비스",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "raw": {
+            "query": "회사의 주요 사업, 사업의 내용 및 주요 제품·서비스",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323001596",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "알테오젠의 주요 사업, 사업의 내용, 주요 제품 및 서비스, 사업부문과 사업영역",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "알테오젠의 주요 사업, 사업의 내용, 주요 제품 및 서비스, 사업부문과 사업영역",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323001596",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3525.601,
+      "usage": {
+        "input_tokens": 2586,
+        "output_tokens": 205,
+        "total_tokens": 2791
+      },
+      "latest_available": "[첨부추가]반기보고서 (2026.06)"
+    },
+    {
+      "company": "알테오젠",
+      "corp_code": "00989619",
+      "key": "annual",
+      "question": "알테오젠의 2025년 매출은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출액, 매출 실적",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "2025년 매출액, 매출 실적",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323001596",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출액, 매출 실적",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "2025년 매출액, 매출 실적",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323001596",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3391.689,
+      "usage": {
+        "input_tokens": 2590,
+        "output_tokens": 190,
+        "total_tokens": 2780
+      },
+      "latest_available": "[첨부추가]반기보고서 (2026.06)"
+    },
+    {
+      "company": "알테오젠",
+      "corp_code": "00989619",
+      "key": "historical",
+      "question": "알테오젠의 2025년 매출이 늘어난 이유는?",
+      "probe_kind": "development_probe",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출 증가한 이유, 매출액 증감 원인, 주요 제품·기술수출·마일스톤 및 사업부문별 매출 변화",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "2025년 매출 증가한 이유, 매출액 증감 원인, 주요 제품·기술수출·마일스톤 및 사업부문별 매출 변화",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323001596",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "2025년 매출액 증가 이유 원인 배경, 전년 대비 매출 증가에 기여한 제품·기술수출·라이선스 계약 및 로열티·공동개발 관련 요인",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "2025년 매출액 증가 이유 원인 배경, 전년 대비 매출 증가에 기여한 제품·기술수출·라이선스 계약 및 로열티·공동개발 관련 요인",
+            "company_id": "00989619",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260323001596",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3818.982,
+      "usage": {
+        "input_tokens": 2598,
+        "output_tokens": 251,
+        "total_tokens": 2849
+      },
+      "latest_available": "[첨부추가]반기보고서 (2026.06)"
+    },
+    {
+      "company": "알테오젠",
+      "corp_code": "00989619",
+      "key": "quarter",
+      "question": "알테오젠의 2026년 1분기 매출은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2026년 1분기 매출액",
+            "company_id": "00989619",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:23+09:00",
+            "top_k": 20
+          },
+          "raw": {
+            "query": "2026년 1분기 매출액",
+            "company_id": "00989619",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:23+09:00",
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260515001517",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "알테오젠 2026년 1분기 매출액, 매출 실적",
+            "company_id": "00989619",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "알테오젠 2026년 1분기 매출액, 매출 실적",
+            "company_id": "00989619",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260515001517",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "분기보고서 (2026.03)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3183.602,
+      "usage": {
+        "input_tokens": 2599,
+        "output_tokens": 215,
+        "total_tokens": 2814
+      },
+      "latest_available": "[첨부추가]반기보고서 (2026.06)"
+    },
+    {
+      "company": "알테오젠",
+      "corp_code": "00989619",
+      "key": "forecast",
+      "question": "알테오젠의 향후 매출 목표가 있어?",
+      "probe_kind": "development_probe",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "향후 매출 목표, 매출 전망, 목표 매출액, 중장기 매출 계획 및 경영진이 제시한 매출 목표",
+            "company_id": "00989619",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "향후 매출 목표, 매출 전망, 목표 매출액, 중장기 매출 계획 및 경영진이 제시한 매출 목표",
+            "company_id": "00989619",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814001294",
+              "report_name": "[첨부추가]반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "알테오젠 향후 매출 목표 매출 전망 중장기 매출 목표 매출 가이던스 예상 매출",
+            "company_id": "00989619",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "range",
+              "year_from": 2024,
+              "year_to": 2026
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "알테오젠 향후 매출 목표 매출 전망 중장기 매출 목표 매출 가이던스 예상 매출",
+            "company_id": "00989619",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "range",
+              "year_from": 2024,
+              "year_to": 2026
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260515001517",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            },
+            {
+              "receipt_no": "20260323001596",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            },
+            {
+              "receipt_no": "20250321000557",
+              "report_name": "사업보고서 (2024.12)",
+              "filing_period": "2024.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "[첨부추가]반기보고서 (2026.06)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 4417.359,
+      "usage": {
+        "input_tokens": 2596,
+        "output_tokens": 338,
+        "total_tokens": 2934
+      },
+      "latest_available": "[첨부추가]반기보고서 (2026.06)"
+    },
+    {
+      "company": "대상",
+      "corp_code": "00121941",
+      "key": "latest",
+      "question": "대상의 최근 실적은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "대상(주)의 최근 실적 및 주요 재무성과(매출액, 영업이익, 당기순이익)",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "대상(주)의 최근 실적 및 주요 재무성과(매출액, 영업이익, 당기순이익)",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003187",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "대상(주)의 최근 실적: 2026년 상반기 매출액, 영업이익, 당기순이익 및 전년 동기 대비 증감",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "대상(주)의 최근 실적: 2026년 상반기 매출액, 영업이익, 당기순이익 및 전년 동기 대비 증감",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003187",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 4305.956,
+      "usage": {
+        "input_tokens": 2555,
+        "output_tokens": 348,
+        "total_tokens": 2903
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "대상",
+      "corp_code": "00121941",
+      "key": "business",
+      "question": "대상의 주요 사업이 뭐야?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "대상(주)의 주요 사업 및 사업부문, 주력 제품·서비스",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-02T15:19:26+09:00",
+            "top_k": 20
+          },
+          "raw": {
+            "query": "대상(주)의 주요 사업 및 사업부문, 주력 제품·서비스",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-02T15:19:26+09:00",
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003187",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "대상(주)의 주요 사업, 사업부문과 주요 제품 및 서비스",
+            "company_id": "00121941",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "대상(주)의 주요 사업, 사업부문과 주요 제품 및 서비스",
+            "company_id": "00121941",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260318000733",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3270.926,
+      "usage": {
+        "input_tokens": 2557,
+        "output_tokens": 214,
+        "total_tokens": 2771
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "대상",
+      "corp_code": "00121941",
+      "key": "annual",
+      "question": "대상의 2025년 매출은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출액 및 매출",
+            "company_id": "00121941",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "raw": {
+            "query": "2025년 매출액 및 매출",
+            "company_id": "00121941",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260318000733",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "대상(주) 2025년 연간 매출액, 연결 기준 매출액",
+            "company_id": "00121941",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "대상(주) 2025년 연간 매출액, 연결 기준 매출액",
+            "company_id": "00121941",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260318000733",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3096.597,
+      "usage": {
+        "input_tokens": 2560,
+        "output_tokens": 197,
+        "total_tokens": 2757
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "대상",
+      "corp_code": "00121941",
+      "key": "historical",
+      "question": "대상의 2025년 매출이 늘어난 이유는?",
+      "probe_kind": "development_probe",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "2025년 매출 증가 이유, 매출액 증가 배경 및 제품·사업부문별 매출 증감 요인",
+            "company_id": "00121941",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "raw": {
+            "query": "2025년 매출 증가 이유, 매출액 증가 배경 및 제품·사업부문별 매출 증감 요인",
+            "company_id": "00121941",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 10
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260318000733",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "대상(주) 2025년 매출 증가 이유 원인 배경 매출액 증가 요인",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "range",
+              "year_from": 2025,
+              "year_to": 2026
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "대상(주) 2025년 매출 증가 이유 원인 배경 매출액 증가 요인",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "range",
+              "year_from": 2025,
+              "year_to": 2026
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual",
+              "semiannual",
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003187",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            },
+            {
+              "receipt_no": "20260515002571",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            },
+            {
+              "receipt_no": "20260318000733",
+              "report_name": "사업보고서 (2025.12)",
+              "filing_period": "2025.12"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "사업보고서 (2025.12)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 4893.282,
+      "usage": {
+        "input_tokens": 2568,
+        "output_tokens": 347,
+        "total_tokens": 2915
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "대상",
+      "corp_code": "00121941",
+      "key": "quarter",
+      "question": "대상의 2026년 1분기 매출은?",
+      "probe_kind": "smoke",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "대상(주) 2026년 1분기 매출액",
+            "company_id": "00121941",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "대상(주) 2026년 1분기 매출액",
+            "company_id": "00121941",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260515002571",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "대상(주) 2026년 1분기 매출액, 매출",
+            "company_id": "00121941",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:26+09:00",
+            "top_k": 20
+          },
+          "raw": {
+            "query": "대상(주) 2026년 1분기 매출액, 매출",
+            "company_id": "00121941",
+            "period": {
+              "year": 2026,
+              "quarter": 1,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "quarterly"
+            ],
+            "as_of": "2026-10-02T15:19:26+09:00",
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260515002571",
+              "report_name": "분기보고서 (2026.03)",
+              "filing_period": "2026.03"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "분기보고서 (2026.03)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 3412.72,
+      "usage": {
+        "input_tokens": 2569,
+        "output_tokens": 271,
+        "total_tokens": 2840
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    },
+    {
+      "company": "대상",
+      "corp_code": "00121941",
+      "key": "forecast",
+      "question": "대상의 향후 매출 목표가 있어?",
+      "probe_kind": "development_probe",
+      "tool_called": true,
+      "second_tool_call": true,
+      "turns": [
+        {
+          "arguments": {
+            "query": "향후 매출 목표, 매출액 목표, 중장기 매출 계획, 향후 매출 전망",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "향후 매출 목표, 매출액 목표, 중장기 매출 계획, 향후 매출 전망",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003187",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "대상의 향후 매출 목표, 중장기 매출 목표 또는 매출 전망",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "raw": {
+            "query": "대상의 향후 매출 목표, 중장기 매출 목표 또는 매출 전망",
+            "company_id": "00121941",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "validation_status": "ok",
+          "validation_message": "filings matched",
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003187",
+              "report_name": "반기보고서 (2026.06)",
+              "filing_period": "2026.06"
+            }
+          ]
+        }
+      ],
+      "first_matched_filing": "반기보고서 (2026.06)",
+      "first_matched_product_eligible": false,
+      "final_status": "ok",
+      "latency_ms": 2939.913,
+      "usage": {
+        "input_tokens": 2561,
+        "output_tokens": 205,
+        "total_tokens": 2766
+      },
+      "latest_available": "반기보고서 (2026.06)"
+    }
+  ],
+  "e2e": [
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "latest",
+      "question": "삼성전자의 최근 실적은?",
+      "status": "abstained",
+      "action": "abstain",
+      "resolved_company": {
+        "status": "resolved",
+        "company_id": "00126380",
+        "corp_code": "00126380",
+        "company_name": "삼성전자"
+      },
+      "tool_calls": [
+        {
+          "status": "success",
+          "arguments": {
+            "query": "삼성전자 최근 실적, 매출액 영업이익 당기순이익 및 전년 동기 대비",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "report_type": "반기보고서",
+              "filing_period": "2026.06",
+              "receipt_date": "20260814",
+              "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+            }
+          ],
+          "retrieved_receipt_nos": [
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699"
+          ]
+        },
+        {
+          "status": "success",
+          "arguments": {
+            "query": "삼성전자 최근 실적 2026년 상반기 연결 매출액 영업이익 순이익 실적 요약",
+            "company_id": "00126380",
+            "period": {
+              "year": 2026,
+              "quarter": null,
+              "half": 1,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "semiannual"
+            ],
+            "as_of": "2026-10-02T15:19:20+09:00",
+            "top_k": 10
+          },
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "report_type": "반기보고서",
+              "filing_period": "2026.06",
+              "receipt_date": "20260814",
+              "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+            }
+          ],
+          "retrieved_receipt_nos": [
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699"
+          ]
+        }
+      ],
+      "citation_count": 0,
+      "evidence": [],
+      "citation_evidence_ids": [],
+      "citation_ids_in_run": true,
+      "cross_company_corp_codes": [],
+      "receipt_not_eligible": [],
+      "answer_excerpt": "검색된 공시에서 요청한 내용을 확인하지 못했습니다.",
+      "retrieval_ms": 36.267,
+      "generation_ms": 3188.135,
+      "total_ms": 19500.307,
+      "input_tokens": 3819,
+      "output_tokens": 191
+    },
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "business",
+      "question": "삼성전자의 주요 사업이 뭐야?",
+      "status": "completed",
+      "action": "search_disclosures",
+      "resolved_company": {
+        "status": "resolved",
+        "company_id": "00126380",
+        "corp_code": "00126380",
+        "company_name": "삼성전자"
+      },
+      "tool_calls": [
+        {
+          "status": "success",
+          "arguments": {
+            "query": "삼성전자의 주요 사업 부문과 각 사업 내용, 제품",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 10
+          },
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "report_type": "반기보고서",
+              "filing_period": "2026.06",
+              "receipt_date": "20260814",
+              "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+            }
+          ],
+          "retrieved_receipt_nos": [
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699"
+          ]
+        },
+        {
+          "status": "success",
+          "arguments": {
+            "query": "삼성전자의 주요 사업 부문과 각 부문의 사업 내용 및 주요 제품 (DX, DS, SDC, Harman)",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-02T15:19:20+09:00",
+            "top_k": 10
+          },
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "report_type": "반기보고서",
+              "filing_period": "2026.06",
+              "receipt_date": "20260814",
+              "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+            }
+          ],
+          "retrieved_receipt_nos": [
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699"
+          ]
+        }
+      ],
+      "citation_count": 3,
+      "evidence": [
+        {
+          "evidence_id": "ev-216ebf6c649bb898",
+          "corp_code": "00126380",
+          "receipt_no": "20260814003699",
+          "report_name": "반기보고서 (2026.06)",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "I. 회사의 개요",
+            "1. 회사의 개요"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "22e56824c52fd8df76a24598b9fa0fe04aa97961ed897cd889844bfe72dca29d",
+              "char_start": 0,
+              "char_end": 7,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 24,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 15
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "34d85edbe8bff5f5df8e450778a54aed482564da3d55f8217e95fde9ede7ab90",
+              "char_start": 0,
+              "char_end": 520,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 25,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 16
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "48ec0a8938a0526717d8966d06fd82f4cb1cc5379ed7c25161a77db49b9b9334",
+              "char_start": 0,
+              "char_end": 151,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 26,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 18
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "b656e75ff7f233329aa5f54834ccb1632058098b2a9c04e34687ab2a36f3686f",
+              "char_start": 0,
+              "char_end": 562,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 27,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 19
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+        },
+        {
+          "evidence_id": "ev-8beace0b3ffe6e5a",
+          "corp_code": "00126380",
+          "receipt_no": "20260814003699",
+          "report_name": "반기보고서 (2026.06)",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "1. 사업의 개요"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "65a8e81daef31089f6c4943daddf0b33c72cce94ff569f6ee4c8a817e205538e",
+              "char_start": 0,
+              "char_end": 122,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 100,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 6
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 2
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "P",
+                    "index": 2
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "385efffcbbfbbd4b799af33330d1595bb26b50922b7d07ff5f6f7945038a0838",
+              "char_start": 0,
+              "char_end": 395,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 101,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 6
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 2
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "P",
+                    "index": 3
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "5212956e3b05a87c8a7f3e7a49069cea2c856ab466d2df57718c645d9ef37a9a",
+              "char_start": 0,
+              "char_end": 231,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 102,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 6
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 2
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "P",
+                    "index": 4
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "825f632fc9e27a6185cff40460983deb81fc80d306b64e0123faeebced723eeb",
+              "char_start": 0,
+              "char_end": 82,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 103,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 6
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 2
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "P",
+                    "index": 6
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+        },
+        {
+          "evidence_id": "ev-b63a2e0f6e17ed41",
+          "corp_code": "00126380",
+          "receipt_no": "20260814003699",
+          "report_name": "반기보고서 (2026.06)",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "2. 주요 제품 및 서비스"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "5c20db61b70a5c703496f770671e738a5d6570561ef3c5a4ccd20b1162d85cec",
+              "kind": "table",
+              "role": "context_unit",
+              "order_index": 109,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 6
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 2
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 3
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "c9935fb8abd48cc4461246fcdb5fb8e8406202643a572b0e45429d0266d92d1b",
+              "kind": "table",
+              "role": "header",
+              "order_index": 110,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 6
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 2
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 4
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "c9935fb8abd48cc4461246fcdb5fb8e8406202643a572b0e45429d0266d92d1b",
+              "kind": "table",
+              "role": "body",
+              "order_index": 110,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 6
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 2
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 4
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+        },
+        {
+          "evidence_id": "ev-a7a5b4b7c65d9670",
+          "corp_code": "00126380",
+          "receipt_no": "20260814003699",
+          "report_name": "반기보고서 (2026.06)",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "I. 회사의 개요",
+            "1. 회사의 개요"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "407088ad151f638cf56af73f86d8b23566ccf57e7f0153d587ab99e77c8fe9d8",
+              "char_start": 0,
+              "char_end": 76,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 11,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "915ceb217dc49df8e097cb83c2124f0e2d44913f19170a71ed960886d1d773de",
+              "char_start": 0,
+              "char_end": 4,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 12,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 2
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "42baa8929d14a9eddbf2c219619476eabd085b07b7a97883bf02c0a8d96fc55f",
+              "char_start": 0,
+              "char_end": 7,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 13,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 3
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "d96b555c4d2af3272cbcf1f339c292aabe6e29c27ecf132837f847eff462a27c",
+              "char_start": 0,
+              "char_end": 37,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 14,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 4
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "ff1b9260fea844057e0ed175d36855ebc7219b0a395f8c82b2e5c8ed5268839f",
+              "char_start": 0,
+              "char_end": 27,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 15,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 5
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "7896ee00569b82052ecbde5b9a4eee8bf583ac94e3c97cc5f65ebcb1a03ea85f",
+              "char_start": 0,
+              "char_end": 74,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 16,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 6
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "cb8a78fe7b33cdce79ee08ead30099a1c2a708e98f5cf4de11bedc85d600f677",
+              "char_start": 0,
+              "char_end": 22,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 17,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 7
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "e5a0cb9f809b3a351703b3143ba86e756e52b008152949a28c149d4af94452cb",
+              "char_start": 0,
+              "char_end": 28,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 18,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 8
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "fba6b6eabdc39bde965664441d5dc92902194f9e98648b8659672f7af242f072",
+              "char_start": 0,
+              "char_end": 18,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 19,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 9
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "e6a20c27969b5abf39ff72fead9869b976394da9e9d7c7a4f9c63c1d79ed78a0",
+              "char_start": 0,
+              "char_end": 33,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 20,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 10
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "d2a8d4da1da20435c61ae9b591440a69d98be9c20288e09020d95ded5a5c48bc",
+              "char_start": 0,
+              "char_end": 226,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 21,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 11
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260814003699.xml",
+              "element_id": "4c98443f928cfdf004cd8dca197c53ef6aff140ab6090effebb113b068ca31dc",
+              "char_start": 0,
+              "char_end": 143,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 22,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+                "member_index": 0,
+                "member_name": "20260814003699.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 5
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "P",
+                    "index": 13
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+        }
+      ],
+      "citation_evidence_ids": [
+        "ev-a7a5b4b7c65d9670",
+        "ev-216ebf6c649bb898",
+        "ev-8beace0b3ffe6e5a"
+      ],
+      "citation_ids_in_run": true,
+      "cross_company_corp_codes": [],
+      "receipt_not_eligible": [],
+      "answer_excerpt": "삼성전자는 DX 부문에서 TV·모니터·가전제품·스마트폰·PC·네트워크시스템 등을 생산·판매합니다.\nDS 부문은 DRAM·NAND Flash 등 메모리 반도체, 모바일 AP와 카메라 센서칩 등을 설계·판매하는 System LSI, 반도체 위탁생산인 Foundry 사업으로 구성됩니다.\n삼성전자는 SDC를 통해 스마트폰용 OLED 패널 등을 생산·판매하고, Harman을 통해 디지털 콕핏·카오디오 등 전장제품과 컨슈머 오디오 제품을 개발·생산·판매합니다.",
+      "retrieval_ms": 187.583,
+      "generation_ms": 3609.053,
+      "total_ms": 8320.968,
+      "input_tokens": 2950,
+      "output_tokens": 346
+    },
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "annual",
+      "question": "삼성전자의 2025년 매출은?",
+      "status": "completed",
+      "action": "search_disclosures",
+      "resolved_company": {
+        "status": "resolved",
+        "company_id": "00126380",
+        "corp_code": "00126380",
+        "company_name": "삼성전자"
+      },
+      "tool_calls": [
+        {
+          "status": "success",
+          "arguments": {
+            "query": "삼성전자 2025년 매출액, 연결 기준 연간 매출 실적",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "matched_filings": [
+            {
+              "receipt_no": "20260310002820",
+              "report_name": "사업보고서 (2025.12)",
+              "report_type": "사업보고서",
+              "filing_period": "2025.12",
+              "receipt_date": "20260310",
+              "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+            }
+          ],
+          "retrieved_receipt_nos": [
+            "20260310002820",
+            "20260310002820",
+            "20260310002820",
+            "20260310002820",
+            "20260310002820"
+          ]
+        },
+        {
+          "status": "success",
+          "arguments": {
+            "query": "2025년 연결 손익계산서 매출액 매출",
+            "company_id": "00126380",
+            "period": {
+              "year": 2025,
+              "quarter": null,
+              "half": null,
+              "mode": "exact",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": [
+              "annual"
+            ],
+            "as_of": null,
+            "top_k": 5
+          },
+          "matched_filings": [
+            {
+              "receipt_no": "20260310002820",
+              "report_name": "사업보고서 (2025.12)",
+              "report_type": "사업보고서",
+              "filing_period": "2025.12",
+              "receipt_date": "20260310",
+              "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+            }
+          ],
+          "retrieved_receipt_nos": [
+            "20260310002820",
+            "20260310002820",
+            "20260310002820",
+            "20260310002820",
+            "20260310002820"
+          ]
+        }
+      ],
+      "citation_count": 2,
+      "evidence": [
+        {
+          "evidence_id": "ev-2d0c2c47f3a4e640",
+          "corp_code": "00126380",
+          "receipt_no": "20260310002820",
+          "report_name": "사업보고서 (2025.12)",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "IV. 이사의 경영진단 및 분석의견",
+            "2. 개요"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "effbf1a7ca4db935c1c3083854f0449b420eb1ef3a6a52d43b0f91908c3e82d6",
+              "char_start": 0,
+              "char_end": 150,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 2181,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 8
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 3
+                  },
+                  {
+                    "tag": "P",
+                    "index": 2
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "cdb8adddac90068ae22ac3bbfa8332ba369463863c3ab7aa3f2b8a2833e59c3a",
+              "char_start": 0,
+              "char_end": 185,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 2182,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 8
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 3
+                  },
+                  {
+                    "tag": "P",
+                    "index": 4
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "99dbfa1945043335c6d480bbdd7e41774b16bc409ea58e2dc326ee7c5d1b533e",
+              "char_start": 0,
+              "char_end": 192,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 2183,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 8
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 3
+                  },
+                  {
+                    "tag": "P",
+                    "index": 6
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "03992ce36a0faa1945bcedea4c4a8325cf125f38ad6673a22c71d8ba547d8ba3",
+              "char_start": 0,
+              "char_end": 241,
+              "kind": "paragraph",
+              "role": "body",
+              "order_index": 2184,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 8
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 3
+                  },
+                  {
+                    "tag": "P",
+                    "index": 8
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+        },
+        {
+          "evidence_id": "ev-a1a0d3884a81b5c8",
+          "corp_code": "00126380",
+          "receipt_no": "20260310002820",
+          "report_name": "사업보고서 (2025.12)",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "2. 연결재무제표",
+            "2-2. 연결 손익계산서"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "6fefb2af4020e0614a2ae60535361f06f6bbb6ec0804c7ae870c7100cdfeec47",
+              "kind": "table",
+              "role": "context_title",
+              "order_index": 383,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "6fefb2af4020e0614a2ae60535361f06f6bbb6ec0804c7ae870c7100cdfeec47",
+              "kind": "table",
+              "role": "context_period",
+              "order_index": 383,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "6fefb2af4020e0614a2ae60535361f06f6bbb6ec0804c7ae870c7100cdfeec47",
+              "kind": "table",
+              "role": "context_unit",
+              "order_index": 383,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "cafd8b007b7186ce3905c5a8d47521af25e3d64ee99b008e28d2574bb630a410",
+              "kind": "table",
+              "role": "repeated_header",
+              "order_index": 384,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "cafd8b007b7186ce3905c5a8d47521af25e3d64ee99b008e28d2574bb630a410",
+              "kind": "table",
+              "role": "body",
+              "order_index": 384,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+        },
+        {
+          "evidence_id": "ev-1653a4f49da28e22",
+          "corp_code": "00126380",
+          "receipt_no": "20260310002820",
+          "report_name": "사업보고서 (2025.12)",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "X. 대주주 등과의 거래내용"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "2259fbfce1ca7db77ac85b884c7870d73106cc8abdaca54e23ef01e33b34cb2d",
+              "kind": "table",
+              "role": "context_unit",
+              "order_index": 2710,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 14
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 15
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "de08dbca06bf3138da2248ee3fb83b6cbcee0a17360017efca0b8db28b8e5e09",
+              "kind": "table",
+              "role": "header",
+              "order_index": 2711,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 14
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 16
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "de08dbca06bf3138da2248ee3fb83b6cbcee0a17360017efca0b8db28b8e5e09",
+              "kind": "table",
+              "role": "body",
+              "order_index": 2711,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 14
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 16
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+        },
+        {
+          "evidence_id": "ev-62de9c7e453809c9",
+          "corp_code": "00126380",
+          "receipt_no": "20260310002820",
+          "report_name": "사업보고서 (2025.12)",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "32. 비지배지분 (연결)"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "68da18f055a6ddd9e8455275fc6bbd9b5fa50e2eeec549eac6c1e016665c97ac",
+              "kind": "table",
+              "role": "context_unit",
+              "order_index": 1237,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 33
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TBODY",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TR",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TD",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 9
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "86bafdcdbeb064f8bc87891d897689fc1cb11e7ea99cd12d866bb711e999f69f",
+              "kind": "table",
+              "role": "header",
+              "order_index": 1238,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 33
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TBODY",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TR",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TD",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 10
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "86bafdcdbeb064f8bc87891d897689fc1cb11e7ea99cd12d866bb711e999f69f",
+              "kind": "table",
+              "role": "body",
+              "order_index": 1238,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 33
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TBODY",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TR",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TD",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 10
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+        },
+        {
+          "evidence_id": "ev-3c9a42205da32f6c",
+          "corp_code": "00126380",
+          "receipt_no": "20260310002820",
+          "report_name": "사업보고서 (2025.12)",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "1. 일반적 사항 (연결)"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "88e19f82a04dd3e4abadb683d28aba7fefb2eab511c8a6811aefa6c4ae221f24",
+              "kind": "table",
+              "role": "context_unit",
+              "order_index": 418,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TBODY",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TR",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TD",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 26
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "02346095f6d920a4ee1bd4d31191f8cc285b8863d527ebedbc0bba53b5e01e7e",
+              "kind": "table",
+              "role": "repeated_header",
+              "order_index": 419,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TBODY",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TR",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TD",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 27
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "02346095f6d920a4ee1bd4d31191f8cc285b8863d527ebedbc0bba53b5e01e7e",
+              "kind": "table",
+              "role": "body",
+              "order_index": 419,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TBODY",
+                    "index": 1
+                  },
+                  {
+                    "tag": "TR",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TD",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 27
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+        },
+        {
+          "evidence_id": "ev-50e205bf6e4f92b8",
+          "corp_code": "00126380",
+          "receipt_no": "20260310002820",
+          "report_name": "사업보고서 (2025.12)",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "2. 연결재무제표",
+            "2-2. 연결 손익계산서"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "6fefb2af4020e0614a2ae60535361f06f6bbb6ec0804c7ae870c7100cdfeec47",
+              "kind": "table",
+              "role": "context_title",
+              "order_index": 383,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "6fefb2af4020e0614a2ae60535361f06f6bbb6ec0804c7ae870c7100cdfeec47",
+              "kind": "table",
+              "role": "context_period",
+              "order_index": 383,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "6fefb2af4020e0614a2ae60535361f06f6bbb6ec0804c7ae870c7100cdfeec47",
+              "kind": "table",
+              "role": "context_unit",
+              "order_index": 383,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "cafd8b007b7186ce3905c5a8d47521af25e3d64ee99b008e28d2574bb630a410",
+              "kind": "table",
+              "role": "repeated_header",
+              "order_index": 384,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "cafd8b007b7186ce3905c5a8d47521af25e3d64ee99b008e28d2574bb630a410",
+              "kind": "table",
+              "role": "body",
+              "order_index": 384,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 0
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+        },
+        {
+          "evidence_id": "ev-338974488c82261b",
+          "corp_code": "00126380",
+          "receipt_no": "20260310002820",
+          "report_name": "사업보고서 (2025.12)",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "4. 재무제표",
+            "4-2. 손익계산서"
+          ],
+          "source_locator": [
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "8b964a18ea3cf149571eb72297cdc1ce76446f6dcdf72717f6ef4bc9d3e601d1",
+              "kind": "table",
+              "role": "context_title",
+              "order_index": 1260,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "8b964a18ea3cf149571eb72297cdc1ce76446f6dcdf72717f6ef4bc9d3e601d1",
+              "kind": "table",
+              "role": "context_period",
+              "order_index": 1260,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "8b964a18ea3cf149571eb72297cdc1ce76446f6dcdf72717f6ef4bc9d3e601d1",
+              "kind": "table",
+              "role": "context_unit",
+              "order_index": 1260,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 1
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "366996c6040fa1155b089eba2d12f8407ea172863b7ef03a92377f733d7a8dc3",
+              "kind": "table",
+              "role": "repeated_header",
+              "order_index": 1261,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  }
+                ]
+              }
+            },
+            {
+              "document_id": "m0:20260310002820.xml",
+              "element_id": "366996c6040fa1155b089eba2d12f8407ea172863b7ef03a92377f733d7a8dc3",
+              "kind": "table",
+              "role": "body",
+              "order_index": 1261,
+              "element_source_locator": {
+                "tree": "dart4-xml-elementtree",
+                "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+                "member_index": 0,
+                "member_name": "20260310002820.xml",
+                "path": [
+                  {
+                    "tag": "DOCUMENT",
+                    "index": 0
+                  },
+                  {
+                    "tag": "BODY",
+                    "index": 4
+                  },
+                  {
+                    "tag": "SECTION-1",
+                    "index": 7
+                  },
+                  {
+                    "tag": "LIBRARY",
+                    "index": 3
+                  },
+                  {
+                    "tag": "SECTION-2",
+                    "index": 2
+                  },
+                  {
+                    "tag": "TABLE-GROUP",
+                    "index": 4
+                  },
+                  {
+                    "tag": "TABLE",
+                    "index": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "source_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4"
+        }
+      ],
+      "citation_evidence_ids": [
+        "ev-a1a0d3884a81b5c8",
+        "ev-338974488c82261b"
+      ],
+      "citation_ids_in_run": true,
+      "cross_company_corp_codes": [],
+      "receipt_not_eligible": [],
+      "answer_excerpt": "삼성전자의 2025년 연결기준 매출액은 333조 6,059억 3,800만 원(약 333.6조 원)입니다.\n별도기준 매출액은 238조 430억 900만 원입니다.",
+      "retrieval_ms": 157.23,
+      "generation_ms": 6661.255,
+      "total_ms": 11169.689,
+      "input_tokens": 3501,
+      "output_tokens": 531
+    },
+    {
+      "company": "삼성전자",
+      "corp_code": "00126380",
+      "key": "forecast",
+      "question": "삼성전자의 향후 매출 목표가 있어?",
+      "status": "abstained",
+      "action": "abstain",
+      "resolved_company": {
+        "status": "resolved",
+        "company_id": "00126380",
+        "corp_code": "00126380",
+        "company_name": "삼성전자"
+      },
+      "tool_calls": [
+        {
+          "status": "success",
+          "arguments": {
+            "query": "삼성전자 향후 매출 목표, 매출액 전망 및 사업부별 매출 목표",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": "2026-10-02T15:19:20+09:00",
+            "top_k": 20
+          },
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "report_type": "반기보고서",
+              "filing_period": "2026.06",
+              "receipt_date": "20260814",
+              "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+            }
+          ],
+          "retrieved_receipt_nos": [
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699"
+          ]
+        },
+        {
+          "status": "success",
+          "arguments": {
+            "query": "삼성전자 향후 매출 목표 매출 전망 중장기 목표 사업계획 매출액 목표",
+            "company_id": "00126380",
+            "period": {
+              "year": null,
+              "quarter": null,
+              "half": null,
+              "mode": "latest",
+              "year_from": null,
+              "year_to": null
+            },
+            "filing_date_from": null,
+            "filing_date_to": null,
+            "report_types": null,
+            "as_of": null,
+            "top_k": 20
+          },
+          "matched_filings": [
+            {
+              "receipt_no": "20260814003699",
+              "report_name": "반기보고서 (2026.06)",
+              "report_type": "반기보고서",
+              "filing_period": "2026.06",
+              "receipt_date": "20260814",
+              "source_sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec"
+            }
+          ],
+          "retrieved_receipt_nos": [
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699",
+            "20260814003699"
+          ]
+        }
+      ],
+      "citation_count": 0,
+      "evidence": [],
+      "citation_evidence_ids": [],
+      "citation_ids_in_run": true,
+      "cross_company_corp_codes": [],
+      "receipt_not_eligible": [],
+      "answer_excerpt": "검색된 공시에서 요청한 내용을 확인하지 못했습니다.",
+      "retrieval_ms": 159.9,
+      "generation_ms": 2519.664,
+      "total_ms": 6788.794,
+      "input_tokens": 3310,
+      "output_tokens": 132
+    },
+    {
+      "company": "삼양식품",
+      "corp_code": "00126955",
+      "e2e": "not_run",
+      "reason": "no overall_status=success filing, so no product index"
+    },
+    {
+      "company": "알테오젠",
+      "corp_code": "00989619",
+      "e2e": "not_run",
+      "reason": "no overall_status=success filing, so no product index"
+    },
+    {
+      "company": "대상",
+      "corp_code": "00121941",
+      "e2e": "not_run",
+      "reason": "no overall_status=success filing, so no product index"
+    }
+  ],
+  "note": "Planning uses the downloaded primary listing catalog. E2E uses only overall_status=success filings. 2025 revenue and the reason question are development probes, not a locked benchmark."
+}

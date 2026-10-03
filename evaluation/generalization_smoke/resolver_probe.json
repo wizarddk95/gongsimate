@@ -1,0 +1,592 @@
+{
+  "indexed_corp_codes": [
+    "00107613",
+    "00121941",
+    "00126380",
+    "00126955",
+    "00989619"
+  ],
+  "collision": {
+    "question": "이수페타시스 요즘 실적 어때?",
+    "mentions": [
+      "이수페타시스",
+      "요즘"
+    ],
+    "per_mention": [
+      {
+        "status": "resolved",
+        "corp_code": "00107613",
+        "company_name": "이수페타시스",
+        "mention": "이수페타시스",
+        "candidate_total": 1,
+        "candidates": [
+          {
+            "corp_code": "00107613",
+            "corp_name": "이수페타시스",
+            "stock_code": "007660"
+          }
+        ]
+      },
+      {
+        "status": "unsupported",
+        "corp_code": "01719318",
+        "company_name": "요즘",
+        "mention": "요즘",
+        "candidate_total": 1,
+        "candidates": [
+          {
+            "corp_code": "01719318",
+            "corp_name": "요즘",
+            "stock_code": ""
+          }
+        ]
+      }
+    ],
+    "combined": {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "이수페타시스 요즘",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "00107613",
+          "corp_name": "이수페타시스",
+          "stock_code": "007660"
+        },
+        {
+          "corp_code": "01719318",
+          "corp_name": "요즘",
+          "stock_code": ""
+        }
+      ]
+    }
+  },
+  "alias_cases": [
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "이수페타시스 요즘",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "00107613",
+          "corp_name": "이수페타시스",
+          "stock_code": "007660"
+        },
+        {
+          "corp_code": "01719318",
+          "corp_name": "요즘",
+          "stock_code": ""
+        }
+      ],
+      "question": "이수페타시스 요즘 실적 어때?",
+      "note": "prior E2E collision",
+      "mentions": [
+        "이수페타시스",
+        "요즘"
+      ]
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126380",
+      "company_name": "삼성전자",
+      "mention": "삼성전자",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        }
+      ],
+      "question": "삼성전자(주) 최근 실적은?",
+      "note": "legal_name",
+      "mentions": [
+        "삼성전자"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126380",
+      "company_name": "삼성전자",
+      "mention": "삼성전자",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        }
+      ],
+      "question": "삼성전자 최근 실적은?",
+      "note": "stock_name",
+      "mentions": [
+        "삼성전자"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126380",
+      "company_name": "삼성전자",
+      "mention": "삼성전자",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        }
+      ],
+      "question": "삼성전자 최근 실적은?",
+      "note": "compact",
+      "mentions": [
+        "삼성전자"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "no_mention",
+      "corp_code": null,
+      "company_name": null,
+      "mention": null,
+      "candidate_total": 0,
+      "candidates": [],
+      "question": "삼 성 전 자 최근 실적은?",
+      "note": "spaced",
+      "mentions": [],
+      "expected": "00126380"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "samsung",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "01651236",
+          "corp_name": "SamsungETFsTrustll",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01182596",
+          "corp_name": "삼성산업개발",
+          "stock_code": ""
+        }
+      ],
+      "question": "SAMSUNG ELECTRONICS CO,.LTD 최근 실적은?",
+      "note": "english",
+      "mentions": [
+        "samsung",
+        "cs"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "삼성전자 요즘",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        },
+        {
+          "corp_code": "01719318",
+          "corp_name": "요즘",
+          "stock_code": ""
+        }
+      ],
+      "question": "삼성전자 요즘 실적 어때?",
+      "note": "adverb collision with this company",
+      "mentions": [
+        "삼성전자",
+        "요즘"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126955",
+      "company_name": "삼양식품",
+      "mention": "삼양식품",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        }
+      ],
+      "question": "삼양식품(주) 최근 실적은?",
+      "note": "legal_name",
+      "mentions": [
+        "삼양식품"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126955",
+      "company_name": "삼양식품",
+      "mention": "삼양식품",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        }
+      ],
+      "question": "삼양식품 최근 실적은?",
+      "note": "stock_name",
+      "mentions": [
+        "삼양식품"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126955",
+      "company_name": "삼양식품",
+      "mention": "삼양식품",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        }
+      ],
+      "question": "삼양식품 최근 실적은?",
+      "note": "compact",
+      "mentions": [
+        "삼양식품"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "no_mention",
+      "corp_code": null,
+      "company_name": null,
+      "mention": null,
+      "candidate_total": 0,
+      "candidates": [],
+      "question": "삼 양 식 품 최근 실적은?",
+      "note": "spaced",
+      "mentions": [],
+      "expected": "00126955"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "samyang",
+      "candidate_total": 4,
+      "candidates": [
+        {
+          "corp_code": "01459081",
+          "corp_name": "삼양교통",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01653580",
+          "corp_name": "삼양판지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01225934",
+          "corp_name": "삼양해운",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01207682",
+          "corp_name": "에스와이삼양콘크리트",
+          "stock_code": ""
+        }
+      ],
+      "question": "Samyang Foods Inc. 최근 실적은?",
+      "note": "english",
+      "mentions": [
+        "samyang",
+        "nc"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "삼양식품 요즘",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        },
+        {
+          "corp_code": "01719318",
+          "corp_name": "요즘",
+          "stock_code": ""
+        }
+      ],
+      "question": "삼양식품 요즘 실적 어때?",
+      "note": "adverb collision with this company",
+      "mentions": [
+        "삼양식품",
+        "요즘"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00989619",
+      "company_name": "알테오젠",
+      "mention": "알테오젠",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        }
+      ],
+      "question": "(주)알테오젠 최근 실적은?",
+      "note": "legal_name",
+      "mentions": [
+        "알테오젠"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00989619",
+      "company_name": "알테오젠",
+      "mention": "알테오젠",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        }
+      ],
+      "question": "알테오젠 최근 실적은?",
+      "note": "stock_name",
+      "mentions": [
+        "알테오젠"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00989619",
+      "company_name": "알테오젠",
+      "mention": "알테오젠",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        }
+      ],
+      "question": "알테오젠 최근 실적은?",
+      "note": "compact",
+      "mentions": [
+        "알테오젠"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "no_mention",
+      "corp_code": null,
+      "company_name": null,
+      "mention": null,
+      "candidate_total": 0,
+      "candidates": [],
+      "question": "알 테 오 젠 최근 실적은?",
+      "note": "spaced",
+      "mentions": [],
+      "expected": "00989619"
+    },
+    {
+      "status": "unsupported",
+      "corp_code": "00261443",
+      "company_name": "NC",
+      "mention": "nc",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00261443",
+          "corp_name": "NC",
+          "stock_code": "036570"
+        }
+      ],
+      "question": "Alteogen Inc. 최근 실적은?",
+      "note": "english",
+      "mentions": [
+        "nc"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "알테오젠 요즘",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        },
+        {
+          "corp_code": "01719318",
+          "corp_name": "요즘",
+          "stock_code": ""
+        }
+      ],
+      "question": "알테오젠 요즘 실적 어때?",
+      "note": "adverb collision with this company",
+      "mentions": [
+        "알테오젠",
+        "요즘"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "mention": "대상",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        }
+      ],
+      "question": "대상(주) 최근 실적은?",
+      "note": "legal_name",
+      "mentions": [
+        "대상"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "mention": "대상",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        }
+      ],
+      "question": "대상 최근 실적은?",
+      "note": "stock_name",
+      "mentions": [
+        "대상"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "mention": "대상",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        }
+      ],
+      "question": "대상 최근 실적은?",
+      "note": "compact",
+      "mentions": [
+        "대상"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "no_mention",
+      "corp_code": null,
+      "company_name": null,
+      "mention": null,
+      "candidate_total": 0,
+      "candidates": [],
+      "question": "대 상 최근 실적은?",
+      "note": "spaced",
+      "mentions": [],
+      "expected": "00121941"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "daesang",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "01242676",
+          "corp_name": "대상개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01841200",
+          "corp_name": "대상화성점",
+          "stock_code": ""
+        }
+      ],
+      "question": "DAESANG CORPORATION 최근 실적은?",
+      "note": "english",
+      "mentions": [
+        "corporation",
+        "daesang"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "대상 요즘",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        },
+        {
+          "corp_code": "01719318",
+          "corp_name": "요즘",
+          "stock_code": ""
+        }
+      ],
+      "question": "대상 요즘 실적 어때?",
+      "note": "adverb collision with this company",
+      "mentions": [
+        "대상",
+        "요즘"
+      ],
+      "expected": "00121941"
+    }
+  ]
+}

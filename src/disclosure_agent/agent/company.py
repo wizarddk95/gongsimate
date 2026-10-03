@@ -268,10 +268,16 @@ class CompanyRegistry:
         return cls(companies, indexed_corp_codes=indexed_corp_codes)
 
     def extract_mentions(self, message: str) -> list[str]:
-        """Return surface mentions. This method does not assign company ids."""
+        """Return surface mentions. This method does not assign company ids.
+
+        Adjacent tokens are joined so a spaced name such as ``삼성 전자`` can
+        match ``삼성전자``. Resolution of that string is ``resolve_mention``.
+        """
         found: list[str] = []
         prefix_mentions: list[str] = []
-        for token in _tokens(message):
+        tokens = _tokens(message)
+        found.extend(self._joined_mentions(tokens))
+        for token in tokens:
             if token in self._by_stock or token in self._by_corp:
                 found.append(token)
                 continue
@@ -288,6 +294,21 @@ class CompanyRegistry:
         if found:
             return _prefer_longer(found)
         return _prefer_longer(prefix_mentions)
+
+    def _joined_mentions(self, tokens: list[str]) -> list[str]:
+        found: list[str] = []
+        width = min(4, len(tokens))
+        for window in range(width, 1, -1):
+            for index in range(len(tokens) - window + 1):
+                joined = "".join(tokens[index : index + window])
+                if (
+                    joined in self._by_name
+                    or joined in self._by_eng
+                    or joined in self._by_stock
+                    or joined in self._by_corp
+                ):
+                    found.append(joined)
+        return found
 
     def resolve_mention(self, mention: str) -> Resolution:
         key = normalize_name(mention)
@@ -330,19 +351,25 @@ class CompanyRegistry:
         if len(unique) == 1:
             return next(iter(unique.values()))
         if len(unique) > 1:
-            companies = []
-            for item in unique.values():
-                companies.append(
-                    CompanyRecord(
-                        corp_code=item.corp_code or "",
-                        corp_name=item.company_name or "",
-                        stock_code=item.stock_code or "",
-                    )
+            # An indexed company is the one this product can search. Another
+            # exact name that is not indexed does not veto it. Two indexed
+            # companies stay ambiguous. Unindexed-only collisions stay ambiguous.
+            indexed = [item for item in unique.values() if item.status == "resolved"]
+            pool = indexed or list(unique.values())
+            if len(pool) == 1:
+                return pool[0]
+            companies = [
+                CompanyRecord(
+                    corp_code=item.corp_code or "",
+                    corp_name=item.company_name or "",
+                    stock_code=item.stock_code or "",
                 )
+                for item in pool
+            ]
             ordered = _sort_companies(companies)
             return Resolution(
                 status="ambiguous",
-                mention=" ".join(mentions),
+                mention=" ".join(item.mention or "" for item in pool),
                 candidates=tuple(ordered),
                 candidate_total=len(ordered),
             )

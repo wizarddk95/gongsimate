@@ -1,0 +1,174 @@
+[
+  {
+    "question": "2035년 확정 매출이 어떻게 돼?",
+    "action": "answer_directly",
+    "status": "completed",
+    "abstain_stage": null,
+    "abstain_reason": null,
+    "resolved_company": null,
+    "public_observation": null,
+    "agent_statuses": [
+      "resolving_company",
+      "generating_answer"
+    ],
+    "answer": "2035년은 아직 오지 않은 기간이므로 확정 매출은 없습니다. 따라서 매출액을 제시할 수 없습니다.",
+    "tool_call_count": 0,
+    "tool_statuses": [],
+    "search_called": false,
+    "agent_action": "answer_directly"
+  },
+  {
+    "question": "2035년 매출 목표가 있어?",
+    "action": "ask_clarification",
+    "status": "company_not_found",
+    "abstain_stage": null,
+    "abstain_reason": null,
+    "resolved_company": null,
+    "public_observation": null,
+    "agent_statuses": [
+      "resolving_company"
+    ],
+    "answer": "어느 기업의 2035년 매출 목표를 확인할까요?",
+    "tool_call_count": 0,
+    "tool_statuses": [],
+    "search_called": false,
+    "agent_action": "ask_clarification"
+  },
+  {
+    "question": "이수페타시스 2035년 매출 목표가 있어?",
+    "action": "abstain",
+    "status": "abstained",
+    "abstain_stage": "generation",
+    "abstain_reason": "insufficient_evidence",
+    "resolved_company": {
+      "status": "resolved",
+      "company_id": "00107613",
+      "corp_code": "00107613",
+      "company_name": "이수페타시스"
+    },
+    "public_observation": null,
+    "agent_statuses": [
+      "resolving_company",
+      "searching_disclosures",
+      "searching_disclosures",
+      "generating_answer"
+    ],
+    "answer": "검색된 공시에서 요청한 내용을 확인하지 못했습니다.",
+    "tool_call_count": 2,
+    "tool_statuses": [
+      "success",
+      "success"
+    ],
+    "search_called": true,
+    "agent_action": "abstain"
+  },
+  {
+    "question": "이수페타시스 2010년 확정 매출은?",
+    "action": "answer_directly",
+    "status": "no_matching_filing",
+    "abstain_stage": "pre_generation",
+    "abstain_reason": "no_matching_filing",
+    "resolved_company": {
+      "status": "resolved",
+      "company_id": "00107613",
+      "corp_code": "00107613",
+      "company_name": "이수페타시스"
+    },
+    "public_observation": null,
+    "agent_statuses": [
+      "resolving_company",
+      "generating_answer"
+    ],
+    "answer": "현재 색인에서는 이수페타시스의 2010년 사업보고서를 찾지 못해 확정 매출액을 확인할 수 없습니다. 이는 색인에서 확인되지 않았다는 뜻이며, 공시가 없었다는 의미는 아닙니다.",
+    "tool_call_count": 1,
+    "tool_statuses": [
+      "no_matching_filing"
+    ],
+    "search_called": false,
+    "agent_action": "answer_directly"
+  },
+  {
+    "question": "삼성 전자 2025년 매출",
+    "action": "abstain",
+    "status": "company_unsupported",
+    "abstain_stage": "pre_generation",
+    "abstain_reason": "unsupported_company",
+    "resolved_company": {
+      "status": "unsupported",
+      "company_id": "00126380",
+      "corp_code": "00126380",
+      "company_name": "삼성전자"
+    },
+    "public_observation": {
+      "status": "unsupported_company",
+      "scope": "indexed_corpus",
+      "company": "삼성전자",
+      "requested_period": null,
+      "report_types": null,
+      "matched_count": 0,
+      "corpus_as_of": "2026-09-25T10:26:24+09:00",
+      "latest_available_period": null,
+      "public_reason": "삼성전자 기업은 목록에서 확인했지만, 현재 색인에는 검색할 공시가 없습니다.",
+      "message": "삼성전자 기업은 목록에서 확인했지만, 현재 색인에는 검색할 공시가 없습니다."
+    },
+    "agent_statuses": [
+      "resolving_company",
+      "generating_answer"
+    ],
+    "answer": "삼성전자 기업은 목록에서 확인했지만, 현재 색인에는 검색할 공시가 없습니다.",
+    "tool_call_count": 0,
+    "tool_statuses": [],
+    "search_called": false,
+    "agent_action": "abstain"
+  },
+  {
+    "question": "이수페타시스 요즘 실적",
+    "action": "search_disclosures",
+    "status": "completed",
+    "abstain_stage": null,
+    "abstain_reason": null,
+    "resolved_company": {
+      "status": "resolved",
+      "company_id": "00107613",
+      "corp_code": "00107613",
+      "company_name": "이수페타시스"
+    },
+    "public_observation": null,
+    "agent_statuses": [
+      "resolving_company",
+      "searching_disclosures",
+      "searching_disclosures",
+      "generating_answer"
+    ],
+    "answer": "제공된 최신 실적 근거는 2026년 상반기 연결 기준입니다. 상반기 매출은 약 7,202억원, 영업이익은 약 1,443억원, 순이익은 약 1,102억원입니다. 전년 동기 매출 약 4,939억원, 영업이익 약 898억원, 순이익 약 697억원보다 각각 높았습니다.\n2026년 2분기(4~6월)에는 매출 약 3,799억원, 영업이익 약 771억원, 순이익 약 597억원을 기록했습니다.\n다만 상반기 연결 영업활동현금흐름은 약 496억원 순유출로, 전년 동기 약 495억원 순유입과 달랐습니다.",
+    "tool_call_count": 2,
+    "tool_statuses": [
+      "success",
+      "success"
+    ],
+    "search_called": true,
+    "agent_action": "search_disclosures"
+  },
+  {
+    "question": "요즘 실적 어때?",
+    "action": "ask_clarification",
+    "status": "company_not_found",
+    "abstain_stage": null,
+    "abstain_reason": null,
+    "resolved_company": {
+      "status": "unsupported",
+      "company_id": "01719318",
+      "corp_code": "01719318",
+      "company_name": "요즘"
+    },
+    "public_observation": null,
+    "agent_statuses": [
+      "resolving_company"
+    ],
+    "answer": "어느 회사의 실적을 말씀하시는 건가요? 회사명을 알려주시면 최근 공시를 확인해 드릴게요.",
+    "tool_call_count": 0,
+    "tool_statuses": [],
+    "search_called": false,
+    "agent_action": "ask_clarification"
+  }
+]

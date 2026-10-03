@@ -455,17 +455,47 @@ def test_confirmed_cell_and_caption_literals_stay_success(tmp_path: Path) -> Non
     assert table["table"]["cells"][1]["text"] == ""
 
 
-def test_correction_wrapper_stays_partial(tmp_path: Path) -> None:
+def test_correction_wrapper_is_a_container(tmp_path: Path) -> None:
     body = "<CORRECTION><TITLE>정 정 신 고 (보고)</TITLE><P>본문</P></CORRECTION>"
     _store(tmp_path / "raw", _zip([(f"{RECEIPT}.xml", _xml(body))]))
     result = parse_receipt(RECEIPT, tmp_path / "raw", tmp_path / "parsed")
-    assert result["status"] == "partial"
-    assert result["search_eligible"] is False
+    assert result["status"] == "success"
+    assert result["search_eligible"] is True
+    assert "unsupported_tag:CORRECTION" not in " ".join(result.get("warnings") or [])
     elements = _elements(tmp_path / "parsed")
     by_text = {item["text"]: item for item in elements}
     assert by_text["정 정 신 고 (보고)"]["element_type"] == "heading"
     assert by_text["정 정 신 고 (보고)"]["section_path"] == []
     assert by_text["본문"]["section_path"] == ["정 정 신 고 (보고)"]
+
+
+def test_unclosed_korean_angle_is_literal_text(tmp_path: Path) -> None:
+    body = "<P><식품사업> 청정원</P><P><감사위원회></P><P>< 소재사업 ></P>"
+    _store(tmp_path / "raw", _zip([(f"{RECEIPT}.xml", _xml(body))]))
+    result = parse_receipt(RECEIPT, tmp_path / "raw", tmp_path / "parsed")
+    assert result["status"] == "success"
+    texts = [item["text"] for item in _elements(tmp_path / "parsed")]
+    assert "<식품사업> 청정원" in texts
+    assert "<감사위원회>" in texts
+    assert "< 소재사업 >" in texts
+    report = json.loads(
+        next((tmp_path / "parsed").rglob("preprocess_report.json")).read_text(encoding="utf-8")
+    )
+    rules = {item["rule"] for item in report["members"][0]["changes"]}
+    assert "literal_unclosed_angle" in rules
+    assert "uncertain_named_angle" not in rules
+
+
+def test_balanced_unknown_korean_tag_stays_uncertain(tmp_path: Path) -> None:
+    body = "<P><식품사업>본문</식품사업></P>"
+    _store(tmp_path / "raw", _zip([(f"{RECEIPT}.xml", _xml(body))]))
+    result = parse_receipt(RECEIPT, tmp_path / "raw", tmp_path / "parsed")
+    assert result["status"] == "partial"
+    report = json.loads(
+        next((tmp_path / "parsed").rglob("preprocess_report.json")).read_text(encoding="utf-8")
+    )
+    rules = {item["rule"] for item in report["members"][0]["changes"]}
+    assert "uncertain_named_angle" in rules
 
 
 def test_partial_reuse_keeps_status_and_warnings(tmp_path: Path) -> None:
@@ -842,13 +872,13 @@ def test_parse_cli_distinguishes_partial_and_reuses_diagnostics(
     captured = capsys.readouterr()
     assert code == 0
     lines = captured.out.splitlines()
-    assert lines[0] == "status: partial"
-    assert lines[1] == "search_eligible: False"
-    assert lines[2] == "quality_note: 처리 완료, 검색 입력 제외"
+    assert lines[0] == "status: success"
+    assert lines[1] == "search_eligible: True"
+    assert "quality_note:" not in captured.out
     assert "preprocess_version:" in captured.out
     assert "manifest:" in captured.out
     assert "reused: False" in captured.out
-    assert "unsupported_tag:CORRECTION" in captured.out
+    assert "unsupported_tag:CORRECTION" not in captured.out
     assert "본문 전체는 출력하지 않는다" not in captured.out
     again = run_parse_cli(
         [
@@ -862,9 +892,9 @@ def test_parse_cli_distinguishes_partial_and_reuses_diagnostics(
     )
     reused = capsys.readouterr().out
     assert again == 0
-    assert reused.splitlines()[0] == "status: partial"
-    assert "search_eligible: False" in reused
-    assert "quality_note: 처리 완료, 검색 입력 제외" in reused
+    assert reused.splitlines()[0] == "status: success"
+    assert "search_eligible: True" in reused
+    assert "quality_note:" not in reused
     assert "reused: True" in reused
     assert "manifest:" in reused
 

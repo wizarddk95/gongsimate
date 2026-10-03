@@ -165,6 +165,57 @@ def test_unlisted_exact_name_does_not_hide_longer_companies() -> None:
     assert found.candidate_total == 2
 
 
+def test_unindexed_name_does_not_veto_indexed_company() -> None:
+    nowadays = CompanyRecord("01719318", "요즘", "", "")
+    books = CompanyRegistry.from_records(
+        [ISU, nowadays, SEC],
+        indexed_corp_codes={ISU.corp_code},
+    )
+    found = books.resolve_mentions(books.extract_mentions("이수페타시스 요즘 실적 어때?"))
+    assert found.status == "resolved"
+    assert found.corp_code == ISU.corp_code
+    assert found.company_name == "이수페타시스"
+    alone = books.resolve_mentions(books.extract_mentions("요즘 실적"))
+    assert alone.status == "unsupported"
+    assert alone.corp_code == nowadays.corp_code
+    both = CompanyRegistry.from_records(
+        [ISU, SEC],
+        indexed_corp_codes={ISU.corp_code, SEC.corp_code},
+    )
+    mixed = both.resolve_mentions(both.extract_mentions("이수페타시스 삼성전자 매출"))
+    assert mixed.status == "ambiguous"
+    assert {company.corp_code for company in mixed.candidates} == {
+        ISU.corp_code,
+        SEC.corp_code,
+    }
+
+
+def test_spaced_names_resolve_without_a_blacklist() -> None:
+    books = CompanyRegistry.from_records(
+        [
+            ISU,
+            SEC,
+            CompanyRecord("00126955", "삼양식품", "003230", "Samyang Foods"),
+            CompanyRecord("01719318", "요즘", "", ""),
+        ],
+        indexed_corp_codes={ISU.corp_code, SEC.corp_code, "00126955"},
+    )
+    samsung = books.resolve_mentions(books.extract_mentions("삼성 전자 2025년 매출"))
+    assert samsung.status == "resolved"
+    assert samsung.company_name == "삼성전자"
+    assert samsung.corp_code == "00126380"
+    foods = books.resolve_mentions(books.extract_mentions("삼양 식품 최근 실적"))
+    assert foods.company_name == "삼양식품"
+    assert foods.corp_code == "00126955"
+    mixed = books.resolve_mentions(books.extract_mentions("이수페타시스 요즘 실적 어때?"))
+    assert mixed.company_name == "이수페타시스"
+    alone = books.resolve_mentions(books.extract_mentions("요즘 실적 어때?"))
+    assert alone.status == "unsupported"
+    assert alone.company_name == "요즘"
+    english = books.resolve_mentions(books.extract_mentions("ISU Petasys 매출"))
+    assert english.company_name == "이수페타시스"
+
+
 def test_unknown_company_and_unsupported_company() -> None:
     missing = registry().resolve_mention("없는기업에이비씨")
     assert missing.status == "not_found"

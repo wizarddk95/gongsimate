@@ -51,7 +51,7 @@ from disclosure_agent.errors import (
 from disclosure_agent.storage import ORIGINAL_FILENAME, sha256_bytes
 
 PARSER_VERSION = "2"
-PREPROCESS_VERSION = "2"
+PREPROCESS_VERSION = "3"
 SCHEMA_VERSION = 2
 TREE_NAME = "dart4-xml-elementtree"
 # Search may read a published result only when quality is success.
@@ -117,6 +117,9 @@ KNOWN_TAGS = frozenset(
         "TITLE",
         "TR",
         "TU",
+        # Correction notice wrapper. Parsing it does not decide which filing
+        # supersedes another. That link lives in the filing-relation layer.
+        "CORRECTION",
     }
 )
 
@@ -139,7 +142,8 @@ PARSER_CONFIG: dict[str, Any] = {
         "표1",
         "표2",
     ],
-    "non_tag_angle_escape": "allowlist-and-non-name-only",
+    "non_tag_angle_escape": "allowlist-or-unclosed-nonregistry-name",
+    "structural_wrappers": ["CORRECTION"],
     "image_policy": "record-filename-and-caption-no-ocr",
     "nested_table_policy": "owned-child-table-no-value-repeat",
     "locator_context": "per-member-tree-not-process-global",
@@ -152,9 +156,10 @@ PARSER_CONFIG: dict[str, Any] = {
     "max_table_cells": MAX_TABLE_CELLS,
 }
 
-# Confirmed text, not elements, in the stored 이수페타시스 samples.
-# Exact tokens confirmed as text in stored originals, not structural tags.
-# <CORRECTION>…</CORRECTION> is a real wrapper and stays unsupported.
+# Exact tokens confirmed as text in stored originals. They stay on the
+# allowlist so the repair rule name does not change. Other unclosed
+# non-registry names are literals by structure, not by this list.
+# <CORRECTION> is a known wrapper and is not a literal angle.
 LITERAL_ANGLE_EXACT = frozenset(
     {"신설", "연결기준", "별도기준", "중단영업손실", "표1", "표2"}
 )
@@ -1310,14 +1315,21 @@ def _unit_scope_status(mentions: list[dict[str, Any]]) -> str:
 
 
 def _preprocess_xml(text: str, *, member_index: int) -> _Preprocess:
-    """Rewrite only safe literals. Unknown ASCII tags stay structural."""
+    """Rewrite safe literals. Unknown ASCII tags stay structural.
+
+    A non-ASCII angle is literal text when it has no matching close tag.
+    A matching close tag that is not in the DART tag registry stays uncertain.
+    """
+    balanced = _balanced_nonregistry_names(text)
     pieces: list[str] = []
     repairs: list[_Repair] = []
     unsupported: list[str] = []
     cursor = 0
     for match in _TAG_AT.finditer(text):
         segment = text[cursor : match.start()]
-        pieces.append(_rewrite_text(segment, base=cursor, repairs=repairs))
+        pieces.append(
+            _rewrite_text(segment, base=cursor, repairs=repairs, balanced=balanced)
+        )
         token = match.group(0)
         name = (match.group("open") or match.group("close") or "").upper()
         if token.startswith(("<?", "<!--", "<![CDATA[")):
@@ -1337,12 +1349,45 @@ def _preprocess_xml(text: str, *, member_index: int) -> _Preprocess:
                 )
             )
         cursor = match.end()
-    pieces.append(_rewrite_text(text[cursor:], base=cursor, repairs=repairs))
+    pieces.append(
+        _rewrite_text(text[cursor:], base=cursor, repairs=repairs, balanced=balanced)
+    )
     del member_index
     return _Preprocess(text="".join(pieces), repairs=repairs, unsupported_tags=unsupported)
 
 
-def _rewrite_text(text: str, *, base: int, repairs: list[_Repair]) -> str:
+def _balanced_nonregistry_names(text: str) -> frozenset[str]:
+    """Names that occur as both ``<name>`` and ``</name>`` and are not ASCII tags.
+
+    ``_TAG_AT`` already classifies ASCII tags. A Hangul (or mixed) name with
+    both ends can still be markup, so it is not silently treated as text.
+    """
+    opens: set[str] = set()
+    closes: set[str] = set()
+    for match in _LITERAL_ANGLE.finditer(text):
+        raw = match.group(1).strip()
+        closing = raw.startswith("/")
+        inner = raw[1:].strip() if closing else raw
+        if not inner or any(char in inner for char in " \t=/\"'"):
+            continue
+        if not _xml_name(inner):
+            continue
+        if re.fullmatch(r"[A-Za-z][A-Za-z0-9-]*", inner):
+            continue
+        if closing:
+            closes.add(inner)
+        else:
+            opens.add(inner)
+    return frozenset(opens & closes)
+
+
+def _rewrite_text(
+    text: str,
+    *,
+    base: int,
+    repairs: list[_Repair],
+    balanced: frozenset[str],
+) -> str:
     pieces: list[str] = []
     cursor = 0
     for match in _LITERAL_ANGLE.finditer(text):
@@ -1353,11 +1398,11 @@ def _rewrite_text(text: str, *, base: int, repairs: list[_Repair]) -> str:
         )
         inner = match.group(1)
         token = match.group(0)
-        if _is_safe_literal(inner):
+        if _is_safe_literal(inner, balanced):
             after = "&lt;" + token[1:]
             repairs.append(
                 _Repair(
-                    rule="literal_angle_allowlist" if _is_allowlisted(inner) else "non_name_angle",
+                    rule=_literal_rule(inner, balanced),
                     offset=base + match.start(),
                     before=token,
                     after=after,
@@ -1423,13 +1468,27 @@ def _is_allowlisted(inner: str) -> bool:
     return any(stripped.startswith(prefix) for prefix in LITERAL_ANGLE_PREFIXES)
 
 
-def _is_safe_literal(inner: str) -> bool:
+def _literal_rule(inner: str, balanced: frozenset[str]) -> str:
+    if _is_allowlisted(inner):
+        return "literal_angle_allowlist"
+    stripped = inner.strip()
+    if stripped and _xml_name(stripped) and stripped not in balanced:
+        if not re.fullmatch(r"[A-Za-z][A-Za-z0-9-]*", stripped):
+            return "literal_unclosed_angle"
+    return "non_name_angle"
+
+
+def _is_safe_literal(inner: str, balanced: frozenset[str]) -> bool:
     if _is_allowlisted(inner):
         return True
     stripped = inner.strip()
     if not stripped:
         return True
-    return not _xml_name(stripped)
+    if not _xml_name(stripped):
+        return True
+    if re.fullmatch(r"[A-Za-z][A-Za-z0-9-]*", stripped):
+        return False
+    return stripped not in balanced
 
 
 def _xml_name(value: str) -> bool:

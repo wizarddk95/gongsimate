@@ -922,6 +922,18 @@ def _split_table_rows(
             short_rows.append(segment)
             continue
         flush_short()
+        if "cells" not in segment:
+            pieces.extend(
+                _split_long_body_line(
+                    segment,
+                    header,
+                    prefix_sources,
+                    token_counter,
+                    target_tokens=target_tokens,
+                    hard_max_tokens=hard_max_tokens,
+                )
+            )
+            continue
         pieces.extend(
             _split_long_table_row(
                 segment,
@@ -975,7 +987,12 @@ def _pack_table_rows(
 
 def _narrow_row_source(segment: dict[str, Any]) -> dict[str, Any]:
     narrowed = copy.deepcopy(segment["source"])
-    row = int(segment["row"])
+    row = segment.get("row")
+    # A non-table body line packed beside table rows has no row index.
+    # Keep its source span. Do not invent a row, and do not drop the line.
+    if row is None:
+        return narrowed
+    row = int(row)
     narrowed["cells"] = [
         cell for cell in narrowed.get("cells") or [] if int(cell["start_row"]) == row
     ]
@@ -983,6 +1000,45 @@ def _narrow_row_source(segment: dict[str, Any]) -> dict[str, Any]:
     narrowed["row_rects"] = [{"start": row, "end": row}]
     narrowed["rows_contiguous"] = True
     return narrowed
+
+
+def _split_long_body_line(
+    segment: dict[str, Any],
+    header: str,
+    prefix_sources: list[dict[str, Any]],
+    token_counter: TokenCounter,
+    *,
+    target_tokens: int,
+    hard_max_tokens: int,
+) -> list[dict[str, Any]]:
+    """Split a non-table body line that was packed with table rows."""
+    line = segment["text"]
+    source = segment.get("source")
+    if not isinstance(source, dict):
+        raise UsageError("oversized body line has no source span")
+    groups = _bounded_groups(
+        line,
+        header,
+        token_counter,
+        target_tokens=target_tokens,
+        hard_max_tokens=hard_max_tokens,
+    )
+    base = int(source.get("char_start") or 0)
+    pieces = []
+    for group in groups:
+        narrowed = copy.deepcopy(source)
+        narrowed["char_start"] = base + group["start"]
+        narrowed["char_end"] = base + group["end"]
+        pieces.append(
+            {
+                "text": _render(header, line[group["start"] : group["end"]]),
+                "source_refs": copy.deepcopy(prefix_sources) + [narrowed],
+                "split_reason": group["reason"],
+                "representation_type": "oversized_split",
+                "eligibility_reason": "oversized_body_line",
+            }
+        )
+    return pieces
 
 
 def _split_long_table_row(
@@ -1179,9 +1235,45 @@ def _explode_span(
     hard_max_tokens: int,
     first_cut: bool,
 ) -> list[dict[str, Any]]:
-    piece = body[start:end]
-    if token_counter(_render(header, piece)) <= hard_max_tokens and not first_cut:
-        return [{"start": start, "end": end, "reason": reason}]
+    """Split one oversized span. An explicit stack keeps long filings off the call stack.
+
+    The first span of a numbered or sentence cut can itself stay over the hard
+    max for hundreds of levels. Recursion hit Python's stack on a half-year
+    report and died inside the token counter.
+    """
+    pending: list[tuple[int, int, str, bool]] = [(start, end, reason, first_cut)]
+    leaves: list[dict[str, Any]] = []
+    while pending:
+        start, end, reason, first_cut = pending.pop()
+        piece = body[start:end]
+        if not piece:
+            continue
+        if token_counter(_render(header, piece)) <= hard_max_tokens and not first_cut:
+            leaves.append({"start": start, "end": end, "reason": reason})
+            continue
+        chosen = _shrinking_children(piece, first_cut=first_cut)
+        if chosen:
+            for local_start, local_end, split_reason in reversed(chosen):
+                pending.append(
+                    (start + local_start, start + local_end, split_reason, False)
+                )
+            continue
+        leaves.extend(
+            _token_windows(
+                body,
+                start,
+                end,
+                header,
+                token_counter,
+                hard_max_tokens=hard_max_tokens,
+            )
+        )
+    return leaves
+
+
+def _shrinking_children(
+    piece: str, *, first_cut: bool
+) -> list[tuple[int, int, str]] | None:
     splitters: list[tuple[str, list[tuple[int, int]] | None]] = []
     if first_cut:
         splitters.append(("numbered_heading", _sequence_spans(piece, _NUMBERED_RE)))
@@ -1192,39 +1284,23 @@ def _explode_span(
             ("sentence", _sentence_spans(piece)),
         ]
     )
+    width = len(piece)
     for split_reason, spans in splitters:
         if not spans or len(spans) < 2:
             continue
-        if spans[0][0] != 0 or spans[-1][1] != len(piece):
+        if spans[0][0] != 0 or spans[-1][1] != width:
             continue
-        exploded: list[dict[str, Any]] = []
+        children: list[tuple[int, int, str]] = []
         for local_start, local_end in spans:
             if local_end <= local_start:
                 continue
-            exploded.extend(
-                _explode_span(
-                    body,
-                    start + local_start,
-                    start + local_end,
-                    split_reason,
-                    header,
-                    token_counter,
-                    hard_max_tokens=hard_max_tokens,
-                    first_cut=False,
-                )
-            )
-        if len(exploded) >= 2 and not (
-            len(exploded) == 1 and exploded[0]["start"] == start and exploded[0]["end"] == end
-        ):
-            return exploded
-    return _token_windows(
-        body,
-        start,
-        end,
-        header,
-        token_counter,
-        hard_max_tokens=hard_max_tokens,
-    )
+            if local_end - local_start >= width:
+                children = []
+                break
+            children.append((local_start, local_end, split_reason))
+        if len(children) >= 2:
+            return children
+    return None
 
 
 def _sequence_spans(text: str, pattern: re.Pattern[str]) -> list[tuple[int, int]] | None:

@@ -30,6 +30,40 @@ $env:OPENDART_API_KEY = "your-opendart-api-key"
 
 **원격 확인이 `dart-ingest`와 `dart-sync`의 기본입니다.** 로컬에 정상 파일이 있어도 API 키 없이 성공 처리하지 않습니다. 키가 없거나 원격 조회가 실패하면 원격 확인 실패입니다. `dart-parse`는 저장된 ZIP만 읽으므로 키가 필요 없습니다.
 
+답변 생성에 OpenAI를 쓰는 경우에도 키는 `.env`의 `OPENAI_API_KEY`만 사용합니다. `.env`는 git에 올리지 않습니다. 모델 id는 `OPENAI_MODEL`이고, 비어 있으면 `gpt-6-luna`입니다. 선택 항목은 `OPENAI_TIMEOUT_SECONDS`(기본 60), `OPENAI_MAX_RETRIES`(기본 1, SDK의 전송 재시도)입니다. 키가 없으면 발췌 기반 fallback이 동작하고 run record의 `generator_type`은 `deterministic_fallback`입니다. 키가 있으면 `generator_type`은 `openai`이며, 모델 호출 실패를 fallback 성공으로 바꾸지 않습니다.
+
+## 제품 검색 아티팩트
+
+`dart-agent`는 이수페타시스 정기공시 여러 건을 한 Dense-D2a 색인에서 검색합니다. 아래 파일은 `data/` 아래라 gitignore입니다. 새 checkout에는 없습니다.
+
+- `data/product/indexes/isu_petasys_periodic_d2a/retrieval_units.jsonl`
+- `data/product/indexes/isu_petasys_periodic_d2a/embeddings.f32`
+- `data/product/indexes/isu_petasys_periodic_d2a/corpus.json`
+
+만드는 명령입니다. 모델은 기존과 같은 `BAAI/bge-m3`이고, 표현은 `retrieval-unit-d2a-v1`입니다. 현재 parser contract에서 `overall_status=success`인 사업·반기·분기보고서 멤버만 넣습니다. 감사보고서 멤버와 `partial` 정정본은 넣지 않습니다. FY2025 단일 색인과 텍스트가 같은 retrieval unit은 기존 벡터를 재사용합니다.
+
+```powershell
+uv run python -m disclosure_agent.product_index
+```
+
+`evaluation/runs/isu_petasys_v0_3_dense_d2a`는 FY2025 사업보고서 한 건의 평가 기준선입니다. 제품 검색 경로가 아니고, `dart-eval-dense`가 그 디렉터리 이름을 덮어쓰지 않습니다. 그 기준선의 파일은 다음입니다.
+
+- `evaluation/runs/isu_petasys_v0_3_dense_d2a/retrieval_units.jsonl`
+- `evaluation/runs/isu_petasys_v0_3_dense_d2a/embeddings.f32`
+
+없을 때의 실패는 답변 모델을 호출하기 전입니다. 제품 색인이 없으면 서버가 뜨기 전에 `RetrievalFailure`가 납니다. 검색 중 인덱스를 읽다 실패하면 SSE `error.code`는 `retrieval_failure`입니다. 내부 detail은 다음 중 하나입니다.
+
+- `D2a retrieval units are missing: <units 경로>`
+- `D2a embeddings are missing: <embeddings 경로>`
+
+`isu_petasys_v0_3_dense_d2a`라는 디렉터리 이름은 잠겨 있어서 `dart-eval-dense`가 그 경로를 덮어쓰지 않습니다. 복원은 기존에 만든 `embeddings.f32`를 그 디렉터리에 다시 두는 것입니다. 다시 만들어야 하면 다른 출력 디렉터리에 D2a를 만든 뒤 파일만 복사합니다.
+
+```powershell
+uv run dart-eval-dense --dataset evaluation/datasets/isu_petasys_v0_3 --manifest data/parsed/dart/20260323000847/<source_sha256>/p2/<prefix>/parse_manifest.json --elements data/parsed/dart/20260323000847/<source_sha256>/p2/<prefix>/elements.jsonl --output-dir evaluation/runs/isu_petasys_v0_3_dense_d2a_rebuild --representation d2a
+```
+
+질의 인코더(BGE-M3)는 프로세스 안의 `DenseD2aSearch`에 첫 검색 때 한 번만 올라갑니다. 같은 서버 프로세스의 다음 요청은 모델을 다시 읽지 않습니다. 시작 시 미리 올리는 warmup은 아직 없습니다.
+
 ## 사용
 
 ### 접수번호 한 건 원격 확인
@@ -69,11 +103,11 @@ uv run dart-parse --receipt-no 20260323000847 --raw-dir ./data/raw --output-dir 
 uv run dart-parse --receipt-no 20260323000847 --source-sha256 <64-hex>
 ```
 
-결과는 `data/parsed/dart/<receipt_no>/<sha256>/p2/<config_hash 앞 16자>/`에 `parse_manifest.json`, `elements.jsonl`, `preview.md`, `preprocess_report.json`으로 남습니다. 파서 버전은 `2`, 스키마는 `2`, 전처리 버전은 `2`입니다. `p1/` 결과는 그대로 둡니다. `COMPLETE`는 산출물 쓰기가 끝났다는 뜻입니다. 파싱 품질은 manifest의 `overall_status`입니다. `partial`도 종료 코드 0일 수 있지만, 그건 완전 성공이 아닙니다.
+결과는 `data/parsed/dart/<receipt_no>/<sha256>/p2/<config_hash 앞 16자>/`에 `parse_manifest.json`, `elements.jsonl`, `preview.md`, `preprocess_report.json`으로 남습니다. 파서 버전은 `2`, 스키마는 `2`, 전처리 버전은 `3`입니다. `p1/` 결과는 그대로 둡니다. `COMPLETE`는 산출물 쓰기가 끝났다는 뜻입니다. 파싱 품질은 manifest의 `overall_status`입니다. `partial`도 종료 코드 0일 수 있지만, 그건 완전 성공이 아닙니다.
 
 `dart-parse` 출력 앞부분은 `status`와 `search_eligible`을 구분합니다. `partial`이면 `처리 완료, 검색 입력 제외`라고 적습니다. 이어서 원본 SHA, 파서·전처리 버전, 설정 해시, 재사용 여부, manifest 경로, 멤버 상태와 경고 코드를 보입니다. 경고가 길면 개수와 생략 여부, 상세 파일(manifest) 경로를 적습니다. 검색 자격은 이 문장을 파싱해서 정하지 않습니다. 기준은 manifest의 `overall_status`입니다.
 
-전처리는 디코딩된 멤버 텍스트의 유니코드 코드포인트 오프셋으로 기록합니다. ZIP 바이트 위치나 locator가 아닙니다. 확인된 리터럴(`<신설>`, `<연결기준>`, `<별도기준>`, `연결기준_`, `별도기준_`, `<중단영업손실>`, `<표1>`, `<표2>`)과 태그 이름이 아닌 `<`, 그리고 기존 엔티티가 아닌 `&`만 안전하게 고칩니다. 모르는 ASCII 태그(예: `<CORRECTION>`)는 텍스트로 바꾸지 않고 트리에 남겨 `partial`로 둡니다. 래퍼 안의 `TITLE`은 그 래퍼 뒤의 문단·표에만 `section_path`로 이어지고, 래퍼 밖 형제나 다음 문서에는 붙지 않습니다. 그 경로를 고쳤다고 태그가 지원되거나 `partial`이 `success`가 되지는 않습니다. 안전한 보정이 있었다는 이유만으로 `partial`이 되지 않습니다. 전처리 버전은 설정 해시에 포함됩니다.
+전처리는 디코딩된 멤버 텍스트의 유니코드 코드포인트 오프셋으로 기록합니다. ZIP 바이트 위치나 locator가 아닙니다. 확인된 리터럴과, 태그 이름이 아닌 `<`, 기존 엔티티가 아닌 `&`를 안전하게 고칩니다. ASCII가 아닌 꺾쇠 이름은 짝이 되는 닫는 태그가 없으면 본문 리터럴입니다. 닫는 태그가 있는데 태그 목록에 없으면 `uncertain_named_angle`로 `partial`에 남습니다. 회사별 꺾쇠 목록은 늘리지 않습니다. 모르는 ASCII 태그는 텍스트로 바꾸지 않고 트리에 남겨 `partial`로 둡니다. `<CORRECTION>`은 정정 고지 래퍼로 읽습니다. 그 태그를 읽는 것은 어느 접수번호가 원본을 대체하는지를 정하지 않습니다. 래퍼 안의 `TITLE`은 그 래퍼 뒤의 문단·표에만 `section_path`로 이어지고, 래퍼 밖 형제나 다음 문서에는 붙지 않습니다. 안전한 보정이 있었다는 이유만으로 `partial`이 되지 않습니다. 전처리 버전은 설정 해시에 포함됩니다.
 
 locator는 멤버 트리별 컨텍스트입니다. 프로세스 전역 경로 맵을 쓰지 않습니다. 각 locator에는 트리 이름, 원본 SHA, 멤버 순번, 멤버 이름, 자식 순번 경로가 있습니다. 같은 파일명의 멤버는 순번으로 구분합니다. `resolve_locator`와 `element_text_at`의 인자는 이전과 같고, 호출마다 넘긴 멤버 텍스트로 트리를 새로 만듭니다. 왕복은 전처리 뒤 같은 ElementTree에서 자식 순번을 다시 찾는 검증입니다. 전처리 전 원문과 출력의 독립 대조는 그 왕복과 별개입니다.
 
@@ -182,4 +216,4 @@ OpenDART API `status` (`013` 없음, `020` 제한 등) ― HTTP API 응답 코�
 - 강제 종료 후 수집 `.tmp-*` / lock 잔여물과 파서 `.tmp-*`·`.lock`은 자동으로 지우지 않습니다. 파서 결과는 결과 디렉터리에 `COMPLETE`가 있을 때만 완료입니다. 다른 실행의 임시 디렉터리를 완료로 보지 않습니다
 - ETag/HEAD만으로 동일성을 주장하지 않습니다 (항상 ZIP 다운로드 후 SHA-256)
 - 파싱은 고정된 ZIP 스냅샷만 처리합니다. 파싱 도중 DART를 다시 조회하거나 `current.json`을 따라가지 않습니다
-- 지원 문서는 dart4 XML의 제목·문단·표입니다. HTML, 이미지 OCR, 쪽 번호, 계정 매핑, 단위 환산, 정정 diff, 스케줄러, 전체 시장 일괄은 범위 밖입니다. `<CORRECTION>`은 미지원이며 해당 문서는 `partial`입니다
+- 지원 문서는 dart4 XML의 제목·문단·표와 `<CORRECTION>` 고지 래퍼입니다. HTML, 이미지 OCR, 쪽 번호, 계정 매핑, 단위 환산, 정정 diff, 스케줄러, 전체 시장 일괄은 범위 밖입니다. 정정 래퍼를 파싱해도 원본 ZIP은 지우지 않으며, 원본-정정 연결은 별도 relation으로 둡니다

@@ -1,15 +1,26 @@
-"""Run limits for the product agent. These bound a single /ask call."""
+"""Run limits and answer-model settings for the product agent."""
 
 from __future__ import annotations
 
+import os
+from collections.abc import Mapping
 from dataclasses import dataclass
 
 MAX_SEARCH_CALLS = 2
 MAX_LLM_CALLS = 4
-DEFAULT_TOP_K = 8
+# Dense-D2a recall was measured at 20. That depth is candidate recall.
+# How many of those candidates reach the model is a context-budget decision.
+DEFAULT_RETRIEVAL_TOP_K = 20
+DEFAULT_GENERATION_CONTEXT_TOKEN_BUDGET = 4096
+DEFAULT_GENERATION_MAX_EVIDENCE = 20
 CITED_EVIDENCE_LIMIT = 3
 REQUEST_TIMEOUT_SECONDS = 180.0
 EXCERPT_CHARS = 480
+# One structured-output failure may be retried once. Both attempts count as LLM calls.
+STRUCTURED_OUTPUT_ATTEMPTS = 2
+DEFAULT_OPENAI_MODEL = "gpt-6-luna"
+DEFAULT_OPENAI_TIMEOUT_SECONDS = 60.0
+DEFAULT_OPENAI_MAX_RETRIES = 1
 
 
 @dataclass(frozen=True)
@@ -20,3 +31,52 @@ class AgentLimits:
     def __post_init__(self) -> None:
         if self.max_search_calls < 0 or self.max_llm_calls < 0:
             raise ValueError("run limits must be >= 0")
+
+
+@dataclass(frozen=True)
+class OpenAIConfig:
+    """Model settings. ``api_key`` is excluded from ``repr`` and logs."""
+
+    api_key: str
+    model: str = DEFAULT_OPENAI_MODEL
+    timeout_seconds: float = DEFAULT_OPENAI_TIMEOUT_SECONDS
+    max_retries: int = DEFAULT_OPENAI_MAX_RETRIES
+
+    def __post_init__(self) -> None:
+        if not self.model:
+            raise ValueError("OPENAI_MODEL is empty")
+        if self.timeout_seconds <= 0:
+            raise ValueError("OPENAI_TIMEOUT_SECONDS must be > 0")
+        if self.max_retries < 0:
+            raise ValueError("OPENAI_MAX_RETRIES must be >= 0")
+
+    def __repr__(self) -> str:
+        return (
+            "OpenAIConfig("
+            f"model={self.model!r}, "
+            f"timeout_seconds={self.timeout_seconds!r}, "
+            f"max_retries={self.max_retries!r}, "
+            f"api_key_present={bool(self.api_key)})"
+        )
+
+    @property
+    def configured(self) -> bool:
+        return bool(self.api_key)
+
+
+def load_openai_config(environ: Mapping[str, str] | None = None) -> OpenAIConfig:
+    """Read answer-model settings. Missing model uses the cost-efficient default."""
+    env = os.environ if environ is None else environ
+    timeout_raw = env.get("OPENAI_TIMEOUT_SECONDS", "").strip()
+    retries_raw = env.get("OPENAI_MAX_RETRIES", "").strip()
+    try:
+        timeout = float(timeout_raw) if timeout_raw else DEFAULT_OPENAI_TIMEOUT_SECONDS
+        retries = int(retries_raw) if retries_raw else DEFAULT_OPENAI_MAX_RETRIES
+    except ValueError as exc:
+        raise ValueError("OPENAI_TIMEOUT_SECONDS and OPENAI_MAX_RETRIES must be numbers") from exc
+    return OpenAIConfig(
+        api_key=env.get("OPENAI_API_KEY", "").strip(),
+        model=env.get("OPENAI_MODEL", "").strip() or DEFAULT_OPENAI_MODEL,
+        timeout_seconds=timeout,
+        max_retries=retries,
+    )

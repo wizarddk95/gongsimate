@@ -1,0 +1,2354 @@
+{
+  "indexed_corp_codes": [
+    "00107613",
+    "00121941",
+    "00126380",
+    "00126955",
+    "00989619"
+  ],
+  "collision": {
+    "question": "이수페타시스 요즘 실적 어때?",
+    "mentions": [
+      "이수페타시스",
+      "요즘"
+    ],
+    "per_mention": [
+      {
+        "status": "resolved",
+        "corp_code": "00107613",
+        "company_name": "이수페타시스",
+        "mention": "이수페타시스",
+        "candidate_total": 1,
+        "candidates": [
+          {
+            "corp_code": "00107613",
+            "corp_name": "이수페타시스",
+            "stock_code": "007660"
+          }
+        ]
+      },
+      {
+        "status": "unsupported",
+        "corp_code": "01719318",
+        "company_name": "요즘",
+        "mention": "요즘",
+        "candidate_total": 1,
+        "candidates": [
+          {
+            "corp_code": "01719318",
+            "corp_name": "요즘",
+            "stock_code": ""
+          }
+        ]
+      }
+    ],
+    "combined": {
+      "status": "resolved",
+      "corp_code": "00107613",
+      "company_name": "이수페타시스",
+      "mention": "이수페타시스",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00107613",
+          "corp_name": "이수페타시스",
+          "stock_code": "007660"
+        }
+      ]
+    }
+  },
+  "alias_cases": [
+    {
+      "status": "resolved",
+      "corp_code": "00107613",
+      "company_name": "이수페타시스",
+      "mention": "이수페타시스",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00107613",
+          "corp_name": "이수페타시스",
+          "stock_code": "007660"
+        }
+      ],
+      "question": "이수페타시스 요즘 실적 어때?",
+      "note": "prior E2E collision",
+      "mentions": [
+        "이수페타시스",
+        "요즘"
+      ]
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126380",
+      "company_name": "삼성전자",
+      "mention": "삼성전자",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        }
+      ],
+      "question": "삼성전자(주) 최근 실적은?",
+      "note": "legal_name",
+      "mentions": [
+        "삼성전자"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126380",
+      "company_name": "삼성전자",
+      "mention": "삼성전자",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        }
+      ],
+      "question": "삼성전자 최근 실적은?",
+      "note": "stock_name",
+      "mentions": [
+        "삼성전자"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126380",
+      "company_name": "삼성전자",
+      "mention": "삼성전자",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        }
+      ],
+      "question": "삼성전자 최근 실적은?",
+      "note": "compact",
+      "mentions": [
+        "삼성전자"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "삼성",
+      "candidate_total": 254,
+      "candidates": [
+        {
+          "corp_code": "00126308",
+          "corp_name": "삼성E&A",
+          "stock_code": "028050"
+        },
+        {
+          "corp_code": "01688896",
+          "corp_name": "삼성FN리츠",
+          "stock_code": "448730"
+        },
+        {
+          "corp_code": "00126362",
+          "corp_name": "삼성SDI",
+          "stock_code": "006400"
+        },
+        {
+          "corp_code": "00126201",
+          "corp_name": "삼성공조",
+          "stock_code": "006660"
+        },
+        {
+          "corp_code": "01528530",
+          "corp_name": "삼성기업인수목적4호",
+          "stock_code": "377630"
+        },
+        {
+          "corp_code": "01624162",
+          "corp_name": "삼성기업인수목적6호",
+          "stock_code": "425290"
+        },
+        {
+          "corp_code": "01675227",
+          "corp_name": "삼성기업인수목적7호",
+          "stock_code": "439250"
+        },
+        {
+          "corp_code": "01700921",
+          "corp_name": "삼성기업인수목적8호",
+          "stock_code": "448740"
+        },
+        {
+          "corp_code": "01786514",
+          "corp_name": "삼성기업인수목적9호",
+          "stock_code": "468510"
+        },
+        {
+          "corp_code": "00721981",
+          "corp_name": "삼성디지털이미징",
+          "stock_code": "108070"
+        },
+        {
+          "corp_code": "01534522",
+          "corp_name": "삼성머스트기업인수목적5호",
+          "stock_code": "380320"
+        },
+        {
+          "corp_code": "00126229",
+          "corp_name": "삼성물산",
+          "stock_code": "000830"
+        },
+        {
+          "corp_code": "00149655",
+          "corp_name": "삼성물산",
+          "stock_code": "028260"
+        },
+        {
+          "corp_code": "00877059",
+          "corp_name": "삼성바이오로직스",
+          "stock_code": "207940"
+        },
+        {
+          "corp_code": "00126256",
+          "corp_name": "삼성생명",
+          "stock_code": "032830"
+        },
+        {
+          "corp_code": "00339063",
+          "corp_name": "삼성수산",
+          "stock_code": "052560"
+        },
+        {
+          "corp_code": "01910759",
+          "corp_name": "삼성스팩10호",
+          "stock_code": "0044K0"
+        },
+        {
+          "corp_code": "01935183",
+          "corp_name": "삼성스팩11호",
+          "stock_code": "0071M0"
+        },
+        {
+          "corp_code": "01946532",
+          "corp_name": "삼성스팩12호",
+          "stock_code": "0096B0"
+        },
+        {
+          "corp_code": "01957909",
+          "corp_name": "삼성스팩13호",
+          "stock_code": "0115H0"
+        },
+        {
+          "corp_code": "00126186",
+          "corp_name": "삼성에스디에스",
+          "stock_code": "018260"
+        },
+        {
+          "corp_code": "01965324",
+          "corp_name": "삼성에피스홀딩스",
+          "stock_code": "0126Z0"
+        },
+        {
+          "corp_code": "00126371",
+          "corp_name": "삼성전기",
+          "stock_code": "009150"
+        },
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        },
+        {
+          "corp_code": "00126414",
+          "corp_name": "삼성제약",
+          "stock_code": "001360"
+        },
+        {
+          "corp_code": "00126478",
+          "corp_name": "삼성중공업",
+          "stock_code": "010140"
+        },
+        {
+          "corp_code": "00104856",
+          "corp_name": "삼성증권",
+          "stock_code": "016360"
+        },
+        {
+          "corp_code": "00423690",
+          "corp_name": "삼성출판사",
+          "stock_code": "068290"
+        },
+        {
+          "corp_code": "00126292",
+          "corp_name": "삼성카드",
+          "stock_code": "029780"
+        },
+        {
+          "corp_code": "00139214",
+          "corp_name": "삼성화재해상보험",
+          "stock_code": "000810"
+        },
+        {
+          "corp_code": "00893765",
+          "corp_name": "삼성",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00453293",
+          "corp_name": "삼성AST",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00232654",
+          "corp_name": "삼성가구",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01300208",
+          "corp_name": "삼성개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126140",
+          "corp_name": "삼성건설",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01102466",
+          "corp_name": "삼성건설",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01382691",
+          "corp_name": "삼성건축",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01658123",
+          "corp_name": "삼성골덱스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01564189",
+          "corp_name": "삼성골드",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126159",
+          "corp_name": "삼성공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00173263",
+          "corp_name": "삼성공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00356316",
+          "corp_name": "삼성공영",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00104096",
+          "corp_name": "삼성광주전자",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01455669",
+          "corp_name": "삼성교역",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "02053699",
+          "corp_name": "삼성교통",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01909939",
+          "corp_name": "삼성굿미트",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00180537",
+          "corp_name": "삼성그라비아인쇄",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01896158",
+          "corp_name": "삼성그라테크",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00267465",
+          "corp_name": "삼성그랑프리전환형뮤추얼펀드",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00217798",
+          "corp_name": "삼성글로벌리서치",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01214503",
+          "corp_name": "삼성금거래소",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01328897",
+          "corp_name": "삼성금거래소홀딩스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00451675",
+          "corp_name": "삼성금박카드라인",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00854809",
+          "corp_name": "삼성금속",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01082384",
+          "corp_name": "삼성금속",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01297825",
+          "corp_name": "삼성금속",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01920695",
+          "corp_name": "삼성금융파트너스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00482851",
+          "corp_name": "삼성금은",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01024478",
+          "corp_name": "삼성기전",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00486565",
+          "corp_name": "삼성냉장",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01788141",
+          "corp_name": "삼성냉장물류센터",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01870664",
+          "corp_name": "삼성네오정보",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00361761",
+          "corp_name": "삼성네트웍스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01947498",
+          "corp_name": "삼성노블라이프",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00380890",
+          "corp_name": "삼성뉴트리션센터",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00434678",
+          "corp_name": "삼성다이나믹한증권투자회사주식",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00119265",
+          "corp_name": "삼성다이나에이치백",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00912006",
+          "corp_name": "삼성디스플레이",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01328657",
+          "corp_name": "삼성디엔씨",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00575647",
+          "corp_name": "삼성디와이",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00180546",
+          "corp_name": "삼성라이온즈",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00577724",
+          "corp_name": "삼성레이저",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00611055",
+          "corp_name": "삼성레저",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01649772",
+          "corp_name": "삼성레진",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00691990",
+          "corp_name": "삼성로하스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00914545",
+          "corp_name": "삼성리사이클링",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00120988",
+          "corp_name": "삼성메디슨",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01012473",
+          "corp_name": "삼성메디칼",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01135871",
+          "corp_name": "삼성메디코스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00687410",
+          "corp_name": "삼성모바일디스플레이",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01679782",
+          "corp_name": "삼성모터스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126210",
+          "corp_name": "삼성무역",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00526702",
+          "corp_name": "삼성문화인쇄",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00388227",
+          "corp_name": "삼성문화재단",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00545822",
+          "corp_name": "삼성미트통상",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00907679",
+          "corp_name": "삼성바이오에피스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00135254",
+          "corp_name": "삼성발레오써멀시스템스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00455714",
+          "corp_name": "삼성베올리아인천환경",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00301574",
+          "corp_name": "삼성벤처투자",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01495463",
+          "corp_name": "삼성보안공사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00865285",
+          "corp_name": "삼성복지상조",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01604502",
+          "corp_name": "삼성복지재단",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00198129",
+          "corp_name": "삼성사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00239310",
+          "corp_name": "삼성산업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00432704",
+          "corp_name": "삼성산업개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01182596",
+          "corp_name": "삼성산업개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01373620",
+          "corp_name": "삼성산업개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00230559",
+          "corp_name": "삼성상용차",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00246462",
+          "corp_name": "삼성색소공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01094121",
+          "corp_name": "삼성생명금융서비스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00218450",
+          "corp_name": "삼성생명서비스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00558279",
+          "corp_name": "삼성생명서비스손해사정",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126265",
+          "corp_name": "삼성석유화학",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00568692",
+          "corp_name": "삼성석회",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00245047",
+          "corp_name": "삼성선물",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "02028408",
+          "corp_name": "삼성섬유",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01742343",
+          "corp_name": "삼성스마트시티",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01549959",
+          "corp_name": "삼성스마트하우징",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01332003",
+          "corp_name": "삼성스카이제일차",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00616546",
+          "corp_name": "삼성스텐레스상공",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01660836",
+          "corp_name": "삼성스텐레이져",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00235305",
+          "corp_name": "삼성식품",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00545682",
+          "corp_name": "삼성신한사차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00459525",
+          "corp_name": "삼성신한아하론삼차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00429409",
+          "corp_name": "삼성신한아하론이차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00427526",
+          "corp_name": "삼성신한아하론일차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00457244",
+          "corp_name": "삼성신한프론티어제팔차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "02036841",
+          "corp_name": "삼성씨앤에이치",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00496988",
+          "corp_name": "삼성씨앤지하우징",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01460980",
+          "corp_name": "삼성씨에스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00460114",
+          "corp_name": "삼성씨케이",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01957501",
+          "corp_name": "삼성아이에프엠",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01511309",
+          "corp_name": "삼성알미늄",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01408175",
+          "corp_name": "삼성알앤티",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01194731",
+          "corp_name": "삼성액티브자산운용",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01915976",
+          "corp_name": "삼성약품",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01959660",
+          "corp_name": "삼성언론재단",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01020339",
+          "corp_name": "삼성에너지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00951412",
+          "corp_name": "삼성에스알에이자산운용",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00207728",
+          "corp_name": "삼성에스엔에스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01501135",
+          "corp_name": "삼성에스엘",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00509200",
+          "corp_name": "삼성에스오씨제일차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00814476",
+          "corp_name": "삼성에어컨특판",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01176124",
+          "corp_name": "삼성에이아이윈",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00590275",
+          "corp_name": "삼성에이치제이에스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01562659",
+          "corp_name": "삼성에코텍",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00362593",
+          "corp_name": "삼성에프.씨",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00758392",
+          "corp_name": "삼성엘이디",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00492052",
+          "corp_name": "삼성엠케이",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00234768",
+          "corp_name": "삼성여객",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01732638",
+          "corp_name": "삼성여객",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126326",
+          "corp_name": "삼성여객자동차",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00349103",
+          "corp_name": "삼성오엘이디",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00466376",
+          "corp_name": "삼성오토론제삼차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00453248",
+          "corp_name": "삼성오토론제이차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00440819",
+          "corp_name": "삼성오토론제일차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01222928",
+          "corp_name": "삼성우드산업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01473203",
+          "corp_name": "삼성월드",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00995258",
+          "corp_name": "삼성웰스토리",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01244531",
+          "corp_name": "삼성유리공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00531315",
+          "corp_name": "삼성유통",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00923303",
+          "corp_name": "삼성의료고무",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00605771",
+          "corp_name": "삼성의료설비",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00606974",
+          "corp_name": "삼성이엔지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01275133",
+          "corp_name": "삼성인더스트리",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00434270",
+          "corp_name": "삼성인덱스프리미엄30증권투자회사채권혼합",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00434517",
+          "corp_name": "삼성인덱스프리미엄증권투자회사주식파생형",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126353",
+          "corp_name": "삼성인쇄",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00663085",
+          "corp_name": "삼성임업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00483407",
+          "corp_name": "삼성잉크",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01656578",
+          "corp_name": "삼성자산개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00260453",
+          "corp_name": "삼성자산운용",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00624961",
+          "corp_name": "삼성전선",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00366997",
+          "corp_name": "삼성전자로지텍",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00258999",
+          "corp_name": "삼성전자서비스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01345812",
+          "corp_name": "삼성전자서비스씨에스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00252074",
+          "corp_name": "삼성전자판매",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00878155",
+          "corp_name": "삼성정공",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00924214",
+          "corp_name": "삼성정공",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01918867",
+          "corp_name": "삼성정공",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00678777",
+          "corp_name": "삼성정밀",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00197777",
+          "corp_name": "삼성정밀공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00659356",
+          "corp_name": "삼성정유",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00180564",
+          "corp_name": "삼성제지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126432",
+          "corp_name": "삼성제침",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00551726",
+          "corp_name": "삼성종합건설",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "02030111",
+          "corp_name": "삼성종합물류",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00196963",
+          "corp_name": "삼성종합토건",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00366678",
+          "corp_name": "삼성주택",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01308945",
+          "corp_name": "삼성주택",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00434377",
+          "corp_name": "삼성중소형알짜주식형뮤추얼펀드",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00567231",
+          "corp_name": "삼성철강",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00474366",
+          "corp_name": "삼성초이스유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00998608",
+          "corp_name": "삼성카드고객서비스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00274456",
+          "corp_name": "삼성캐피탈",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01495995",
+          "corp_name": "삼성케미칼",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00943486",
+          "corp_name": "삼성케미칼코팅",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01656569",
+          "corp_name": "삼성케이미",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126496",
+          "corp_name": "삼성코닝",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00315179",
+          "corp_name": "삼성코닝마이크로옵틱스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00932444",
+          "corp_name": "삼성코닝어드밴스드글라스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00260851",
+          "corp_name": "삼성코람유동화전문",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00303323",
+          "corp_name": "삼성콘크리트",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126502",
+          "corp_name": "삼성콘크리트공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01364923",
+          "corp_name": "삼성택시자동차",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00623883",
+          "corp_name": "삼성테이프",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01837614",
+          "corp_name": "삼성테크노밸리",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00965017",
+          "corp_name": "삼성텍",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00116338",
+          "corp_name": "삼성투자신탁운용",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00117665",
+          "corp_name": "삼성투자신탁증권",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "02009625",
+          "corp_name": "삼성특수브레이크",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00180582",
+          "corp_name": "삼성특수화학",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01503939",
+          "corp_name": "삼성티엠에스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01336683",
+          "corp_name": "삼성파로스호텔",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01367461",
+          "corp_name": "삼성파워텍",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01373383",
+          "corp_name": "삼성파워텍",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01507661",
+          "corp_name": "삼성팜",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01870488",
+          "corp_name": "삼성팜",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00836797",
+          "corp_name": "삼성팩",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01695364",
+          "corp_name": "삼성팩",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01738100",
+          "corp_name": "삼성팰리스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01741487",
+          "corp_name": "삼성펄프",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01922675",
+          "corp_name": "삼성폐차",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00215657",
+          "corp_name": "삼성포리머",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00487555",
+          "corp_name": "삼성포장",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00930039",
+          "corp_name": "삼성포장",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01792995",
+          "corp_name": "삼성프라임",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00267483",
+          "corp_name": "삼성프라임성장형뮤추얼펀드",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00267447",
+          "corp_name": "삼성프라임플러스3호뮤추얼펀드",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00267429",
+          "corp_name": "삼성프라임플러스이호뮤추얼펀드",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00267386",
+          "corp_name": "삼성프라임플러스증권회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00393706",
+          "corp_name": "삼성프론티어제구차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00373818",
+          "corp_name": "삼성프론티어제사차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00359881",
+          "corp_name": "삼성프론티어제삼차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00442464",
+          "corp_name": "삼성프론티어제십사차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00429746",
+          "corp_name": "삼성프론티어제십삼차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00513212",
+          "corp_name": "삼성프론티어제십오차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00427580",
+          "corp_name": "삼성프론티어제십이차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00408123",
+          "corp_name": "삼성프론티어제십일차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00397146",
+          "corp_name": "삼성프론티어제십차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00373827",
+          "corp_name": "삼성프론티어제오차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00376833",
+          "corp_name": "삼성프론티어제육차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00351205",
+          "corp_name": "삼성프론티어제이차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00346595",
+          "corp_name": "삼성프론티어제일차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00384674",
+          "corp_name": "삼성프론티어제칠차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00387316",
+          "corp_name": "삼성프론티어제팔차유동화전문유한회사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01150205",
+          "corp_name": "삼성플러스상조",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01913181",
+          "corp_name": "삼성피앤씨",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01556524",
+          "corp_name": "삼성하나로",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01381717",
+          "corp_name": "삼성하우징",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00689205",
+          "corp_name": "삼성해운",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01194847",
+          "corp_name": "삼성헤지자산운용",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01032468",
+          "corp_name": "삼성홀딩스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01384088",
+          "corp_name": "삼성홀딩스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00456430",
+          "corp_name": "삼성홈이엔씨",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01380569",
+          "corp_name": "삼성화스나",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01655834",
+          "corp_name": "삼성화이바",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00626871",
+          "corp_name": "삼성화장품",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01159631",
+          "corp_name": "삼성화재금융서비스보험대리점",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00425962",
+          "corp_name": "삼성화재서비스손해사정",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00431787",
+          "corp_name": "삼성화재애니카손해사정",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00236395",
+          "corp_name": "삼성화학",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01738632",
+          "corp_name": "삼성환경개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01422698",
+          "corp_name": "삼성회계법인",
+          "stock_code": ""
+        }
+      ],
+      "question": "삼성 전자 최근 실적은?",
+      "note": "spaced",
+      "mentions": [
+        "삼성"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "samsung",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "01651236",
+          "corp_name": "SamsungETFsTrustll",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01182596",
+          "corp_name": "삼성산업개발",
+          "stock_code": ""
+        }
+      ],
+      "question": "SAMSUNG ELECTRONICS CO,.LTD 최근 실적은?",
+      "note": "english",
+      "mentions": [
+        "samsung",
+        "cs"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126380",
+      "company_name": "삼성전자",
+      "mention": "삼성전자",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126380",
+          "corp_name": "삼성전자",
+          "stock_code": "005930"
+        }
+      ],
+      "question": "삼성전자 요즘 실적 어때?",
+      "note": "adverb collision with this company",
+      "mentions": [
+        "삼성전자",
+        "요즘"
+      ],
+      "expected": "00126380"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126955",
+      "company_name": "삼양식품",
+      "mention": "삼양식품",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        }
+      ],
+      "question": "삼양식품(주) 최근 실적은?",
+      "note": "legal_name",
+      "mentions": [
+        "삼양식품"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126955",
+      "company_name": "삼양식품",
+      "mention": "삼양식품",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        }
+      ],
+      "question": "삼양식품 최근 실적은?",
+      "note": "stock_name",
+      "mentions": [
+        "삼양식품"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126955",
+      "company_name": "삼양식품",
+      "mention": "삼양식품",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        }
+      ],
+      "question": "삼양식품 최근 실적은?",
+      "note": "compact",
+      "mentions": [
+        "삼양식품"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "삼양",
+      "candidate_total": 95,
+      "candidates": [
+        {
+          "corp_code": "01965333",
+          "corp_name": "삼양바이오팜",
+          "stock_code": "0120G0"
+        },
+        {
+          "corp_code": "00896285",
+          "corp_name": "삼양사",
+          "stock_code": "145990"
+        },
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        },
+        {
+          "corp_code": "00863533",
+          "corp_name": "삼양엔씨켐",
+          "stock_code": "482630"
+        },
+        {
+          "corp_code": "00127024",
+          "corp_name": "삼양엔텍",
+          "stock_code": "008720"
+        },
+        {
+          "corp_code": "00132105",
+          "corp_name": "삼양제넥스",
+          "stock_code": "003940"
+        },
+        {
+          "corp_code": "00141583",
+          "corp_name": "삼양컴텍",
+          "stock_code": "484590"
+        },
+        {
+          "corp_code": "00265041",
+          "corp_name": "삼양케이씨아이",
+          "stock_code": "036670"
+        },
+        {
+          "corp_code": "01060814",
+          "corp_name": "삼양패키징",
+          "stock_code": "272550"
+        },
+        {
+          "corp_code": "00126937",
+          "corp_name": "삼양홀딩스",
+          "stock_code": "000070"
+        },
+        {
+          "corp_code": "00579078",
+          "corp_name": "삼양",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00689676",
+          "corp_name": "삼양가전유통",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01085415",
+          "corp_name": "삼양강업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01302039",
+          "corp_name": "삼양개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01303658",
+          "corp_name": "삼양개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00180652",
+          "corp_name": "삼양건설",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01154423",
+          "corp_name": "삼양건설",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126876",
+          "corp_name": "삼양건설산업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00203537",
+          "corp_name": "삼양견직공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00671446",
+          "corp_name": "삼양과자연",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01459081",
+          "corp_name": "삼양교통",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00562148",
+          "corp_name": "삼양금속",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00914989",
+          "corp_name": "삼양금속공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00916686",
+          "corp_name": "삼양기전",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00263247",
+          "corp_name": "삼양냉장",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00262257",
+          "corp_name": "삼양데이타시스템",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126900",
+          "corp_name": "삼양라운드스퀘어",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01717198",
+          "corp_name": "삼양로지스틱스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00584955",
+          "corp_name": "삼양모피",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00918639",
+          "corp_name": "삼양목장",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126919",
+          "corp_name": "삼양물산",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00170169",
+          "corp_name": "삼양밀맥스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00890892",
+          "corp_name": "삼양바이오팜",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00205191",
+          "corp_name": "삼양발브종합메이커",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00927248",
+          "corp_name": "삼양밸류파트너스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00617350",
+          "corp_name": "삼양보일러",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126928",
+          "corp_name": "삼양비지네스포옴",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00193160",
+          "corp_name": "삼양사",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00451745",
+          "corp_name": "삼양산업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01543195",
+          "corp_name": "삼양산업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00221180",
+          "corp_name": "삼양섬유",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00763446",
+          "corp_name": "삼양세라텍",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00660990",
+          "corp_name": "삼양수지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00238685",
+          "corp_name": "삼양스퀘어밀",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00127051",
+          "corp_name": "삼양스퀘어팩",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00763589",
+          "corp_name": "삼양스틸",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01365205",
+          "corp_name": "삼양스파이스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00816438",
+          "corp_name": "삼양시장",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01878879",
+          "corp_name": "삼양신용협동조합",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00613071",
+          "corp_name": "삼양씨앤비",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01315291",
+          "corp_name": "삼양씨앤씨",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00503871",
+          "corp_name": "삼양씨엔씨",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00598523",
+          "corp_name": "삼양알카",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00218177",
+          "corp_name": "삼양애니팜",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01292273",
+          "corp_name": "삼양에코너지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01708172",
+          "corp_name": "삼양에코테크",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00583372",
+          "corp_name": "삼양에프앤비",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00959201",
+          "corp_name": "삼양엘앤디",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01476413",
+          "corp_name": "삼양엘앤디영동",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00201478",
+          "corp_name": "삼양연마공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01745377",
+          "corp_name": "삼양오일",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00512949",
+          "corp_name": "삼양웰푸드",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126973",
+          "corp_name": "삼양유지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00875200",
+          "corp_name": "삼양이노켐",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00560511",
+          "corp_name": "삼양이엠에스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00448501",
+          "corp_name": "삼양이컴",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00499709",
+          "corp_name": "삼양인더스트리",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00169552",
+          "corp_name": "삼양인터내셔날",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01563816",
+          "corp_name": "삼양일차",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00248017",
+          "corp_name": "삼양전자",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01834079",
+          "corp_name": "삼양정밀화학",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00126991",
+          "corp_name": "삼양정수",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00934150",
+          "corp_name": "삼양제넥스바이오",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01361795",
+          "corp_name": "삼양제분",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00593421",
+          "corp_name": "삼양종합특수강",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00657552",
+          "corp_name": "삼양진흥",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00524953",
+          "corp_name": "삼양철강",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01560679",
+          "corp_name": "삼양태양광",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00497321",
+          "corp_name": "삼양테크",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00230160",
+          "corp_name": "삼양테크힐",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00230878",
+          "corp_name": "삼양텍스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01752979",
+          "corp_name": "삼양통운",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01777297",
+          "corp_name": "삼양팀버",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01653580",
+          "corp_name": "삼양판지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01739172",
+          "corp_name": "삼양페이퍼피더블유",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00603436",
+          "corp_name": "삼양푸드앤다이닝",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00874478",
+          "corp_name": "삼양플랜트",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01176540",
+          "corp_name": "삼양항업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01225934",
+          "corp_name": "삼양해운",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00127079",
+          "corp_name": "삼양화성",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01652235",
+          "corp_name": "삼양화인",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01027730",
+          "corp_name": "삼양화인테크놀로지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00127088",
+          "corp_name": "삼양화학공업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00300487",
+          "corp_name": "삼양화학산업",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00127097",
+          "corp_name": "삼양화학실업",
+          "stock_code": ""
+        }
+      ],
+      "question": "삼양 식품 최근 실적은?",
+      "note": "spaced",
+      "mentions": [
+        "삼양"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "samyang",
+      "candidate_total": 4,
+      "candidates": [
+        {
+          "corp_code": "01459081",
+          "corp_name": "삼양교통",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01653580",
+          "corp_name": "삼양판지",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01225934",
+          "corp_name": "삼양해운",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01207682",
+          "corp_name": "에스와이삼양콘크리트",
+          "stock_code": ""
+        }
+      ],
+      "question": "Samyang Foods Inc. 최근 실적은?",
+      "note": "english",
+      "mentions": [
+        "samyang",
+        "nc"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00126955",
+      "company_name": "삼양식품",
+      "mention": "삼양식품",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00126955",
+          "corp_name": "삼양식품",
+          "stock_code": "003230"
+        }
+      ],
+      "question": "삼양식품 요즘 실적 어때?",
+      "note": "adverb collision with this company",
+      "mentions": [
+        "삼양식품",
+        "요즘"
+      ],
+      "expected": "00126955"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00989619",
+      "company_name": "알테오젠",
+      "mention": "알테오젠",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        }
+      ],
+      "question": "(주)알테오젠 최근 실적은?",
+      "note": "legal_name",
+      "mentions": [
+        "알테오젠"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00989619",
+      "company_name": "알테오젠",
+      "mention": "알테오젠",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        }
+      ],
+      "question": "알테오젠 최근 실적은?",
+      "note": "stock_name",
+      "mentions": [
+        "알테오젠"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00989619",
+      "company_name": "알테오젠",
+      "mention": "알테오젠",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        }
+      ],
+      "question": "알테오젠 최근 실적은?",
+      "note": "compact",
+      "mentions": [
+        "알테오젠"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "알테",
+      "candidate_total": 6,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        },
+        {
+          "corp_code": "01565814",
+          "corp_name": "알테어엔지니어링",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01645493",
+          "corp_name": "알테오젠바이오로직스",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01754694",
+          "corp_name": "알테오화인알루미나코리아",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00819046",
+          "corp_name": "알테코",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "00534057",
+          "corp_name": "알테크노메탈",
+          "stock_code": ""
+        }
+      ],
+      "question": "알테 오젠 최근 실적은?",
+      "note": "spaced",
+      "mentions": [
+        "알테"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "unsupported",
+      "corp_code": "00261443",
+      "company_name": "NC",
+      "mention": "nc",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00261443",
+          "corp_name": "NC",
+          "stock_code": "036570"
+        }
+      ],
+      "question": "Alteogen Inc. 최근 실적은?",
+      "note": "english",
+      "mentions": [
+        "nc"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00989619",
+      "company_name": "알테오젠",
+      "mention": "알테오젠",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00989619",
+          "corp_name": "알테오젠",
+          "stock_code": "196170"
+        }
+      ],
+      "question": "알테오젠 요즘 실적 어때?",
+      "note": "adverb collision with this company",
+      "mentions": [
+        "알테오젠",
+        "요즘"
+      ],
+      "expected": "00989619"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "mention": "대상",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        }
+      ],
+      "question": "대상(주) 최근 실적은?",
+      "note": "legal_name",
+      "mentions": [
+        "대상"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "mention": "대상",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        }
+      ],
+      "question": "대상 최근 실적은?",
+      "note": "stock_name",
+      "mentions": [
+        "대상"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "mention": "대상",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        }
+      ],
+      "question": "대상 최근 실적은?",
+      "note": "compact",
+      "mentions": [
+        "대상"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "mention": "대상",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        }
+      ],
+      "question": "대상 최근 실적은?",
+      "note": "spaced",
+      "mentions": [
+        "대상"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "ambiguous",
+      "corp_code": null,
+      "company_name": null,
+      "mention": "daesang",
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "corp_code": "01242676",
+          "corp_name": "대상개발",
+          "stock_code": ""
+        },
+        {
+          "corp_code": "01841200",
+          "corp_name": "대상화성점",
+          "stock_code": ""
+        }
+      ],
+      "question": "DAESANG CORPORATION 최근 실적은?",
+      "note": "english",
+      "mentions": [
+        "corporation",
+        "daesang"
+      ],
+      "expected": "00121941"
+    },
+    {
+      "status": "resolved",
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "mention": "대상",
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "corp_code": "00121941",
+          "corp_name": "대상",
+          "stock_code": "001680"
+        }
+      ],
+      "question": "대상 요즘 실적 어때?",
+      "note": "adverb collision with this company",
+      "mentions": [
+        "요즘",
+        "대상"
+      ],
+      "expected": "00121941"
+    }
+  ]
+}

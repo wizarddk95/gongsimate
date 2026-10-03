@@ -1,0 +1,49 @@
+{
+  "rule": "confirmed requires a receipt number inside the correction notice. inferred requires one stored original with the same corp_code, the notice's first-submission date, and the named report. Year and report type alone stay unverified.",
+  "relations": [
+    {
+      "correction_receipt_no": "20250321000555",
+      "original_receipt_no": "20250319001095",
+      "confidence": "inferred",
+      "evidence": [
+        "first_submission_date",
+        "document_name",
+        "corp_code"
+      ],
+      "corp_code": "00121941"
+    },
+    {
+      "correction_receipt_no": "20250321001007",
+      "original_receipt_no": "20250320001435",
+      "confidence": "inferred",
+      "evidence": [
+        "first_submission_date",
+        "document_name",
+        "corp_code"
+      ],
+      "corp_code": "00107613"
+    },
+    {
+      "correction_receipt_no": "20260327000936",
+      "original_receipt_no": "20260318000733",
+      "confidence": "inferred",
+      "evidence": [
+        "first_submission_date",
+        "document_name",
+        "corp_code"
+      ],
+      "corp_code": "00121941"
+    },
+    {
+      "correction_receipt_no": "20260911000415",
+      "original_receipt_no": "20260814003187",
+      "confidence": "inferred",
+      "evidence": [
+        "first_submission_date",
+        "document_name",
+        "corp_code"
+      ],
+      "corp_code": "00121941"
+    }
+  ]
+}

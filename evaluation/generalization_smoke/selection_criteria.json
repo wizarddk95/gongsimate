@@ -1,0 +1,28 @@
+{
+  "frozen_before_download": true,
+  "as_of_calendar": "2026-10-02",
+  "receipt_window": {
+    "bgn_de": "20240101",
+    "end_de": "20261002"
+  },
+  "excluded_industries": "DART induty_code prefix 64/65/66, or a name containing 은행/증권/보험/금융/카드/캐피탈/저축/리츠",
+  "excluded_development_corpus": "stock_code 007660 이수페타시스",
+  "size_proxy": "Naver mobile marketValue ranking fetched during this run. Unit is 억원.",
+  "strata": {
+    "A": "KOSPI non-financial with the highest market cap that passes the access gates. Industry is the DART induty 2-digit prefix.",
+    "B": "KOSPI non-financial, not A, whose market cap is inside 0.5x-2x of 007660. If that band has no access-eligible company, expand once to 0.25x-4x. Among the band, pick the smallest absolute log distance, requiring a different induty prefix from A.",
+    "C": "KOSDAQ non-financial with the highest market cap and an induty prefix different from A and B.",
+    "D": "Listed non-financial whose normalized corp name is an exact member of the collision lexicon. Prefer the one with the most correction periodic filings, then the lowest stock code. If none pass the access gates, try listed names of length 2 in stock-code order, at most 20 list calls, and require at least one correction."
+  },
+  "coverage": "At least two distinct non-correction 사업보고서 periods, one non-correction 반기보고서, and one non-correction 분기보고서 inside the receipt window.",
+  "primary_filings": "Two latest annual originals, one latest half original, one latest quarter original. Corrections of those same type+period are downloaded for observation and do not replace this set.",
+  "access_reject_only": [
+    "not in corp cache",
+    "financial industry",
+    "market class mismatch",
+    "missing periodic coverage",
+    "primary filing SizeLimitError or remote download failure",
+    "RateLimitError aborts the run"
+  ],
+  "not_used": "parser overall_status, chunk count, retrieval quality"
+}

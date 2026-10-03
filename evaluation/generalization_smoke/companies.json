@@ -1,0 +1,585 @@
+{
+  "isu_market_cap_eok": 88899,
+  "market_fetch": {
+    "source": "https://m.stock.naver.com/api/stocks/marketValue/{KOSPI|KOSDAQ}",
+    "kospi_rows": 500,
+    "kosdaq_rows": 300,
+    "top_kospi": [
+      {
+        "stock_code": "005930",
+        "stock_name": "삼성전자",
+        "market_cap_eok": 16106498,
+        "rank": 1,
+        "market": "KOSPI"
+      },
+      {
+        "stock_code": "000660",
+        "stock_name": "SK하이닉스",
+        "market_cap_eok": 13470279,
+        "rank": 2,
+        "market": "KOSPI"
+      },
+      {
+        "stock_code": "005935",
+        "stock_name": "삼성전자우",
+        "market_cap_eok": 1604742,
+        "rank": 3,
+        "market": "KOSPI"
+      },
+      {
+        "stock_code": "402340",
+        "stock_name": "SK스퀘어",
+        "market_cap_eok": 1530318,
+        "rank": 4,
+        "market": "KOSPI"
+      },
+      {
+        "stock_code": "009150",
+        "stock_name": "삼성전기",
+        "market_cap_eok": 1175679,
+        "rank": 5,
+        "market": "KOSPI"
+      }
+    ],
+    "top_kosdaq": [
+      {
+        "stock_code": "196170",
+        "stock_name": "알테오젠",
+        "market_cap_eok": 180059,
+        "rank": 1,
+        "market": "KOSDAQ"
+      },
+      {
+        "stock_code": "086520",
+        "stock_name": "에코프로",
+        "market_cap_eok": 120841,
+        "rank": 2,
+        "market": "KOSDAQ"
+      },
+      {
+        "stock_code": "247540",
+        "stock_name": "에코프로비엠",
+        "market_cap_eok": 112896,
+        "rank": 3,
+        "market": "KOSDAQ"
+      },
+      {
+        "stock_code": "036930",
+        "stock_name": "주성엔지니어링",
+        "market_cap_eok": 109463,
+        "rank": 4,
+        "market": "KOSDAQ"
+      },
+      {
+        "stock_code": "277810",
+        "stock_name": "레인보우로보틱스",
+        "market_cap_eok": 87008,
+        "rank": 5,
+        "market": "KOSDAQ"
+      }
+    ]
+  },
+  "companies": [
+    {
+      "stratum": "A",
+      "corp_code": "00126380",
+      "corp_name": "삼성전자(주)",
+      "corp_name_eng": "SAMSUNG ELECTRONICS CO,.LTD",
+      "stock_name": "삼성전자",
+      "stock_code": "005930",
+      "corp_cls": "Y",
+      "market": "KOSPI",
+      "induty_code": "264",
+      "induty_prefix": "26",
+      "acc_mt": "12",
+      "selection_rationale": "highest fetched KOSPI market cap among non-financial issuers that passed the access gates; accepted at fetched rank 1",
+      "edge_case": "standard periodic mix; no name collision assumed",
+      "coverage": {
+        "annual_periods": 3,
+        "half": 3,
+        "quarter": 5,
+        "corrections": 0,
+        "listed": 11
+      },
+      "correction_count_window": 0,
+      "corrections": [],
+      "primary_filings": [
+        {
+          "receipt_no": "20260310002820",
+          "report_nm": "사업보고서 (2025.12)",
+          "rcept_dt": "20260310",
+          "period": "2025.12",
+          "kind": "annual",
+          "role": "primary",
+          "rm": "연"
+        },
+        {
+          "receipt_no": "20250311001085",
+          "report_nm": "사업보고서 (2024.12)",
+          "rcept_dt": "20250311",
+          "period": "2024.12",
+          "kind": "annual",
+          "role": "primary",
+          "rm": "연"
+        },
+        {
+          "receipt_no": "20260814003699",
+          "report_nm": "반기보고서 (2026.06)",
+          "rcept_dt": "20260814",
+          "period": "2026.06",
+          "kind": "half",
+          "role": "primary",
+          "rm": ""
+        },
+        {
+          "receipt_no": "20260515002181",
+          "report_nm": "분기보고서 (2026.03)",
+          "rcept_dt": "20260515",
+          "period": "2026.03",
+          "kind": "quarter",
+          "role": "primary",
+          "rm": ""
+        }
+      ],
+      "download_outcomes": [
+        {
+          "rcept_no": "20260310002820",
+          "report_nm": "사업보고서 (2025.12)",
+          "status": "created",
+          "sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+          "size_bytes": 780394,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20250311001085",
+          "report_nm": "사업보고서 (2024.12)",
+          "status": "created",
+          "sha256": "606ffc728a5a275fcfc27d798560f3fd73e9880641399389d72b35fdc1fbb2d6",
+          "size_bytes": 676026,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260814003699",
+          "report_nm": "반기보고서 (2026.06)",
+          "status": "created",
+          "sha256": "b1799f30f4dbd6da79bced771eee139ed622cfd2a2edeb047824b9e1091f39ec",
+          "size_bytes": 526304,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260515002181",
+          "report_nm": "분기보고서 (2026.03)",
+          "status": "created",
+          "sha256": "abfe91f6c1a1304ad6cab42143868ea0c4f474c929dec7cd9fbaf20d02dcaf72",
+          "size_bytes": 351660,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        }
+      ],
+      "market_cap_eok": 16106498,
+      "market_cap_rank_in_fetch": 1,
+      "naver_name": "삼성전자"
+    },
+    {
+      "stratum": "B",
+      "corp_code": "00126955",
+      "corp_name": "삼양식품(주)",
+      "corp_name_eng": "Samyang Foods Inc.",
+      "stock_name": "삼양식품",
+      "stock_code": "003230",
+      "corp_cls": "Y",
+      "market": "KOSPI",
+      "induty_code": "108",
+      "induty_prefix": "10",
+      "acc_mt": "12",
+      "selection_rationale": "KOSPI mid band 0.5x-2x of 007660 market cap; closest remaining non-financial with a different industry prefix",
+      "edge_case": "standard periodic mix; no name collision assumed",
+      "coverage": {
+        "annual_periods": 3,
+        "half": 3,
+        "quarter": 5,
+        "corrections": 1,
+        "listed": 12
+      },
+      "correction_count_window": 1,
+      "corrections": [],
+      "primary_filings": [
+        {
+          "receipt_no": "20260318001082",
+          "report_nm": "사업보고서 (2025.12)",
+          "rcept_dt": "20260318",
+          "period": "2025.12",
+          "kind": "annual",
+          "role": "primary",
+          "rm": "연"
+        },
+        {
+          "receipt_no": "20250318001186",
+          "report_nm": "사업보고서 (2024.12)",
+          "rcept_dt": "20250318",
+          "period": "2024.12",
+          "kind": "annual",
+          "role": "primary",
+          "rm": "연"
+        },
+        {
+          "receipt_no": "20260814003053",
+          "report_nm": "반기보고서 (2026.06)",
+          "rcept_dt": "20260814",
+          "period": "2026.06",
+          "kind": "half",
+          "role": "primary",
+          "rm": ""
+        },
+        {
+          "receipt_no": "20260513000571",
+          "report_nm": "분기보고서 (2026.03)",
+          "rcept_dt": "20260513",
+          "period": "2026.03",
+          "kind": "quarter",
+          "role": "primary",
+          "rm": ""
+        }
+      ],
+      "download_outcomes": [
+        {
+          "rcept_no": "20260318001082",
+          "report_nm": "사업보고서 (2025.12)",
+          "status": "created",
+          "sha256": "8fa3ae05c68fae3c83e162626e7ab5b8bd1bc7d162bfe670aceb0be6d8fb0364",
+          "size_bytes": 573482,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20250318001186",
+          "report_nm": "사업보고서 (2024.12)",
+          "status": "created",
+          "sha256": "2a904f5904978273ea5548beefa4d7d352b93040f66d72104b967513615696ba",
+          "size_bytes": 480060,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260814003053",
+          "report_nm": "반기보고서 (2026.06)",
+          "status": "created",
+          "sha256": "e19f7a4520ac61e84a866ef36b444a5b38cec2fc6064a81dd1d8a28c71404030",
+          "size_bytes": 260079,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260513000571",
+          "report_nm": "분기보고서 (2026.03)",
+          "status": "created",
+          "sha256": "371245187bea79d5b98048e44cd65582f094cf21f4713906b82555a897ac2c0e",
+          "size_bytes": 196455,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        }
+      ],
+      "market_cap_eok": 91149,
+      "market_cap_rank_in_fetch": 82,
+      "naver_name": "삼양식품",
+      "mid_band": "0.5x-2x",
+      "isu_market_cap_eok": 88899
+    },
+    {
+      "stratum": "C",
+      "corp_code": "00989619",
+      "corp_name": "(주)알테오젠",
+      "corp_name_eng": "Alteogen Inc.",
+      "stock_name": "알테오젠",
+      "stock_code": "196170",
+      "corp_cls": "K",
+      "market": "KOSDAQ",
+      "induty_code": "70113",
+      "induty_prefix": "70",
+      "acc_mt": "12",
+      "selection_rationale": "highest fetched KOSDAQ market cap among non-financial issuers with an unused industry prefix; accepted at fetched rank 1",
+      "edge_case": "standard periodic mix; no name collision assumed",
+      "coverage": {
+        "annual_periods": 3,
+        "half": 3,
+        "quarter": 5,
+        "corrections": 0,
+        "listed": 11
+      },
+      "correction_count_window": 0,
+      "corrections": [],
+      "primary_filings": [
+        {
+          "receipt_no": "20260323001596",
+          "report_nm": "사업보고서 (2025.12)",
+          "rcept_dt": "20260323",
+          "period": "2025.12",
+          "kind": "annual",
+          "role": "primary",
+          "rm": "연"
+        },
+        {
+          "receipt_no": "20250321000557",
+          "report_nm": "사업보고서 (2024.12)",
+          "rcept_dt": "20250321",
+          "period": "2024.12",
+          "kind": "annual",
+          "role": "primary",
+          "rm": "연"
+        },
+        {
+          "receipt_no": "20260814001294",
+          "report_nm": "[첨부추가]반기보고서 (2026.06)",
+          "rcept_dt": "20260814",
+          "period": "2026.06",
+          "kind": "half",
+          "role": "primary",
+          "rm": ""
+        },
+        {
+          "receipt_no": "20260515001517",
+          "report_nm": "분기보고서 (2026.03)",
+          "rcept_dt": "20260515",
+          "period": "2026.03",
+          "kind": "quarter",
+          "role": "primary",
+          "rm": ""
+        }
+      ],
+      "download_outcomes": [
+        {
+          "rcept_no": "20260323001596",
+          "report_nm": "사업보고서 (2025.12)",
+          "status": "created",
+          "sha256": "4f98df309d28a998deaac87ae2a6b1f48d6a484ac57dec4d1b4d80965bb61647",
+          "size_bytes": 546162,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20250321000557",
+          "report_nm": "사업보고서 (2024.12)",
+          "status": "created",
+          "sha256": "287781dff7918eed8e31a26b52c8d7af75e866283082110dde01334d03e101ba",
+          "size_bytes": 424186,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260814001294",
+          "report_nm": "[첨부추가]반기보고서 (2026.06)",
+          "status": "created",
+          "sha256": "1b62bcf22d91c6a51faa825b8bedcd9069d1c52988786950443fe5f694497330",
+          "size_bytes": 316227,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260515001517",
+          "report_nm": "분기보고서 (2026.03)",
+          "status": "created",
+          "sha256": "b3fa7b7978020d2a462cf18edca0354f0d1e69456403632ebee15d59a9e088ae",
+          "size_bytes": 275826,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        }
+      ],
+      "market_cap_eok": 180059,
+      "market_cap_rank_in_fetch": 1,
+      "naver_name": "알테오젠"
+    },
+    {
+      "stratum": "D",
+      "corp_code": "00121941",
+      "corp_name": "대상(주)",
+      "corp_name_eng": "DAESANG CORPORATION",
+      "stock_name": "대상",
+      "stock_code": "001680",
+      "corp_cls": "Y",
+      "market": "KOSPI",
+      "induty_code": "108",
+      "induty_prefix": "10",
+      "acc_mt": "12",
+      "selection_rationale": "normalized corp name is an exact collision-lexicon word; correction periodic filings in window=4",
+      "edge_case": "company name collides with a common Korean word; correction filings observed in the list",
+      "coverage": {
+        "annual_periods": 3,
+        "half": 3,
+        "quarter": 5,
+        "corrections": 4,
+        "listed": 15
+      },
+      "correction_count_window": 4,
+      "corrections": [
+        {
+          "receipt_no": "20260911000415",
+          "report_nm": "[기재정정]반기보고서 (2026.06)",
+          "rcept_dt": "20260911",
+          "period": "2026.06",
+          "kind": "half",
+          "role": "correction",
+          "rm": ""
+        },
+        {
+          "receipt_no": "20260327000936",
+          "report_nm": "[기재정정]사업보고서 (2025.12)",
+          "rcept_dt": "20260327",
+          "period": "2025.12",
+          "kind": "annual",
+          "role": "correction",
+          "rm": "연"
+        },
+        {
+          "receipt_no": "20250321000555",
+          "report_nm": "[기재정정]사업보고서 (2024.12)",
+          "rcept_dt": "20250321",
+          "period": "2024.12",
+          "kind": "annual",
+          "role": "correction",
+          "rm": "연"
+        }
+      ],
+      "primary_filings": [
+        {
+          "receipt_no": "20260318000733",
+          "report_nm": "사업보고서 (2025.12)",
+          "rcept_dt": "20260318",
+          "period": "2025.12",
+          "kind": "annual",
+          "role": "primary",
+          "rm": "정연"
+        },
+        {
+          "receipt_no": "20250319001095",
+          "report_nm": "사업보고서 (2024.12)",
+          "rcept_dt": "20250319",
+          "period": "2024.12",
+          "kind": "annual",
+          "role": "primary",
+          "rm": "정연"
+        },
+        {
+          "receipt_no": "20260814003187",
+          "report_nm": "반기보고서 (2026.06)",
+          "rcept_dt": "20260814",
+          "period": "2026.06",
+          "kind": "half",
+          "role": "primary",
+          "rm": "정"
+        },
+        {
+          "receipt_no": "20260515002571",
+          "report_nm": "분기보고서 (2026.03)",
+          "rcept_dt": "20260515",
+          "period": "2026.03",
+          "kind": "quarter",
+          "role": "primary",
+          "rm": ""
+        }
+      ],
+      "download_outcomes": [
+        {
+          "rcept_no": "20260318000733",
+          "report_nm": "사업보고서 (2025.12)",
+          "status": "created",
+          "sha256": "bb78387f1cbcd1719c6efd078d385475ca99abd1f400c856cc986bd70b1e0918",
+          "size_bytes": 665957,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20250319001095",
+          "report_nm": "사업보고서 (2024.12)",
+          "status": "created",
+          "sha256": "f5c4ab1b55a30699a38adc89a306c7d597d60c994add67eaeb0c33ce9dd4cabe",
+          "size_bytes": 553459,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260814003187",
+          "report_nm": "반기보고서 (2026.06)",
+          "status": "created",
+          "sha256": "34f535021fc82b49222deb39728d4a5cf0ff556ba692b54762fce75efff9d8e5",
+          "size_bytes": 354032,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260515002571",
+          "report_nm": "분기보고서 (2026.03)",
+          "status": "created",
+          "sha256": "6c4f3226c51022a18035868a6d5aac0e1137e90963487727a08f83150ffd6496",
+          "size_bytes": 272020,
+          "error_type": null,
+          "error_message": null,
+          "role": "primary"
+        },
+        {
+          "rcept_no": "20260911000415",
+          "report_nm": "[기재정정]반기보고서 (2026.06)",
+          "status": "created",
+          "sha256": "a4c025fc44e7ea732280d962a0a38e3eed0b62b2ea5581d64f29f57b6b18ba25",
+          "size_bytes": 354937,
+          "error_type": null,
+          "error_message": null,
+          "role": "correction"
+        },
+        {
+          "rcept_no": "20260327000936",
+          "report_nm": "[기재정정]사업보고서 (2025.12)",
+          "status": "created",
+          "sha256": "e62d6cbd79215a916a4cb4ce7d16c34164d9d4fbe894f0756846b3e8ba6fd8ac",
+          "size_bytes": 484085,
+          "error_type": null,
+          "error_message": null,
+          "role": "correction"
+        },
+        {
+          "rcept_no": "20250321000555",
+          "report_nm": "[기재정정]사업보고서 (2024.12)",
+          "status": "created",
+          "sha256": "a1c14b2ebbfbdd4a7d88a98ab4c1fa93292159752d1ffd098ffb65ccc0526c97",
+          "size_bytes": 479498,
+          "error_type": null,
+          "error_message": null,
+          "role": "correction"
+        }
+      ],
+      "collision_name": "대상"
+    }
+  ],
+  "rejections": [
+    {
+      "stratum": "B",
+      "stock_code": "180640",
+      "corp_name": "(주)한진칼",
+      "induty_code": "64992",
+      "reason": "financial"
+    },
+    {
+      "stratum": "B",
+      "stock_code": "0126Z0",
+      "stock_name": "삼성에피스홀딩스",
+      "reason": "not in corp cache"
+    }
+  ]
+}

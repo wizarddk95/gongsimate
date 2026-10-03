@@ -1,0 +1,65 @@
+{
+  "company_id": "00107613",
+  "company_name": "이수페타시스",
+  "change_note": "2026-10-03: confirmed_future (2035 realized results) expects answer_directly and no search while request_time is 2026. A future year that has not occurred cannot have a finalized result. forecast cases stay expect_search true because a target or outlook can already be written in a current filing. This is an evaluation-label change, not a runtime keyword rule.",
+  "cases": [
+    {"id": "annual-2025-sales", "category": "annual", "question": "이수페타시스의 2025년 매출은?", "expect_search": true, "year": 2025},
+    {"id": "annual-2025-sales-alt", "category": "annual", "question": "이수페타시스 25년도 매출액 알려줘", "expect_search": true, "year": 2025},
+    {"id": "annual-fy2025", "category": "annual", "question": "이수페타시스 FY2025 매출", "expect_search": true, "year": 2025},
+    {"id": "annual-2025-yearly", "category": "annual", "question": "이수페타시스의 2025년 연간 매출은 얼마야?", "expect_search": true, "year": 2025},
+    {"id": "annual-2025-front", "category": "annual", "question": "2025년 이수페타시스 매출액", "expect_search": true, "year": 2025},
+    {"id": "annual-2025-report", "category": "annual", "question": "이수페타시스 2025년 사업보고서 매출", "expect_search": true, "year": 2025},
+    {"id": "annual-2025-confirmed", "category": "annual", "question": "이수페타시스의 2025년 확정 매출은?", "expect_search": true, "year": 2025},
+    {"id": "annual-2025-result", "category": "annual", "question": "이수페타시스 25년 연간 실적", "expect_search": true, "year": 2025},
+
+    {"id": "q1-2025", "category": "quarter", "question": "이수페타시스의 2025년 1분기 매출은?", "expect_search": true, "year": 2025, "quarter": 1},
+    {"id": "q1-2025-short", "category": "quarter", "question": "이수페타시스 25년 Q1 매출", "expect_search": true, "year": 2025, "quarter": 1},
+    {"id": "q3-2025", "category": "quarter", "question": "이수페타시스 2025년 3분기 매출", "expect_search": true, "year": 2025, "quarter": 3},
+    {"id": "q1-2025-result", "category": "quarter", "question": "2025년 이수페타시스 1분기 실적 얼마야?", "expect_search": true, "year": 2025, "quarter": 1},
+    {"id": "q3-2024", "category": "quarter", "question": "이수페타시스 2024년 3분기 매출", "expect_search": true, "year": 2024, "quarter": 3},
+    {"id": "q1-2026", "category": "quarter", "question": "이수페타시스 2026년 1분기 매출", "expect_search": true, "year": 2026, "quarter": 1},
+
+    {"id": "h1-2025", "category": "half", "question": "이수페타시스 2025년 상반기 매출", "expect_search": true, "year": 2025},
+    {"id": "h1-2025-semi", "category": "half", "question": "이수페타시스의 2025년 반기 실적은?", "expect_search": true, "year": 2025},
+    {"id": "h1-2025-short", "category": "half", "question": "이수페타시스 25년 상반기 매출액", "expect_search": true, "year": 2025},
+    {"id": "h1-2026", "category": "half", "question": "이수페타시스 2026년 상반기 실적", "expect_search": true, "year": 2026},
+
+    {"id": "latest-recent", "category": "latest", "question": "이수페타시스 최근 실적은?", "expect_search": true},
+    {"id": "latest-nowadays", "category": "latest", "question": "이수페타시스 요즘 실적 어때?", "expect_search": true},
+    {"id": "latest-most-recent", "category": "latest", "question": "이수페타시스 가장 최근 매출 알려줘", "expect_search": true},
+    {"id": "latest-announced", "category": "latest", "question": "이수페타시스가 최근 발표한 실적", "expect_search": true},
+    {"id": "latest-available", "category": "latest", "question": "이수페타시스 지금 확인 가능한 최신 실적", "expect_search": true},
+    {"id": "latest-last", "category": "latest", "question": "이수페타시스 마지막으로 나온 실적", "expect_search": true},
+    {"id": "latest-sales", "category": "latest", "question": "이수페타시스 최근 매출 얼마야?", "expect_search": true},
+    {"id": "latest-newest", "category": "latest", "question": "이수페타시스의 최신 실적 알려줘", "expect_search": true},
+
+    {"id": "why-2025", "category": "explanation", "question": "이수페타시스 2025년 매출이 왜 늘었어?", "expect_search": true, "year": 2025},
+    {"id": "why-2025-background", "category": "explanation", "question": "이수페타시스 25년 매출 증가 배경", "expect_search": true, "year": 2025},
+    {"id": "why-yoy", "category": "explanation", "question": "이수페타시스 전년 대비 매출 증가 원인", "expect_search": true},
+    {"id": "why-that-year", "category": "explanation", "question": "이수페타시스 그해 매출이 좋아진 이유", "expect_search": true},
+    {"id": "why-2025-reason", "category": "explanation", "question": "이수페타시스의 2025년 매출 증가 이유는?", "expect_search": true, "year": 2025},
+    {"id": "why-2024-drop", "category": "explanation", "question": "이수페타시스가 2024년에 매출이 줄어든 이유는?", "expect_search": true, "year": 2024},
+
+    {"id": "forecast-2035-target", "category": "forecast", "question": "이수페타시스 2035년 목표가 있어?", "expect_search": true, "future_year": 2035},
+    {"id": "forecast-2030-target", "category": "forecast", "question": "이수페타시스 2030년 목표가 있어?", "expect_search": true, "future_year": 2030},
+    {"id": "forecast-outlook", "category": "forecast", "question": "이수페타시스 향후 매출 전망", "expect_search": true},
+    {"id": "forecast-forward", "category": "forecast", "question": "이수페타시스는 앞으로 얼마나 팔겠다고 했어?", "expect_search": true},
+    {"id": "forecast-long-term", "category": "forecast", "question": "이수페타시스가 장기 매출 목표를 제시했나?", "expect_search": true},
+    {"id": "forecast-2035-presented", "category": "forecast", "question": "이수페타시스 2035년 매출 목표를 제시했어?", "expect_search": true, "future_year": 2035},
+
+    {"id": "confirmed-2035", "category": "confirmed_future", "question": "이수페타시스 2035년 확정 매출은?", "expect_search": false, "expect_action": "answer_directly", "future_year": 2035},
+    {"id": "confirmed-2035-tell", "category": "confirmed_future", "question": "2035년 이수페타시스 확정 매출 알려줘", "expect_search": false, "expect_action": "answer_directly", "future_year": 2035},
+    {"id": "confirmed-2035-annual", "category": "confirmed_future", "question": "이수페타시스의 2035년 연간 확정 실적은?", "expect_search": false, "expect_action": "answer_directly", "future_year": 2035},
+
+    {"id": "none-hello", "category": "no_search", "question": "안녕", "expect_search": false},
+    {"id": "none-rag", "category": "no_search", "question": "RAG가 뭐야?", "expect_search": false},
+    {"id": "none-thanks", "category": "no_search", "question": "고마워", "expect_search": false},
+    {"id": "none-weather", "category": "no_search", "question": "오늘 날씨 어때?", "expect_search": false},
+
+    {"id": "business-main", "category": "business", "question": "이수페타시스의 주요 사업은?", "expect_search": true},
+    {"id": "business-what", "category": "business", "question": "이수페타시스 무슨 회사야? 주요 사업 알려줘", "expect_search": true},
+
+    {"id": "through-q3-2025", "category": "through_quarter", "question": "이수페타시스 2025년 3분기까지 매출", "expect_search": true, "year": 2025, "quarter": 3},
+    {"id": "through-q3-2025-cumulative", "category": "through_quarter", "question": "이수페타시스 2025년 3분기까지의 누적 매출", "expect_search": true, "year": 2025, "quarter": 3}
+  ]
+}

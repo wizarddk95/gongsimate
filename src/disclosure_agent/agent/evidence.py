@@ -24,6 +24,11 @@ class Evidence:
     excerpt: str
     source_locator: list[dict[str, Any]]
     text: str
+    report_name: str = ""
+    filing_period: str = ""
+    receipt_date: str = ""
+    source_sha256: str = ""
+    corp_code: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -32,6 +37,11 @@ class Evidence:
             "receipt_no": self.receipt_no,
             "document_name": self.document_name,
             "company_name": self.company_name,
+            "report_name": self.report_name,
+            "filing_period": self.filing_period,
+            "receipt_date": self.receipt_date,
+            "source_sha256": self.source_sha256,
+            "corp_code": self.corp_code,
             "section_path": list(self.section_path),
             "element_ids": list(self.element_ids),
             "excerpt": self.excerpt,
@@ -48,6 +58,14 @@ class EvidenceBuilder:
         if path is None or not path.is_file():
             return cls({})
         return cls(load_element_locators(path))
+
+    @classmethod
+    def from_elements_paths(cls, paths: tuple[Path, ...] | list[Path]) -> EvidenceBuilder:
+        locators: dict[str, dict[str, Any]] = {}
+        for path in paths:
+            if path.is_file():
+                locators.update(load_element_locators(path))
+        return cls(locators)
 
     def build(self, hits: list[SearchHit], *, company_name: str) -> list[Evidence]:
         evidence: list[Evidence] = []
@@ -70,6 +88,11 @@ class EvidenceBuilder:
                     excerpt=_excerpt(hit.text),
                     source_locator=locator,
                     text=hit.text,
+                    report_name=hit.report_name,
+                    filing_period=hit.filing_period,
+                    receipt_date=hit.receipt_date,
+                    source_sha256=hit.source_sha256,
+                    corp_code=hit.corp_code,
                 )
             )
         return evidence

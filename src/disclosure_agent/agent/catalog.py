@@ -26,6 +26,7 @@ class DenseD2aBinding:
     document_name: str
     representation_version: str
     embedding_model: str
+    elements_paths: tuple[Path, ...] = ()
 
 
 def repo_root() -> Path:

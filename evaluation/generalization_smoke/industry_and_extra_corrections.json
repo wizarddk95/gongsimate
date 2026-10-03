@@ -1,0 +1,35 @@
+{
+  "industries": [
+    {
+      "stock_code": "005930",
+      "corp_name": "삼성전자(주)",
+      "naver_industry_code": "278",
+      "dart_induty_code": "264"
+    },
+    {
+      "stock_code": "003230",
+      "corp_name": "삼양식품(주)",
+      "naver_industry_code": "268",
+      "dart_induty_code": "108"
+    },
+    {
+      "stock_code": "196170",
+      "corp_name": "(주)알테오젠",
+      "naver_industry_code": "286",
+      "dart_induty_code": "70113"
+    },
+    {
+      "stock_code": "001680",
+      "corp_name": "대상(주)",
+      "naver_industry_code": "268",
+      "dart_induty_code": "108"
+    }
+  ],
+  "samyang_corrections": [
+    {
+      "receipt_no": "20251112000498",
+      "report_nm": "[기재정정]사업보고서 (2022.12)",
+      "rcept_dt": "20251112"
+    }
+  ]
+}

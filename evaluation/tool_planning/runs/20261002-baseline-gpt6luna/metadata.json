@@ -1,0 +1,9 @@
+﻿{
+    "cases":  49,
+    "process_environment_key":  "present_but_auth_failed_not_used",
+    "key_source":  "dotenv_file",
+    "prompt_change":  "none",
+    "model":  "gpt-6-luna",
+    "client_note":  "temperature omitted because gpt-6-luna rejects that parameter",
+    "run_id":  "20261002-baseline-gpt6luna"
+}

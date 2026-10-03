@@ -16,6 +16,19 @@ class Citation:
         return {"citation_id": self.citation_id, "evidence_id": self.evidence_id}
 
 
+def assign_citation_ids(evidence_ids: list[str]) -> list[Citation]:
+    """Assign user-facing numbers from first appearance. The model does not choose them."""
+    assigned: list[Citation] = []
+    seen: dict[str, str] = {}
+    for evidence_id in evidence_ids:
+        if evidence_id in seen:
+            continue
+        citation_id = str(len(seen) + 1)
+        seen[evidence_id] = citation_id
+        assigned.append(Citation(citation_id=citation_id, evidence_id=evidence_id))
+    return assigned
+
+
 class CitationValidator:
     def validate(self, citations: list[Citation], evidence_ids: set[str]) -> None:
         for citation in citations:

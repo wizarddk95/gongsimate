@@ -1,0 +1,7 @@
+﻿{
+    "baseline_run_id":  "20261002-baseline-gpt6luna",
+    "key_source":  "dotenv_file",
+    "run_id":  "20261002-asof-instruction-gpt6luna",
+    "model":  "gpt-6-luna",
+    "change":  "tool description: as_of must not be request_time when request_time is after corpus_as_of"
+}
