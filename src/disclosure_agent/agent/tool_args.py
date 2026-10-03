@@ -31,6 +31,8 @@ REPORT_TYPE_NAME = {
     "semiannual": "반기보고서",
     "quarterly": "분기보고서",
 }
+_PERIODIC_REPORT_NAMES = frozenset(REPORT_TYPE_NAME.values())
+_LISTING_PREFIX = re.compile(r"^(?:\[[^\]]+\])+")
 
 SEARCH_TOOL_DESCRIPTION = """색인된 DART 정기공시를 검색합니다.
 사업보고서(연간), 반기보고서, 분기보고서가 있습니다.
@@ -267,7 +269,7 @@ def select_filings(
     ]
     if args.report_types:
         names = {REPORT_TYPE_NAME[item] for item in args.report_types}
-        pool = [item for item in pool if item.report_type in names]
+        pool = [item for item in pool if _matches_report_type(item, names)]
     period = args.period
     if period is None:
         return _sort_filings(pool)
@@ -366,6 +368,20 @@ def _period_failure(period: PeriodArgs) -> str | None:
         ):
             return "year range is reversed"
     return None
+
+
+def _matches_report_type(period: FilingPeriod, names: set[str]) -> bool:
+    """True when the listing is one of the requested periodic report types.
+
+    A leading bracket mark such as ``[기재정정]`` is part of the DART title.
+    The periodic member name stays ``사업보고서``, ``반기보고서``, or ``분기보고서``.
+    """
+    if period.report_type in names:
+        return True
+    if period.document_name in names and period.document_name in _PERIODIC_REPORT_NAMES:
+        return True
+    stripped = _LISTING_PREFIX.sub("", period.report_type).strip()
+    return stripped in names
 
 
 def _is_restrictive(parsed: SearchToolArguments) -> bool:

@@ -39,13 +39,14 @@ from disclosure_agent.agent.errors import (
     CitationValidationFailure,
     LlmLimitExceeded,
     RequestTimeout,
+    RetrievalFailure,
     SearchLimitExceeded,
     StructuredOutputInvalid,
     redact_text,
     user_message,
 )
 from disclosure_agent.agent.evidence import Evidence, EvidenceBuilder
-from disclosure_agent.agent.filing_relation import FilingRelation, load_relations
+from disclosure_agent.agent.filing_relation import FilingRelation
 from disclosure_agent.agent.llm import AnswerCitationEvent, AnswerDelta, AnswerFinished
 from disclosure_agent.agent.planner import (
     OpenAISearchPlanner,
@@ -55,10 +56,13 @@ from disclosure_agent.agent.planner import (
 )
 from disclosure_agent.agent.record import RunLog
 from disclosure_agent.agent.search import (
-    DenseD2aSearch,
     SearchDisclosuresRequest,
     SearchDisclosuresResult,
     SearchHit,
+)
+from disclosure_agent.agent.search_catalog import (
+    SearchCatalog,
+    search_scope_record,
 )
 from disclosure_agent.agent.settings import (
     DEFAULT_GENERATION_CONTEXT_TOKEN_BUDGET,
@@ -110,6 +114,7 @@ class AgentRuntime:
         redact_secrets: tuple[str, ...] = (),
         planner: SearchPlanner | None = None,
         filing_relations: tuple[FilingRelation, ...] = (),
+        catalog: SearchCatalog | None = None,
     ) -> None:
         if retrieval_top_k < 1:
             raise ValueError("retrieval_top_k must be >= 1")
@@ -132,6 +137,7 @@ class AgentRuntime:
         self.redact_secrets = redact_secrets
         self.planner = planner
         self.filing_relations = tuple(filing_relations)
+        self.catalog = catalog
 
     def run(
         self,
@@ -209,6 +215,8 @@ class AgentRuntime:
             "temporal_intent": None,
             "temporal_definition": None,
             "eligible_receipt_nos": [],
+            "index_id": None,
+            "search_scopes": [],
             "search_called": False,
             "planner": "llm" if self.planner is not None and self.planner.uses_llm else "raw_query",
             "retrieved_filing_counts": {},
@@ -291,6 +299,7 @@ class AgentRuntime:
         record["company_resolution_ms"] = round((time.perf_counter() - resolve_started) * 1000, 3)
         record["resolved_company"] = resolution_to_dict(resolution)
         record["question"] = question
+        self._bind_company_scope(resolution, record)
 
         if is_smalltalk(message) and clarification is None:
             answer = self._generate_direct(message, budget)
@@ -317,6 +326,7 @@ class AgentRuntime:
                 record=record,
             )
             resolution, pending_action = self._apply_mention(action, resolution, record)
+            self._bind_company_scope(resolution, record)
             direct = action.kind == "answer_directly" and bool(action.user_text)
             clarify = action.kind == "ask_clarification" and bool(action.user_text)
             if resolution.status != "resolved" and direct:
@@ -582,6 +592,10 @@ class AgentRuntime:
         searched = False
         last_failure: tuple[str, str] | None = None
         company_id = resolution.company_id or ""
+        self._bind_company_scope(resolution, record)
+        filings = self._filings_for(resolution)
+        corpus_as_of = self._corpus_as_of_for(company_id)
+        relations = self._relations_for(company_id)
         while True:
             self._check_timeout(started)
             if executed >= self.limits.max_search_calls:
@@ -653,11 +667,14 @@ class AgentRuntime:
             tool = resolve_search_call(
                 action.raw,
                 company_id=company_id,
-                filings=self.filings,
-                corpus_as_of=self.corpus_as_of,
+                filings=filings,
+                corpus_as_of=corpus_as_of,
                 max_top_k=self.retrieval_top_k,
-                relations=self.filing_relations,
+                relations=relations,
             )
+            scope = self._search_scope(company_id, tool, relations)
+            if scope is not None:
+                record["search_scopes"].append(scope)
             if tool.resolved is not None and tool.resolved.arguments.period is not None:
                 year = tool.resolved.arguments.period.year
                 if fiscal_year is None and year is not None:
@@ -667,11 +684,13 @@ class AgentRuntime:
                     tool,
                     company_name=resolution.company_name or "",
                     corpus_as_of=record["corpus_as_of"],
-                    filings=self.filings,
+                    filings=filings,
                 )
                 prior.append(summary)
                 last_failure = (tool.status, str(summary["public_reason"]))
                 logged = _tool_log(tool, summary, request=None, result=None, latency_ms=None)
+                if scope is not None:
+                    logged["search_scope"] = scope
                 if logged["arguments"] is None and isinstance(action.raw, dict):
                     logged["arguments"] = action.raw
                     logged["query"] = action.raw.get("query")
@@ -699,6 +718,8 @@ class AgentRuntime:
             record["search_called"] = True
             searched = True
             call_hits = list(result.hits)
+            if self.catalog is not None:
+                _require_company_hits(call_hits, company_id)
             if call_hits:
                 hits = _merge_hits(hits, call_hits)
                 last_failure = None
@@ -723,7 +744,7 @@ class AgentRuntime:
                     tool,
                     company_name=resolution.company_name or "",
                     corpus_as_of=record["corpus_as_of"],
-                    filings=self.filings,
+                    filings=filings,
                     status=status,
                 )
                 extra.pop("hits", None)
@@ -731,6 +752,8 @@ class AgentRuntime:
                 summary.update(extra)
             prior.append(summary)
             log = _tool_log(tool, summary, request=request, result=result, latency_ms=search_ms)
+            if scope is not None:
+                log["search_scope"] = scope
             log["evidence_ids"] = [item.evidence_id for item in built]
             log["status"] = status
             record["tool_calls"].append(log)
@@ -760,6 +783,53 @@ class AgentRuntime:
         )
         return None, None
 
+    def _bind_company_scope(self, resolution: Resolution, record: dict[str, Any]) -> None:
+        """Point the planner clock at the resolved company's index."""
+        if self.catalog is None or resolution.status != "resolved":
+            return
+        corpus = self.catalog.corpus(resolution.company_id or "")
+        if corpus is None:
+            return
+        record["corpus_as_of"] = request_time_context(corpus.corpus_as_of)["iso"]
+        record["index_id"] = str(corpus.manifest.get("corpus_id") or "")
+        record["filing_period_end_years"] = [
+            period.period_end_year
+            for period in corpus.filings
+            if period.period_end_year is not None
+        ]
+
+    def _filings_for(self, resolution: Resolution) -> tuple[FilingPeriod, ...]:
+        if resolution.status != "resolved":
+            return ()
+        if self.catalog is None:
+            return self.filings
+        corpus = self.catalog.corpus(resolution.company_id or "")
+        return () if corpus is None else corpus.filings
+
+    def _corpus_as_of_for(self, company_id: str) -> datetime | None:
+        if self.catalog is None:
+            return self.corpus_as_of
+        corpus = self.catalog.corpus(company_id)
+        return None if corpus is None else corpus.corpus_as_of
+
+    def _relations_for(self, company_id: str) -> tuple[FilingRelation, ...]:
+        if self.catalog is None:
+            return self.filing_relations
+        return self.catalog.relations_for(company_id)
+
+    def _search_scope(
+        self,
+        company_id: str,
+        tool: ToolResolution,
+        relations: tuple[FilingRelation, ...],
+    ) -> dict[str, Any] | None:
+        if self.catalog is None:
+            return None
+        corpus = self.catalog.corpus(company_id)
+        if corpus is None:
+            return None
+        return search_scope_record(self.catalog, corpus, tool, relations)
+
     def _next_plan(
         self,
         planner: SearchPlanner,
@@ -779,7 +849,7 @@ class AgentRuntime:
             corpus_as_of=record["corpus_as_of"],
             company_id=resolution.company_id or "",
             company_name=resolution.company_name or "",
-            filings=() if resolution.status != "resolved" else self.filings,
+            filings=self._filings_for(resolution),
             prior_results=tuple(prior),
             max_top_k=self.retrieval_top_k,
             company_resolution=resolution_to_dict(resolution),
@@ -1232,6 +1302,12 @@ def _add_planner_usage(record: dict[str, Any], usage: object) -> None:
     record["planner_usage"] = current
 
 
+def _require_company_hits(hits: list[SearchHit], company_id: str) -> None:
+    foreign = [hit.retrieval_unit_id for hit in hits if hit.corp_code != company_id]
+    if foreign:
+        raise RetrievalFailure("retrieval hit is outside the resolved company")
+
+
 def _remember_receipts(record: dict[str, Any], receipt_nos: tuple[str, ...] | None) -> None:
     if not receipt_nos:
         return
@@ -1361,6 +1437,7 @@ def _tool_log(
         payload["embedding_model"] = result.embedding_model
         payload["retrieval_unit_ids"] = [hit.retrieval_unit_id for hit in result.hits]
         payload["retrieved_receipt_nos"] = [hit.receipt_no for hit in result.hits]
+        payload["retrieved_corp_codes"] = [hit.corp_code for hit in result.hits]
     return payload
 
 
@@ -1436,21 +1513,29 @@ def build_default_runtime(
     *,
     run_log_path: Path | None = None,
 ) -> AgentRuntime:
-    """Wire the cached corp list and the locked Dense-D2a index. Does not encode documents."""
+    """Wire the cached corp list and every built product index. Does not encode documents."""
     base = root or repo_root()
-    from disclosure_agent.agent.corpus import load_product_corpus
+    from disclosure_agent.agent.search_catalog import (
+        CatalogDenseSearch,
+        CatalogEvidenceBuilder,
+        load_search_catalog,
+    )
 
-    product = load_product_corpus(base)
-    binding = product.binding
+    catalog = load_search_catalog(base)
+    if not catalog.corpora:
+        raise RetrievalFailure(
+            "product search catalog is empty. Build a Dense-D2a index under data/product/indexes."
+        )
     registry = CompanyRegistry.from_corp_cache(
         base / "data" / "cache",
-        indexed_corp_codes={binding.corp_code},
+        indexed_corp_codes=catalog.indexed_corp_codes(),
         fallback=[
             CompanyRecord(
-                corp_code=binding.corp_code,
-                corp_name=binding.company_name,
+                corp_code=corpus.binding.corp_code,
+                corp_name=corpus.binding.company_name,
                 stock_code="",
             )
+            for corpus in catalog.corpora
         ],
     )
     log_path = run_log_path or (base / "data" / "product" / "runs" / "agent_runs.jsonl")
@@ -1470,13 +1555,12 @@ def build_default_runtime(
         secrets = (openai_config.api_key,)
     return AgentRuntime(
         registry=registry,
-        search=DenseD2aSearch(binding),
-        evidence_builder=EvidenceBuilder.from_elements_paths(product.elements_paths),
+        search=CatalogDenseSearch(catalog),
+        evidence_builder=CatalogEvidenceBuilder(catalog),
         answer_generator=generator,
         run_log=RunLog(log_path),
         redact_secrets=secrets,
-        filings=product.filings,
-        corpus_as_of=product.corpus_as_of,
         planner=planner,
-        filing_relations=load_relations(base / "data" / "filing_relations" / "relations.json"),
+        filing_relations=catalog.relations,
+        catalog=catalog,
     )

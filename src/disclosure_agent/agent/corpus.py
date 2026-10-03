@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import json
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime
 from pathlib import Path
 
@@ -103,10 +103,24 @@ class ProductCorpus:
     corpus_as_of: datetime
     elements_paths: tuple[Path, ...]
     manifest: dict[str, object]
+    index_dir: Path
 
 
 def product_index_dir(root: Path) -> Path:
     return root / PRODUCT_INDEX_RELATIVE
+
+
+def discover_index_dirs(root: Path) -> tuple[Path, ...]:
+    """Every built Dense-D2a directory under the product index root.
+
+    A directory is an index when it contains ``corpus.json``. Company names
+    are not used to find these directories.
+    """
+    base = root / "data" / "product" / "indexes"
+    if not base.is_dir():
+        return ()
+    found = [path.parent for path in base.rglob("corpus.json") if path.is_file()]
+    return tuple(sorted(found, key=lambda item: item.as_posix()))
 
 
 def plan_corpus(root: Path) -> CorpusPlan:
@@ -133,8 +147,12 @@ def plan_corpus(root: Path) -> CorpusPlan:
 
 
 def load_product_corpus(root: Path) -> ProductCorpus:
-    """Load the built multi-filing index. A missing build is a retrieval failure."""
-    index_dir = product_index_dir(root)
+    """Load the Isu Petasys product index. A missing build is a retrieval failure."""
+    return load_index_corpus(root, product_index_dir(root))
+
+
+def load_index_corpus(root: Path, index_dir: Path) -> ProductCorpus:
+    """Load one company Dense-D2a directory. A missing build is a retrieval failure."""
     manifest_path = index_dir / "corpus.json"
     if not manifest_path.is_file():
         raise RetrievalFailure(
@@ -161,7 +179,10 @@ def load_product_corpus(root: Path) -> ProductCorpus:
         if receipt_no in seen:
             continue
         seen.add(receipt_no)
-        filings.append(_filing_from_member(member))
+        filing = _filing_from_member(member)
+        if not filing.corp_code:
+            filing = replace(filing, corp_code=str(manifest.get("corp_code") or ""))
+        filings.append(filing)
     first = members[0]
     if not isinstance(first, dict):
         raise RetrievalFailure("product index member is not an object")
@@ -189,6 +210,7 @@ def load_product_corpus(root: Path) -> ProductCorpus:
         corpus_as_of=corpus_as_of,
         elements_paths=tuple(elements),
         manifest=manifest,
+        index_dir=index_dir,
     )
 
 
