@@ -1,7 +1,7 @@
 {
   "company_id": "00107613",
   "company_name": "이수페타시스",
-  "change_note": "2026-10-03: confirmed_future (2035 realized results) expects answer_directly and no search while request_time is 2026. A future year that has not occurred cannot have a finalized result. forecast cases stay expect_search true because a target or outlook can already be written in a current filing. This is an evaluation-label change, not a runtime keyword rule.",
+  "change_note": "2026-10-03: confirmed_future (2035 realized results) expects answer_directly and no search while request_time is 2026. A future year that has not occurred cannot have a finalized result. forecast cases stay expect_search true because a target or outlook can already be written in a current filing. This is an evaluation-label change, not a runtime keyword rule. 2026-10-03: why-that-year asks about 그해 with no referent in an independent turn, so the expected action is ask_clarification. It is not a latest-search case. Latest wording stays on the latest-* cases. The planner prompt is unchanged.",
   "cases": [
     {"id": "annual-2025-sales", "category": "annual", "question": "이수페타시스의 2025년 매출은?", "expect_search": true, "year": 2025},
     {"id": "annual-2025-sales-alt", "category": "annual", "question": "이수페타시스 25년도 매출액 알려줘", "expect_search": true, "year": 2025},
@@ -36,7 +36,7 @@
     {"id": "why-2025", "category": "explanation", "question": "이수페타시스 2025년 매출이 왜 늘었어?", "expect_search": true, "year": 2025},
     {"id": "why-2025-background", "category": "explanation", "question": "이수페타시스 25년 매출 증가 배경", "expect_search": true, "year": 2025},
     {"id": "why-yoy", "category": "explanation", "question": "이수페타시스 전년 대비 매출 증가 원인", "expect_search": true},
-    {"id": "why-that-year", "category": "explanation", "question": "이수페타시스 그해 매출이 좋아진 이유", "expect_search": true},
+    {"id": "why-that-year", "category": "clarification", "question": "이수페타시스 그해 매출이 좋아진 이유", "expect_search": false, "expect_action": "ask_clarification"},
     {"id": "why-2025-reason", "category": "explanation", "question": "이수페타시스의 2025년 매출 증가 이유는?", "expect_search": true, "year": 2025},
     {"id": "why-2024-drop", "category": "explanation", "question": "이수페타시스가 2024년에 매출이 줄어든 이유는?", "expect_search": true, "year": 2024},
 

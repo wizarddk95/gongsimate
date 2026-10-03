@@ -45,6 +45,7 @@ class Evidence:
             "section_path": list(self.section_path),
             "element_ids": list(self.element_ids),
             "excerpt": self.excerpt,
+            "text": self.text,
             "source_locator": self.source_locator,
         }
 

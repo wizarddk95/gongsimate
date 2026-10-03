@@ -18,6 +18,7 @@ _ERROR_PRIORITY = (
     "company_argument_error",
     "future_target_incorrectly_blocked",
     "direct_answer_missing",
+    "clarification_missing",
     "period_year_error",
     "annual_vs_interim_error",
     "latest_semantics_error",
@@ -82,7 +83,9 @@ def _errors(
 ) -> set[str]:
     errors: set[str] = set()
     expected_action = case.get("expect_action")
-    if expected_action and action != expected_action:
+    if expected_action == "ask_clarification" and action != "ask_clarification":
+        errors.add("clarification_missing")
+    elif expected_action and action != expected_action:
         errors.add("direct_answer_missing")
     if invalid_calls and not calls:
         errors.add("invalid_schema")

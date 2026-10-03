@@ -2,14 +2,19 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel, ConfigDict, Field
 
 from disclosure_agent.agent.runtime import AgentRuntime, ClarificationContext, build_default_runtime
+from disclosure_agent.agent.search_catalog import public_corpus
 from disclosure_agent.agent.sse import format_sse
+
+_STATIC_DIR = Path(__file__).resolve().parent / "static"
+_STATIC_FILES = {"chat.js": "chat.js", "chat.css": "chat.css"}
 
 _MAX_MESSAGE_CHARS = 4000
 
@@ -34,6 +39,34 @@ class AskIn(BaseModel):
 def create_app(runtime: AgentRuntime | None = None) -> FastAPI:
     application = FastAPI(title="disclosure-agent", version="0.1.0")
     application.state.runtime = runtime
+
+    @application.get("/", response_model=None)
+    def index() -> FileResponse:
+        return FileResponse(
+            _STATIC_DIR / "index.html",
+            media_type="text/html",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @application.get("/static/{name}", response_model=None)
+    def static_file(name: str) -> FileResponse | JSONResponse:
+        filename = _STATIC_FILES.get(name)
+        if filename is None:
+            return JSONResponse(
+                status_code=404,
+                content={"code": "not_found", "message": "요청한 파일을 찾지 못했습니다."},
+            )
+        return FileResponse(_STATIC_DIR / filename, headers={"Cache-Control": "no-cache"})
+
+    @application.get("/api/corpus")
+    def read_corpus() -> JSONResponse:
+        agent = application.state.runtime
+        if not isinstance(agent, AgentRuntime):
+            return JSONResponse(
+                status_code=500,
+                content={"code": "internal_error", "message": "에이전트가 준비되지 않았습니다."},
+            )
+        return JSONResponse(public_corpus(agent.catalog))
 
     @application.post("/ask", response_model=None)
     def ask(body: AskIn) -> StreamingResponse | JSONResponse:

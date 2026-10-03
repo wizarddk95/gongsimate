@@ -86,6 +86,33 @@ class SearchCatalog:
             return corpus.index_dir.as_posix()
 
 
+_CORPUS_DESCRIPTION = (
+    "답변은 아래 기업에 대해 색인된 공시 원문만 근거로 합니다. "
+    "목록에 없는 기업은 검색하지 않습니다. "
+    "데이터 기준 시각은 회사마다 따로 있습니다."
+)
+
+
+def public_corpus(catalog: SearchCatalog | None) -> dict[str, Any]:
+    """Company names and per-company freshness. Paths and index ids stay out."""
+    companies: list[dict[str, Any]] = []
+    if catalog is not None:
+        for corpus in catalog.corpora:
+            companies.append(
+                {
+                    "company_name": corpus.binding.company_name,
+                    "corpus_as_of": request_time_context(corpus.corpus_as_of)["iso"],
+                    "filing_count": len(corpus.filings),
+                }
+            )
+    companies.sort(key=lambda item: str(item["company_name"]))
+    return {
+        "basis": "indexed_disclosure_text",
+        "description": _CORPUS_DESCRIPTION,
+        "companies": companies,
+    }
+
+
 def load_search_catalog(root: Path) -> SearchCatalog:
     """Read every built product index and the stored filing relations."""
     corpora = tuple(load_index_corpus(root, index_dir) for index_dir in discover_index_dirs(root))

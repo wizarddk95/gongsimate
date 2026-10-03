@@ -456,6 +456,19 @@ def test_development_cases_and_grader_cover_required_and_forbidden_strategies() 
     hello = next(item for item in cases if item["id"] == "none-hello")
     searched, _invalid = parse_calls([_call("안녕")])
     assert "unnecessary_search" in grade_case(hello, searched)["errors"]
+    ambiguous = next(item for item in cases if item["id"] == "why-that-year")
+    assert ambiguous["expect_search"] is False
+    assert ambiguous["expect_action"] == "ask_clarification"
+    assert grade_case(ambiguous, [], action="ask_clarification")["pass"] is True
+    searched_year, _invalid = parse_calls([_call("그해 매출 증가 원인", period={"mode": "latest"})])
+    missed = grade_case(ambiguous, searched_year, action="search_disclosures")
+    assert missed["pass"] is False
+    assert "clarification_missing" in missed["errors"]
+    assert "unnecessary_search" in missed["errors"]
+    direct = grade_case(ambiguous, [], action="answer_directly")
+    assert direct["pass"] is False
+    assert "clarification_missing" in direct["errors"]
+    assert "direct_answer_missing" not in direct["errors"]
 
 
 def test_future_realized_fact_can_be_answered_without_search() -> None:
