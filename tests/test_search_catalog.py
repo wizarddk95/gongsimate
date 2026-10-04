@@ -538,7 +538,8 @@ def test_known_company_without_an_index_is_not_searched(tmp_path: Path) -> None:
     assert events[-1].data["status"] == "company_unsupported"
     assert events[-1].data["abstain_reason"] == "unsupported_company"
     text = events[-1].data["answer"]["text"]
-    assert "색인" in text
+    assert "지원" in text
+    assert "색인" not in text
     assert "DART" not in text
 
 

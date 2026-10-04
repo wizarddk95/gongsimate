@@ -14,7 +14,11 @@ from disclosure_agent.agent.search_catalog import public_corpus
 from disclosure_agent.agent.sse import format_sse
 
 _STATIC_DIR = Path(__file__).resolve().parent / "static"
-_STATIC_FILES = {"chat.js": "chat.js", "chat.css": "chat.css"}
+_STATIC_FILES = {
+    "chat.js": "chat.js",
+    "chat.css": "chat.css",
+    "conversations.js": "conversations.js",
+}
 
 _MAX_MESSAGE_CHARS = 4000
 

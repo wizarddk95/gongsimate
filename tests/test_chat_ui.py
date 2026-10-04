@@ -130,20 +130,40 @@ def test_static_ui_does_not_hardcode_the_supported_companies() -> None:
         assert "corp_code" not in text
         assert "페이지" not in text
     assert "GongsiMate" in page
-    assert "공시에서 근거를 찾아" in page
+    assert "공시 기반 리서치" in page
+    assert "공시 원문으로 기업을 조사합니다." in page
+    assert "이전 답변은 다음 질문에 자동으로 이어지지 않습니다." in page
+    assert 'id="home"' in page
+    assert 'id="new-conversation"' in page
+    assert 'id="history-list"' in page
     assert 'id="coverage-toggle"' in page
     assert 'id="ask-form"' in page
     assert "기업의 실적, 사업, 공시 내용에 대해 질문해보세요" in page
+    assert "/static/conversations.js" in page
     assert "/api/corpus" in script
     assert "citation_id" in script
     assert "evidence_id" in script
-    assert "공시 근거" in script
+    assert "preventDefault" in script
+    assert "location.reload" not in script
+    assert 'createElement("table")' in script
+    assert 'split("|")' not in script
+    assert "공시 원문 기반" in script
     assert "답변 범위" in script
-    assert "세부 정보" in page
+    assert "기술 정보" in page
     assert "지원 범위 밖" in script
     assert "확인이 필요합니다" in script
     assert "바로 답변" not in script
     assert "RAG가 뭐야?" not in script
+    assert "근거" not in page
+    assert "근거" not in script
+    assert "색인" not in page
+    assert "색인" not in script
+    store = (_STATIC / "conversations.js").read_text(encoding="utf-8")
+    assert "indexedDB" in store
+    assert "list()" in store
+    assert "save(conversation)" in store
+    assert "delete(id)" in store
+    assert "clear()" in store
 
 
 def test_citation_event_uses_the_same_evidence_as_the_completed_answer() -> None:

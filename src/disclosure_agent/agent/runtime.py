@@ -477,7 +477,7 @@ class AgentRuntime:
         self._check_timeout(started)
         if not retrieved:
             answer = GeneratedAnswer(
-                text="검색된 공시 근거가 없습니다. 확인되지 않은 내용은 답하지 않습니다.",
+                text="해당하는 공시 원문을 찾지 못했습니다. 확인되지 않은 내용은 답하지 않습니다.",
                 limitations=["검색 결과가 비어 있습니다."],
                 abstain=True,
                 generator_type="answerability_guard",
@@ -497,10 +497,10 @@ class AgentRuntime:
         if not selection.evidence:
             answer = GeneratedAnswer(
                 text=(
-                    "검색된 공시를 답변 문맥 한도 안에 넣지 못했습니다. "
+                    "검색한 공시를 답변에 넣을 수 있는 분량 안에 넣지 못했습니다. "
                     "확인되지 않은 내용은 답하지 않습니다."
                 ),
-                limitations=["문맥 토큰 예산에 들어가는 근거가 없습니다."],
+                limitations=["답변에 넣을 수 있는 공시 원문이 없습니다."],
                 abstain=True,
                 generator_type="context_budget",
             )
@@ -899,7 +899,7 @@ class AgentRuntime:
             latest_available_period=None,
         )
         observation["public_reason"] = (
-            f"{name} 기업은 목록에서 확인했지만, 현재 색인에는 검색할 공시가 없습니다."
+            f"{name}은 기업 목록에서 확인했지만, 현재 지원하는 공시가 없습니다."
         )
         observation["message"] = observation["public_reason"]
         record["public_observation"] = observation
@@ -1445,19 +1445,19 @@ def _abstain_text(status: str, message: str, fiscal_year: int | None) -> str:
     if status == "no_matching_filing" and fiscal_year is not None:
         return (
             f"현재 보유한 공시 목록에서 {fiscal_year}년 조건에 맞는 공시를 찾지 못했습니다. "
-            "근거가 없는 수치는 답하지 않습니다."
+            "확인되지 않은 수치는 답하지 않습니다."
         )
     if status == "no_matching_filing":
-        return "조건에 맞는 공시를 찾지 못했습니다. 근거가 없는 내용은 답하지 않습니다."
+        return "조건에 맞는 공시를 찾지 못했습니다. 확인되지 않은 내용은 답하지 않습니다."
     if status == "corpus_not_fresh_enough":
-        return "요청한 시점은 색인 기준 시각보다 뒤입니다. 그 시점의 공시는 검색하지 않습니다."
+        return "요청한 시점은 데이터 기준 시각보다 뒤입니다. 그 시점의 공시는 검색하지 않습니다."
     if status == "unsupported_company":
         return "확인된 기업과 다른 검색 대상은 조회하지 않습니다."
     if status == "search_not_requested":
         return message
     if status == "invalid_arguments":
-        return "검색 조건을 확인하지 못했습니다. 근거가 없는 내용은 답하지 않습니다."
-    return "확인된 공시 근거가 없습니다. 근거가 없는 내용은 답하지 않습니다."
+        return "검색 조건을 확인하지 못했습니다. 확인되지 않은 내용은 답하지 않습니다."
+    return "확인된 공시 원문이 없습니다. 확인되지 않은 내용은 답하지 않습니다."
 
 
 def _copy_usage(record: dict[str, Any], usage: object) -> None:

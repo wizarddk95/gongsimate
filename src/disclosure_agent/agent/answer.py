@@ -45,7 +45,10 @@ class EvidenceBoundAnswerGenerator:
         del question, company_name, fiscal_year, request_time, corpus_as_of
         if not evidence:
             return GeneratedAnswer(
-                text="검색된 공시 근거가 없습니다. 확인되지 않은 수치나 원인은 답하지 않습니다.",
+                text=(
+                    "해당하는 공시 원문을 찾지 못했습니다. "
+                    "확인되지 않은 수치나 원인은 답하지 않습니다."
+                ),
                 limitations=["검색 결과가 비어 있습니다."],
                 abstain=True,
             )
@@ -81,8 +84,8 @@ def direct_answer(message: str) -> GeneratedAnswer:
     if "rag" in folded:
         return GeneratedAnswer(
             text=(
-                "RAG는 검색으로 찾은 문서를 답변에 함께 쓰는 방식입니다. "
-                "이 답변은 특정 기업 공시를 검색하지 않았습니다."
+                "그 질문은 특정 기업 공시를 읽지 않습니다. "
+                "기업 이름을 포함한 질문을 입력해 주세요."
             ),
             generator_type="direct",
         )
@@ -90,7 +93,7 @@ def direct_answer(message: str) -> GeneratedAnswer:
         return GeneratedAnswer(
             text=(
                 "안녕하세요. 기업 이름을 포함한 질문을 주시면 "
-                "공시를 찾아 근거와 함께 답하겠습니다."
+                "공시 원문을 찾아 답하겠습니다."
             ),
             generator_type="direct",
         )

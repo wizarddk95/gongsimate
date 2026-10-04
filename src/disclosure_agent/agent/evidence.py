@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import hashlib
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from disclosure_agent.agent.search import SearchHit
 from disclosure_agent.agent.settings import EXCERPT_CHARS
+from disclosure_agent.agent.source_view import element_view, project_content_blocks
 
 
 @dataclass
@@ -29,6 +30,7 @@ class Evidence:
     receipt_date: str = ""
     source_sha256: str = ""
     corp_code: str = ""
+    blocks: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -47,28 +49,43 @@ class Evidence:
             "excerpt": self.excerpt,
             "text": self.text,
             "source_locator": self.source_locator,
+            "blocks": self.blocks,
         }
 
 
 class EvidenceBuilder:
-    def __init__(self, element_locators: dict[str, dict[str, Any]] | None = None) -> None:
+    def __init__(
+        self,
+        element_locators: dict[str, dict[str, Any]] | None = None,
+        element_index: dict[str, tuple[Path, int]] | None = None,
+    ) -> None:
         self.element_locators = element_locators or {}
+        self.element_index = element_index or {}
+        self._views: dict[str, dict[str, Any]] = {}
 
     @classmethod
     def from_elements_path(cls, path: Path | None) -> EvidenceBuilder:
         if path is None or not path.is_file():
             return cls({})
-        return cls(load_element_locators(path))
+        locators, index = load_element_index(path)
+        return cls(locators, index)
 
     @classmethod
     def from_elements_paths(cls, paths: tuple[Path, ...] | list[Path]) -> EvidenceBuilder:
         locators: dict[str, dict[str, Any]] = {}
+        index: dict[str, tuple[Path, int]] = {}
         for path in paths:
             if path.is_file():
-                locators.update(load_element_locators(path))
-        return cls(locators)
+                loaded_locators, loaded_index = load_element_index(path)
+                locators.update(loaded_locators)
+                index.update(loaded_index)
+        return cls(locators, index)
 
     def build(self, hits: list[SearchHit], *, company_name: str) -> list[Evidence]:
+        needed: list[str] = []
+        for hit in hits:
+            needed.extend(hit.source_element_ids)
+        self._ensure_views(needed)
         evidence: list[Evidence] = []
         seen: set[str] = set()
         for hit in hits:
@@ -94,23 +111,66 @@ class EvidenceBuilder:
                     receipt_date=hit.receipt_date,
                     source_sha256=hit.source_sha256,
                     corp_code=hit.corp_code,
+                    blocks=project_content_blocks(hit.source_refs, self._views),
                 )
             )
         return evidence
 
+    def _ensure_views(self, element_ids: list[str]) -> None:
+        grouped: dict[Path, list[tuple[str, int]]] = {}
+        for element_id in element_ids:
+            if element_id in self._views:
+                continue
+            located = self.element_index.get(element_id)
+            if located is None:
+                self._views[element_id] = {}
+                continue
+            path, offset = located
+            grouped.setdefault(path, []).append((element_id, offset))
+        for path, rows in grouped.items():
+            with path.open("rb") as handle:
+                for element_id, offset in rows:
+                    handle.seek(offset)
+                    line = handle.readline()
+                    if not line.strip():
+                        self._views[element_id] = {}
+                        continue
+                    row = json.loads(line)
+                    self._views[element_id] = element_view(row) if isinstance(row, dict) else {}
+
 
 def load_element_locators(path: Path) -> dict[str, dict[str, Any]]:
+    locators, _index = load_element_index(path)
+    return locators
+
+
+def load_element_index(path: Path) -> tuple[dict[str, dict[str, Any]], dict[str, tuple[Path, int]]]:
+    """Locator objects, plus a byte offset for each element.
+
+    Display cells are read later, and only for elements a citation actually uses.
+    """
     locators: dict[str, dict[str, Any]] = {}
-    with path.open(encoding="utf-8") as handle:
-        for line in handle:
+    index: dict[str, tuple[Path, int]] = {}
+    with path.open("rb") as handle:
+        while True:
+            offset = handle.tell()
+            line = handle.readline()
+            if not line:
+                break
             if not line.strip():
                 continue
             row = json.loads(line)
+            if not isinstance(row, dict):
+                continue
             element_id = row.get("element_id")
+            if not element_id:
+                continue
+            key = str(element_id)
+            index[key] = (path, offset)
             locator = row.get("source_locator")
-            if element_id and isinstance(locator, dict):
-                locators[str(element_id)] = locator
-    return locators
+            if isinstance(locator, dict):
+                locators[key] = locator
+    return locators, index
 
 
 def _evidence_id(retrieval_unit_id: str) -> str:

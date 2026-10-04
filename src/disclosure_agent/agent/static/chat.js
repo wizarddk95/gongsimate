@@ -1,13 +1,13 @@
 const ACTIVITY = {
   resolving_company: "기업을 확인하고 있습니다",
-  searching_disclosures: "공시에서 근거를 찾고 있습니다",
+  searching_disclosures: "공시 원문을 찾고 있습니다",
   generating_answer: "답변을 작성하고 있습니다",
 };
 
 const PROMPT_TEMPLATES = [
   (name) => `${name}의 주요 사업은 무엇인가?`,
   (name) => `${name}의 최근 실적 변동 이유를 설명해 주세요.`,
-  (name) => `${name}의 사업 구조를 공시 근거와 함께 설명해 주세요.`,
+  (name) => `${name}의 사업 구조를 공시 원문과 함께 설명해 주세요.`,
 ];
 
 const transcript = document.querySelector("#transcript");
@@ -33,11 +33,20 @@ const drawerMore = document.querySelector("#drawer-more");
 const drawerTitle = document.querySelector("#drawer-title");
 const drawerKicker = document.querySelector("#drawer-kicker");
 const drawerDocument = document.querySelector("#drawer-document");
+const historyList = document.querySelector("#history-list");
+const historyOpen = document.querySelector("#history-open");
+const historyDismiss = document.querySelector("#history-dismiss");
+const homeLink = document.querySelector("#home");
+const store = window.GongsiMateStore;
 
 let busy = false;
 let drawerTrigger = null;
 let coverageTrigger = null;
 let corpusCompanies = [];
+let session = null;
+let activeAssistant = null;
+let abortController = null;
+let leaving = false;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -71,13 +80,25 @@ coverageFilter.addEventListener("input", () => renderCompanyList(coverageFilter.
 
 document.querySelector("#drawer-close").addEventListener("click", closeDrawer);
 scrim.addEventListener("click", closeDrawer);
+homeLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  startNewConversation();
+});
+document.querySelector("#new-conversation").addEventListener("click", startNewConversation);
+historyOpen.addEventListener("click", () => {
+  if (document.body.dataset.history === "open") closeHistory();
+  else openHistory();
+});
+historyDismiss.addEventListener("click", closeHistory);
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   if (!drawer.hidden) closeDrawer();
   else if (!coveragePanel.hidden) closeCoverage();
+  else if (document.body.dataset.history === "open") closeHistory();
 });
 
 loadCorpus();
+renderHistory();
 resizeQuestion();
 updateSendState();
 
@@ -100,7 +121,7 @@ function renderCorpus(payload) {
   corpusCompanies = Array.isArray(payload.companies) ? payload.companies : [];
   const count = corpusCompanies.length;
   coverageLabel.textContent = count ? `지원 기업 ${count}곳` : "지원 기업 없음";
-  corpusDescription.textContent = payload.description || "색인된 공시 원문만 검색합니다.";
+  corpusDescription.textContent = payload.description || "지원하는 기업의 공시 원문만 검색합니다.";
   renderCompanyList(coverageFilter.value);
   renderPrompts(corpusCompanies);
 }
@@ -114,7 +135,7 @@ function renderCompanyList(query) {
   });
   if (!corpusCompanies.length) {
     const item = document.createElement("li");
-    item.textContent = "현재 색인된 기업이 없습니다.";
+    item.textContent = "현재 지원하는 기업이 없습니다.";
     corpusList.append(item);
     coverageEmpty.hidden = true;
     return;
@@ -130,7 +151,7 @@ function renderCompanyList(query) {
     meta.className = "company-meta";
     const bits = [];
     if (company.corpus_as_of) bits.push(`데이터 기준 ${formatAsOf(company.corpus_as_of)}`);
-    if (Number.isInteger(company.filing_count)) bits.push(`색인 공시 ${company.filing_count}건`);
+    if (Number.isInteger(company.filing_count)) bits.push(`공시 ${company.filing_count}건`);
     meta.textContent = bits.join(" · ");
     if (company.corpus_as_of) meta.title = company.corpus_as_of;
     if (bits.length) item.append(meta);
@@ -181,12 +202,21 @@ function addPrompt(text) {
 function ask({ message, display, clarification }) {
   if (busy) return;
   closeCoverage(false);
+  closeHistory();
+  ensureSession(display || message);
   emptyState.hidden = true;
   transcript.classList.add("has-thread");
   setBusy(true);
   appendUser(display || message);
+  session.messages.push({
+    role: "user",
+    text: display || message,
+    created_at: new Date().toISOString(),
+  });
+  persistSession();
   const assistant = appendAssistant();
   assistant.priorQuestion = clarification?.prior_message || message;
+  activeAssistant = assistant;
   setActivity("질문을 보내고 있습니다");
   assistant.label = "질문을 보내고 있습니다";
   renderAssistant(assistant);
@@ -196,14 +226,20 @@ function ask({ message, display, clarification }) {
 }
 
 async function streamAsk(body, assistant) {
+  abortController = new AbortController();
   let response;
   try {
     response = await fetch("/ask", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "text/event-stream" },
       body: JSON.stringify(body),
+      signal: abortController.signal,
     });
-  } catch {
+  } catch (error) {
+    if (leaving || (error && error.name === "AbortError")) {
+      setBusy(false);
+      return;
+    }
     fail(assistant, "서버에 연결하지 못했습니다. 잠시 후 다시 시도해 주세요.");
     return;
   }
@@ -223,9 +259,17 @@ async function streamAsk(body, assistant) {
   }
   try {
     await readSse(response, (eventName, data) => applyEvent(assistant, eventName, data));
-  } catch {
+  } catch (error) {
+    if (leaving || (error && error.name === "AbortError")) {
+      setBusy(false);
+      return;
+    }
     if (!assistant.closed) fail(assistant, "응답을 읽는 중 연결이 끊겼습니다.");
     else setBusy(false);
+    return;
+  }
+  if (leaving) {
+    setBusy(false);
     return;
   }
   if (!assistant.closed) {
@@ -237,6 +281,7 @@ async function streamAsk(body, assistant) {
 }
 
 function applyEvent(assistant, eventName, data) {
+  if (leaving) return;
   if (eventName === "agent.status" && data && ACTIVITY[data.status]) {
     setActivity(ACTIVITY[data.status]);
     if (assistant.kind === "pending") {
@@ -258,6 +303,7 @@ function applyEvent(assistant, eventName, data) {
   if (eventName === "run.completed" && data) {
     applyCompleted(assistant, data);
     renderAssistant(assistant);
+    rememberAssistant(assistant);
     setActivity("");
     return;
   }
@@ -267,12 +313,13 @@ function applyEvent(assistant, eventName, data) {
 }
 
 function fail(assistant, message) {
-  if (assistant.closed) return;
+  if (assistant.closed || leaving) return;
   assistant.closed = true;
   assistant.kind = "error";
   assistant.label = "";
   assistant.errorText = message;
   renderAssistant(assistant);
+  rememberAssistant(assistant);
   setActivity("");
   setBusy(false);
 }
@@ -437,7 +484,7 @@ function present(payload) {
   }
   if (action === "answer_directly") return { kind: "direct", label: "" };
   if (action === "search_disclosures" && status === "completed") {
-    return { kind: "grounded", label: "공시 근거" };
+    return { kind: "grounded", label: "공시 원문 기반" };
   }
   if (action === "abstain") return { kind: "limited", label: "답변을 보류했습니다" };
   return { kind: "answer", label: "" };
@@ -501,7 +548,7 @@ function renderAssistant(assistant) {
     const note = document.createElement("p");
     note.className = "evidence-note";
     const count = assistant.citations.size;
-    note.textContent = `공시 원문 ${count}건 · 번호를 누르면 근거를 엽니다`;
+    note.textContent = `공시 원문 ${count}건 · 번호를 클릭하여 내용을 확인하세요.`;
     node.append(note);
   }
   if (assistant.limitations.length) {
@@ -564,7 +611,7 @@ function citationButton(citation) {
   button.type = "button";
   button.className = "cite";
   button.textContent = `[${citation.citation_id}]`;
-  button.setAttribute("aria-label", `근거 ${citation.citation_id} 열기`);
+  button.setAttribute("aria-label", `원문 ${citation.citation_id} 보기`);
   button.dataset.citationId = String(citation.citation_id);
   button.dataset.evidenceId = String(citation.evidence_id || "");
   button.addEventListener("click", () => openDrawer(citation, button));
@@ -573,23 +620,14 @@ function citationButton(citation) {
 
 function openDrawer(citation, trigger) {
   closeCoverage(false);
+  closeHistory();
   drawerTrigger = trigger || null;
-  drawerKicker.textContent = `근거 ${citation.citation_id}`;
-  drawerTitle.textContent = shown(citation.company_name) || "근거";
+  drawerKicker.textContent = `원문 ${citation.citation_id}`;
+  drawerTitle.textContent = shown(citation.company_name) || "공시 원문";
   const documentLine = filingLine(citation);
   drawerDocument.textContent = documentLine;
   drawerDocument.hidden = !documentLine;
-  drawerText.replaceChildren();
-  const evidenceText = typeof citation.text === "string" && citation.text
-    ? citation.text
-    : citation.excerpt;
-  const body = evidenceProse(evidenceText);
-  if (body) {
-    drawerText.textContent = body;
-    drawerText.hidden = false;
-  } else {
-    drawerText.hidden = true;
-  }
+  renderSource(citation);
   drawerMeta.replaceChildren();
   addFact(drawerMeta, "공시일", formatReceiptDate(citation.receipt_date));
   addFact(drawerMeta, "보고기간", citation.filing_period);
@@ -599,15 +637,16 @@ function openDrawer(citation, trigger) {
   addFact(drawerMeta, "섹션", typeof section === "string" ? squash(section) : section);
   addFact(drawerMeta, "접수번호", citation.receipt_no);
   drawerMeta.hidden = drawerMeta.childElementCount === 0;
+  document.querySelector("#drawer-facts-label").hidden = drawerMeta.hidden;
 
   drawerTechnical.replaceChildren();
-  addFact(drawerTechnical, "근거 ID", citation.evidence_id, { evidenceId: true });
+  addFact(drawerTechnical, "ID", citation.evidence_id, { evidenceId: true });
   const lines = locatorLines(citation.source_locator);
   if (!lines.length && Array.isArray(citation.element_ids)) {
     const fallback = citation.element_ids.map(String).filter((item) => item && !isPrivatePath(item));
     if (fallback.length) lines.push(fallback.join(", "));
   }
-  if (lines.length) addFact(drawerTechnical, "문서 내 위치", lines.join("\n"));
+  if (lines.length) addFact(drawerTechnical, "원문 위치", lines.join("\n"));
   drawerMore.hidden = drawerTechnical.childElementCount === 0;
   drawerMore.open = false;
   scrim.hidden = false;
@@ -615,6 +654,102 @@ function openDrawer(citation, trigger) {
   drawer.scrollTop = 0;
   document.body.dataset.drawer = "open";
   document.querySelector("#drawer-close").focus();
+}
+
+function renderSource(citation) {
+  drawerText.replaceChildren();
+  const blocks = Array.isArray(citation.blocks) ? citation.blocks : [];
+  const tableExpected = locatorHasTable(citation);
+  const wrote = renderBlocks(drawerText, blocks, tableExpected);
+  if (!wrote) {
+    const raw = typeof citation.text === "string" && citation.text ? citation.text : citation.excerpt;
+    const body = evidenceProse(raw);
+    if (body) drawerText.append(proseNode(body));
+  }
+  drawerText.hidden = drawerText.childElementCount === 0;
+  document.querySelector("#drawer-source-label").hidden = drawerText.hidden;
+}
+
+function locatorHasTable(citation) {
+  return Array.isArray(citation.source_locator)
+    && citation.source_locator.some((span) => span && span.kind === "table");
+}
+
+function renderBlocks(container, blocks, tableExpected) {
+  const tables = blocks.filter(
+    (block) => block && block.type === "table" && Array.isArray(block.cells) && block.cells.length,
+  );
+  if (tableExpected && !tables.length) return false;
+  if (!blocks.length) return false;
+  let wrote = false;
+  for (const block of blocks) {
+    if (!block || typeof block !== "object") continue;
+    if (block.type === "table") {
+      const table = renderTable(block);
+      if (table) {
+        container.append(table);
+        wrote = true;
+      }
+    } else if (block.type === "text" && typeof block.text === "string" && block.text.trim()) {
+      container.append(proseNode(block.text.trim()));
+      wrote = true;
+    }
+  }
+  return wrote;
+}
+
+function renderTable(block) {
+  const cells = (Array.isArray(block.cells) ? block.cells : []).filter(validCell);
+  if (!cells.length) return null;
+  const rowCount = Number.isInteger(block.row_count) && block.row_count > 0
+    ? block.row_count
+    : Math.max(...cells.map((cell) => cell.start_row + Math.max(cell.rowspan || 1, 1)));
+  const rows = [];
+  for (let index = 0; index < rowCount; index += 1) rows.push(document.createElement("tr"));
+  const headerRows = new Set();
+  for (let index = 0; index < rowCount; index += 1) {
+    const starters = cells.filter((cell) => cell.start_row === index);
+    if (starters.length && starters.every((cell) => cell.header)) headerRows.add(index);
+  }
+  for (const cell of cells) {
+    if (cell.start_row < 0 || cell.start_row >= rows.length) continue;
+    const node = document.createElement(cell.header ? "th" : "td");
+    node.textContent = String(cell.text || "");
+    if (cell.header && (cell.rowspan || 1) === 1) node.scope = "col";
+    if ((cell.rowspan || 1) > 1) node.rowSpan = cell.rowspan;
+    if ((cell.colspan || 1) > 1) node.colSpan = cell.colspan;
+    rows[cell.start_row].append(node);
+  }
+  const table = document.createElement("table");
+  table.className = "source-table";
+  const thead = document.createElement("thead");
+  const tbody = document.createElement("tbody");
+  let split = 0;
+  while (split < rows.length && headerRows.has(split)) split += 1;
+  rows.forEach((row, index) => {
+    if (index < split) thead.append(row);
+    else tbody.append(row);
+  });
+  if (thead.childElementCount) table.append(thead);
+  if (tbody.childElementCount) table.append(tbody);
+  const scroller = document.createElement("div");
+  scroller.className = "table-scroll";
+  scroller.append(table);
+  return scroller;
+}
+
+function validCell(cell) {
+  return Boolean(cell)
+    && typeof cell === "object"
+    && Number.isInteger(cell.start_row)
+    && Number.isInteger(cell.start_col);
+}
+
+function proseNode(text) {
+  const paragraph = document.createElement("p");
+  paragraph.className = "source-prose";
+  paragraph.textContent = text;
+  return paragraph;
 }
 
 function evidenceProse(value) {
@@ -638,7 +773,7 @@ function addFact(list, label, value, options = {}) {
   const detail = document.createElement("dd");
   detail.textContent = text;
   if (options.evidenceId) detail.dataset.evidenceId = text;
-  if (label === "근거 ID") detail.dataset.evidenceId = text;
+  if (label === "ID") detail.dataset.evidenceId = text;
   list.append(term, detail);
 }
 
@@ -674,6 +809,7 @@ function closeDrawer() {
 
 function openCoverage(trigger) {
   if (!drawer.hidden) closeDrawer();
+  closeHistory();
   coverageTrigger = trigger || coverageToggle;
   coveragePanel.hidden = false;
   coverageToggle.setAttribute("aria-expanded", "true");
@@ -686,6 +822,270 @@ function closeCoverage(restoreFocus = true) {
   coverageToggle.setAttribute("aria-expanded", "false");
   if (restoreFocus && coverageTrigger) coverageTrigger.focus();
   coverageTrigger = null;
+}
+
+function startNewConversation() {
+  leaveCurrent();
+  session = null;
+  activeAssistant = null;
+  clearThread();
+  closeDrawer();
+  closeCoverage(false);
+  closeHistory();
+  renderHistory();
+  questionInput.focus();
+}
+
+function leaveCurrent() {
+  leaving = true;
+  if (activeAssistant && !activeAssistant.closed) {
+    activeAssistant.closed = true;
+    const text = assistantText(activeAssistant);
+    if (session && text) {
+      if (activeAssistant.kind === "pending") {
+        activeAssistant.kind = "answer";
+        activeAssistant.label = "";
+      }
+      rememberAssistant(activeAssistant);
+    }
+  }
+  if (abortController) abortController.abort();
+  abortController = null;
+  activeAssistant = null;
+  leaving = false;
+  setBusy(false);
+  setActivity("");
+}
+
+function clearThread() {
+  for (const turn of transcript.querySelectorAll(".turn")) turn.remove();
+  emptyState.hidden = false;
+  transcript.classList.remove("has-thread");
+}
+
+function ensureSession(question) {
+  if (session) return session;
+  const now = new Date().toISOString();
+  session = {
+    id: crypto.randomUUID(),
+    title: store ? store.conversationTitle(question) : String(question || "").slice(0, 42),
+    created_at: now,
+    updated_at: now,
+    messages: [],
+  };
+  return session;
+}
+
+function assistantText(assistant) {
+  return assistant.segments
+    .filter((segment) => segment.type === "text")
+    .map((segment) => segment.text)
+    .join("");
+}
+
+function rememberAssistant(assistant) {
+  if (!session || !assistant) return;
+  session.messages.push({
+    role: "assistant",
+    text: assistantText(assistant),
+    created_at: new Date().toISOString(),
+    kind: assistant.kind,
+    label: assistant.label,
+    limitations: assistant.limitations,
+    errorText: assistant.errorText,
+    priorQuestion: assistant.priorQuestion,
+    candidates: assistant.candidates,
+    citations: [...assistant.citations.values()],
+  });
+  persistSession();
+}
+
+function persistSession() {
+  if (!session || !store) return;
+  session.updated_at = new Date().toISOString();
+  store.createConversationStore().save(session).then(() => renderHistory()).catch(() => {
+    showHistoryFailure("이 브라우저에 대화를 저장하지 못했습니다.");
+  });
+}
+
+async function renderHistory() {
+  if (!store) {
+    showHistoryFailure("이 브라우저에서는 대화를 저장할 수 없습니다.");
+    return;
+  }
+  let records = [];
+  try {
+    records = await store.createConversationStore().list();
+  } catch {
+    showHistoryFailure("대화를 불러오지 못했습니다.");
+    return;
+  }
+  historyList.replaceChildren();
+  if (!records.length) {
+    const empty = document.createElement("p");
+    empty.className = "history-empty";
+    empty.textContent = "아직 대화가 없습니다.";
+    historyList.append(empty);
+    return;
+  }
+  for (const group of groupConversations(records)) {
+    const section = document.createElement("section");
+    const heading = document.createElement("h2");
+    heading.className = "history-day";
+    heading.textContent = group.label;
+    const list = document.createElement("ul");
+    for (const record of group.items) {
+      const item = document.createElement("li");
+      const open = document.createElement("button");
+      open.type = "button";
+      open.className = "history-item";
+      open.textContent = record.title || "새 대화";
+      if (session && session.id === record.id) open.setAttribute("aria-current", "true");
+      open.addEventListener("click", () => openStored(record.id));
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "history-delete";
+      remove.textContent = "삭제";
+      remove.setAttribute("aria-label", `${record.title || "대화"} 삭제`);
+      remove.addEventListener("click", (event) => {
+        event.stopPropagation();
+        deleteConversation(record.id);
+      });
+      item.append(open, remove);
+      list.append(item);
+    }
+    section.append(heading, list);
+    historyList.append(section);
+  }
+}
+
+function groupConversations(records) {
+  const groups = [];
+  const byLabel = new Map();
+  for (const record of records) {
+    const label = dayLabel(record.updated_at || record.created_at);
+    let group = byLabel.get(label);
+    if (!group) {
+      group = { label, items: [] };
+      byLabel.set(label, group);
+      groups.push(group);
+    }
+    group.items.push(record);
+  }
+  return groups;
+}
+
+function dayLabel(iso) {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "이전";
+  const start = (value) => new Date(value.getFullYear(), value.getMonth(), value.getDate()).getTime();
+  const diff = Math.round((start(new Date()) - start(date)) / 86400000);
+  if (diff === 0) return "오늘";
+  if (diff === 1) return "어제";
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${date.getFullYear()}.${month}.${day}`;
+}
+
+async function openStored(id) {
+  if (!store) return;
+  if (session && session.id === id && transcript.querySelector(".turn")) {
+    closeHistory();
+    return;
+  }
+  let record;
+  try {
+    record = await store.createConversationStore().get(id);
+  } catch {
+    showHistoryFailure("대화를 불러오지 못했습니다.");
+    return;
+  }
+  if (!record) {
+    renderHistory();
+    return;
+  }
+  leaveCurrent();
+  session = record;
+  clearThread();
+  closeDrawer();
+  closeCoverage(false);
+  closeHistory();
+  emptyState.hidden = true;
+  transcript.classList.add("has-thread");
+  for (const message of record.messages || []) renderStoredMessage(message);
+  renderHistory();
+  questionInput.focus();
+}
+
+function renderStoredMessage(message) {
+  if (!message || message.role === "user") {
+    appendUser(message ? message.text : "");
+    return;
+  }
+  const article = transcript.lastElementChild;
+  if (!article) return;
+  const reply = document.createElement("div");
+  article.append(reply);
+  const citations = new Map(
+    (message.citations || []).map((item) => [String(item.citation_id), item]),
+  );
+  const assistant = {
+    node: reply,
+    segments: message.text ? [{ type: "text", text: message.text }] : [],
+    citations,
+    kind: message.kind || "answer",
+    label: message.label || "",
+    limitations: message.limitations || [],
+    candidates: message.candidates || [],
+    priorQuestion: message.priorQuestion || "",
+    errorText: message.errorText || "",
+    closed: true,
+  };
+  const shown = shownCitationIds(assistant);
+  for (const id of citations.keys()) {
+    if (!shown.has(id)) assistant.segments.push({ type: "cite", id });
+  }
+  renderAssistant(assistant);
+}
+
+async function deleteConversation(id) {
+  if (!store) return;
+  try {
+    await store.createConversationStore().delete(id);
+  } catch {
+    showHistoryFailure("대화를 삭제하지 못했습니다.");
+    return;
+  }
+  if (session && session.id === id) {
+    session = null;
+    activeAssistant = null;
+    clearThread();
+    closeDrawer();
+  }
+  renderHistory();
+}
+
+function showHistoryFailure(message) {
+  historyList.replaceChildren();
+  const note = document.createElement("p");
+  note.className = "history-empty";
+  note.textContent = message;
+  historyList.append(note);
+}
+
+function openHistory() {
+  if (!drawer.hidden) closeDrawer();
+  closeCoverage(false);
+  document.body.dataset.history = "open";
+  historyOpen.setAttribute("aria-expanded", "true");
+  historyDismiss.hidden = false;
+}
+
+function closeHistory() {
+  if (document.body.dataset.history !== "open") return;
+  delete document.body.dataset.history;
+  historyOpen.setAttribute("aria-expanded", "false");
+  historyDismiss.hidden = true;
 }
 
 function formatAsOf(iso) {
