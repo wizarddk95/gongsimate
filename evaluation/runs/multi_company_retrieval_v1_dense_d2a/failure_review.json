@@ -1,0 +1,304 @@
+{
+  "dataset_id": "multi_company_retrieval_v1",
+  "dataset_sha256": "4b9795007d53820c2aca2c837bb884e010af8b2e60bd4b491fd77cfe43e65824",
+  "review_note": "Categories are a human reading of inspection.jsonl. auto_flags in that file are mechanical and are not this taxonomy. A preferred miss is not a Hit failure.",
+  "taxonomy": {
+    "A": "Valid evidence is in the top 10.",
+    "B": "Valid evidence is in the top 10, but the direct or preferred section is missing or much lower.",
+    "C": "No labeled valid evidence in the top 10.",
+    "D": "The top passages are a different fact, period, or meaning.",
+    "E": "Near-duplicate filings or sections fill the list.",
+    "F": "Wrong filing version, wrong as_of, or a superseded original.",
+    "G": "Parsed structure or element mapping hides the labeled text."
+  },
+  "cases": [
+    {
+      "question_id": "MC01",
+      "category": "B",
+      "also": ["E"],
+      "query": "이수페타시스는 뭘 하는 회사야?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": null,
+      "human_note": "2025 사업보고서 주석 회사의 개요가 1위다. PCB 제조·판매라는 답은 맞다. II. 사업의 내용 개요는 상위 20에 없다. 같은 주석이 분기·반기·과거 사업보고서에 반복되어 2–8위를 채운다."
+    },
+    {
+      "question_id": "MC02",
+      "category": "C",
+      "also": ["E"],
+      "query": "이수페타시스의 주요 제품은 무엇이고, 구체적 용도는 어떻게 적혀 있나?",
+      "first_relevant_rank": null,
+      "first_preferred_rank": null,
+      "human_note": "주요 제품 표의 구체적용도 열은 상위 10에 없다. 1–8위는 여러 보고서의 II. 사업의 개요로, PCB를 전문 생산한다는 문장만 반복한다. 제품명은 나오고 용도 표는 나오지 않는다."
+    },
+    {
+      "question_id": "MC03",
+      "category": "B",
+      "also": ["E"],
+      "query": "이 회사가 주력으로 만드는 물건이 뭔지 알려줘.",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 13,
+      "human_note": "1위는 2025.09 분기보고서 I. 회사의 개요의 PCB 생산 문장이다. 답은 된다. 선호하는 2025 사업보고서 사업의 개요와 제품 표는 13위다. 같은 문장의 과거 사본이 위를 채운다."
+    },
+    {
+      "question_id": "MC04",
+      "category": "A",
+      "also": [],
+      "query": "2025년에 매출이 늘어난 이유를 회사는 어떻게 설명해?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 1,
+      "human_note": "선호 문단이 1위이고 반기 문단도 상위 10에 있다."
+    },
+    {
+      "question_id": "MC05",
+      "category": "B",
+      "also": ["E"],
+      "query": "환율이랑 신용위험은 어떻게 관리한다고 나오나?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": null,
+      "human_note": "1위 주석 위험관리 표에 신용위험 관리 문장이 있다. 사업의 내용 위험관리 서술은 상위 20에 없다. 연결·별도, 당기·전기 민감도 표가 목록을 채운다."
+    },
+    {
+      "question_id": "MC06",
+      "category": "A",
+      "also": [],
+      "query": "2025년 연결 기준 PCB 제품 매출 비중은 얼마야?",
+      "first_relevant_rank": 4,
+      "first_preferred_rank": 4,
+      "human_note": "기간이 적힌 제품 비중 표가 4위다."
+    },
+    {
+      "question_id": "MC07",
+      "category": "C",
+      "also": ["D"],
+      "query": "고다층 PCB, MLB는 어느 법인에서 만드나?",
+      "first_relevant_rank": null,
+      "first_preferred_rank": null,
+      "human_note": "1–3위는 과거 보고서의 기타 참고사항으로, 초고다층 MLB가 네트워크 장비에 쓰인다는 용도 문장이다. 어느 법인이 생산하는지는 사업의 개요 표에 있고 상위 10에 없다. MLB라는 단어가 용도 문단을 끌어올렸다."
+    },
+    {
+      "question_id": "MC08",
+      "category": "A",
+      "also": [],
+      "query": "삼성전자의 DX, DS, SDC, Harman은 각각 무엇을 만드나?",
+      "first_relevant_rank": 2,
+      "first_preferred_rank": 3,
+      "human_note": "사업 개요의 DX/DS 설명이 2–3위다."
+    },
+    {
+      "question_id": "MC09",
+      "category": "A",
+      "also": ["D"],
+      "query": "삼성전자는 폰이랑 반도체 말고 차 쪽 사업도 하나?",
+      "first_relevant_rank": 8,
+      "first_preferred_rank": 8,
+      "human_note": "디지털 콕핏 문단은 8위다. 그 위는 DX 제품 나열과 Harman 종속기업 목록이라 차 사업처럼 보이지만 콕핏 문장은 아니다."
+    },
+    {
+      "question_id": "MC10",
+      "category": "A",
+      "also": [],
+      "query": "2025년 삼성전자 매출은 전년 대비 얼마나 늘었나?",
+      "first_relevant_rank": 2,
+      "first_preferred_rank": 2,
+      "human_note": "10.9% 문단이 2위다."
+    },
+    {
+      "question_id": "MC11",
+      "category": "A",
+      "also": [],
+      "query": "2026년 상반기 매출은 전년 동기 대비 얼마나 늘었나?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 1,
+      "human_note": "98.7% 증가 문단이 1위다."
+    },
+    {
+      "question_id": "MC12",
+      "category": "A",
+      "also": [],
+      "query": "메모리 사업에서 HBM은 어떻게 팔았다고 하나?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 1,
+      "human_note": "HBM 판매 확대 문단이 1위다."
+    },
+    {
+      "question_id": "MC13",
+      "category": "B",
+      "also": ["E"],
+      "query": "환이랑 유동성 위험은 어떻게 관리해?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 11,
+      "human_note": "1위는 2026.03 분기 주석이다. 환율 영향을 최소화한다는 관리 문장이 있다. 사업보고서 사업의 내용 위험관리는 11위다. 별도·연결 주석이 2–8위를 채운다."
+    },
+    {
+      "question_id": "MC14",
+      "category": "A",
+      "also": ["D"],
+      "query": "2025년 DX랑 DS 매출 비중은 각각 얼마야?",
+      "first_relevant_rank": 8,
+      "first_preferred_rank": 8,
+      "human_note": "2025 사업보고서 제품 표의 56.3%와 39.0%는 8위다. 1위는 금액만 있는 경영진단이고, 6–7위는 2026.03의 39.3%와 2026.06의 33.0%라 기간이 다르다."
+    },
+    {
+      "question_id": "MC15",
+      "category": "A",
+      "also": [],
+      "query": "삼양식품의 주된 사업은 뭐야?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 9,
+      "human_note": "반기 I. 회사의 개요에 면·스낵·소스가 1위다. 선호 사업 개요도 9위에 있어 Hit@10과 preferred@10은 모두 맞다. 직접 문단보다 개요 재진술이 앞선다."
+    },
+    {
+      "question_id": "MC16",
+      "category": "B",
+      "also": ["D"],
+      "query": "불닭 회사 맞지? 라면 말고 다른 것도 만들어?",
+      "first_relevant_rank": 8,
+      "first_preferred_rank": 16,
+      "human_note": "8위 회사의 개요가 면·스낵·소스를 말해 답은 된다. 선호하는 불닭 매출 문단은 16위다. 1–5위는 연구개발 제품명과 일본 불닭 경쟁 문장으로, 불닭이라는 단어에 끌렸고 다른 제품 설명은 아니다."
+    },
+    {
+      "question_id": "MC17",
+      "category": "A",
+      "also": [],
+      "query": "2025년 매출이 왜 늘었다고 봐?",
+      "first_relevant_rank": 2,
+      "first_preferred_rank": 2,
+      "human_note": "해외 매출 확대 문단이 2위다."
+    },
+    {
+      "question_id": "MC18",
+      "category": "A",
+      "also": [],
+      "query": "공장이 어디에 있고 주요 원재료는 뭐야?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 1,
+      "human_note": "원재료·공장 문단이 1위다."
+    },
+    {
+      "question_id": "MC19",
+      "category": "A",
+      "also": [],
+      "query": "환율이 실적에 어떤 영향을 줄 수 있다고 하나?",
+      "first_relevant_rank": 4,
+      "first_preferred_rank": 6,
+      "human_note": "유효 근거 둘 다 상위 10에 있다. 선호 문단은 6위다."
+    },
+    {
+      "question_id": "MC20",
+      "category": "A",
+      "also": [],
+      "query": "해외에서 불닭이 잘 팔린 게 매출에 영향을 줬어?",
+      "first_relevant_rank": 6,
+      "first_preferred_rank": 6,
+      "human_note": "해외 매출 39.6% 이어지는 문단이 6위다. 문단이 나뉘어 있어도 해당 단위는 검색됐다."
+    },
+    {
+      "question_id": "MC21",
+      "category": "C",
+      "also": ["D"],
+      "query": "알테오젠의 플랫폼 기술이 뭐야?",
+      "first_relevant_rank": null,
+      "first_preferred_rank": null,
+      "human_note": "Hybrozyme 문단은 상위 10에 없다. 1–8위는 경영진단 서두와 주석의 유전자·형질전환 목적 문장이다. 같은 사실의 구어 질문 MC22와 기술명 질문 MC26은 2위 안팎이다. 플랫폼 기술이라는 일반 표현만 빗나갔다."
+    },
+    {
+      "question_id": "MC22",
+      "category": "A",
+      "also": [],
+      "query": "정맥 주사를 피하로 바꿔 주는 기술 이름 알아?",
+      "first_relevant_rank": 2,
+      "first_preferred_rank": 3,
+      "human_note": "플랫폼 설명 문단이 2–3위다."
+    },
+    {
+      "question_id": "MC23",
+      "category": "A",
+      "also": [],
+      "query": "2025년 매출에서 ALT-B4 기술용역 비중은 얼마야?",
+      "first_relevant_rank": 2,
+      "first_preferred_rank": 2,
+      "human_note": "78.5% 표가 2위다."
+    },
+    {
+      "question_id": "MC24",
+      "category": "A",
+      "also": [],
+      "query": "키트루다 피하주사 라이선스 계약 상대는 누구야?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 1,
+      "human_note": "MSD 계약 표가 1위이고 반기 표도 같이 있다."
+    },
+    {
+      "question_id": "MC25",
+      "category": "A",
+      "also": [],
+      "query": "달러 환율 위험은 어떻게 관리해?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": 1,
+      "human_note": "USD 위험 문단이 1위다."
+    },
+    {
+      "question_id": "MC26",
+      "category": "A",
+      "also": [],
+      "query": "Hybrozyme이 무슨 기술이야?",
+      "first_relevant_rank": 2,
+      "first_preferred_rank": 4,
+      "human_note": "기술명 문단이 2위, 선호 문단이 4위다."
+    },
+    {
+      "question_id": "MC27",
+      "category": "B",
+      "also": ["D"],
+      "query": "대상은 어떤 사업을 해?",
+      "first_relevant_rank": 6,
+      "first_preferred_rank": null,
+      "human_note": "6위 2024 정정 경영진단 표에 대상(주) 식품사업/소재사업이 있다. 2025 사업의 개요는 상위 20에 없다. 1–3위는 대상홀딩스 최대주주 설명이라 회사 이름만 겹친다."
+    },
+    {
+      "question_id": "MC28",
+      "category": "A",
+      "also": [],
+      "query": "청정원하고 종가는 각각 어떤 제품 브랜드야?",
+      "first_relevant_rank": 5,
+      "first_preferred_rank": 5,
+      "human_note": "브랜드 문단이 5위다. 반기 문단도 상위 10에 있다."
+    },
+    {
+      "question_id": "MC29",
+      "category": "B",
+      "also": [],
+      "query": "소재 사업에서는 전분이랑 아미노산을 만드나?",
+      "first_relevant_rank": 1,
+      "first_preferred_rank": null,
+      "human_note": "1위는 2026 반기 주요 제품의 변성전분·전분당 설명으로 직접 근거다. 선호하는 2025 사업보고서 개요는 상위 20에 없다. 선호 문서를 놓친 것이지 검색 실패는 아니다."
+    },
+    {
+      "question_id": "MC30",
+      "category": "A",
+      "also": [],
+      "query": "대상은 환율 변동 위험에 노출되어 있나?",
+      "first_relevant_rank": 4,
+      "first_preferred_rank": 4,
+      "human_note": "2025 정정 사업보고서의 위험관리 문단이 4위다. 같은 절의 다른 요소인 제목만 라벨했던 상태에서는 누락으로 보였고, 측정 문단을 라벨한 뒤 Hit가 됐다."
+    },
+    {
+      "question_id": "MC31",
+      "category": "A",
+      "also": [],
+      "query": "종가 김치가 국내 김치 수출에서 차지하는 비중은?",
+      "first_relevant_rank": 7,
+      "first_preferred_rank": 7,
+      "human_note": "김치 수출량 55% 문단이 7위다. 짧은 55%만으로는 다른 표와 겹쳐 라벨하지 않았다."
+    },
+    {
+      "question_id": "MC32",
+      "category": "A",
+      "also": [],
+      "query": "2025년 사업보고서 기준으로 대상의 사업부문은 어떻게 나뉘나?",
+      "first_relevant_rank": 8,
+      "first_preferred_rank": 8,
+      "human_note": "as_of가 정정 접수 전이라 금은 원본 20260318000733이다. 그 사업의 개요가 8위다. 위에는 2024 경영진단과 같은 원본의 다른 절이 있다. 문항이 하나라 비율로 읽지 않는다. 잘못된 버전을 금으로 둔 경우는 아니다."
+    }
+  ]
+}

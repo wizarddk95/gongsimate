@@ -1,0 +1,81 @@
+{
+  "dataset_id": "multi_company_retrieval_v1",
+  "schema_version": 1,
+  "schema": "product_retrieval_graded_v1",
+  "label_unit": "source element_id on an indexed Dense-D2a retrieval unit",
+  "why_not_v0_3_claim_schema": "isu_petasys_v0_3 pins one receipt, exact span text, and claim-set recall. This set scores the product multi-filing Dense-D2a path. Chunk ids are still not the answer key. Relevance and preferred are separate fields.",
+  "relevance": {
+    "2": "direct evidence. The element states the fact the question asks for.",
+    "1": "valid supporting evidence. It can answer the question, but it is a later filing, a shorter restatement, or a less direct section.",
+    "0": "not used. Unlabeled retrieved text is treated as irrelevant."
+  },
+  "preferred_is_not_correctness": "preferred marks the filing or section a product answer should cite when several valid elements exist. Hit, Recall, MRR, and NDCG use relevance >= 1. preferred_hit is diagnostic.",
+  "label_boundary": "Relevance 2 is an element that states the asked fact, usually in II. 사업의 내용 of the latest annual report. Relevance 1 is a later filing with the same fact, or a note or I. 회사의 개요 restatement that was checked in the indexed text and does answer the question. Older filings that repeat the same paragraph are not each labeled. An unlabeled retrieved passage scores as irrelevant.",
+  "population": "Small manually reviewed set. Not a sample of all user questions and not company-wide performance.",
+  "core_rule": "The question is answerable from indexed periodic filings. Company is given. The raw question is the query. No period or report-type filter is applied unless filters.as_of is set.",
+  "filing_policy": "Effective receipts follow select_filings with correction suppression. An original is dropped when its correction is already in the candidate set and, if as_of is set, the correction was received on or before as_of. Superseded originals are not gold for the default scope.",
+  "reused_questions": [
+    {
+      "question_id": "MC02",
+      "from": "evaluation/datasets/isu_petasys_v0_3 Q01",
+      "note": "Same product-and-use intent. Wording no longer prefixes FY2025, so the half-year product table can be valid supporting evidence."
+    },
+    {
+      "question_id": "MC03",
+      "from": "evaluation/datasets/isu_petasys_v0_3 Q09",
+      "note": "Paraphrase of the product intent. Q10 from v0.3 is unanswerable and is not in this retrieval set."
+    }
+  ],
+  "corpora": [
+    {
+      "corp_code": "00107613",
+      "company_name": "이수페타시스",
+      "corpus_id": "isu_petasys_periodic_d2a",
+      "index_dir": "data/product/indexes/isu_petasys_periodic_d2a",
+      "corpus_as_of": "2026-09-25T10:26:24+09:00",
+      "retrieval_unit_count": 20592,
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1"
+    },
+    {
+      "corp_code": "00126380",
+      "company_name": "삼성전자",
+      "corpus_id": "generalization_00126380",
+      "index_dir": "data/product/indexes/generalization/00126380",
+      "corpus_as_of": "2026-10-02T15:19:20+09:00",
+      "retrieval_unit_count": 9171,
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1"
+    },
+    {
+      "corp_code": "00126955",
+      "company_name": "삼양식품",
+      "corpus_id": "generalization_00126955",
+      "index_dir": "data/product/indexes/generalization/00126955",
+      "corpus_as_of": "2026-10-02T15:19:22+09:00",
+      "retrieval_unit_count": 8674,
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1"
+    },
+    {
+      "corp_code": "00989619",
+      "company_name": "알테오젠",
+      "corpus_id": "generalization_00989619",
+      "index_dir": "data/product/indexes/generalization/00989619",
+      "corpus_as_of": "2026-10-02T15:19:23+09:00",
+      "retrieval_unit_count": 8986,
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1"
+    },
+    {
+      "corp_code": "00121941",
+      "company_name": "대상",
+      "corpus_id": "generalization_00121941",
+      "index_dir": "data/product/indexes/generalization/00121941",
+      "corpus_as_of": "2026-10-02T15:19:27+09:00",
+      "retrieval_unit_count": 18261,
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1"
+    }
+  ]
+}
