@@ -17,7 +17,7 @@ from disclosure_agent.agent.search_catalog import SearchCatalog, public_corpus
 from disclosure_agent.agent.temporal import FilingPeriod
 
 _STATIC = repo_root() / "src" / "disclosure_agent" / "agent" / "static"
-_COMPANY_NAMES = ("이수페타시스", "삼성전자", "삼양식품", "알테오젠")
+_COMPANY_NAMES = ("이수페타시스", "삼성전자", "삼양식품", "알테오젠", "대상")
 
 
 def _corpus(name: str, corp_code: str, day: int, secret: Path) -> ProductCorpus:
@@ -116,18 +116,34 @@ def test_corpus_route_and_chat_page(tmp_path: Path) -> None:
 
 
 def test_static_ui_does_not_hardcode_the_supported_companies() -> None:
-    for name in ("index.html", "chat.js", "chat.css"):
-        text = (_STATIC / name).read_text(encoding="utf-8")
+    page = (_STATIC / "index.html").read_text(encoding="utf-8")
+    script = (_STATIC / "chat.js").read_text(encoding="utf-8")
+    style = (_STATIC / "chat.css").read_text(encoding="utf-8")
+    for text in (page, script, style):
         for company in _COMPANY_NAMES:
             assert company not in text
         assert "data/product" not in text
         assert "embeddings.f32" not in text
         assert "2026-09-25" not in text
-    script = (_STATIC / "chat.js").read_text(encoding="utf-8")
+        assert "source_sha256" not in text
+        assert "retrieval_unit_id" not in text
+        assert "corp_code" not in text
+        assert "페이지" not in text
+    assert "GongsiMate" in page
+    assert "공시에서 근거를 찾아" in page
+    assert 'id="coverage-toggle"' in page
+    assert 'id="ask-form"' in page
+    assert "기업의 실적, 사업, 공시 내용에 대해 질문해보세요" in page
     assert "/api/corpus" in script
     assert "citation_id" in script
     assert "evidence_id" in script
-    assert "페이지" not in script
+    assert "공시 근거" in script
+    assert "답변 범위" in script
+    assert "세부 정보" in page
+    assert "지원 범위 밖" in script
+    assert "확인이 필요합니다" in script
+    assert "바로 답변" not in script
+    assert "RAG가 뭐야?" not in script
 
 
 def test_citation_event_uses_the_same_evidence_as_the_completed_answer() -> None:

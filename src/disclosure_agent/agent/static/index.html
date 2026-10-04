@@ -3,46 +3,95 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>공시 리서치</title>
+  <meta name="theme-color" content="#f6f5f2">
+  <title>GongsiMate · 공시 근거 리서치</title>
   <link rel="stylesheet" href="/static/chat.css">
 </head>
 <body>
+  <a class="skip" href="#question">질문 입력으로 이동</a>
   <header class="top">
-    <div>
-      <h1>공시 리서치</h1>
-      <p>색인된 공시 원문을 근거로 답합니다. 목록에 없는 기업은 검색하지 않습니다.</p>
+    <div class="brand">
+      <h1 class="wordmark">GongsiMate</h1>
+      <p class="tagline">공시 근거 리서치</p>
     </div>
+    <button
+      id="coverage-toggle"
+      class="coverage-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="coverage-panel"
+      aria-haspopup="dialog"
+    >
+      <span id="coverage-label">지원 범위</span>
+    </button>
   </header>
-  <div class="layout">
-    <aside class="corpus" aria-labelledby="corpus-heading">
-      <h2 id="corpus-heading">지원 기업</h2>
-      <p id="corpus-description" class="muted">지원 기업을 불러오는 중</p>
-      <ul id="corpus-list"></ul>
-      <h2>질문 예시</h2>
-      <div id="prompt-list" class="prompts"></div>
-    </aside>
-    <main class="chat">
-      <div id="transcript" class="transcript" aria-live="polite"></div>
-      <form id="ask-form" class="composer">
-        <label class="visually-hidden" for="question">질문</label>
-        <textarea id="question" name="question" rows="3" maxlength="4000" required placeholder="지원 기업의 공시에 대해 질문하세요"></textarea>
-        <div class="composer-row">
-          <p id="activity" class="activity" role="status"></p>
-          <button id="send" type="submit">보내기</button>
+
+  <div id="coverage-panel" class="coverage" hidden>
+    <div class="coverage-card" role="dialog" aria-modal="true" aria-labelledby="coverage-title">
+      <div class="coverage-head">
+        <div>
+          <p class="eyebrow">베타</p>
+          <h2 id="coverage-title">지원 기업</h2>
         </div>
-      </form>
-      <p class="footnote">이전 답변은 다음 질문에 자동으로 이어지지 않습니다. 회사와 시점을 질문에 적어 주세요.</p>
-    </main>
-  </div>
-  <div id="scrim" class="scrim" hidden></div>
-  <aside id="drawer" class="drawer" hidden aria-labelledby="drawer-title">
-    <div class="drawer-head">
-      <h2 id="drawer-title">근거</h2>
-      <button id="drawer-close" type="button">닫기</button>
+        <button id="coverage-close" class="text-button" type="button">닫기</button>
+      </div>
+      <p id="corpus-description" class="coverage-copy">지원 기업을 불러오는 중</p>
+      <label class="filter">
+        <span class="visually-hidden">기업 이름 검색</span>
+        <input id="coverage-filter" type="search" placeholder="기업 이름 검색" autocomplete="off">
+      </label>
+      <div class="coverage-scroll">
+        <ul id="corpus-list"></ul>
+        <p id="coverage-empty" class="coverage-copy" hidden>해당하는 기업이 없습니다.</p>
+      </div>
     </div>
-    <dl id="drawer-meta"></dl>
+    <button id="coverage-dismiss" class="coverage-backdrop" type="button" aria-label="지원 범위 닫기"></button>
+  </div>
+
+  <main class="workspace">
+    <div class="column">
+      <div id="transcript" class="transcript">
+        <section id="empty" class="empty">
+          <p class="eyebrow">공시 원문 기반</p>
+          <p class="empty-title">공시에서 근거를 찾아 기업을 조사합니다.</p>
+          <p class="lede">회사와 알고 싶은 내용을 질문하면, 색인된 공시 원문을 읽고 근거와 함께 답합니다. 이전 대화는 다음 질문에 이어지지 않습니다.</p>
+          <div id="prompt-list" class="prompts"></div>
+        </section>
+      </div>
+      <form id="ask-form" class="composer">
+        <div class="composer-box">
+          <label class="visually-hidden" for="question">질문</label>
+          <textarea
+            id="question"
+            name="question"
+            rows="2"
+            maxlength="4000"
+            placeholder="기업의 실적, 사업, 공시 내용에 대해 질문해보세요"
+          ></textarea>
+          <div class="composer-actions">
+            <button id="send" type="submit" disabled>질문하기</button>
+          </div>
+        </div>
+        <p class="hint">Enter로 질문 · Shift+Enter로 줄바꿈 · 이전 답변은 이어지지 않습니다</p>
+        <p id="activity" class="visually-hidden" role="status"></p>
+      </form>
+    </div>
+  </main>
+
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="drawer" class="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <p id="drawer-kicker" class="eyebrow">근거</p>
+      <button id="drawer-close" class="text-button" type="button">닫기</button>
+    </div>
+    <h2 id="drawer-title">근거</h2>
+    <p id="drawer-document" class="drawer-document"></p>
     <div id="drawer-text" class="drawer-text"></div>
-    <div id="drawer-locator" class="drawer-locator"></div>
+    <dl id="drawer-meta" class="facts"></dl>
+    <details id="drawer-more" class="technical">
+      <summary>세부 정보</summary>
+      <dl id="drawer-technical" class="facts"></dl>
+    </details>
   </aside>
   <script src="/static/chat.js" defer></script>
 </body>

@@ -1,32 +1,51 @@
 const ACTIVITY = {
-  resolving_company: "기업을 확인하는 중",
-  searching_disclosures: "공시를 검색하는 중",
-  generating_answer: "답변을 작성하는 중",
+  resolving_company: "기업을 확인하고 있습니다",
+  searching_disclosures: "공시에서 근거를 찾고 있습니다",
+  generating_answer: "답변을 작성하고 있습니다",
 };
 
+const PROMPT_TEMPLATES = [
+  (name) => `${name}의 주요 사업은 무엇인가?`,
+  (name) => `${name}의 최근 실적 변동 이유를 설명해 주세요.`,
+  (name) => `${name}의 사업 구조를 공시 근거와 함께 설명해 주세요.`,
+];
+
 const transcript = document.querySelector("#transcript");
+const emptyState = document.querySelector("#empty");
 const form = document.querySelector("#ask-form");
 const questionInput = document.querySelector("#question");
 const sendButton = document.querySelector("#send");
 const activity = document.querySelector("#activity");
 const corpusDescription = document.querySelector("#corpus-description");
 const corpusList = document.querySelector("#corpus-list");
+const coverageEmpty = document.querySelector("#coverage-empty");
+const coverageFilter = document.querySelector("#coverage-filter");
+const coverageLabel = document.querySelector("#coverage-label");
+const coverageToggle = document.querySelector("#coverage-toggle");
+const coveragePanel = document.querySelector("#coverage-panel");
 const promptList = document.querySelector("#prompt-list");
 const drawer = document.querySelector("#drawer");
 const scrim = document.querySelector("#scrim");
 const drawerMeta = document.querySelector("#drawer-meta");
 const drawerText = document.querySelector("#drawer-text");
-const drawerLocator = document.querySelector("#drawer-locator");
+const drawerTechnical = document.querySelector("#drawer-technical");
+const drawerMore = document.querySelector("#drawer-more");
 const drawerTitle = document.querySelector("#drawer-title");
+const drawerKicker = document.querySelector("#drawer-kicker");
+const drawerDocument = document.querySelector("#drawer-document");
 
 let busy = false;
 let drawerTrigger = null;
+let coverageTrigger = null;
+let corpusCompanies = [];
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const message = questionInput.value.trim();
   if (!message || busy) return;
   questionInput.value = "";
+  resizeQuestion();
+  updateSendState();
   ask({ message, display: message });
 });
 
@@ -37,13 +56,30 @@ questionInput.addEventListener("keydown", (event) => {
   }
 });
 
+questionInput.addEventListener("input", () => {
+  resizeQuestion();
+  updateSendState();
+});
+
+coverageToggle.addEventListener("click", () => {
+  if (coveragePanel.hidden) openCoverage(coverageToggle);
+  else closeCoverage();
+});
+document.querySelector("#coverage-close").addEventListener("click", closeCoverage);
+document.querySelector("#coverage-dismiss").addEventListener("click", closeCoverage);
+coverageFilter.addEventListener("input", () => renderCompanyList(coverageFilter.value));
+
 document.querySelector("#drawer-close").addEventListener("click", closeDrawer);
 scrim.addEventListener("click", closeDrawer);
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeDrawer();
+  if (event.key !== "Escape") return;
+  if (!drawer.hidden) closeDrawer();
+  else if (!coveragePanel.hidden) closeCoverage();
 });
 
 loadCorpus();
+resizeQuestion();
+updateSendState();
 
 async function loadCorpus() {
   try {
@@ -51,50 +87,84 @@ async function loadCorpus() {
     if (!response.ok) throw new Error("corpus");
     renderCorpus(await response.json());
   } catch {
+    corpusCompanies = [];
+    coverageLabel.textContent = "지원 범위";
     corpusDescription.textContent = "지원 기업 목록을 불러오지 못했습니다.";
     corpusList.replaceChildren();
+    coverageEmpty.hidden = true;
     promptList.replaceChildren();
   }
 }
 
 function renderCorpus(payload) {
+  corpusCompanies = Array.isArray(payload.companies) ? payload.companies : [];
+  const count = corpusCompanies.length;
+  coverageLabel.textContent = count ? `지원 기업 ${count}곳` : "지원 기업 없음";
   corpusDescription.textContent = payload.description || "색인된 공시 원문만 검색합니다.";
+  renderCompanyList(coverageFilter.value);
+  renderPrompts(corpusCompanies);
+}
+
+function renderCompanyList(query) {
+  const needle = String(query || "").trim().toLowerCase();
   corpusList.replaceChildren();
-  const companies = Array.isArray(payload.companies) ? payload.companies : [];
-  if (!companies.length) {
+  const visible = corpusCompanies.filter((company) => {
+    const name = String(company.company_name || "");
+    return !needle || name.toLowerCase().includes(needle);
+  });
+  if (!corpusCompanies.length) {
     const item = document.createElement("li");
     item.textContent = "현재 색인된 기업이 없습니다.";
     corpusList.append(item);
+    coverageEmpty.hidden = true;
+    return;
   }
-  for (const company of companies) {
+  coverageEmpty.hidden = visible.length > 0;
+  for (const company of visible) {
     const item = document.createElement("li");
-    const name = document.createElement("strong");
+    const name = document.createElement("p");
+    name.className = "company-name";
     name.textContent = company.company_name || "이름 없는 기업";
     item.append(name);
-    if (company.corpus_as_of) {
-      const asOf = document.createElement("span");
-      asOf.textContent = `데이터 기준 ${formatAsOf(company.corpus_as_of)}`;
-      asOf.title = company.corpus_as_of;
-      item.append(asOf);
-    }
-    if (Number.isInteger(company.filing_count)) {
-      const count = document.createElement("span");
-      count.textContent = `색인 공시 ${company.filing_count}건`;
-      item.append(count);
-    }
+    const meta = document.createElement("p");
+    meta.className = "company-meta";
+    const bits = [];
+    if (company.corpus_as_of) bits.push(`데이터 기준 ${formatAsOf(company.corpus_as_of)}`);
+    if (Number.isInteger(company.filing_count)) bits.push(`색인 공시 ${company.filing_count}건`);
+    meta.textContent = bits.join(" · ");
+    if (company.corpus_as_of) meta.title = company.corpus_as_of;
+    if (bits.length) item.append(meta);
     corpusList.append(item);
   }
-  renderPrompts(companies);
 }
 
 function renderPrompts(companies) {
   promptList.replaceChildren();
-  for (const company of companies) {
-    if (!company.company_name) continue;
-    addPrompt(`${company.company_name}의 주요 사업은?`);
-  }
-  addPrompt("안녕");
-  addPrompt("RAG가 뭐야?");
+  const picks = exampleCompanies(companies);
+  picks.forEach((company, index) => {
+    const template = PROMPT_TEMPLATES[index];
+    if (!template) return;
+    const name = readableName(company.company_name);
+    if (!name) return;
+    addPrompt(template(name));
+  });
+}
+
+function exampleCompanies(companies) {
+  const named = companies.filter((company) => company.company_name);
+  if (named.length <= 3) return named;
+  const mid = Math.floor(named.length / 2);
+  return [named[named.length - 1], named[mid], named[0]];
+}
+
+function readableName(value) {
+  const text = String(value || "")
+    .replace(/주식회사/g, "")
+    .replace(/\(주\)/g, "")
+    .replace(/㈜/g, "")
+    .replace(/（주）/g, "")
+    .trim();
+  return text || String(value || "").trim();
 }
 
 function addPrompt(text) {
@@ -110,11 +180,16 @@ function addPrompt(text) {
 
 function ask({ message, display, clarification }) {
   if (busy) return;
+  closeCoverage(false);
+  emptyState.hidden = true;
+  transcript.classList.add("has-thread");
   setBusy(true);
   appendUser(display || message);
   const assistant = appendAssistant();
   assistant.priorQuestion = clarification?.prior_message || message;
-  activity.textContent = "요청을 보내는 중";
+  setActivity("질문을 보내고 있습니다");
+  assistant.label = "질문을 보내고 있습니다";
+  renderAssistant(assistant);
   const body = { message };
   if (clarification) body.clarification = clarification;
   streamAsk(body, assistant);
@@ -158,12 +233,12 @@ async function streamAsk(body, assistant) {
     return;
   }
   setBusy(false);
-  activity.textContent = "";
+  setActivity("");
 }
 
 function applyEvent(assistant, eventName, data) {
   if (eventName === "agent.status" && data && ACTIVITY[data.status]) {
-    activity.textContent = ACTIVITY[data.status];
+    setActivity(ACTIVITY[data.status]);
     if (assistant.kind === "pending") {
       assistant.label = ACTIVITY[data.status];
       renderAssistant(assistant);
@@ -183,7 +258,7 @@ function applyEvent(assistant, eventName, data) {
   if (eventName === "run.completed" && data) {
     applyCompleted(assistant, data);
     renderAssistant(assistant);
-    activity.textContent = "";
+    setActivity("");
     return;
   }
   if (eventName === "error") {
@@ -195,10 +270,10 @@ function fail(assistant, message) {
   if (assistant.closed) return;
   assistant.closed = true;
   assistant.kind = "error";
-  assistant.label = "오류";
+  assistant.label = "";
   assistant.errorText = message;
   renderAssistant(assistant);
-  activity.textContent = "";
+  setActivity("");
   setBusy(false);
 }
 
@@ -236,22 +311,30 @@ function parseSseBlock(block) {
 
 function appendUser(text) {
   const article = document.createElement("article");
-  article.className = "message user";
-  article.textContent = text;
+  article.className = "turn";
+  const kicker = document.createElement("p");
+  kicker.className = "kicker";
+  kicker.textContent = "질문";
+  const heading = document.createElement("h2");
+  heading.className = "ask-text";
+  heading.textContent = text;
+  article.append(kicker, heading);
   transcript.append(article);
-  scrollTranscript();
+  scrollTranscript(true);
+  return article;
 }
 
 function appendAssistant() {
-  const article = document.createElement("article");
-  article.className = "message assistant pending";
-  transcript.append(article);
+  const article = transcript.lastElementChild;
+  const reply = document.createElement("div");
+  reply.className = "reply pending";
+  article.append(reply);
   const assistant = {
-    node: article,
+    node: reply,
     segments: [],
     citations: new Map(),
     kind: "pending",
-    label: "실행 중",
+    label: "질문을 보내고 있습니다",
     limitations: [],
     candidates: [],
     priorQuestion: "",
@@ -259,7 +342,7 @@ function appendAssistant() {
     closed: false,
   };
   renderAssistant(assistant);
-  scrollTranscript();
+  scrollTranscript(true);
   return assistant;
 }
 
@@ -286,20 +369,16 @@ function applyCompleted(assistant, data) {
   const text = typeof answer.text === "string" ? answer.text : "";
   const bound = bindCitations(answer.citations || [], data.evidence || [], assistant.citations);
   assistant.citations = new Map(bound.map((item) => [String(item.citation_id), item]));
-  const streamed = assistant.segments
-    .filter((segment) => segment.type === "text")
-    .map((segment) => segment.text)
-    .join("");
-  if (streamed !== text) assistant.segments = text ? [{ type: "text", text }] : [];
+  assistant.closed = true;
+  assistant.segments = text ? [{ type: "text", text }] : [];
   const shown = shownCitationIds(assistant);
   for (const id of assistant.citations.keys()) {
     if (!shown.has(id)) assistant.segments.push({ type: "cite", id });
   }
-  assistant.closed = true;
   const view = present(data);
   assistant.kind = view.kind;
   assistant.label = view.label;
-  assistant.limitations = Array.isArray(answer.limitations) ? answer.limitations.filter(Boolean) : [];
+  assistant.limitations = scopeNotes(text, answer.limitations);
   assistant.candidates = data.clarification?.candidates || [];
   assistant.errorText = "";
 }
@@ -311,7 +390,12 @@ function bindCitations(answerCitations, evidenceList, streamed) {
   return (Array.isArray(answerCitations) ? answerCitations : []).map((item) => {
     const streamedItem = streamed.get(String(item.citation_id)) || {};
     const evidence = evidenceById.get(item.evidence_id) || {};
-    return { ...streamedItem, ...evidence, citation_id: String(item.citation_id), evidence_id: item.evidence_id };
+    return {
+      ...streamedItem,
+      ...evidence,
+      citation_id: String(item.citation_id),
+      evidence_id: item.evidence_id,
+    };
   });
 }
 
@@ -334,38 +418,68 @@ function present(payload) {
   const action = payload.action;
   const status = payload.status;
   const reason = payload.abstain_reason;
-  if (action === "ask_clarification") {
-    if (status === "company_ambiguous") return { kind: "clarification", label: "어느 기업인지 확인이 필요합니다" };
-    if (status === "company_not_found") return { kind: "clarification", label: "기업을 특정하지 못했습니다" };
-    return { kind: "clarification", label: "확인이 필요합니다" };
-  }
-  if (status === "company_unsupported" || status === "unsupported_company" || reason === "unsupported_company") {
-    return { kind: "unsupported", label: "현재 색인에 없는 기업" };
+  if (action === "ask_clarification") return { kind: "clarification", label: "확인이 필요합니다" };
+  if (
+    status === "company_unsupported"
+    || status === "unsupported_company"
+    || reason === "unsupported_company"
+  ) {
+    return { kind: "unsupported", label: "지원 범위 밖" };
   }
   if (status === "no_matching_filing" || reason === "no_matching_filing") {
-    return { kind: "abstain", label: "조건에 맞는 공시 없음" };
-  }
-  if (reason === "insufficient_evidence" || status === "abstained") {
-    return { kind: "abstain", label: "근거 부족" };
+    return { kind: "limited", label: "해당 조건의 공시 없음" };
   }
   if (status === "corpus_not_fresh_enough" || reason === "corpus_not_fresh_enough") {
-    return { kind: "abstain", label: "색인 기준 시각 이후" };
+    return { kind: "limited", label: "데이터 기준 이후의 시점" };
   }
-  if (action === "answer_directly") return { kind: "direct", label: "바로 답변" };
-  if (action === "search_disclosures" && status === "completed") return { kind: "grounded", label: "공시 근거" };
-  if (action === "abstain") return { kind: "abstain", label: "답변을 보류했습니다" };
-  return { kind: "answer", label: "답변" };
+  if (reason === "insufficient_evidence" || status === "abstained" || reason === "no_results") {
+    return { kind: "limited", label: "공시에서 확인하지 못함" };
+  }
+  if (action === "answer_directly") return { kind: "direct", label: "" };
+  if (action === "search_disclosures" && status === "completed") {
+    return { kind: "grounded", label: "공시 근거" };
+  }
+  if (action === "abstain") return { kind: "limited", label: "답변을 보류했습니다" };
+  return { kind: "answer", label: "" };
+}
+
+function scopeNotes(answerText, limitations) {
+  const answer = squash(answerText);
+  const seen = new Set();
+  const notes = [];
+  const items = Array.isArray(limitations) ? limitations : [];
+  for (const item of items) {
+    const text = String(item || "").trim();
+    const key = squash(text);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    if (answer && (key === answer || answer.includes(key))) continue;
+    notes.push(text);
+  }
+  return notes;
+}
+
+function squash(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
 }
 
 function renderAssistant(assistant) {
   const node = assistant.node;
-  node.className = `message assistant ${assistant.kind}`;
+  node.className = `reply ${assistant.kind}`;
   node.replaceChildren();
-  if (assistant.label) {
-    const badge = document.createElement("div");
-    badge.className = "badge";
-    badge.textContent = assistant.label;
-    node.append(badge);
+  if (assistant.kind === "pending") {
+    const status = document.createElement("p");
+    status.className = "pending-status";
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    dot.setAttribute("aria-hidden", "true");
+    status.append(dot, document.createTextNode(assistant.label || "조사하고 있습니다"));
+    node.append(status);
+  } else if (assistant.label) {
+    const status = document.createElement("p");
+    status.className = "reply-status";
+    status.textContent = assistant.label;
+    node.append(status);
   }
   const body = document.createElement("div");
   body.className = "message-body";
@@ -378,24 +492,30 @@ function renderAssistant(assistant) {
   }
   if (assistant.errorText) {
     const error = document.createElement("div");
+    error.className = "error-line";
     error.textContent = assistant.errorText;
     body.append(error);
   }
-  node.append(body);
-  const answerText = assistant.segments
-    .filter((segment) => segment.type === "text")
-    .map((segment) => segment.text)
-    .join("");
-  const notes = assistant.limitations.filter((item) => item !== answerText);
-  if (notes.length) {
-    const list = document.createElement("div");
-    list.className = "notes";
-    for (const note of notes) {
+  if (body.childNodes.length) node.append(body);
+  if (assistant.kind === "grounded" && assistant.citations.size) {
+    const note = document.createElement("p");
+    note.className = "evidence-note";
+    const count = assistant.citations.size;
+    note.textContent = `공시 원문 ${count}건 · 번호를 누르면 근거를 엽니다`;
+    node.append(note);
+  }
+  if (assistant.limitations.length) {
+    const details = document.createElement("details");
+    details.className = "scope";
+    const summary = document.createElement("summary");
+    summary.textContent = "답변 범위";
+    details.append(summary);
+    for (const note of assistant.limitations) {
       const line = document.createElement("div");
       line.textContent = note;
-      list.append(line);
+      details.append(line);
     }
-    node.append(list);
+    node.append(details);
   }
   if (assistant.candidates.length) {
     const choices = document.createElement("div");
@@ -423,7 +543,7 @@ function renderAssistant(assistant) {
     }
     node.append(choices);
   }
-  scrollTranscript();
+  scrollTranscript(false);
 }
 
 function appendLinkedText(container, text, citations) {
@@ -444,6 +564,7 @@ function citationButton(citation) {
   button.type = "button";
   button.className = "cite";
   button.textContent = `[${citation.citation_id}]`;
+  button.setAttribute("aria-label", `근거 ${citation.citation_id} 열기`);
   button.dataset.citationId = String(citation.citation_id);
   button.dataset.evidenceId = String(citation.evidence_id || "");
   button.addEventListener("click", () => openDrawer(citation, button));
@@ -451,59 +572,74 @@ function citationButton(citation) {
 }
 
 function openDrawer(citation, trigger) {
+  closeCoverage(false);
   drawerTrigger = trigger || null;
-  drawerTitle.textContent = `근거 [${citation.citation_id}]`;
-  drawerMeta.replaceChildren();
-  addMeta("인용 번호", citation.citation_id);
-  addMeta("근거 ID", citation.evidence_id);
-  addMeta("회사", citation.company_name);
-  addMeta("문서", citation.document_name);
-  addMeta("보고서", citation.report_name);
-  addMeta("접수번호", citation.receipt_no);
-  addMeta("접수일", formatReceiptDate(citation.receipt_date));
-  addMeta("보고기간", citation.filing_period);
-  const section = Array.isArray(citation.section_path)
-    ? citation.section_path.filter(Boolean).join(" > ")
-    : citation.section_path;
-  addMeta("섹션", section);
+  drawerKicker.textContent = `근거 ${citation.citation_id}`;
+  drawerTitle.textContent = shown(citation.company_name) || "근거";
+  const documentLine = filingLine(citation);
+  drawerDocument.textContent = documentLine;
+  drawerDocument.hidden = !documentLine;
   drawerText.replaceChildren();
   const evidenceText = typeof citation.text === "string" && citation.text
     ? citation.text
     : citation.excerpt;
-  if (typeof evidenceText === "string" && evidenceText) {
-    drawerText.textContent = evidenceText;
+  const body = evidenceProse(evidenceText);
+  if (body) {
+    drawerText.textContent = body;
+    drawerText.hidden = false;
+  } else {
+    drawerText.hidden = true;
   }
-  drawerLocator.replaceChildren();
+  drawerMeta.replaceChildren();
+  addFact(drawerMeta, "공시일", formatReceiptDate(citation.receipt_date));
+  addFact(drawerMeta, "보고기간", citation.filing_period);
+  const section = Array.isArray(citation.section_path)
+    ? citation.section_path.filter(Boolean).join(" · ")
+    : citation.section_path;
+  addFact(drawerMeta, "섹션", typeof section === "string" ? squash(section) : section);
+  addFact(drawerMeta, "접수번호", citation.receipt_no);
+  drawerMeta.hidden = drawerMeta.childElementCount === 0;
+
+  drawerTechnical.replaceChildren();
+  addFact(drawerTechnical, "근거 ID", citation.evidence_id, { evidenceId: true });
   const lines = locatorLines(citation.source_locator);
-  if (!lines.length && Array.isArray(citation.element_ids) && citation.element_ids.length) {
-    lines.push(citation.element_ids.map(String).filter((item) => !isPrivatePath(item)).join(", "));
+  if (!lines.length && Array.isArray(citation.element_ids)) {
+    const fallback = citation.element_ids.map(String).filter((item) => item && !isPrivatePath(item));
+    if (fallback.length) lines.push(fallback.join(", "));
   }
-  if (lines.length) {
-    const heading = document.createElement("div");
-    heading.textContent = "위치";
-    drawerLocator.append(heading);
-    for (const line of lines) {
-      const row = document.createElement("div");
-      row.textContent = line;
-      drawerLocator.append(row);
-    }
-  }
+  if (lines.length) addFact(drawerTechnical, "문서 내 위치", lines.join("\n"));
+  drawerMore.hidden = drawerTechnical.childElementCount === 0;
+  drawerMore.open = false;
   scrim.hidden = false;
   drawer.hidden = false;
+  drawer.scrollTop = 0;
+  document.body.dataset.drawer = "open";
   document.querySelector("#drawer-close").focus();
 }
 
-function addMeta(label, value) {
-  if (value === undefined || value === null || value === "") return;
-  const text = String(value);
-  if (isPrivatePath(text)) return;
+function evidenceProse(value) {
+  if (typeof value !== "string" || isPrivatePath(value)) return "";
+  const stripped = value.replace(/^\[section\][^\n]*\n+/, "").trim();
+  return stripped || value.trim();
+}
+
+function filingLine(citation) {
+  const report = shown(citation.report_name) || shown(citation.document_name);
+  const period = shown(citation.filing_period);
+  if (report && period && !report.includes(period)) return `${report} (${period})`;
+  return report || period;
+}
+
+function addFact(list, label, value, options = {}) {
+  const text = shown(value);
+  if (!text) return;
   const term = document.createElement("dt");
   term.textContent = label;
   const detail = document.createElement("dd");
   detail.textContent = text;
+  if (options.evidenceId) detail.dataset.evidenceId = text;
   if (label === "근거 ID") detail.dataset.evidenceId = text;
-  if (label === "인용 번호") detail.dataset.citationId = text;
-  drawerMeta.append(term, detail);
+  list.append(term, detail);
 }
 
 function locatorLines(locator) {
@@ -528,37 +664,79 @@ function locatorLines(locator) {
 }
 
 function closeDrawer() {
+  if (drawer.hidden) return;
   drawer.hidden = true;
   scrim.hidden = true;
+  delete document.body.dataset.drawer;
   if (drawerTrigger) drawerTrigger.focus();
   drawerTrigger = null;
 }
 
+function openCoverage(trigger) {
+  if (!drawer.hidden) closeDrawer();
+  coverageTrigger = trigger || coverageToggle;
+  coveragePanel.hidden = false;
+  coverageToggle.setAttribute("aria-expanded", "true");
+  coverageFilter.focus();
+}
+
+function closeCoverage(restoreFocus = true) {
+  if (coveragePanel.hidden) return;
+  coveragePanel.hidden = true;
+  coverageToggle.setAttribute("aria-expanded", "false");
+  if (restoreFocus && coverageTrigger) coverageTrigger.focus();
+  coverageTrigger = null;
+}
+
 function formatAsOf(iso) {
-  const match = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/.exec(String(iso));
+  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}:\d{2})/.exec(String(iso));
   if (!match) return String(iso);
-  return `${match[1]} ${match[2]} KST`;
+  return `${match[1]}.${match[2]}.${match[3]} ${match[4]}`;
 }
 
 function formatReceiptDate(value) {
   const text = String(value || "");
   const match = /^(\d{4})(\d{2})(\d{2})$/.exec(text);
   if (!match) return text;
-  return `${match[1]}-${match[2]}-${match[3]}`;
+  return `${match[1]}.${match[2]}.${match[3]}`;
+}
+
+function shown(value) {
+  if (value === undefined || value === null) return "";
+  const text = String(value).trim();
+  if (!text || isPrivatePath(text)) return "";
+  return text;
 }
 
 function isPrivatePath(value) {
   return /[A-Za-z]:\\|\\\\|data[\\/](?:product|parsed|raw|cache)/.test(String(value));
 }
 
+function setActivity(text) {
+  activity.textContent = text || "";
+}
+
 function setBusy(value) {
   busy = value;
-  sendButton.disabled = value;
-  questionInput.disabled = value;
+  form.setAttribute("aria-busy", value ? "true" : "false");
+  updateSendState();
   for (const button of promptList.querySelectorAll("button")) button.disabled = value;
   for (const button of transcript.querySelectorAll(".candidate")) button.disabled = value;
 }
 
-function scrollTranscript() {
-  transcript.scrollTop = transcript.scrollHeight;
+function updateSendState() {
+  const empty = !questionInput.value.trim();
+  sendButton.disabled = busy || empty;
+  sendButton.textContent = busy ? "조사 중" : "질문하기";
+}
+
+function resizeQuestion() {
+  questionInput.style.height = "auto";
+  const next = Math.min(Math.max(questionInput.scrollHeight, 52), 176);
+  questionInput.style.height = `${next}px`;
+}
+
+function scrollTranscript(force) {
+  const distance = transcript.scrollHeight - transcript.scrollTop - transcript.clientHeight;
+  if (force || distance < 140) transcript.scrollTop = transcript.scrollHeight;
 }
