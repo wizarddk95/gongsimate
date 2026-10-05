@@ -1,0 +1,84 @@
+{
+  "implementation": {
+    "function": "disclosure_agent.hybrid.reciprocal_rank_fusion",
+    "k": 60,
+    "k_swept": false,
+    "rank_base": 1,
+    "formula": "score(d) = 1/(k + rank_bm25(d)) + 1/(k + rank_dense(d))",
+    "weights": "1:1",
+    "weighted_score_fusion": false,
+    "score_mixing": false,
+    "candidate_cutoff": null,
+    "full_ranking_fusion": true,
+    "absent_contribution_is_zero": false,
+    "absent_document_behavior": "reciprocal_rank_fusion raises UsageError when the candidate id sets differ. A document returned by only one retriever is not given contribution 0. This experiment ranks every eligible D2a unit in the filing scope with both retrievers, so every fused document has both terms.",
+    "bm25_zero_score_contribution": "1/(k + rank), not 0",
+    "zero_tie_variant_used": false,
+    "tie_break": [
+      "score descending",
+      "ordinal",
+      "unit_index",
+      "chunk_id"
+    ],
+    "duplicate_chunk_id": "rejected",
+    "retrieval_unit_id_policy": "chunk_id is the retrieval_unit_id. Fusion emits each id once."
+  },
+  "reproduction": {
+    "dense_top20_matched_questions": 45,
+    "bm25_top20_matched_questions": 45,
+    "dense_full_prefix_matched_product_top20": 45,
+    "bm25_rank_all_prefix_matched_search_top20": 45,
+    "mismatches": [],
+    "fusion_scored": true
+  },
+  "contribution": {
+    "formula_checks": 519354,
+    "documents_missing_one_rank": 0,
+    "bm25_zero_score_documents": 307603,
+    "bm25_zero_score_spot_checks_with_positive_contribution": 45,
+    "units_outside_filing_scope_are_not_candidates": true
+  },
+  "companies": [
+    {
+      "corp_code": "00107613",
+      "company_name": "이수페타시스",
+      "question_count": 9,
+      "eligible_unit_count": 20592
+    },
+    {
+      "corp_code": "00121941",
+      "company_name": "대상(주)",
+      "question_count": 9,
+      "eligible_unit_count": 10283
+    },
+    {
+      "corp_code": "00126380",
+      "company_name": "삼성전자(주)",
+      "question_count": 9,
+      "eligible_unit_count": 9171
+    },
+    {
+      "corp_code": "00126955",
+      "company_name": "삼양식품(주)",
+      "question_count": 9,
+      "eligible_unit_count": 8674
+    },
+    {
+      "corp_code": "00989619",
+      "company_name": "(주)알테오젠",
+      "question_count": 9,
+      "eligible_unit_count": 8986
+    }
+  ],
+  "input_artifacts": {
+    "dense_dev_sha256": "1e5f88855babe6e5dbf740ace9ddba7ae2ba8ddc0d65aa1f00c2702ba03a90f2",
+    "bm25_dev_sha256": "9557e2f6692411838caaa1732eff634d123683ea2df0fd616772e4a649389833",
+    "source_run": "multi_company_retrieval_v2_1_dev_dense_bm25_complementarity"
+  },
+  "test_questions_searched": 0,
+  "git": {
+    "git_commit": "3ab8dfe478463d6a4201e6f2189db9d34fe98491",
+    "git_dirty": true
+  },
+  "head_subject": "eval: compare dense and bm25 complementarity on v2.1 dev"
+}

@@ -1,0 +1,250 @@
+{
+  "both_hit": {
+    "prior": 32,
+    "rrf_hit10": 32,
+    "lost": 0,
+    "lost_query_ids": []
+  },
+  "bm25_only": {
+    "prior": 10,
+    "retained": 2,
+    "lost": 8,
+    "lost_query_ids": [
+      "V2-00121941-business_paragraph-02",
+      "V2-00121941-business_paragraph-03",
+      "V2-00121941-finance_table-02",
+      "V2-00121941-overview_paragraph-01",
+      "V2-00126380-governance_paragraph-01",
+      "V2-00126955-finance_paragraph-02",
+      "V2-00989619-governance_paragraph-02",
+      "V2-00989619-overview_paragraph-01"
+    ],
+    "queries": [
+      {
+        "query_id": "V2-00121941-business_paragraph-02",
+        "company": "대상",
+        "question": "대상의 2026년 1분기 식품·소재 부문 매출을 더한 금액보다 연결 매출액이 낮은 이유는 무엇인가요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 1,
+        "rrf_first_relevant_rank": 17,
+        "movement": "regression",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 1,
+        "rrf_first_unit_dense_rank": 303,
+        "rrf_first_relevant_preview": "[section] II. 사업의 내용 > 1. 사업의 개요 당사의 사업부문은 식품 및 소재 사업 부문으로 구성되어 있습니다. 식품사업은 국내 대표적인 종합 식품 브랜드인 '청정원'을 중심으로 '순창고추장' 등 전통 장류부터 '미원' 등의 조미료류, 식초, 액젓 등의 농수산식품, 서구식품, 육가공식품, 냉동식품, 편의식품…"
+      },
+      {
+        "query_id": "V2-00121941-business_paragraph-03",
+        "company": "대상",
+        "question": "대상이 종속·관계·공동기업을 제외하고 보유한 지분증권 투자액은 2024년 말 장부상 얼마였나요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 8,
+        "rrf_first_relevant_rank": 19,
+        "movement": "regression",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 8,
+        "rrf_first_unit_dense_rank": 774,
+        "rrf_first_relevant_preview": "[section] II. 사업의 내용 > 5. 위험관리 및 파생거래 ③주가변동 위험 연결기업은 유동성관리 및 영업상의 필요 등으로 상장 및 비상장주식을 포함하는 지분증권에 투자하고 있습니다. 보고기간종료일 현재 연결기업의 지분증권투자(종속기업, 관계기업 및 공동기업제외)의 장부금액은 42,564백만원(전기말: 34,74…"
+      },
+      {
+        "query_id": "V2-00121941-finance_table-02",
+        "company": "대상",
+        "question": "대상은 2026년 1분기 말 특수관계자 거래로 받을 돈과 갚을 돈이 각각 얼마였어?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 7,
+        "rrf_first_relevant_rank": 24,
+        "movement": "regression",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 7,
+        "rrf_first_unit_dense_rank": 75,
+        "rrf_first_relevant_preview": "[section] III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 31. 특수관계자 (연결) 특수관계자거래의 채권·채무 잔액에 대한 공시 당분기말 (단위 : 백만원) | | | | 특수관계자거래의 채권·채무 잔액 | | | | 매출채권, 특수관계자거래 | 기타채권, 특수관계자거래 | 매입채무, 특수관계자거래 |…"
+      },
+      {
+        "query_id": "V2-00121941-overview_paragraph-01",
+        "company": "대상",
+        "question": "대상의 2026년 6월 30일 현재 총 유통주식수는 몇 주인가요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 1,
+        "rrf_first_relevant_rank": 23,
+        "movement": "regression",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 1,
+        "rrf_first_unit_dense_rank": 283,
+        "rrf_first_relevant_preview": "[section] I. 회사의 개요 > 4. 주식의 총수 등 당사는 보고서 작성기준일 현재, 발행할 주식의 총수는 보통주 115,000,000주, 우선주 10,000,000주이며 발행한 주식의 총수는 보통주 51,534,789주, 우선주 4,177,287주 입니다.(*1) 2011년 4월 14일 2우선주가 보통주로 전환…"
+      },
+      {
+        "query_id": "V2-00126380-governance_paragraph-01",
+        "company": "삼성전자",
+        "question": "삼성전자는 당기에 주식매수선택권 부여로 인식한 보상비용이 있나요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 1,
+        "rrf_first_relevant_rank": 27,
+        "movement": "regression",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 1,
+        "rrf_first_unit_dense_rank": 705,
+        "rrf_first_relevant_preview": "[section] 목 차 > VIII. 임원 및 직원 등에 관한 사항 > 2. 임원의 보수 등 ※「자본시장과 금융투자업에 관한 법률」제159조, 동법 시행령 제168조에 따라 당해 사업연도에 재임한 등기이사ㆍ독립이사ㆍ감사위원회 위원에게 지급된 금액 기준입니다.※ 인원수는 작성기준일 현재 기준입니다.※ 보수총액은 당해 사…"
+      },
+      {
+        "query_id": "V2-00126955-cross_period-02",
+        "company": "삼양식품",
+        "question": "삼양식품의 2026년 1분기 말 단기·유동성장기 차입금 잔액과 반기보고서에 나온 전기말 대출 약정 한도는 각각 얼마인가요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 4,
+        "rrf_first_relevant_rank": 10,
+        "movement": "regression",
+        "rrf_hit10": true,
+        "rrf_first_unit_bm25_rank": 4,
+        "rrf_first_unit_dense_rank": 230,
+        "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 차입금 및 사채 장기차입금에 대한 공시 당분기말 (단위 : 천원) | ㈜국민은행-시설자금대출 | 한국산업은행-산업시설자금대출 1 | 한국산업은행-산업시설자금대출 2 | 한국산업은행-산업시설자금대출 3 | 차입금명칭 합계 차입금, 이…"
+      },
+      {
+        "query_id": "V2-00126955-finance_paragraph-02",
+        "company": "삼양식품",
+        "question": "삼양식품의 현행 기준 영업이익은 매출액에서 어떤 비용을 빼서 계산하나요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 1,
+        "rrf_first_relevant_rank": 17,
+        "movement": "regression",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 1,
+        "rrf_first_unit_dense_rank": 301,
+        "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 2. 중요한 회계정책 이러한 부분은 향후 발생할 모든 차이를 포함한 것은 아니며 추가적인 분석결과에 따라 변경될 수 있습니다. [손익계산서 표시 등 변경] 기업회계기준서 제1118호는 손익계산서에 포함된 모든 수익과 비용을 영업 범주, 투…"
+      },
+      {
+        "query_id": "V2-00126955-finance_table-01",
+        "company": "삼양식품",
+        "question": "삼양식품의 2026년 상반기 연결 자본변동표에서 배당금 지급은 얼마로 나타났나요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 4,
+        "rrf_first_relevant_rank": 2,
+        "movement": "improvement",
+        "rrf_hit10": true,
+        "rrf_first_unit_bm25_rank": 4,
+        "rrf_first_unit_dense_rank": 61,
+        "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 2. 연결재무제표 > 2-3. 연결 자본변동표 연결 자본변동표 제 66 기 반기 2026.01.01 부터 2026.06.30 까지 제 65 기 반기 2025.01.01 부터 2025.06.30 까지 (단위 : 원) | 자본의 구성요소 지배기업의 소유주에게 귀속되…"
+      },
+      {
+        "query_id": "V2-00989619-governance_paragraph-02",
+        "company": "알테오젠",
+        "question": "알테오젠은 이번 분기에 우선주 몇 주를 보통주로 바꿨나요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 4,
+        "rrf_first_relevant_rank": 18,
+        "movement": "regression",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 4,
+        "rrf_first_unit_dense_rank": 125,
+        "rrf_first_relevant_preview": "[section] I. 회사의 개요 > 3. 자본금 변동사항 (*) 2025년 2월 20일 상환전환우선주 434,848주를 주당 356,433원으로 발행하였으며, 당기 중 28,055주가 보통주로 전환되었습니다."
+      },
+      {
+        "query_id": "V2-00989619-overview_paragraph-01",
+        "company": "알테오젠",
+        "question": "알테오젠의 종류주식 발행현황에 기재된 주식은 어떤 종류인가요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": 1,
+        "rrf_first_relevant_rank": 16,
+        "movement": "regression",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 1,
+        "rrf_first_unit_dense_rank": 413,
+        "rrf_first_relevant_preview": "[section] I. 회사의 개요 > 4. 주식의 총수 등 다. 종류주식 발행현황 종류주식(제5회차 기명식 상환전환우선주식) 발행현황 | (단위 : 원)"
+      }
+    ]
+  },
+  "dense_only": {
+    "prior": 1,
+    "recovered": 1,
+    "lost": 0,
+    "recovered_query_ids": [
+      "V2-00126380-finance_table-02"
+    ],
+    "queries": [
+      {
+        "query_id": "V2-00126380-finance_table-02",
+        "company": "삼성전자",
+        "question": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+        "dense_first_relevant_rank": 1,
+        "bm25_first_relevant_rank": null,
+        "rrf_first_relevant_rank": 6,
+        "movement": "recovered",
+        "rrf_hit10": true,
+        "rrf_first_unit_bm25_rank": 75,
+        "rrf_first_unit_dense_rank": 1,
+        "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 28. 특수관계자와의 거래 (연결) 전분기 (단위 : 백만원) | 전체 특수관계자 | 특수관계자 | 관계기업 및 공동기업 | 그 밖의 특수관계자 | 대규모기업집단 | 삼성에스디에스㈜ | 삼성전기㈜ | 삼성SDI㈜ | ㈜제일기획 | 기타…"
+      }
+    ]
+  },
+  "both_miss": {
+    "prior": 2,
+    "recovered": 1,
+    "still_missing": 1,
+    "recovered_query_ids": [
+      "V2-00107613-finance_table-03"
+    ],
+    "queries": [
+      {
+        "query_id": "V2-00107613-cross_period-02",
+        "company": "이수페타시스",
+        "question": "이수페타시스의 2024년 반기보고서와 3분기보고서에는 투자조합의 지분 정보와 받을 돈의 연체 현황이 각각 어떻게 나와 있나요?",
+        "dense_first_relevant_rank": null,
+        "bm25_first_relevant_rank": null,
+        "rrf_first_relevant_rank": 135,
+        "movement": "still_missing",
+        "rrf_hit10": false,
+        "rrf_first_unit_bm25_rank": 544,
+        "rrf_first_unit_dense_rank": 80,
+        "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 ISU Petasys Asia Ltd.는 전기말 이전에 완전자본잠식으로 인하여 지분법적용이 중단되었습니다. ③ ISU-세컨더리1호투자조합 (단위: 천원) 구분 | 기말 자기자본(a) | 지분율(b) | 순자산지분금액(a*b) | 장부금액 당반…"
+      },
+      {
+        "query_id": "V2-00107613-finance_table-03",
+        "company": "이수페타시스",
+        "question": "이수페타시스의 2026년 상반기 투자활동에서 무형자산 취득과 투자부동산 취득은 각각 어느 정도를 차지했나요?",
+        "dense_first_relevant_rank": 20,
+        "bm25_first_relevant_rank": null,
+        "rrf_first_relevant_rank": 10,
+        "movement": "recovered",
+        "rrf_hit10": true,
+        "rrf_first_unit_bm25_rank": 82,
+        "rrf_first_unit_dense_rank": 20,
+        "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 4. 재무제표 > 4-4. 현금흐름표 현금흐름표 제 55 기 반기 2026.01.01 부터 2026.06.30 까지 제 54 기 반기 2025.01.01 부터 2025.06.30 까지 (단위 : 원) | 제 55 기 반기 | 제 54 기 반기 영업권 이외의 무형…"
+      }
+    ],
+    "interpretation": "이 두 질의는 period, 연결/별도 scope, cross-filing failure family로 둔다. RRF가 Hit@10에 넣어도 그 family가 해결된 것으로 보지 않고, 못 넣어도 chunking 실패로 단정하지 않는다."
+  },
+  "movement": {
+    "counts": {
+      "improvement": 7,
+      "neutral": 24,
+      "recovered": 2,
+      "regression": 11,
+      "still_missing": 1
+    },
+    "rank_delta_vs_bm25_defined": 42,
+    "rank_delta_vs_bm25_mean": -3.2142857142857144,
+    "rank_delta_vs_bm25_median": 0.0,
+    "same_unit_rank_delta_mean": -3.880952380952381,
+    "same_unit_pushed_down": 18,
+    "same_unit_pushed_down_query_ids": [
+      "V2-00107613-business_table-01",
+      "V2-00107613-overview_paragraph-01",
+      "V2-00121941-business_paragraph-02",
+      "V2-00121941-business_paragraph-03",
+      "V2-00121941-finance_table-02",
+      "V2-00121941-overview_paragraph-01",
+      "V2-00126380-finance_table-03",
+      "V2-00126380-governance_paragraph-01",
+      "V2-00126955-cross_period-01",
+      "V2-00126955-cross_period-02",
+      "V2-00126955-finance_paragraph-02",
+      "V2-00126955-mdna_paragraph-01",
+      "V2-00126955-multi_element-02",
+      "V2-00989619-business_paragraph-01",
+      "V2-00989619-finance_paragraph-01",
+      "V2-00989619-governance_paragraph-02",
+      "V2-00989619-multi_element-02",
+      "V2-00989619-overview_paragraph-01"
+    ],
+    "positive_delta_means": "RRF first-relevant rank is earlier than the baseline"
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "table": [
+    {
+      "metric": "Hit@1",
+      "dense_numerator": 20,
+      "dense_denominator": 45,
+      "dense_value": 0.4444444444444444,
+      "bm25_numerator": 29,
+      "bm25_denominator": 45,
+      "bm25_value": 0.6444444444444445,
+      "rrf_numerator": 28,
+      "rrf_denominator": 45,
+      "rrf_value": 0.6222222222222222
+    },
+    {
+      "metric": "Hit@5",
+      "dense_numerator": 28,
+      "dense_denominator": 45,
+      "dense_value": 0.6222222222222222,
+      "bm25_numerator": 40,
+      "bm25_denominator": 45,
+      "bm25_value": 0.8888888888888888,
+      "rrf_numerator": 33,
+      "rrf_denominator": 45,
+      "rrf_value": 0.7333333333333333
+    },
+    {
+      "metric": "Hit@10",
+      "dense_numerator": 33,
+      "dense_denominator": 45,
+      "dense_value": 0.7333333333333333,
+      "bm25_numerator": 42,
+      "bm25_denominator": 45,
+      "bm25_value": 0.9333333333333333,
+      "rrf_numerator": 36,
+      "rrf_denominator": 45,
+      "rrf_value": 0.8
+    },
+    {
+      "metric": "Recall@5 macro",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.3871746771746772,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.5724279424279424,
+      "rrf_numerator": null,
+      "rrf_denominator": 45,
+      "rrf_value": 0.46781810781810784
+    },
+    {
+      "metric": "Recall@5 micro",
+      "dense_numerator": 78,
+      "dense_denominator": 231,
+      "dense_value": 0.33766233766233766,
+      "bm25_numerator": 113,
+      "bm25_denominator": 231,
+      "bm25_value": 0.48917748917748916,
+      "rrf_numerator": 95,
+      "rrf_denominator": 231,
+      "rrf_value": 0.41125541125541126
+    },
+    {
+      "metric": "Recall@10 macro",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.5612228512228512,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.7673977873977874,
+      "rrf_numerator": null,
+      "rrf_denominator": 45,
+      "rrf_value": 0.6285629185629186
+    },
+    {
+      "metric": "Recall@10 micro",
+      "dense_numerator": 129,
+      "dense_denominator": 231,
+      "dense_value": 0.5584415584415584,
+      "bm25_numerator": 174,
+      "bm25_denominator": 231,
+      "bm25_value": 0.7532467532467533,
+      "rrf_numerator": 141,
+      "rrf_denominator": 231,
+      "rrf_value": 0.6103896103896104
+    },
+    {
+      "metric": "MRR",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.5245943562610229,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.7418783068783069,
+      "rrf_numerator": null,
+      "rrf_denominator": 45,
+      "rrf_value": 0.6856666857776249
+    },
+    {
+      "metric": "NDCG@10",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.47846869834414757,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.7083985500432499,
+      "rrf_numerator": null,
+      "rrf_denominator": 45,
+      "rrf_value": 0.6544050496917456
+    },
+    {
+      "metric": "preferred_hit@10",
+      "dense_numerator": 25,
+      "dense_denominator": 45,
+      "dense_value": 0.5555555555555556,
+      "bm25_numerator": 37,
+      "bm25_denominator": 45,
+      "bm25_value": 0.8222222222222222,
+      "rrf_numerator": 31,
+      "rrf_denominator": 45,
+      "rrf_value": 0.6888888888888889
+    },
+    {
+      "metric": "requirement_recall@10",
+      "dense_numerator": 41,
+      "dense_denominator": 58,
+      "dense_value": 0.7068965517241379,
+      "bm25_numerator": 51,
+      "bm25_denominator": 58,
+      "bm25_value": 0.8793103448275862,
+      "rrf_numerator": 46,
+      "rrf_denominator": 58,
+      "rrf_value": 0.7931034482758621
+    },
+    {
+      "metric": "all_requirements_covered@10",
+      "dense_numerator": 32,
+      "dense_denominator": 45,
+      "dense_value": 0.7111111111111111,
+      "bm25_numerator": 41,
+      "bm25_denominator": 45,
+      "bm25_value": 0.9111111111111111,
+      "rrf_numerator": 35,
+      "rrf_denominator": 45,
+      "rrf_value": 0.7777777777777778
+    },
+    {
+      "metric": "judged_coverage@10",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 1.0,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 1.0,
+      "rrf_numerator": null,
+      "rrf_denominator": 45,
+      "rrf_value": 0.7866666666666666
+    },
+    {
+      "metric": "judged_coverage@20",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.5355555555555556,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.5566666666666666,
+      "rrf_numerator": null,
+      "rrf_denominator": 45,
+      "rrf_value": 0.5966666666666667
+    }
+  ],
+  "oracle": {
+    "definition": "Hit@10 union of the stored Dense and BM25 top-10 lists. Full-ranking RRF can still surface a relevant unit that was outside both top-10 lists, so this union is the previous top-10 ceiling, not a mathematical cap on the fused ranking.",
+    "both_hit": 32,
+    "dense_only": 1,
+    "bm25_only": 10,
+    "both_miss": 2,
+    "oracle_hit10": 43,
+    "oracle_denominator": 45,
+    "bm25_hit10": 42,
+    "rrf_hit10": 36,
+    "theoretical_top10_headroom_over_bm25": 1,
+    "rrf_minus_bm25_hit10": -6,
+    "rrf_minus_oracle_hit10": -7
+  },
+  "verdict": {
+    "label": "C",
+    "hit10_drop": 6,
+    "bm25_only_lost": 8,
+    "coverage_almost_or_fully_retained": false,
+    "significant_coverage_regression": true,
+    "dense_only_recovered": true,
+    "ranking_directions": {
+      "mrr": "down",
+      "ndcg@10": "down",
+      "recall@5_macro": "down"
+    },
+    "ranking_quality_improved": false,
+    "rule": "C if Hit@10 drops by 2 or more, or 2 or more BM25-only Hit@10 questions are lost. Otherwise A if coverage is almost or fully retained and either the Dense-only question is recovered or MRR, NDCG@10, and Recall@5 macro improve with none of them falling. Otherwise B."
+  },
+  "ndcg_note": "headline NDCG is condensed. preferred_hit@10 is diagnostic."
+}

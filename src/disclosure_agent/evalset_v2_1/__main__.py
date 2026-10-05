@@ -1,7 +1,7 @@
-"""Freeze v2.1, rescore Dense-D2a, or compare it with BM25 on dev.
+"""Freeze v2.1, rescore Dense-D2a, compare it with BM25, or fuse them on dev.
 
-Neither freeze nor evaluate calls a judge. The complementarity stage searches
-fully answerable dev only and does not retune BM25.
+Neither freeze nor evaluate calls a judge. Complementarity and RRF search
+fully answerable dev only. RRF does not sweep k and does not read test.
 """
 
 from __future__ import annotations
@@ -15,11 +15,15 @@ from disclosure_agent.evalset_v2.spec import repo_root
 from disclosure_agent.evalset_v2_1.complementarity import run_complementarity
 from disclosure_agent.evalset_v2_1.evaluate import evaluate_dense
 from disclosure_agent.evalset_v2_1.freeze import freeze_dataset
+from disclosure_agent.evalset_v2_1.rrf import run_rrf_experiment
 
 
 def main(argv: Sequence[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="python -m disclosure_agent.evalset_v2_1")
-    parser.add_argument("stage", choices=["freeze", "evaluate", "run", "complementarity"])
+    parser.add_argument(
+        "stage",
+        choices=["freeze", "evaluate", "run", "complementarity", "rrf"],
+    )
     parser.add_argument("--root", type=Path, default=None)
     args = parser.parse_args(list(argv) if argv is not None else None)
     root = args.root or repo_root()
@@ -41,6 +45,21 @@ def main(argv: Sequence[str] | None = None) -> None:
                     "query_cells": payload["query_cells"],
                     "requirement_cells": payload["requirement_cells"],
                     "hybrid_decision": payload["hybrid_decision"]["primary"],
+                    "test_questions_searched": payload["test_questions_searched"],
+                },
+                ensure_ascii=False,
+            )
+        )
+        return
+    if args.stage == "rrf":
+        payload = run_rrf_experiment(root)
+        print(
+            json.dumps(
+                {
+                    "dataset_sha256": payload["dataset_sha256"],
+                    "question_count": payload["question_count"],
+                    "verdict": payload["verdict"]["label"],
+                    "rrf_hit10": payload["rrf_headline"]["at_k"]["10"]["hit"],
                     "test_questions_searched": payload["test_questions_searched"],
                 },
                 ensure_ascii=False,

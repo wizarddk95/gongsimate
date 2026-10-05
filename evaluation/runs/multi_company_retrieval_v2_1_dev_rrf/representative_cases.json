@@ -1,0 +1,603 @@
+{
+  "selection_rule": "Improvements are the largest positive first-relevant rank deltas. Dense-signal is only a tie break. Regressions prefer a lost BM25 Hit@10, then the most negative same-unit rank delta. Tracked queries are always included.",
+  "improvements": [
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "company": "알테오젠",
+      "question": "알테오젠 분기보고서에서 기술 지원과 위탁생산 용역 기간은 언제부터 언제까지로 나와 있어?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "dense_first_relevant_rank": 8,
+      "bm25_first_relevant_rank": 5,
+      "rrf_first_relevant_rank": 2,
+      "rrf_best_relevant_rank": 2,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": 3,
+      "rank_delta_vs_dense": 6,
+      "rrf_relevant_in_top5": 1,
+      "rrf_relevant_in_top10": 1,
+      "movement": "improvement",
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "rrf_hit10": true,
+      "bm25_first_unit_id": "5777aa1c30dc503922bfccf33e575e2581573f63ea382211560b71d6c8cbe6de",
+      "bm25_first_unit_rrf_rank": 2,
+      "same_unit_rank_delta": 3,
+      "rrf_first_unit_id": "5777aa1c30dc503922bfccf33e575e2581573f63ea382211560b71d6c8cbe6de",
+      "rrf_first_unit_bm25_rank": 5,
+      "rrf_first_unit_dense_rank": 8,
+      "dense_signal": false,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 38. 주요기술이전 계약 및 수익 인식 내역 주요기술이전계약에 대한 세부 공시 당기 (단위 : 원) | 계약의 유형 | ALT-B4 | 고객 | A사 | B사 | C사 | D사 | E사 | F사 | G사 | 재화나 용역의 이전 시기 | 한…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "0cdfa5b831fbec08eb58bda4a82b63e898d9858bc1966fac7e2402f8d4dd3b43",
+          "relevance": 0,
+          "bm25_rank": 4,
+          "dense_rank": 9,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 38. 주요기술이전 계약 및 수익 인식 내역 주요기술이전계약에 대한 세부 공시 당기 (단위 : 원) | 계약의 유형 | ALT-B4 | 고객 | A사 | B사 | C사 | D사 | E사 | F사 | G사 | 재화나 용역의 이전 시기 | 한…"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "5777aa1c30dc503922bfccf33e575e2581573f63ea382211560b71d6c8cbe6de",
+          "relevance": 2,
+          "bm25_rank": 5,
+          "dense_rank": 8,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 38. 주요기술이전 계약 및 수익 인식 내역 주요기술이전계약에 대한 세부 공시 당기 (단위 : 원) | 계약의 유형 | ALT-B4 | 고객 | A사 | B사 | C사 | D사 | E사 | F사 | G사 | 재화나 용역의 이전 시기 | 한…"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "c3b16479f737ff158352c78848e4adc7ca88449f3cceec0432fe38aa53fa7723",
+          "relevance": 0,
+          "bm25_rank": 7,
+          "dense_rank": 6,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 39. 주요기술이전 계약 및 수익 인식 내역 (연결) 주요기술이전계약에 대한 세부 공시 당기 (단위 : 원) | 계약의 유형 | ALT-B4 | 고객 | A사 | B사 | C사 | D사 | E사 | F사 | G사 | 재화나 용역의 이전…"
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-finance_table-01",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 2024년 상반기 연결 현금흐름표에서 투자활동현금흐름은 얼마였나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "dense_first_relevant_rank": 9,
+      "bm25_first_relevant_rank": 3,
+      "rrf_first_relevant_rank": 1,
+      "rrf_best_relevant_rank": 1,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": 2,
+      "rank_delta_vs_dense": 8,
+      "rrf_relevant_in_top5": 1,
+      "rrf_relevant_in_top10": 1,
+      "movement": "improvement",
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "rrf_hit10": true,
+      "bm25_first_unit_id": "6b3fdbcc760b173a898dc099a097d457e0c11e60db5cb9019965b44e26170445",
+      "bm25_first_unit_rrf_rank": 1,
+      "same_unit_rank_delta": 2,
+      "rrf_first_unit_id": "6b3fdbcc760b173a898dc099a097d457e0c11e60db5cb9019965b44e26170445",
+      "rrf_first_unit_bm25_rank": 3,
+      "rrf_first_unit_dense_rank": 9,
+      "dense_signal": false,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 2. 연결재무제표 > 2-4. 연결 현금흐름표 연결 현금흐름표 제 53 기 반기 2024.01.01 부터 2024.06.30 까지 제 52 기 반기 2023.01.01 부터 2023.06.30 까지 (단위 : 원) | 제 53 기 반기 | 제 52 기 반기 법인…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "6b3fdbcc760b173a898dc099a097d457e0c11e60db5cb9019965b44e26170445",
+          "relevance": 2,
+          "bm25_rank": 3,
+          "dense_rank": 9,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 2. 연결재무제표 > 2-4. 연결 현금흐름표 연결 현금흐름표 제 53 기 반기 2024.01.01 부터 2024.06.30 까지 제 52 기 반기 2023.01.01 부터 2023.06.30 까지 (단위 : 원) | 제 53 기 반기 | 제 52 기 반기 법인…"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "6ea491263e2f89c257143406446b1d23eaba89ffcb5b68b51993d15cdd5fc2d3",
+          "relevance": 0,
+          "bm25_rank": 5,
+          "dense_rank": 8,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 4. 재무제표 > 4-4. 현금흐름표 현금흐름표 제 53 기 반기 2024.01.01 부터 2024.06.30 까지 제 52 기 반기 2023.01.01 부터 2023.06.30 까지 (단위 : 원) | 제 53 기 반기 | 제 52 기 반기 투자활동현금흐름 |…"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "3f72dec6a97cc83c11819566c48a4d7732624c4602444a8ae673dea16754af78",
+          "relevance": 0,
+          "bm25_rank": 17,
+          "dense_rank": 1,
+          "preview": "[section] 목 차 > IV. 이사의 경영진단 및 분석의견 (2) 현금흐름 (단위:백만원) 구 분 | 제53기(2024년) | 제52기(2023년) | 증감액 영업활동 현금흐름 | 84,901 | 52,473 | 32,428 투자활동 현금흐름 | (63,002) | (61,441) | (1,561) 재무활동 현금흐…"
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-finance_table-01",
+      "company": "삼양식품",
+      "question": "삼양식품의 2026년 상반기 연결 자본변동표에서 배당금 지급은 얼마로 나타났나요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "dense_first_relevant_rank": null,
+      "bm25_first_relevant_rank": 4,
+      "rrf_first_relevant_rank": 2,
+      "rrf_best_relevant_rank": 2,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": 2,
+      "rank_delta_vs_dense": null,
+      "rrf_relevant_in_top5": 1,
+      "rrf_relevant_in_top10": 1,
+      "movement": "improvement",
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "rrf_hit10": true,
+      "bm25_first_unit_id": "91e33833b03d42bef5a1be027f07d136919f8ac9475aea3bd1219cc9cc52d8d2",
+      "bm25_first_unit_rrf_rank": 2,
+      "same_unit_rank_delta": 2,
+      "rrf_first_unit_id": "91e33833b03d42bef5a1be027f07d136919f8ac9475aea3bd1219cc9cc52d8d2",
+      "rrf_first_unit_bm25_rank": 4,
+      "rrf_first_unit_dense_rank": 61,
+      "dense_signal": false,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 2. 연결재무제표 > 2-3. 연결 자본변동표 연결 자본변동표 제 66 기 반기 2026.01.01 부터 2026.06.30 까지 제 65 기 반기 2025.01.01 부터 2025.06.30 까지 (단위 : 원) | 자본의 구성요소 지배기업의 소유주에게 귀속되…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "b5bdb630bb4a18db9b92dad5d0ced0cd017a4e52cc5d9b8b4fd263c8358d69c3",
+          "relevance": 0,
+          "bm25_rank": 2,
+          "dense_rank": 42,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 4. 재무제표 > 4-3. 자본변동표 자본변동표 제 66 기 반기 2026.01.01 부터 2026.06.30 까지 제 65 기 반기 2025.01.01 부터 2025.06.30 까지 (단위 : 원) | 자본의 구성요소 자본금 | 기타자본구성요소 | 기타포괄손익…"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "91e33833b03d42bef5a1be027f07d136919f8ac9475aea3bd1219cc9cc52d8d2",
+          "relevance": 2,
+          "bm25_rank": 4,
+          "dense_rank": 61,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 2. 연결재무제표 > 2-3. 연결 자본변동표 연결 자본변동표 제 66 기 반기 2026.01.01 부터 2026.06.30 까지 제 65 기 반기 2025.01.01 부터 2025.06.30 까지 (단위 : 원) | 자본의 구성요소 지배기업의 소유주에게 귀속되…"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "8fdfd40c1b05689ae2bbd743508a8167f8fe3a4f7257da68022b86a1c0d9d2ed",
+          "relevance": 0,
+          "bm25_rank": 64,
+          "dense_rank": 6,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 8. 기타 재무에 관한 사항 당사는 2022년 6월 13일 삼양라운드스퀘어(주)에게 삼양식품 CI를 양도하는 자산양수도계약을 체결하였습니다. 구 분 | 주 요 내 용 목 적 | 브랜드 관리 효율성 강화 등 양 수 인 | 삼양라운드스퀘어(주)(구, 삼양내츄럴스(주…"
+        }
+      ]
+    }
+  ],
+  "regressions": [
+    {
+      "query_id": "V2-00126380-governance_paragraph-01",
+      "company": "삼성전자",
+      "question": "삼성전자는 당기에 주식매수선택권 부여로 인식한 보상비용이 있나요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "dense_first_relevant_rank": null,
+      "bm25_first_relevant_rank": 1,
+      "rrf_first_relevant_rank": 27,
+      "rrf_best_relevant_rank": 27,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": -26,
+      "rank_delta_vs_dense": null,
+      "rrf_relevant_in_top5": 0,
+      "rrf_relevant_in_top10": 0,
+      "movement": "regression",
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "rrf_hit10": false,
+      "bm25_first_unit_id": "6d7545e5308c9d89f0299f8df6f27830d8267e21a53f60ca0c9e40161932d346",
+      "bm25_first_unit_rrf_rank": 27,
+      "same_unit_rank_delta": -26,
+      "rrf_first_unit_id": "6d7545e5308c9d89f0299f8df6f27830d8267e21a53f60ca0c9e40161932d346",
+      "rrf_first_unit_bm25_rank": 1,
+      "rrf_first_unit_dense_rank": 705,
+      "dense_signal": false,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] 목 차 > VIII. 임원 및 직원 등에 관한 사항 > 2. 임원의 보수 등 ※「자본시장과 금융투자업에 관한 법률」제159조, 동법 시행령 제168조에 따라 당해 사업연도에 재임한 등기이사ㆍ독립이사ㆍ감사위원회 위원에게 지급된 금액 기준입니다.※ 인원수는 작성기준일 현재 기준입니다.※ 보수총액은 당해 사…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "f5d47b19598257405b95f6d508e563895b1794c6bf0621d060f13bba8362fdb5",
+          "relevance": 0,
+          "bm25_rank": 32,
+          "dense_rank": 1,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 20. 기타자본항목 성과연동 주식보상에 대한 공시 (단위 : 백만원) | 주식기준보상약정 | 성과연동 주식보상 | 삼성전자주식회사 주식기준보상약정에 대한 기술 | 회사는 임직원을 대상으로 성과연동주식보상제도(PSU)를 도입하였습니다. 가중…"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "cc693a70f0607f7909ddcefb2c29f6b0ea59ccfc32a0576c32016f8d81c9a82d",
+          "relevance": 0,
+          "bm25_rank": 29,
+          "dense_rank": 4,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 20. 기타자본항목 (연결) 성과연동 주식보상에 대한 공시 (단위 : 백만원) | 주식기준보상약정 | 주식기준보상약정 합계 | 성과연동 주식보상 | 삼성전자주식회사 | 삼성디스플레이㈜ 주식기준보상약정에 대한 기술 | | | 연결회사는 …"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "ace9f61dcf2604b7eb5e9ae0c7133e186e48e16a1c138dbe6e7bbd3179967827",
+          "relevance": 0,
+          "bm25_rank": 46,
+          "dense_rank": 3,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 20. 기타자본항목 (연결) 성과연동 주식보상에 대한 공시 (단위 : 백만원) | 주식기준보상약정 | 주식기준보상약정 합계 | 성과연동 주식보상 | 삼성전자주식회사 | 삼성디스플레이㈜ 주식기준보상약정에 대한 기술 | | | 연결회사는 …"
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-overview_paragraph-01",
+      "company": "대상",
+      "question": "대상의 2026년 6월 30일 현재 총 유통주식수는 몇 주인가요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "dense_first_relevant_rank": null,
+      "bm25_first_relevant_rank": 1,
+      "rrf_first_relevant_rank": 23,
+      "rrf_best_relevant_rank": 23,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": -22,
+      "rank_delta_vs_dense": null,
+      "rrf_relevant_in_top5": 0,
+      "rrf_relevant_in_top10": 0,
+      "movement": "regression",
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "rrf_hit10": false,
+      "bm25_first_unit_id": "2c9da1f19fce5abd18b8822a58a5305a6f70a9539ab7504e7f89de5e82dba13f",
+      "bm25_first_unit_rrf_rank": 23,
+      "same_unit_rank_delta": -22,
+      "rrf_first_unit_id": "2c9da1f19fce5abd18b8822a58a5305a6f70a9539ab7504e7f89de5e82dba13f",
+      "rrf_first_unit_bm25_rank": 1,
+      "rrf_first_unit_dense_rank": 283,
+      "dense_signal": false,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] I. 회사의 개요 > 4. 주식의 총수 등 당사는 보고서 작성기준일 현재, 발행할 주식의 총수는 보통주 115,000,000주, 우선주 10,000,000주이며 발행한 주식의 총수는 보통주 51,534,789주, 우선주 4,177,287주 입니다.(*1) 2011년 4월 14일 2우선주가 보통주로 전환…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "1cbc55aec25aab624d16676e387348029ae15adb0a65a7d6fa46ca0e5cb7a8ab",
+          "relevance": 0,
+          "bm25_rank": 5,
+          "dense_rank": 12,
+          "preview": "[section] VII. 주주에 관한 사항 ※ 2005년 11월 14일 최대주주는 임상민에서 대상홀딩스로 변경되었으며 상기소유주식수 및 지분율은 보통주 기준으로 특수관계인인 임창욱, 임세령, 대상문화재단 등을 포함한 주식수입니다. 2009년 3월 20일 제55기 정기주주총회 결과에 따른 특수관계인인 임동인 (前)대표이…"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "af2b76c9d63c37b162129abcb8f1c32f2ffa9e876418d73e22e96794a2d24980",
+          "relevance": 0,
+          "bm25_rank": 6,
+          "dense_rank": 13,
+          "preview": "[section] VII. 주주에 관한 사항 ※ 2005년 11월 14일 최대주주는 임상민에서 대상홀딩스로 변경되었으며 상기소유주식수 및 지분율은 보통주 기준으로 특수관계인인 임창욱, 임세령, 대상문화재단 등을 포함한 주식수입니다. 2009년 3월 20일 제55기 정기주주총회 결과에 따른 특수관계인인 임동인 (前)대표이…"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "d5555de61f4a36fc3ad5147933d14b6507aabbbd323f341aaca210bc6ea28cfb",
+          "relevance": 0,
+          "bm25_rank": 11,
+          "dense_rank": 9,
+          "preview": "[section] VII. 주주에 관한 사항 > 최대주주 변동내역 변동일 | 최대주주명 | 소유주식수 | 지분율 | 변동원인 | 비 고 2017년 04월 17일 | 대상홀딩스 | 15,507,183 | 44.76 | 보통주전환 | - 2019년 10월 31일 | 대상홀딩스 | 15,502,083 | 44.74 | 임원퇴…"
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-finance_table-02",
+      "company": "대상",
+      "question": "대상은 2026년 1분기 말 특수관계자 거래로 받을 돈과 갚을 돈이 각각 얼마였어?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "dense_first_relevant_rank": null,
+      "bm25_first_relevant_rank": 7,
+      "rrf_first_relevant_rank": 24,
+      "rrf_best_relevant_rank": 24,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": -17,
+      "rank_delta_vs_dense": null,
+      "rrf_relevant_in_top5": 0,
+      "rrf_relevant_in_top10": 0,
+      "movement": "regression",
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "rrf_hit10": false,
+      "bm25_first_unit_id": "62c8564da1be79a9d8b5bad6f32b3786894d1015029ad67477f292ac03b00a86",
+      "bm25_first_unit_rrf_rank": 24,
+      "same_unit_rank_delta": -17,
+      "rrf_first_unit_id": "62c8564da1be79a9d8b5bad6f32b3786894d1015029ad67477f292ac03b00a86",
+      "rrf_first_unit_bm25_rank": 7,
+      "rrf_first_unit_dense_rank": 75,
+      "dense_signal": false,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 31. 특수관계자 (연결) 특수관계자거래의 채권·채무 잔액에 대한 공시 당분기말 (단위 : 백만원) | | | | 특수관계자거래의 채권·채무 잔액 | | | | 매출채권, 특수관계자거래 | 기타채권, 특수관계자거래 | 매입채무, 특수관계자거래 |…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "bdf51f0ec4f8e892fb94d0e92c2dfaaad5c9f92110966f47d357f9b2e1d73f30",
+          "relevance": 0,
+          "bm25_rank": 2,
+          "dense_rank": 6,
+          "preview": "[section] III. 재무에 관한 사항 > 5. 재무제표 주석 > 31. 특수관계자 전기말 (단위 : 백만원) | | | | 특수관계자거래의 채권·채무 잔액 | | | | 매출채권, 특수관계자거래 | 대여금, 특수관계자거래 | 기타채권, 특수관계자거래 | 매입채무, 특수관계자거래 | 기타채무, 특수관계자거래 전체 …"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "bab2a7632a01b7fffd03e46f82382b3c0f0d5cfb5d98bab0abd2d122cc0b3b75",
+          "relevance": 0,
+          "bm25_rank": 8,
+          "dense_rank": 2,
+          "preview": "[section] III. 재무에 관한 사항 > 5. 재무제표 주석 > 31. 특수관계자와의 거래 전기 (단위 : 백만원) | | | | 특수관계자거래의 채권·채무 잔액 | | | | 매출채권, 특수관계자거래 | 대여금, 특수관계자거래 | 기타채권, 특수관계자거래 | 매입채무, 특수관계자거래 | 기타채무, 특수관계자거래…"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "a90898b290d2038bf39dbb9fef42ae7aa35edeae6699051ba018616098620a2a",
+          "relevance": 0,
+          "bm25_rank": 13,
+          "dense_rank": 1,
+          "preview": "[section] III. 재무에 관한 사항 > 5. 재무제표 주석 > 31. 특수관계자와의 거래 특수관계자거래의 채권·채무 잔액에 대한 공시 당기 (단위 : 백만원) | | | | 특수관계자거래의 채권·채무 잔액 | | | | 매출채권, 특수관계자거래 | 대여금, 특수관계자거래 | 기타채권, 특수관계자거래 | 매입채무…"
+        }
+      ]
+    }
+  ],
+  "tracked": [
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 2024년 반기보고서와 3분기보고서에는 투자조합의 지분 정보와 받을 돈의 연체 현황이 각각 어떻게 나와 있나요?",
+      "prior_cell": "dense_miss_bm25_miss",
+      "dense_first_relevant_rank": null,
+      "bm25_first_relevant_rank": null,
+      "rrf_first_relevant_rank": 135,
+      "rrf_best_relevant_rank": 135,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": null,
+      "rank_delta_vs_dense": null,
+      "rrf_relevant_in_top5": 0,
+      "rrf_relevant_in_top10": 0,
+      "movement": "still_missing",
+      "bm25_hit10": false,
+      "dense_hit10": false,
+      "rrf_hit10": false,
+      "bm25_first_unit_id": null,
+      "bm25_first_unit_rrf_rank": null,
+      "same_unit_rank_delta": null,
+      "rrf_first_unit_id": "298e0ed60bd1786a3ef3b03ea186e0bcfae38418f16fd4b2238be108fa29a5d9",
+      "rrf_first_unit_bm25_rank": 544,
+      "rrf_first_unit_dense_rank": 80,
+      "dense_signal": true,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 ISU Petasys Asia Ltd.는 전기말 이전에 완전자본잠식으로 인하여 지분법적용이 중단되었습니다. ③ ISU-세컨더리1호투자조합 (단위: 천원) 구분 | 기말 자기자본(a) | 지분율(b) | 순자산지분금액(a*b) | 장부금액 당반…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "e2f66c26c879d8514f05afb0116a4cb21e77c09b51e664363f2f55b6051acc57",
+          "relevance": 0,
+          "bm25_rank": 8,
+          "dense_rank": 2,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 제 53(당) 반기 2024년 1월 1일부터 2024년 6월 30일까지 제 52(전) 반기 2023년 1월 1일부터 2023년 6월 30일까지 주식회사 이수페타시스와 그 종속기업"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "5144a79648b29037fa26a8ce03bba83e334033a67da7944c3b7b2d1a07601e1a",
+          "relevance": 0,
+          "bm25_rank": 7,
+          "dense_rank": 6,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 제 53(당) 반기 2024년 1월 1일부터 2024년 6월 30일까지 제 52(전) 반기 2023년 1월 1일부터 2023년 6월 30일까지 주식회사 이수페타시스"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "e17ecadd67418c552f8693762fc394a60ced911bdfc2ac64dee2afc00c843495",
+          "relevance": 0,
+          "bm25_rank": 12,
+          "dense_rank": 3,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 제 53(당) 3분기 2024년 1월 1일부터 2024년 9월 30일까지 제 52(전) 3분기 2023년 1월 1일부터 2023년 9월 30일까지(검토받지 않은 재무제표) 주식회사 이수페타시스"
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 2026년 상반기 투자활동에서 무형자산 취득과 투자부동산 취득은 각각 어느 정도를 차지했나요?",
+      "prior_cell": "dense_miss_bm25_miss",
+      "dense_first_relevant_rank": 20,
+      "bm25_first_relevant_rank": null,
+      "rrf_first_relevant_rank": 10,
+      "rrf_best_relevant_rank": 10,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": null,
+      "rank_delta_vs_dense": 10,
+      "rrf_relevant_in_top5": 0,
+      "rrf_relevant_in_top10": 1,
+      "movement": "recovered",
+      "bm25_hit10": false,
+      "dense_hit10": false,
+      "rrf_hit10": true,
+      "bm25_first_unit_id": null,
+      "bm25_first_unit_rrf_rank": null,
+      "same_unit_rank_delta": null,
+      "rrf_first_unit_id": "b05a34f024f4be360050dce9eab9b9cd2c4203af334aba2f10b804fef172ecca",
+      "rrf_first_unit_bm25_rank": 82,
+      "rrf_first_unit_dense_rank": 20,
+      "dense_signal": true,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 4. 재무제표 > 4-4. 현금흐름표 현금흐름표 제 55 기 반기 2026.01.01 부터 2026.06.30 까지 제 54 기 반기 2025.01.01 부터 2025.06.30 까지 (단위 : 원) | 제 55 기 반기 | 제 54 기 반기 영업권 이외의 무형…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "3490a069b6c6bab9240dc123b9a428276af726b2e94fdd2ec8d561a686e92323",
+          "relevance": null,
+          "bm25_rank": 12,
+          "dense_rank": 71,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 투자부동산 투자부동산에 대한 세부 정보 공시 당반기 (단위 : 천원) | 토지 | 건물 | 투자부동산 유형 합계 기초 투자부동산 | 5,809,956 | 2,095,203 | 7,905,159 사업결합을 통한 취득 이외의 증가, 투…"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "622e7ff5a2979b2a4ba430e639808a682bd71f828543f469b107dd5b28fb1c57",
+          "relevance": 0,
+          "bm25_rank": 9,
+          "dense_rank": 84,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 13. 투자부동산 (연결) 투자부동산에 대한 세부 정보 공시 당반기 (단위 : 천원) | 토지 | 건물 | 자산 합계 기초 투자부동산 | 5,809,956 | 2,163,042 | 7,972,998 사업결합을 통한 취득 이외의 증가, …"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "9a2ddf28ffb8628a8d78983b2ed22394b39407efe5eec72f69db7e385bdbacca",
+          "relevance": 0,
+          "bm25_rank": 2,
+          "dense_rank": 139,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 투자부동산 투자부동산에 대한 세부 정보 공시 당기 (단위 : 천원) | 토지 | 건물 | 자산 합계 기초 투자부동산 | 8,315,448 | 1,953,573 | 10,269,021 사업결합을 통한 취득, 투자부동산 | 0 | 0 …"
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-finance_table-02",
+      "company": "삼성전자",
+      "question": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+      "prior_cell": "dense_hit_bm25_miss",
+      "dense_first_relevant_rank": 1,
+      "bm25_first_relevant_rank": null,
+      "rrf_first_relevant_rank": 6,
+      "rrf_best_relevant_rank": 6,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": null,
+      "rank_delta_vs_dense": -5,
+      "rrf_relevant_in_top5": 0,
+      "rrf_relevant_in_top10": 1,
+      "movement": "recovered",
+      "bm25_hit10": false,
+      "dense_hit10": true,
+      "rrf_hit10": true,
+      "bm25_first_unit_id": null,
+      "bm25_first_unit_rrf_rank": null,
+      "same_unit_rank_delta": null,
+      "rrf_first_unit_id": "85a98a4bddadb6d49eab49875653c980a2ce353fc30a8cda1fc63c8e1d09020e",
+      "rrf_first_unit_bm25_rank": 75,
+      "rrf_first_unit_dense_rank": 1,
+      "dense_signal": true,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 28. 특수관계자와의 거래 (연결) 전분기 (단위 : 백만원) | 전체 특수관계자 | 특수관계자 | 관계기업 및 공동기업 | 그 밖의 특수관계자 | 대규모기업집단 | 삼성에스디에스㈜ | 삼성전기㈜ | 삼성SDI㈜ | ㈜제일기획 | 기타…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "f6949865b201306d18ab0b87384ad8ea5871d25440ad9e7b7365dc24fa42a561",
+          "relevance": 0,
+          "bm25_rank": 5,
+          "dense_rank": 13,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 6. 관계기업 및 공동기업 투자 (연결) (단위 : 백만원) 구 분 | 전기 삼성전기㈜ | 삼성에스디에스㈜ | 삼성바이오로직스㈜ | 삼성에피스홀딩스㈜ | 삼성SDI㈜ | ㈜제일기획 Ⅰ. 요약 재무정보(연결재무제표 기준) 요약 재무상태표…"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "84b88e0af01d0e5ba478a3f3e83ed9cd56b4df8c8a179b0e78a35ea2354db76c",
+          "relevance": 0,
+          "bm25_rank": 36,
+          "dense_rank": 7,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 6. 관계기업 및 공동기업 투자 (연결) (단위 : 백만원) 기 업 명 | 당분기말 | 전기말 취득원가 | 순자산가액(*) | 장부금액 | 취득원가 | 순자산가액(*) | 장부금액 삼성전기㈜ | 359,237 | 2,298,537 | …"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "8f1b16d6d3c4ad301600e9dbaa79b8f52e5d45102b911d06cd2cd152cc4d2f7a",
+          "relevance": 0,
+          "bm25_rank": 39,
+          "dense_rank": 6,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 6. 관계기업 및 공동기업 투자 (연결) (단위 : 백만원) 구 분 | 당분기 삼성전기㈜ | 삼성에스디에스㈜ | 삼성바이오로직스㈜ | 삼성에피스홀딩스㈜ | 삼성SDI㈜ | ㈜제일기획 Ⅰ. 요약 재무정보(연결재무제표 기준) 요약 재무상태…"
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "company": "삼양식품",
+      "question": "삼양식품의 매출액과 영업이익은 제62기부터 제64기까지 어떻게 변했나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "dense_first_relevant_rank": 5,
+      "bm25_first_relevant_rank": 1,
+      "rrf_first_relevant_rank": 1,
+      "rrf_best_relevant_rank": 1,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": 0,
+      "rank_delta_vs_dense": 4,
+      "rrf_relevant_in_top5": 3,
+      "rrf_relevant_in_top10": 6,
+      "movement": "neutral",
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "rrf_hit10": true,
+      "bm25_first_unit_id": "033071a893cbf18a77314662f981fcd9f4b260b73f6e637271f0602610abb3f2",
+      "bm25_first_unit_rrf_rank": 2,
+      "same_unit_rank_delta": -1,
+      "rrf_first_unit_id": "ae044a34c6c53572f1ebfd2ec9b3a3cfa4844a1b954224d909438f2fac9621b6",
+      "rrf_first_unit_bm25_rank": 7,
+      "rrf_first_unit_dense_rank": 5,
+      "dense_signal": true,
+      "first_relevant_unit_changed": true,
+      "rrf_first_relevant_preview": "[section] 목 차 > II. 사업의 내용 > 1. 사업의 개요 (단위 : 백만원) 회사명 | 사업부문 | 품 목 | 제64기 | 제63기 | 제62기 삼양식품(주) | 식품의 제조 및 판매 | 면스낵 등 | 1,438,078 | 1,331,045 | 879,488",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "ae044a34c6c53572f1ebfd2ec9b3a3cfa4844a1b954224d909438f2fac9621b6",
+          "relevance": 1,
+          "bm25_rank": 7,
+          "dense_rank": 5,
+          "preview": "[section] 목 차 > II. 사업의 내용 > 1. 사업의 개요 (단위 : 백만원) 회사명 | 사업부문 | 품 목 | 제64기 | 제63기 | 제62기 삼양식품(주) | 식품의 제조 및 판매 | 면스낵 등 | 1,438,078 | 1,331,045 | 879,488"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "033071a893cbf18a77314662f981fcd9f4b260b73f6e637271f0602610abb3f2",
+          "relevance": 2,
+          "bm25_rank": 1,
+          "dense_rank": 18,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 4. 재무제표 > 4-2. 포괄손익계산서 포괄손익계산서 제 64 기 2024.01.01 부터 2024.12.31 까지 제 63 기 2023.01.01 부터 2023.12.31 까지 제 62 기 2022.01.01 부터 2022.12.31 까지 (단위 : 원) |…"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "0eb2a10044321e29719288dcee1615c800f60e34bc6b1ccfaf01dcd8a1705618",
+          "relevance": 0,
+          "bm25_rank": 10,
+          "dense_rank": 10,
+          "preview": "[section] 목 차 > II. 사업의 내용 > 1. 사업의 개요 (단위 : 원/KG) 사업부문 | 회사명 | 품 목 | 제64기 | 제63기 | 제62기 식품의 제조및 판매 | 삼양식품(주) | 맥분 | 782 | 887 | 832 삼양제분(주) | SW (Soft White) | 405 | 513 | 645 (주…"
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "company": "삼양식품",
+      "question": "삼양식품의 2026년 1분기 말 단기·유동성장기 차입금 잔액과 반기보고서에 나온 전기말 대출 약정 한도는 각각 얼마인가요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "dense_first_relevant_rank": null,
+      "bm25_first_relevant_rank": 4,
+      "rrf_first_relevant_rank": 10,
+      "rrf_best_relevant_rank": 10,
+      "best_relevant_definition": "minimum rank whose own judged relevance is >= 1. This is the same value as rrf_first_relevant_rank.",
+      "rank_delta_vs_bm25": -6,
+      "rank_delta_vs_dense": null,
+      "rrf_relevant_in_top5": 0,
+      "rrf_relevant_in_top10": 1,
+      "movement": "regression",
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "rrf_hit10": true,
+      "bm25_first_unit_id": "fd1f33f695cdbe70be6f5750fdc4cd123ce82e5ffc496fcef359e8605f700858",
+      "bm25_first_unit_rrf_rank": 10,
+      "same_unit_rank_delta": -6,
+      "rrf_first_unit_id": "fd1f33f695cdbe70be6f5750fdc4cd123ce82e5ffc496fcef359e8605f700858",
+      "rrf_first_unit_bm25_rank": 4,
+      "rrf_first_unit_dense_rank": 230,
+      "dense_signal": false,
+      "first_relevant_unit_changed": false,
+      "rrf_first_relevant_preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 차입금 및 사채 장기차입금에 대한 공시 당분기말 (단위 : 천원) | ㈜국민은행-시설자금대출 | 한국산업은행-산업시설자금대출 1 | 한국산업은행-산업시설자금대출 2 | 한국산업은행-산업시설자금대출 3 | 차입금명칭 합계 차입금, 이…",
+      "rrf_top3": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "3333b63f00cb293a487017e896c2ed492fdabae1fe13b52404c645917cdab651",
+          "relevance": 0,
+          "bm25_rank": 48,
+          "dense_rank": 10,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 25. 우발채무와 약정사항 전기 (단위 : 천원) | 약정의 유형 | 금융기관 약정 | 전자방식매출채권담보대출 | 전자방식매출채권담보대출(협력기업) | 수입신용장개설약정 | 산업시설자금대출 | 수출성장자금대출(중기) 약정한도액 | 1,20…"
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "673332c2fcfa6ebb3ffde59cf90f38f157c9830c0fb07198c6c89373aef180e7",
+          "relevance": 0,
+          "bm25_rank": 8,
+          "dense_rank": 84,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 차입금 및 사채 전기말 (단위 : 천원) | (주)신한은행-운영자금대출 1 | (주)신한은행-운영자금대출 2 | (주)국민은행-매입외환 | 한국수출입은행-수출성장자금대출 | KB증권(주)-기업어음 | 차입금 명칭 합계 차입금, 이자…"
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "55248eea7a2d4b37425579b7acad9113302cd1ade72cf36e8332f2a8c1d6a87a",
+          "relevance": 0,
+          "bm25_rank": 5,
+          "dense_rank": 119,
+          "preview": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 20. 차입금 및 사채 전기 (단위 : 천원) | 차입금명칭 | 차입금명칭 합계 | 한국산업은행-산업운영자금대출 | 범위 | 범위 합계 | 하위범위 | 상위범위 차입금, 이자율 | | | | 비유동차입금(사채 제외) | | | 141,21…"
+        }
+      ]
+    }
+  ]
+}

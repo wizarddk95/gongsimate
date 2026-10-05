@@ -1,0 +1,63 @@
+{
+  "experiment_id": "v21_dev_dense_d2a_bm25_rrf",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "population": "dev fully_answerable",
+  "question_count": 45,
+  "test_questions_searched": 0,
+  "test_used_for_tuning": false,
+  "source_run": "multi_company_retrieval_v2_1_dev_dense_bm25_complementarity",
+  "input_dense_sha256": "1e5f88855babe6e5dbf740ace9ddba7ae2ba8ddc0d65aa1f00c2702ba03a90f2",
+  "input_bm25_sha256": "9557e2f6692411838caaa1732eff634d123683ea2df0fd616772e4a649389833",
+  "rrf": {
+    "function": "disclosure_agent.hybrid.reciprocal_rank_fusion",
+    "k": 60,
+    "k_swept": false,
+    "rank_base": 1,
+    "formula": "score(d) = 1/(k + rank_bm25(d)) + 1/(k + rank_dense(d))",
+    "weights": "1:1",
+    "weighted_score_fusion": false,
+    "score_mixing": false,
+    "candidate_cutoff": null,
+    "full_ranking_fusion": true,
+    "absent_contribution_is_zero": false,
+    "absent_document_behavior": "reciprocal_rank_fusion raises UsageError when the candidate id sets differ. A document returned by only one retriever is not given contribution 0. This experiment ranks every eligible D2a unit in the filing scope with both retrievers, so every fused document has both terms.",
+    "bm25_zero_score_contribution": "1/(k + rank), not 0",
+    "zero_tie_variant_used": false,
+    "tie_break": [
+      "score descending",
+      "ordinal",
+      "unit_index",
+      "chunk_id"
+    ],
+    "duplicate_chunk_id": "rejected",
+    "retrieval_unit_id_policy": "chunk_id is the retrieval_unit_id. Fusion emits each id once."
+  },
+  "dense": {
+    "implementation": "product_catalog_dense_d2a",
+    "model": "BAAI/bge-m3",
+    "query_encoding_policy": "raw_question_text_no_instruction",
+    "full_ranking": "exact_normalized_search"
+  },
+  "bm25": {
+    "implementation": "disclosure_agent.bm25.Bm25Index.rank_all",
+    "headline_implementation": "Bm25Index.search top-20 positive scores",
+    "tokenizer_version": "ko-mixed-v1",
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "forbidden": {
+    "weighted_score_fusion": false,
+    "alpha_tuning": false,
+    "query_routing": false,
+    "reranker": false,
+    "query_expansion": false,
+    "embedding_change": false,
+    "chunking_change": false,
+    "k_sweep": false
+  },
+  "git_commit": "3ab8dfe478463d6a4201e6f2189db9d34fe98491",
+  "git_dirty": true,
+  "head_subject": "eval: compare dense and bm25 complementarity on v2.1 dev",
+  "verdict_label": "C"
+}
