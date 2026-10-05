@@ -1,6 +1,6 @@
 # GongsiMate — Financial Disclosure Research Agent
 
-국내 정기공시를 읽고, 근거 문단을 붙여 답하는 리서치 제품의 현재 상태다. 검색 기준선은 두 개다. 2026-10-04의 `multi_company_retrieval_v1`은 사람이 본 31문항의 역사적 기준선이다. 2026-10-05의 `multi_company_retrieval_v2`는 LLM-judged evaluation set이고, 같은 Dense-D2a를 새 문항에서 다시 잰 출발점이다. 문항과 qrel이 다르므로 두 점수를 한 계열로 이어 붙이지 않는다. 제품 검색에는 하이브리드를 넣지 않았다.
+국내 정기공시를 읽고, 근거 문단을 붙여 답하는 리서치 제품의 현재 상태다. 검색 기준선은 세 층이다. 2026-10-04의 `multi_company_retrieval_v1`은 사람이 본 31문항의 역사적 기준선이다. 2026-10-05의 `multi_company_retrieval_v2`는 모집단을 고정한 LLM-judged set이다. 같은 날의 `multi_company_retrieval_v2_1`은 그 set의 분할과 qrel 단위를 감사한 뒤 고정한 canonical benchmark다. 세 점수는 문항이나 채점 정의가 다르므로 한 계열로 이어 붙이지 않는다. 제품 검색에는 하이브리드를 넣지 않았다.
 
 ## 1. Problem
 
@@ -102,7 +102,49 @@ Judge A는 gpt-6-luna, Judge B는 gemini-3.8-flash, 불일치는 gpt-6.1-sol이�
 
 Recall 분모 502는 요소 수다. 판정은 retrieval unit 단위로 하고, 그 단위의 source element에 같은 등급을 복사했다. Hit는 단위가 relevant element를 포함하면 성공이다. 그래서 Hit@10과 Recall@10은 같은 사실을 다른 단위로 센다.
 
-dev fully_answerable 45개의 Hit@10은 28/45, MRR 0.416, NDCG@10 condensed 0.342다. dev는 실패 분석과 다음 가설용이다. test로 검색기를 반복 조정하지 않는다.
+dev fully_answerable 45개의 Hit@10은 28/45, MRR 0.416, NDCG@10 condensed 0.342다. 이 숫자는 v2 정의의 기록이다. 이후 비교의 기준은 아래 v2.1이다.
+
+## 6.2 Benchmark audit, v2.1
+
+v2를 검색 개선의 출발점으로 쓰기 전에 평가 정의부터 확인했다. 검색기, 질문 문장, judge 호출은 그대로 뒀다. v2 artifact도 수정하지 않았다.
+
+분할은 회사·stratum 안에서 wording cycle의 앞 슬롯이 test로 가도록 되어 있었다. fully_answerable test 55개의 wording은 original_term 45, layperson 10, paraphrase 0이었다. 같은 구조로 query type도 한쪽으로 몰렸다. test에는 composition_ratio, calculation, cross_filing_comparison이 없고, dev에는 causal_explanation, table_lookup, single_numeric, time_series_comparison이 없었다. 검색 점수를 보고 옮긴 결과는 아니다.
+
+판정 입력은 retrieval unit 텍스트 하나였다. `judge_payload`의 evidence는 그 unit의 본문, 문서명, 기간, 섹션이다. 요소 id는 judge에게 나가지 않는다. qrel을 만들 때는 그 등급을 unit 안의 source element마다 복사했다. v2 test의 Recall 분모 502는 그렇게 복사된 요소 수다. 같은 문항을 unit으로 세면 양성 unit은 271개다.
+
+NDCG@10 condensed 0.466과 unjudged-as-zero 0.517은 상위 10의 judged coverage가 1.0인데도 달랐다. coverage는 요소가 qrel에 있는지로 계산됐다. 다른 unit과 요소를 공유하면, 그 unit 자신의 등급이 0이어도 요소 최댓값으로 relevance가 올라갔다. condensed 경로는 이미 본 요소 집합이면 gain을 0으로 지웠고, zero-filled 경로는 같은 gain을 다시 더했다. 그 결과 zero-filled NDCG가 1을 넘는 문항이 있었다. 이것은 검색 품질의 차이가 아니라 채점 단위가 어긋난 결과다.
+
+v2.1은 fully_answerable 100개를 seed 20261005로 다시 나눈다. 회사마다 test 11, dev 9다. wording과 query type은 55/100 Hamilton 목표와 같다. test wording은 original_term 25, layperson 25, paraphrase 5다. query type 아홉 가지는 dev와 test 양쪽에 있다. 표 문항의 독립 Hamilton 목표는 test 14개인데, query type이 문단과 표를 가로지르지 않아 표는 test 13개다. finance_table은 test 7로, 주변 stratum 목표 8에서 1개 다르다. 입력에는 검색 점수와 Hit를 넣지 않았다. 질문 문장 변경은 0이다. 기존 judgment 2,414건을 재사용했고 새 judge 호출은 0이다.
+
+qrel 키는 `(query_id, requirement_id, retrieval_unit_id)`다. 행은 3,112개다. source element는 provenance다. relevance 0은 읽고 무관하다고 본 것이고, 아직 안 본 unit은 qrel에 없다. Recall 분모는 양성 retrieval unit이다. requirement recall의 분모는 requirement 수다. preferred는 relevance와 별개이고, seed unit이 여전히 양성이면 그 unit이 preferred다. NDCG gain은 `2^relevance - 1`이고 unit당 한 번이다. 상위 k가 모두 판정됐으면 condensed와 unjudged-as-zero는 같다.
+
+데이터셋 sha256 `2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137`. 부모는 v2 `d3635756a57c39d6d4ef8722f5f118348c00bbc034bf5963fb7720d184e6f137`이다. 분할이 바뀐 문항은 50개다.
+
+같은 Dense-D2a를 이 정의로 다시 측정했다. 본 지표는 v2.1 test fully_answerable 55개다. 양성 unit이 없어 빠진 문항은 0이다. unanswerable 10개는 평균 밖에 있다.
+
+| Metric | v2.1 test n=55 |
+| --- | --- |
+| Hit@1 | 19/55 (0.345) |
+| Hit@5 | 27/55 (0.491) |
+| Hit@10 | 32/55 (0.582) |
+| Recall@5 macro / micro | 0.246 / 69/282 (0.245) |
+| Recall@10 macro / micro | 0.392 / 116/282 (0.411) |
+| MRR | 0.411 |
+| NDCG@10 condensed | 0.325 |
+| NDCG@10 unjudged-as-zero | 0.325 |
+| preferred_hit@1 | 4/55 (0.073) |
+| preferred_hit@10 | 21/55 (0.382) |
+| judged_coverage@10 / @20 | 1.000 / 0.536 |
+| requirement recall@10 | 37/66 (0.561) |
+| all-requirements-covered@10 | 29/55 (0.527) |
+
+상위 10은 모두 그 unit 자신이 판정된 상태라 두 NDCG가 같다. 1을 넘는 NDCG는 없다. 11–20위의 coverage는 0.536이고, 문항당 unjudged는 평균 9.27개다.
+
+test wording별 Hit@10은 original_term 15/25, layperson 14/25, paraphrase 3/5다. paraphrase가 test에 있다. 회사별 Hit@10은 각 11문항이라 회사 순위로 읽지 않는다. n이 5 미만인 query type은 calculation, cross_filing_comparison, single_numeric, time_series_comparison이다.
+
+v2 test 55문항을 unit 정의로만 다시 세면 Hit@10은 37/55, Recall@10 micro는 130/271, NDCG@10은 0.434다. v2에 공개된 40/55, 255/502, 0.466은 그 문항 집합에 요소 복사를 적용한 값이다. v2.1 본 지표 32/55는 여기에 분할 변경이 더해진 값이다. 검색 코드는 같다. 이 차이를 성능 향상이나 하락으로 읽지 않는다.
+
+dev fully_answerable 45개의 Hit@10은 33/45, MRR 0.525, NDCG@10 0.478이다. 다음 Dense와 BM25 비교는 이 dev에서 한다. test 점수를 보며 가중치를 맞추지 않는다.
 
 ## 7. Failure Analysis
 
@@ -124,9 +166,9 @@ MC14는 2025년 DX 56.3%, DS 39.0% 표가 8위다. 그 위에 다른 기간의 3
 
 ## 8. Retrieval Improvement
 
-v2 Dense-D2a가 새 기준선의 시작이다. 이번 세션에서 제품 검색에 BM25, hybrid, RRF, reranker를 넣지 않았다.
+canonical benchmark는 v2.1이다. 이번 감사에서 제품 검색에 BM25, hybrid, RRF, reranker를 넣지 않았다. Dense-D2a도 바꾸지 않았다.
 
-다음에 볼 가설은 v2 test의 약한 칸에서 나온다. finance_table Hit@10은 5/10이고, governance_paragraph는 2/5다. 표가 문단보다 낮다. 다음 실험은 dev에서, 이미 있는 BM25가 그 누락 요소를 Dense보다 위에 올리는지만 확인하는 것이다. 그 확인 전에 test를 보며 결합 가중치를 맞추지 않는다. paraphrase는 test에 없고 dev에 있으므로, 표현 차이는 dev에서 본다.
+다음 실험은 v2.1 dev에서 현재 Dense-D2a와 이미 있는 BM25를 같은 질문, 같은 unit qrel로 비교하는 것이다. test는 그 비교의 설정을 고른 뒤에 한 번 확인하는 자리다.
 
 v1에서 적었던 표 헤더, 주석 반복, reranker 후보는 그 31문항에 묶인 가설로 남긴다. v2 숫자와 이어 붙여 개선분으로 말하지 않는다.
 
@@ -159,6 +201,6 @@ v1에서 적었던 표 헤더, 주석 반복, reranker 후보는 그 31문항에
 
 정정 시점 문항은 하나다. 그 원본이 8위에 있었다는 관찰만 있고, 정정 정책의 성공률로 쓰지 않는다.
 
-하이브리드와 reranker는 제품 경로에 없다. v2는 그 비교를 아직 하지 않았다.
+하이브리드와 reranker는 제품 경로에 없다. v2.1은 그 비교를 아직 하지 않았다.
 
-v2 라벨은 LLM judge 두 명과 불일치 때의 세 번째 모델이다. 생성 모델과 Judge A가 같은 계열이다. 풀은 Dense-D2a와 기존 BM25의 상위와 일부 tail이다. 질문 분포는 실제 사용자 로그가 아니라 색인 근거에서 만든 합성 질문이다. 사람 gold adjudication은 없다. judge agreement를 사람 정확도로 읽지 않는다.
+v2와 v2.1의 라벨은 LLM judge 두 명과 불일치 때의 세 번째 모델이다. 생성 모델과 Judge A가 같은 계열이다. 풀은 Dense-D2a와 기존 BM25의 상위와 일부 tail이다. 상위 20의 약 절반은 아직 판정되지 않았다. 질문 분포는 실제 사용자 로그가 아니라 색인 근거에서 만든 합성 질문이다. 사람 gold adjudication은 없다. judge agreement를 사람 정확도로 읽지 않는다. 요소를 공유하는 양성 unit은 합치지 않는다. v2.1 test에서 그런 unit은 34개다.

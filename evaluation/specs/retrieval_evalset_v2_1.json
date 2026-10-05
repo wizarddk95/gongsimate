@@ -1,0 +1,34 @@
+{
+  "spec_id": "retrieval_evalset_v2_1",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "parent_dataset_id": "multi_company_retrieval_v2",
+  "parent_spec_id": "retrieval_population_v2",
+  "population": "Unchanged. Questions, requirements, and LLM judgments are the v2 artifacts. This spec does not sample, generate, or judge.",
+  "split_seed": 20261005,
+  "test_size": 55,
+  "dev_size": 45,
+  "split_inputs": [
+    "corp_code",
+    "wording_style",
+    "query_type",
+    "evidence_form",
+    "stratum_id",
+    "period_sensitive",
+    "multi_evidence from fully_answerable requirement counts"
+  ],
+  "split_forbidden_inputs": [
+    "dense score",
+    "dense rank",
+    "dense hit",
+    "bm25 score",
+    "bm25 rank",
+    "preferred hit",
+    "any metric"
+  ],
+  "exact_marginals": ["company 11 test / 9 dev", "wording_style Hamilton", "query_type Hamilton"],
+  "evidence_form_note": "Independent Hamilton would put 14 of 25 tables in test. Query types do not cross paragraph and table, and the query-type targets sum to 13 table questions in test. Query type is the finer stratum, so table test count is 13.",
+  "section_note": "stratum_id is repaired by within-company swaps that do not move wording or query type. finance_table test is 7 against a marginal target of 8, and overview_paragraph test is 6 against 5. Both sides still contain every stratum.",
+  "partial_and_unanswerable": "Original v2 splits are kept. They are not in the fully_answerable headline.",
+  "qrel_key": ["query_id", "requirement_id", "retrieval_unit_id"],
+  "new_judge_calls": 0
+}
