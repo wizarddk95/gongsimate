@@ -1,0 +1,40 @@
+{
+  "calls": 6600,
+  "estimated_usd": 17.1975,
+  "price_source": "configured_estimate_not_invoice",
+  "stages": {
+    "generate": {
+      "calls": 120,
+      "model": "gpt-6-luna",
+      "estimated_usd": 0.4992
+    },
+    "decompose": {
+      "calls": 45,
+      "model": "gpt-6-luna",
+      "estimated_usd": 0.1818
+    },
+    "judge_a": {
+      "calls": 2860,
+      "model": "gpt-6-luna",
+      "estimated_usd": 8.8088
+    },
+    "judge_b": {
+      "calls": 2860,
+      "model": "gemini-3.8-flash",
+      "estimated_usd": 2.2022
+    },
+    "adjudicate": {
+      "calls": 715,
+      "model": "gpt-6.1-sol",
+      "estimated_usd": 5.5055
+    }
+  },
+  "call_counts": {
+    "generate": 120,
+    "decompose": 45,
+    "judge_a": 2860,
+    "judge_b": 2860,
+    "adjudicate": 715
+  },
+  "note": "Upper bound before pooling. Dollars use configured estimates, not an invoice. Judge calls are one candidate at a time."
+}

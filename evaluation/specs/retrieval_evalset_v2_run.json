@@ -1,0 +1,20 @@
+{
+  "run_config_id": "retrieval_evalset_v2_run",
+  "price_source": "configured_estimate_not_invoice",
+  "prices_usd_per_million_tokens": {
+    "gpt-6-luna": {"input": 2.0, "output": 8.0},
+    "gemini-3.8-flash": {"input": 0.5, "output": 2.0},
+    "gpt-6.1-sol": {"input": 5.0, "output": 20.0}
+  },
+  "estimated_tokens_per_call": {
+    "generate": {"input": 1200, "output": 220},
+    "decompose": {"input": 900, "output": 280},
+    "judge": {"input": 900, "output": 160}
+  },
+  "assumed_adjudication_rate": 0.25,
+  "max_calls": 8000,
+  "max_estimated_usd": 40.0,
+  "max_retries": 3,
+  "workers": 8,
+  "reasoning_setting": "provider_default"
+}

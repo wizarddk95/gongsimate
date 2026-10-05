@@ -1,6 +1,6 @@
 # GongsiMate — Financial Disclosure Research Agent
 
-국내 정기공시를 읽고, 근거 문단을 붙여 답하는 리서치 제품의 현재 상태다. 아래 검색 점수는 2026-10-04 Dense-D2a baseline이다. 그 이후 개선 실험은 아직 없다.
+국내 정기공시를 읽고, 근거 문단을 붙여 답하는 리서치 제품의 현재 상태다. 검색 기준선은 두 개다. 2026-10-04의 `multi_company_retrieval_v1`은 사람이 본 31문항의 역사적 기준선이다. 2026-10-05의 `multi_company_retrieval_v2`는 LLM-judged evaluation set이고, 같은 Dense-D2a를 새 문항에서 다시 잰 출발점이다. 문항과 qrel이 다르므로 두 점수를 한 계열로 이어 붙이지 않는다. 제품 검색에는 하이브리드를 넣지 않았다.
 
 ## 1. Problem
 
@@ -75,7 +75,38 @@ Hit@k는 relevance 1 이상이면 맞다. Recall은 라벨된 요소 중 상위 
 
 상위 10 누락은 세 질문이다. MC02 제품 용도 표, MC07 MLB 생산 법인, MC21 "플랫폼 기술".
 
+## 6.1 LLM-judged set v2
+
+데이터셋 `multi_company_retrieval_v2`. sha256 `d3635756a57c39d6d4ef8722f5f118348c00bbc034bf5963fb7720d184e6f137`. 라벨 출처는 LLM-judged evaluation set이다. 사람이 relevance를 검수하지 않았다.
+
+질문 120개. fully_answerable 100, partially_answerable 10, unanswerable 10. 다섯 회사의 색인된 정기공시에서 근거를 먼저 고르고 질문을 만들었다. 회사 규모나 산업 quota는 없다. 이 다섯 회사가 한국 상장사 전체를 대표하지는 않는다. dev 45 / test 55는 fully_answerable 안에서의 분할이고, n=2 칸은 1:1이라 전체 dev 비율은 0.4보다 크다. 테스트 문항의 wording은 칸의 첫 슬롯이 test로 가면서 original_term 45, layperson 10이다. paraphrase는 dev에만 있다. 검색 결과를 본 뒤 이 비율을 다시 맞추지 않았다.
+
+본 지표는 test fully_answerable 55개다. 양성 판정이 없어 빠진 문항은 0이다. unanswerable 10개는 Hit, Recall, MRR, NDCG에 넣지 않았다. unjudged는 0으로 저장하지 않는다. Hit는 원 순위 상위 k에 판정된 relevance 1 이상이 있으면 1이다. NDCG@10 본 지표는 unjudged를 뺀 condensed list다. 상위 10의 judged_coverage는 1.0이다. 11–20위의 coverage는 0.603이다.
+
+| Metric | test n=55 |
+| --- | --- |
+| Hit@1 | 26/55 (0.473) |
+| Hit@5 | 35/55 (0.636) |
+| Hit@10 | 40/55 (0.727) |
+| Recall@5 macro / micro | 0.384 / 171/502 (0.341) |
+| Recall@10 macro / micro | 0.524 / 255/502 (0.508) |
+| MRR | 0.546 |
+| NDCG@10 condensed | 0.466 |
+| preferred_hit@10 | 30/55 (0.545) |
+| requirement recall@10 | 46/65 (0.708) |
+| all-requirements-covered@10 | 37/55 (0.673) |
+
+회사별 Hit@10은 각 11문항이다. 삼성전자 10/11, 삼양식품 9/11, 이수페타시스 7/11, 대상 7/11, 알테오젠 7/11. 알테오젠 MRR은 0.292다. 표 문항 Hit@10은 9/15, 문단은 22/30이다. finance_table은 5/10, governance_paragraph는 2/5다. n=5 칸은 small_n 기준(5 미만)에는 걸리지 않지만 순위를 만들 폭은 아니다.
+
+Judge A는 gpt-6-luna, Judge B는 gemini-3.8-flash, 불일치는 gpt-6.1-sol이다. 비교 2,414건 중 일치 2,227건, agreement rate 0.923, adjudication 187, unresolved 0이다. 일치율이 높다는 것은 사람 정답의 증거가 아니다. unanswerable 10개 중 direct evidence로 판정된 것은 0이다. 알테오젠 인과 질문 1개는 supporting relevance 1만 받았다.
+
+Recall 분모 502는 요소 수다. 판정은 retrieval unit 단위로 하고, 그 단위의 source element에 같은 등급을 복사했다. Hit는 단위가 relevant element를 포함하면 성공이다. 그래서 Hit@10과 Recall@10은 같은 사실을 다른 단위로 센다.
+
+dev fully_answerable 45개의 Hit@10은 28/45, MRR 0.416, NDCG@10 condensed 0.342다. dev는 실패 분석과 다음 가설용이다. test로 검색기를 반복 조정하지 않는다.
+
 ## 7. Failure Analysis
+
+아래 세 누락은 v1 core 31개에 대한 기록이다. v2 점수와 섞지 않는다.
 
 세 누락의 공통점은 가까운 다른 문장이 위를 차지한다는 점이다.
 
@@ -93,20 +124,15 @@ MC14는 2025년 DX 56.3%, DS 39.0% 표가 8위다. 그 위에 다른 기간의 3
 
 ## 8. Retrieval Improvement
 
-아직 실험 전이다. 숫자를 만들지 않는다.
+v2 Dense-D2a가 새 기준선의 시작이다. 이번 세션에서 제품 검색에 BM25, hybrid, RRF, reranker를 넣지 않았다.
 
-다음에 비교할 후보는 이번 실패에 묶는다.
+다음에 볼 가설은 v2 test의 약한 칸에서 나온다. finance_table Hit@10은 5/10이고, governance_paragraph는 2/5다. 표가 문단보다 낮다. 다음 실험은 dev에서, 이미 있는 BM25가 그 누락 요소를 Dense보다 위에 올리는지만 확인하는 것이다. 그 확인 전에 test를 보며 결합 가중치를 맞추지 않는다. paraphrase는 test에 없고 dev에 있으므로, 표현 차이는 dev에서 본다.
 
-- MC02와 MC07은 표의 헤더가 Dense 상위 10에 없다. BM25를 나란히 넣어 그 표 요소가 들어오는지를 본다.
-- MC01, MC05, MC13은 주석이 사업의 내용을 밀어낸다. MC27은 "대상"이 대상홀딩스와 겹친다. 절 우선순위나 반복 공시 축약이 이 순서를 바꾸는지 본다.
-- MC09, MC14, MC16, MC20, MC31은 정답이 6–8위다. reranker가 선호 문단을 다른 기간·다른 절보다 위로 올리는지 본다.
-- MC21은 질의에 정답 고유명사가 없다. BM25만으로 회복된다고 보지 않는다. 기술 설명으로 질의를 넓히는 실험을 따로 둔다.
-
-청킹을 먼저 바꾸지 않는다. 문단이 나뉜 MC20도 6위에 있었다.
+v1에서 적었던 표 헤더, 주석 반복, reranker 후보는 그 31문항에 묶인 가설로 남긴다. v2 숫자와 이어 붙여 개선분으로 말하지 않는다.
 
 ## 9. Agent Architecture
 
-직접 답, 공시 검색, 되묻기를 구분한다. 회사가 없거나 질문이 공시로 답할 수 없으면 검색으로 넘기지 않는 것이 목표다. 그 선택은 별도 평가다. 이번 검색 세트에는 답 없는 질문을 넣지 않았다.
+직접 답, 공시 검색, 되묻기를 구분한다. 회사가 없거나 질문이 공시로 답할 수 없으면 검색으로 넘기지 않는 것이 목표다. 그 선택은 별도 평가다. v1 검색 세트에는 답 없는 질문을 넣지 않았다. v2의 unanswerable 10개는 검색 Hit 평균 밖에 두고, 근거가 충분한지 따로 센다.
 
 검색이 끝나면 근거 요소에 묶인 답을 만든다. 검색 점수가 높다고 그 문단만으로 답이 완성되는 것은 아니다.
 
@@ -133,4 +159,6 @@ MC14는 2025년 DX 56.3%, DS 39.0% 표가 8위다. 그 위에 다른 기간의 3
 
 정정 시점 문항은 하나다. 그 원본이 8위에 있었다는 관찰만 있고, 정정 정책의 성공률로 쓰지 않는다.
 
-하이브리드와 reranker는 가설이다. 구현하지 않았다.
+하이브리드와 reranker는 제품 경로에 없다. v2는 그 비교를 아직 하지 않았다.
+
+v2 라벨은 LLM judge 두 명과 불일치 때의 세 번째 모델이다. 생성 모델과 Judge A가 같은 계열이다. 풀은 Dense-D2a와 기존 BM25의 상위와 일부 tail이다. 질문 분포는 실제 사용자 로그가 아니라 색인 근거에서 만든 합성 질문이다. 사람 gold adjudication은 없다. judge agreement를 사람 정확도로 읽지 않는다.

@@ -1,0 +1,215 @@
+{
+  "spec_id": "retrieval_population_v2",
+  "dataset_id": "multi_company_retrieval_v2",
+  "schema_version": 1,
+  "frozen_before_retrieval": true,
+  "population_claim": "Questions approximate what a GongsiMate user would ask about the five companies already in the product index. This is not a sample of Korean listed companies, industries, or firm sizes.",
+  "not_represented": [
+    "Korean listed-company universe",
+    "industry quotas",
+    "company-size quotas"
+  ],
+  "rejected_cartesian_axes": [
+    "company x query_type x evidence_form x answerability x wording x document_type x difficulty"
+  ],
+  "sample_size_rationale": "Five companies times 20 corpus-grounded answerable questions = 100, plus 2 partial and 2 unanswerable per company = 120. Twenty answerable questions give at least two items in each topic the indexed filings actually contain (business, overview, MD&A, finance, governance) and in paragraph, table, multi-element, and cross-period forms. Cells below 5 stay marked small_n. A full Cartesian product is not sampled. Risk is not a section quota: indexed section paths have no risk chapter.",
+  "companies": [
+    {
+      "corp_code": "00107613",
+      "user_facing_name": "이수페타시스",
+      "industry_annotation": "PCB",
+      "size_annotation": "annotation only; not a sampling quota"
+    },
+    {
+      "corp_code": "00126380",
+      "user_facing_name": "삼성전자",
+      "industry_annotation": "electronics",
+      "size_annotation": "annotation only; not a sampling quota"
+    },
+    {
+      "corp_code": "00126955",
+      "user_facing_name": "삼양식품",
+      "industry_annotation": "food",
+      "size_annotation": "annotation only; not a sampling quota"
+    },
+    {
+      "corp_code": "00989619",
+      "user_facing_name": "알테오젠",
+      "industry_annotation": "biotech",
+      "size_annotation": "annotation only; not a sampling quota"
+    },
+    {
+      "corp_code": "00121941",
+      "user_facing_name": "대상",
+      "industry_annotation": "food and materials",
+      "size_annotation": "annotation only; not a sampling quota"
+    }
+  ],
+  "random_seed": 20261005,
+  "dev_fraction": 0.4,
+  "split_rule": "Inside each company stratum, the first round(n * 0.6) slots are test and the rest are dev. A stratum of one slot is test. A stratum of two is one test and one dev, so the global dev share is above 0.4. Realized counts are stored on the sampling manifest. Do not rebalance after seeing retrieval results.",
+  "small_n_threshold": 5,
+  "text_filter": {
+    "min_body_chars": 180,
+    "max_body_chars": 900,
+    "dedupe_prefix_chars": 160
+  },
+  "absent_year": 2018,
+  "wording_cycle": ["original_term", "layperson", "paraphrase"],
+  "topic_rules": [
+    {"bucket": "mdna", "pattern": "경영진단|분석의견"},
+    {"bucket": "overview", "pattern": "회사의 개요"},
+    {"bucket": "business", "pattern": "사업의 내용"},
+    {"bucket": "governance", "pattern": "이사회|주주에 관한|임원 및 직원|계열회사|대주주"},
+    {"bucket": "finance", "pattern": "재무에 관한|재무제표|요약재무"}
+  ],
+  "risk_not_a_section_stratum": "No indexed section path is a risk chapter. Risk language inside 사업의 내용 may be tagged later. It is not a quota.",
+  "answerable_strata": [
+    {
+      "stratum_id": "business_paragraph",
+      "topic_bucket": "business",
+      "evidence_form": "paragraph",
+      "n_per_company": 3,
+      "allowed_query_types": ["single_fact", "causal_explanation"]
+    },
+    {
+      "stratum_id": "business_table",
+      "topic_bucket": "business",
+      "evidence_form": "table",
+      "n_per_company": 2,
+      "allowed_query_types": ["table_lookup", "composition_ratio", "single_numeric"]
+    },
+    {
+      "stratum_id": "overview_paragraph",
+      "topic_bucket": "overview",
+      "evidence_form": "paragraph",
+      "n_per_company": 2,
+      "allowed_query_types": ["single_fact"]
+    },
+    {
+      "stratum_id": "mdna_paragraph",
+      "topic_bucket": "mdna",
+      "evidence_form": "paragraph",
+      "n_per_company": 2,
+      "allowed_query_types": ["causal_explanation", "single_fact"]
+    },
+    {
+      "stratum_id": "finance_table",
+      "topic_bucket": "finance",
+      "evidence_form": "table",
+      "n_per_company": 3,
+      "allowed_query_types": ["single_numeric", "table_lookup", "composition_ratio"]
+    },
+    {
+      "stratum_id": "finance_paragraph",
+      "topic_bucket": "finance",
+      "evidence_form": "paragraph",
+      "n_per_company": 2,
+      "allowed_query_types": ["single_fact", "calculation"]
+    },
+    {
+      "stratum_id": "governance_paragraph",
+      "topic_bucket": "governance",
+      "evidence_form": "paragraph",
+      "n_per_company": 2,
+      "allowed_query_types": ["single_fact"]
+    },
+    {
+      "stratum_id": "multi_element",
+      "topic_bucket": "business",
+      "evidence_form": "multi_element",
+      "n_per_company": 2,
+      "min_elements": 2,
+      "allowed_query_types": ["multi_evidence"]
+    },
+    {
+      "stratum_id": "cross_period",
+      "topic_bucket": "finance",
+      "evidence_form": "multi_element",
+      "n_per_company": 2,
+      "pair_periods": true,
+      "allowed_query_types": ["time_series_comparison", "cross_filing_comparison"]
+    }
+  ],
+  "partial_per_company": 2,
+  "unanswerable_per_company": [
+    {"reason_code": "period_out_of_corpus", "n": 1},
+    {"reason_code": "causal_not_in_source", "n": 1}
+  ],
+  "expected_counts": {
+    "answerable": 100,
+    "partially_answerable": 10,
+    "unanswerable": 10,
+    "total": 120
+  },
+  "judges": {
+    "generator": {
+      "provider": "openai",
+      "model_env": "OPENAI_MODEL",
+      "expected_model": "gpt-6-luna"
+    },
+    "decomposer": {
+      "provider": "openai",
+      "model_env": "OPENAI_MODEL",
+      "expected_model": "gpt-6-luna"
+    },
+    "judge_a": {
+      "provider": "openai",
+      "model_env": "OPENAI_MODEL",
+      "expected_model": "gpt-6-luna"
+    },
+    "judge_b": {
+      "provider": "gemini",
+      "model_env": "GEMINI_MODEL",
+      "expected_model": "gemini-3.8-flash"
+    },
+    "adjudicator": {
+      "provider": "openai",
+      "model_env": "ADJUDICATOR_MODEL",
+      "expected_model": "gpt-6.1-sol"
+    }
+  },
+  "pooling": {
+    "retrievers": ["dense_d2a", "bm25_ko_mixed_v1"],
+    "dense_depth": 10,
+    "bm25_depth": 10,
+    "tail_source": "dense_d2a",
+    "tail_buckets": [
+      {"name": "21-50", "start": 21, "end": 50, "n": 1},
+      {"name": "51-200", "start": 51, "end": 200, "n": 1},
+      {"name": "201+", "start": 201, "end": null, "n": 1}
+    ],
+    "tail_random_seed": 20261005,
+    "unanswerable_dense_depth": 5,
+    "unanswerable_bm25_depth": 5,
+    "unanswerable_tail": false,
+    "presentation": "one candidate per judge call; rank, score, and retriever name are stored on the pool row and omitted from the judge payload"
+  },
+  "prompt_version": "retrieval-evalset-v2.0",
+  "metric_policy": {
+    "headline_population": "answerability=fully_answerable and split=test, with at least one judged relevance >= 1",
+    "questions_with_no_positive_judgment": "reported and excluded from Hit, Recall, MRR, and NDCG; not scored as automatic misses and not replaced",
+    "unanswerable_excluded_from": ["hit", "recall", "mrr", "ndcg", "preferred_hit", "requirement_recall"],
+    "partially_answerable": "separate requirement metrics; not in the fully_answerable headline",
+    "unjudged": "null. Never stored as relevance 0.",
+    "hit": "1 when the raw top-k contains an element with judged relevance >= 1. An unjudged element is not a hit and is not written as 0.",
+    "recall_denominator": "elements with judged relevance >= 1 only",
+    "mrr": "1 divided by the raw rank of the first judged relevance >= 1 inside cutoff 20. Unjudged rows keep the screen position and stay unlabeled.",
+    "ndcg_headline": "condensed list: drop unjudged units, keep judged relevance 0, gain 2^relevance-1, cutoff 10 on the condensed list",
+    "ndcg_sensitivity_unjudged_as_zero": "reported separately and is not the headline",
+    "legacy_v1_unlabeled_as_zero": "not used for this dataset",
+    "preferred": "diagnostic only"
+  },
+  "preferred_policy": "If a seed element is still judged relevance >= 1, those seed elements are preferred. Otherwise exactly one non-seed element is preferred: 사업보고서, then the latest filing period, then element_id. Preferred is not a judge output. Non-preferred evidence can still be relevant.",
+  "human_review": false,
+  "label_source": "LLM-judged evaluation set",
+  "limitations": [
+    "generator bias",
+    "judge bias",
+    "model-family correlation between the generator and judge A",
+    "incomplete pooling",
+    "synthetic-question distribution shift",
+    "no human gold adjudication",
+    "judge agreement is not evidence of human correctness"
+  ]
+}
