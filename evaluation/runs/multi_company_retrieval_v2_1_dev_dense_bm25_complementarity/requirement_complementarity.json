@@ -1,0 +1,1025 @@
+{
+  "cells": {
+    "both": 40,
+    "dense_only": 1,
+    "bm25_only": 11,
+    "neither": 6
+  },
+  "crossed_query_ids": [],
+  "requirements": [
+    {
+      "query_id": "V2-00107613-business_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "우주항공산업에서 사용되는 PCB에 극심한 온도 변화와 진동·충격에 대한 저항성, 장기적인 신뢰성이 요구되는 이유를 설명한다.",
+      "cell": "both",
+      "positive_unit_count": 5,
+      "dense_unit_ids": [
+        "2b1d6d424e05be8990b4adb722641090d976793356ce6153f005cd1695010749",
+        "4229a523ee14e65a5220b65250069ebeae6d4c1b5c291596d251eb283593ff8d",
+        "6e46e329d42b50a94740cfb3c2b3113fca5562e50586711b62fc1179ad16bc5e",
+        "c4549599a9cd09f24ab3a91e0057984bf1aff3d60173869dc93e48231df1794a"
+      ],
+      "bm25_unit_ids": [
+        "6e46e329d42b50a94740cfb3c2b3113fca5562e50586711b62fc1179ad16bc5e",
+        "bc0830d2c7359c9dff3f8b635315ab6446a5658b5de29f21279f9c91928cf3c7",
+        "c4549599a9cd09f24ab3a91e0057984bf1aff3d60173869dc93e48231df1794a"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00107613-business_table-01",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스의 향후 투자계획에서 토지·건축물과 기계장치의 예상투자총액 및 향후투자액은 각각 얼마인가요?",
+      "cell": "both",
+      "positive_unit_count": 11,
+      "dense_unit_ids": [
+        "04ae8b3b3b2a841eb0f6d68406bab93c2540e4e05e2cfaa925f2d97130e5ab1a",
+        "14a25cbad620d3ed49f5d92b101d9a7f45ba832726ddeffa08c44ab728f976a5",
+        "59db4a4d187e70caf9ea629ec8392bde2a51da4e7c64a53c2ef0c173eefe2abc",
+        "78a81443ce2c594772152d9b46132c6a37b365e50605ef18bd88d85a76bad025",
+        "7d9654bb5ab301dc88e8c7588c18648d96298dfc1fdc7c1d13d24dc888476a2c",
+        "c20ce0094ddc87a68d1722dc38129ee9b1d6fd04be25e19fb8a14f93011d8dbb"
+      ],
+      "bm25_unit_ids": [
+        "04ae8b3b3b2a841eb0f6d68406bab93c2540e4e05e2cfaa925f2d97130e5ab1a",
+        "14a25cbad620d3ed49f5d92b101d9a7f45ba832726ddeffa08c44ab728f976a5",
+        "2e2d0c2230c0762ab12da53ff7cf3d1964dc318ac3bd0146e17bf62d89afa3ea",
+        "78a81443ce2c594772152d9b46132c6a37b365e50605ef18bd88d85a76bad025",
+        "7cf06a68274220f4af455128effc786d434fae7f67b4f9b362943da2610d37b3",
+        "7d9654bb5ab301dc88e8c7588c18648d96298dfc1fdc7c1d13d24dc888476a2c",
+        "8239e47b75da26a61cbd89ef97cbfec75ef4fbe7121faab2cf20ba173a35c7f3",
+        "c20ce0094ddc87a68d1722dc38129ee9b1d6fd04be25e19fb8a14f93011d8dbb",
+        "c85ac7c43493a18c6b00dba70e47214c10af0e6d22a0ac6b93ef4158baf76d01",
+        "e4e321d95df21e69b41df83ea05ef202394fd60e551862e29a9258cfef878757"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "requirement_id": "R1",
+      "requirement_text": "2024년 반기보고서에 기재된 투자조합의 지분율과 관련 재무 정보(순자산지분금액 및 장부금액)를 확인한다.",
+      "cell": "neither",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "requirement_id": "R2",
+      "requirement_text": "2024년 3분기보고서에 기재된 받을 돈의 연체 현황과 금액을 확인한다.",
+      "cell": "neither",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00107613-finance_table-01",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스의 2024년 상반기 연결 현금흐름표에서 투자활동현금흐름은 얼마였나요?",
+      "cell": "both",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [
+        "6b3fdbcc760b173a898dc099a097d457e0c11e60db5cb9019965b44e26170445"
+      ],
+      "bm25_unit_ids": [
+        "6b3fdbcc760b173a898dc099a097d457e0c11e60db5cb9019965b44e26170445"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스의 2026년 상반기 영업권 이외의 무형자산 취득 금액은 얼마인가?",
+      "cell": "neither",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "requirement_id": "R2",
+      "requirement_text": "이수페타시스의 2026년 상반기 투자부동산 취득 금액은 얼마인가?",
+      "cell": "neither",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00107613-governance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스는 2025년 상반기 1인 평균 급여를 계산할 때 평균 몇 명을 기준으로 했나요?",
+      "cell": "both",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [
+        "3e3e09eab00c05c72fe23e985e83a7fb8e9bfe0a9dc0434661d37d8dcca13e2c"
+      ],
+      "bm25_unit_ids": [
+        "3e3e09eab00c05c72fe23e985e83a7fb8e9bfe0a9dc0434661d37d8dcca13e2c"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00107613-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스는 자금이 부족해질 위험에 대비해 어떻게 돈을 관리하고 있나요?",
+      "cell": "both",
+      "positive_unit_count": 11,
+      "dense_unit_ids": [
+        "30fee43c04f25d89b2bee9560ba4cd69ef9ea2a5010b253fea52a710d5684ca0",
+        "65acbd9a0c78ecfa6e91e6f2d932acb3f41a23d40b13d6bb62bf212028b23aff",
+        "6b12bbb8ff25b93b1d784da874c68f0ff77a354ece188bc3648eaa6a2085af15",
+        "9b485b840082482ca99df692a7c38bff24f1a2725b2f00bf319628585195a86b",
+        "a533018c976f2153e8294db07c54e47ff1e1c89fb0503ebe511b269db84c78fd",
+        "db375366fd5110c0c5b6604f5e53c7d9ca240a6cff571a097492717ea01bcec1",
+        "f31af9f9d1800953a38c033e19348a95d4b508cc40b23286490ec43ac0d6c2b1"
+      ],
+      "bm25_unit_ids": [
+        "07b074ecce41fbd8fbaae9bd9c122bd44e613d8d32c007cce793e447994f2523",
+        "b16bbfa3f9572219ce05ec8e946512762330627de616e846c79abeede2f1300f",
+        "b6bc9fc119f92282baab7b6eab1475d3ab55169e9afb932d4e9740957da50158"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00107613-multi_element-01",
+      "requirement_id": "R1",
+      "requirement_text": "환율 5% 상승 민감도 분석에서 어떤 변동을 가정하며, 다른 변수는 어떻게 처리하는가?",
+      "cell": "both",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [
+        "255f59fd6ad1b69d7380a7efc979b56baf881bcd981069523ae3396f33c80a02"
+      ],
+      "bm25_unit_ids": [
+        "255f59fd6ad1b69d7380a7efc979b56baf881bcd981069523ae3396f33c80a02"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00107613-multi_element-01",
+      "requirement_id": "R2",
+      "requirement_text": "환율 5% 상승에 따른 자본 및 손익의 변동금액은 어떤 기준으로 제시하는가?",
+      "cell": "both",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [
+        "255f59fd6ad1b69d7380a7efc979b56baf881bcd981069523ae3396f33c80a02"
+      ],
+      "bm25_unit_ids": [
+        "255f59fd6ad1b69d7380a7efc979b56baf881bcd981069523ae3396f33c80a02"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00107613-overview_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스의 법적ㆍ상업적 명칭은 무엇인가요?",
+      "cell": "both",
+      "positive_unit_count": 15,
+      "dense_unit_ids": [
+        "0dc69a59cb903552f2d86e757866485830a03e7c502fda8688f3d12d57825059",
+        "18a26f106d34562f2b7716e195db5313d60bf4ca09de6aa46709b502483b91bc",
+        "366797666b2142585ad13b0f27f240fa70996bacb89f61ec4ea4d7b0de849f46",
+        "40c4630ae782bfe001134f7910a0b82a0427cd13ad3deaf35e532f68f4a77151",
+        "4177201cea86a54432f802cea3a64c99dfcf2ccb2dd788ee944a40d5a6b6f2db",
+        "66f6adfeb4a8db63e426edbfa14b99da4529710328e913ebff940a73c8cbe741",
+        "776d5cdae46451ee0d99de18a69ed9eb51d3841e0a9c91dc28a337353114c693",
+        "e6cbb456b22c469789b5f029e1c4344fb810506af10b5a2b56a6e0af7e86af6f",
+        "ef2455c890a2748c9e66eb715c8c05787f08b6fab8f1f49e385f545ff3bfae54",
+        "f99c46d5d664db2de41c99d09416a89f206db5accb456e61438391df24bb36b5"
+      ],
+      "bm25_unit_ids": [
+        "18a26f106d34562f2b7716e195db5313d60bf4ca09de6aa46709b502483b91bc",
+        "1d18e2288975ec49095c58aaa3b13754886f60d9965f7d189b2a38be171247fb",
+        "33696e5f5cf55270347772140e03068973cd1378ffabb402f63df31dedb4bc36",
+        "40c4630ae782bfe001134f7910a0b82a0427cd13ad3deaf35e532f68f4a77151",
+        "4177201cea86a54432f802cea3a64c99dfcf2ccb2dd788ee944a40d5a6b6f2db",
+        "5721daa02f3297e35adddc66ddeb1ae7f1fc87967de79e271f9d70b5a9a02493",
+        "66f6adfeb4a8db63e426edbfa14b99da4529710328e913ebff940a73c8cbe741",
+        "776d5cdae46451ee0d99de18a69ed9eb51d3841e0a9c91dc28a337353114c693",
+        "a87c6800aeab9c84068dc5e2b2e10f1373015ff827e6172d5889e258704b7a5b",
+        "f99c46d5d664db2de41c99d09416a89f206db5accb456e61438391df24bb36b5"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "대상은 외환거래에서 투기적 거래를 어떻게 규정하고 있나요?",
+      "cell": "both",
+      "positive_unit_count": 5,
+      "dense_unit_ids": [
+        "1351b7d917f83f45321d86d765ca63a6fdffb215d5271b4fe567c639dc8ac234",
+        "31c5b5ce095f68739006e0f76d10748dae93eb3f144aebd8d258b2153ab41175",
+        "3f3c0f72f9eb52ee1399b6e08040d0c70e57df66403db67753089e8182fbbd58",
+        "ce7f46dc8bc6555ac93d49d8fbd376158f0014e2c423a7007a17c134d4a4629a",
+        "f16cbaba7cd5954048da57de49e12ccedd45ddc0f370ce27aefed95a65dc58be"
+      ],
+      "bm25_unit_ids": [
+        "1351b7d917f83f45321d86d765ca63a6fdffb215d5271b4fe567c639dc8ac234",
+        "31c5b5ce095f68739006e0f76d10748dae93eb3f144aebd8d258b2153ab41175",
+        "3f3c0f72f9eb52ee1399b6e08040d0c70e57df66403db67753089e8182fbbd58",
+        "f16cbaba7cd5954048da57de49e12ccedd45ddc0f370ce27aefed95a65dc58be"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "2026년 1분기 식품·소재 부문 매출 합계보다 연결 매출액이 낮은 이유가 연결조정 때문인지, 그렇다면 연결조정 금액은 얼마인지 확인한다.",
+      "cell": "bm25_only",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "5b6a6247e1be4e40b4ed5b70a501a9966b7d7f978538b95d47ffe87496734628",
+        "99b7b0d2e2fd9a4b894dd76820b688345515c88efa7411cf216aec7175e73f56"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-03",
+      "requirement_id": "R1",
+      "requirement_text": "대상이 종속·관계·공동기업을 제외하고 보유한 지분증권 투자액은 2024년 말 장부상 얼마였나요?",
+      "cell": "bm25_only",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "2fdf19c16308af2733dc9134726f13f1c7d069218487841a915effc8343f140a",
+        "6c3f2984ba262a6a78e6d1db1be108f7602d0999cdfad8177de0d12b9d9c840a",
+        "cc42b6ee74bc79a5f0bf1b8513eb58df5bf027acdd19ebbb4f7d80d5da5345b6"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00121941-business_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "대상 군산공장의 전분·물엿 생산 가능량은 제73기 1분기 216,000톤으로, 제72기 연간 792,000톤의 몇 퍼센트인지 계산한다.",
+      "cell": "both",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [
+        "325484e198b9251fcd964f2b68e09997bac152fe9cc27354906852b07803d65d",
+        "45a5fae06b5c39c1b82abcbdb9e791f4742d6f19e81bbfb7bc58aefc1d01f876",
+        "773460b10376347bc11149f931c32f37fef1bf323ef942d04f193e99848ad817"
+      ],
+      "bm25_unit_ids": [
+        "325484e198b9251fcd964f2b68e09997bac152fe9cc27354906852b07803d65d",
+        "45a5fae06b5c39c1b82abcbdb9e791f4742d6f19e81bbfb7bc58aefc1d01f876",
+        "773460b10376347bc11149f931c32f37fef1bf323ef942d04f193e99848ad817"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00121941-cross_period-01",
+      "requirement_id": "R1",
+      "requirement_text": "연결 현금흐름표상 영업활동으로 인한 현금흐름이 2022년부터 2024년까지 어떻게 변했는지 파악한다.",
+      "cell": "both",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [
+        "aaaf2d2ecd839bed4bb397f9658a45af564aaee66daf91f8ce2d357bba6c6726",
+        "d1a133e1462563c010748a3d7900ecb4c682d393fe10a10565ff18f8cfc2e0a2"
+      ],
+      "bm25_unit_ids": [
+        "aaaf2d2ecd839bed4bb397f9658a45af564aaee66daf91f8ce2d357bba6c6726",
+        "d1a133e1462563c010748a3d7900ecb4c682d393fe10a10565ff18f8cfc2e0a2"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00121941-finance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "대상네트웍스㈜ 실수요영업부문 사업양수를 결의한 날부터 실제 사업양수일까지의 경과 일수",
+      "cell": "both",
+      "positive_unit_count": 13,
+      "dense_unit_ids": [
+        "08c2646c4b840b95db5abae47c07f67232623faeb648792937931827c5ef61b0",
+        "11a6fd38b765b5a0f5843401ec36da44aa8b059099a1b782dc8e0625dcaf62f0",
+        "2495d7fe7c0390a9305bec173bdfe548706a51ed978a3fe8e4754cdda5ec8e77",
+        "2baeb7fd6d1d6a0d4747bc2f8307f7618e4baa0df716b4237e94c0206a004eb9",
+        "363f1346b5f66430688a4388a91fa752a71e3ddd0392d3afd97025f09ee47cfa",
+        "3d104d1cd7e9a6b5e208e6620696b71b17e6a87d863174197d018a19cf1ff4ea",
+        "44863c7e87042de87c9f232e03dd780d7b1e6762e3c3f90a25a9189b185f4745",
+        "b4b2c0034056b806f4dcea48d1793f658a1f05c750fa4146d78cbf40b3e2cbbc",
+        "c1d5a068a60148f275b18d7d35303e59a8fc79b734a90dd5b91fb09bf8175961",
+        "e3df0b35f8cdcbba20cceb5bb98b9481ba5cfc5bb69904ad5c2dc9d9242f71d9"
+      ],
+      "bm25_unit_ids": [
+        "10582cec8ff103adc93475dcba0e08e39b99660fb9eb839d9db73e87b88a0e76",
+        "2495d7fe7c0390a9305bec173bdfe548706a51ed978a3fe8e4754cdda5ec8e77",
+        "2baeb7fd6d1d6a0d4747bc2f8307f7618e4baa0df716b4237e94c0206a004eb9",
+        "363f1346b5f66430688a4388a91fa752a71e3ddd0392d3afd97025f09ee47cfa",
+        "3d104d1cd7e9a6b5e208e6620696b71b17e6a87d863174197d018a19cf1ff4ea",
+        "44863c7e87042de87c9f232e03dd780d7b1e6762e3c3f90a25a9189b185f4745",
+        "c1d5a068a60148f275b18d7d35303e59a8fc79b734a90dd5b91fb09bf8175961",
+        "c6dfa64449be9077c9d0124f4e7c7fc9d1a51fd37304858abada8bd8f6e80f6d",
+        "e3df0b35f8cdcbba20cceb5bb98b9481ba5cfc5bb69904ad5c2dc9d9242f71d9",
+        "fc42bff6c2b27a461d09c961a914698f1986e6bbf15be77256d170dcb4e31979"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00121941-finance_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "대상은 2026년 1분기 말 특수관계자 거래로 받을 돈과 갚을 돈이 각각 얼마였어?",
+      "cell": "bm25_only",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "62c8564da1be79a9d8b5bad6f32b3786894d1015029ad67477f292ac03b00a86"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00121941-multi_element-01",
+      "requirement_id": "R1",
+      "requirement_text": "대상(주) 군산 사업소의 전분·물엿 생산실적은 제73기 반기에 413,185톤, 제72기 연간에 682,139톤이다.",
+      "cell": "both",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [
+        "1190b8fb07b5f730ae8337b43610e9af23129adbf45910c69c6b55b6af0f9ed5",
+        "3375b934ea208fc0d25ae0f807757f496dd05d56e8121ee243848d7855c77530",
+        "db14e41b6c4ff9325cd8cb843c46beedc3441d1d9838ab73230256e825099ba4"
+      ],
+      "bm25_unit_ids": [
+        "1190b8fb07b5f730ae8337b43610e9af23129adbf45910c69c6b55b6af0f9ed5",
+        "3375b934ea208fc0d25ae0f807757f496dd05d56e8121ee243848d7855c77530",
+        "db14e41b6c4ff9325cd8cb843c46beedc3441d1d9838ab73230256e825099ba4"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00121941-multi_element-01",
+      "requirement_id": "R2",
+      "requirement_text": "대상(주) 군산 사업소의 아미노산 제품류 생산실적은 제73기 반기에 3,115톤, 제72기 연간에 9,228톤이다.",
+      "cell": "both",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [
+        "1190b8fb07b5f730ae8337b43610e9af23129adbf45910c69c6b55b6af0f9ed5",
+        "3375b934ea208fc0d25ae0f807757f496dd05d56e8121ee243848d7855c77530",
+        "db14e41b6c4ff9325cd8cb843c46beedc3441d1d9838ab73230256e825099ba4"
+      ],
+      "bm25_unit_ids": [
+        "1190b8fb07b5f730ae8337b43610e9af23129adbf45910c69c6b55b6af0f9ed5",
+        "3375b934ea208fc0d25ae0f807757f496dd05d56e8121ee243848d7855c77530",
+        "db14e41b6c4ff9325cd8cb843c46beedc3441d1d9838ab73230256e825099ba4"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00121941-overview_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "대상의 2026년 6월 30일 현재 총 유통주식수는 몇 주인가요?",
+      "cell": "bm25_only",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "2c9da1f19fce5abd18b8822a58a5305a6f70a9539ab7504e7f89de5e82dba13f"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126380-business_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 2026년 반기말 현재 통화선도 거래를 몇 건 체결하고 있나요?",
+      "cell": "both",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [
+        "07ce10161cff0ec73a58b093317ffd753eb1fa5926186512f949f80edb017719",
+        "a90a226149117caa98d91c9c8474b17037f10a6391cb18656410a3d9a7d2fa20"
+      ],
+      "bm25_unit_ids": [
+        "07ce10161cff0ec73a58b093317ffd753eb1fa5926186512f949f80edb017719",
+        "a90a226149117caa98d91c9c8474b17037f10a6391cb18656410a3d9a7d2fa20"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126380-finance_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 금융상품의 민감도분석에서 변동을 어떤 기준으로 유리한 변동과 불리한 변동으로 구분하나요?",
+      "cell": "both",
+      "positive_unit_count": 10,
+      "dense_unit_ids": [
+        "001a127e988d8cf9a5d471b9785770a5bc853ccb4fcfec47d171d9d819b8d386",
+        "0572d8afddcc65995c021b40000c82e36322d5dfbc966bf97d3c954d4adaaa1e",
+        "0b06f6d82a64716a8ad7bc2f7ebb394b84967b34d05f3ac710185b90e8b7e844",
+        "28be618ec111aebb467345242f47d00dd2915b097686593d7dae4ae45b5579e4",
+        "56946357e558343ec567de6ab4d8fa58a3699a394feb436585cfe0c96cc4b080",
+        "6c4a7d5dfdca9adf11cd762cbcbfe9e81c41ced41f8d43148c02c2f7a456fdca",
+        "7c11acd82d3011c161d3985dc997aecfee015724866b7c14bceb3cdfc877d0cd",
+        "ab76ed24148495d9a04b7b22bb8a7258e0c24fcf3080b9f1792c0310ae0ebfec",
+        "b49672090577f93c861be0cc39443d9bef75fb1ed72f9a44bf95f3510b90d944",
+        "ea9c9ebbb491824e54ae989dab349ab35f40a72f941fcb44ce66c62c0ba39599"
+      ],
+      "bm25_unit_ids": [
+        "001a127e988d8cf9a5d471b9785770a5bc853ccb4fcfec47d171d9d819b8d386",
+        "0572d8afddcc65995c021b40000c82e36322d5dfbc966bf97d3c954d4adaaa1e",
+        "0b06f6d82a64716a8ad7bc2f7ebb394b84967b34d05f3ac710185b90e8b7e844",
+        "28be618ec111aebb467345242f47d00dd2915b097686593d7dae4ae45b5579e4",
+        "6c4a7d5dfdca9adf11cd762cbcbfe9e81c41ced41f8d43148c02c2f7a456fdca",
+        "7c11acd82d3011c161d3985dc997aecfee015724866b7c14bceb3cdfc877d0cd",
+        "ab76ed24148495d9a04b7b22bb8a7258e0c24fcf3080b9f1792c0310ae0ebfec",
+        "b49672090577f93c861be0cc39443d9bef75fb1ed72f9a44bf95f3510b90d944",
+        "ea9c9ebbb491824e54ae989dab349ab35f40a72f941fcb44ce66c62c0ba39599"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126380-finance_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+      "cell": "dense_only",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [
+        "85a98a4bddadb6d49eab49875653c980a2ce353fc30a8cda1fc63c8e1d09020e"
+      ],
+      "bm25_unit_ids": [],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126380-finance_table-03",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자의 2025년 말 자본금에서 우선주자본금과 보통주자본금이 각각 차지하는 비중은 얼마인가?",
+      "cell": "both",
+      "positive_unit_count": 5,
+      "dense_unit_ids": [
+        "78cde9af4a9c40ba09d5f7e4d03134fbce88f433d0b1fcca82b49fee14b33881"
+      ],
+      "bm25_unit_ids": [
+        "0c85a9479abaf949bc61c8191d39a5da035355f35b8d5fe088a9d27b96f4d018",
+        "777475fc47a37a5862baa33be44b0f46cf17df7a721c06f211fb464c9aa87d79",
+        "78cde9af4a9c40ba09d5f7e4d03134fbce88f433d0b1fcca82b49fee14b33881",
+        "a2dc7664ad4f6b3cfab19e7ab326b4ff9d25f71f4fbc435ea080b7bf2549c2bc"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 당기에 주식매수선택권 부여로 인식한 보상비용이 있나요?",
+      "cell": "bm25_only",
+      "positive_unit_count": 5,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "008245b1db9a5d09d74040409a1d8bd921b66655537a5c8bcb5b573c786491e6",
+        "6d7545e5308c9d89f0299f8df6f27830d8267e21a53f60ca0c9e40161932d346",
+        "6fe657f91d3f043c9fa511b648c1010fffba721247a7cda31c90f2e426b5fcaf",
+        "b7b266b43ca85a4e9561c53c03beb97cef977fd6589da4661ee2369eb4237669",
+        "bae5a54a5842b26af254e7e4f3d09cd255275268b8834350696317c32025041a"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 성과조건부 주식을 언제부터 지급하나요?",
+      "cell": "both",
+      "positive_unit_count": 13,
+      "dense_unit_ids": [
+        "053c6bf6f234ea4e2038dc703032f0fa6418e93c4becdd67f63bff9d8a29232b",
+        "544c3035c273021d4e0d4a4da96c10979460b69ec5575612f1c5e361e73a74bc",
+        "88f9baa522237fd573ced8bc0b91b8459ada0135018a841ab869d5e57ca9a0b0",
+        "8ad5107b92ecf5c6c6d172c812e3ae44fa993e2eafd352f48828e42cb67c5cb6",
+        "8da907c240657bba30bb08d29f9bc97ff73fb63a059096bdb7dd87f734647532",
+        "cc8cb9984a23e1af50abbd8978d537d991d28b24baf406b7c384923f2fc85a80",
+        "f727872c06d65ab9269d88c043be5b7560cc9b3761e88d51125f41a391428b34",
+        "faea515afa557af94cdf42657b479f121e65079f0513fe37a7fa597ee4d5c679"
+      ],
+      "bm25_unit_ids": [
+        "053c6bf6f234ea4e2038dc703032f0fa6418e93c4becdd67f63bff9d8a29232b",
+        "0991080661aaa1898e1d7be8969cc6e22e7277233a68f2b47e4b03c76c124b94",
+        "7668044829aa4b27517c2c2281579901eba6d4583bdc55ac91fd526c6acf11a9",
+        "88f9baa522237fd573ced8bc0b91b8459ada0135018a841ab869d5e57ca9a0b0",
+        "a619e92f1fac19e4b16bc76cf0fb9ddd25b75733db7d5729bac283669d4b9be6",
+        "cc8cb9984a23e1af50abbd8978d537d991d28b24baf406b7c384923f2fc85a80",
+        "e8f43c3ea50fe871a6e65bab3d652592af555dda9b47206c00d0fefdea6ad1a2",
+        "f727872c06d65ab9269d88c043be5b7560cc9b3761e88d51125f41a391428b34",
+        "faea515afa557af94cdf42657b479f121e65079f0513fe37a7fa597ee4d5c679"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126380-mdna_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자의 제57기 매출액과 영업이익은 전년 대비 각각 어떻게 변했나요?",
+      "cell": "both",
+      "positive_unit_count": 13,
+      "dense_unit_ids": [
+        "269eb1d84d6d6d2fe7ba996c37a80b5241b2f9a236f5d3528d191402c16319fe",
+        "88dbb55032582b0356ec90070d5d19c5e5a90c66f7938b56733c06148f7e8b30",
+        "91cb137e9b170d17caedd48d6a8077d7fc7dd0a3bb37e6514ef3f749110ed3b0",
+        "b3b63e2179cb88a4caaffb94fe24900dc3976c07c437f7ebb7d7b3ad8fea2f1f",
+        "ed08335f6c271ebe8ab706cc1c5af8675babc5dc4a532ff2ba0c0845b6153190",
+        "fdf901f8a05b6dfa2f35f54998cf9617945c77d71d87540a20a37c44632c2a9f"
+      ],
+      "bm25_unit_ids": [
+        "22200928e9c3dc2ea2123299a602c41750b88f339a6e7024a54a17596635fcf8",
+        "24d88174f1a23fd4562defb0c646300b3ebcb3b5b5eb50a6a7ed134f4ad4d016",
+        "269eb1d84d6d6d2fe7ba996c37a80b5241b2f9a236f5d3528d191402c16319fe",
+        "42b079620f3dc87ebd2dc7d8ee2694b04f17e1a8579d0962e7e7cc7e4a7b2228",
+        "741171bc19bfb71afbecc49e2a1acfdff3a22aad083b36a320fc8d8cd27acaae",
+        "7f27bfedc6036a1878949a91d83e9e7776fa0acd05475f358fda56319f2431ac",
+        "ef3892cf6853d3ee9d15926293285c989727bf242ba10a41ccda8aad722ea6cf"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126380-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 앞으로의 실적 전망이 실제와 달라질 수 있는 이유로 어떤 점들을 들었나요?",
+      "cell": "both",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [
+        "88dbb55032582b0356ec90070d5d19c5e5a90c66f7938b56733c06148f7e8b30",
+        "a783e79e2efdfc7fb6288dac0d4e232fdcfd194a8c3c70a70248674d128f1ebf"
+      ],
+      "bm25_unit_ids": [
+        "a783e79e2efdfc7fb6288dac0d4e232fdcfd194a8c3c70a70248674d128f1ebf"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126380-multi_element-02",
+      "requirement_id": "R1",
+      "requirement_text": "하만의 연산용 칩(SOC)의 매입액과 전체 매입액에서 차지하는 비율은 얼마인가?",
+      "cell": "both",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [
+        "be19733e1a397cfb389f272636ed00a4b67411dabec5b3a03bb57fd4edb2124f"
+      ],
+      "bm25_unit_ids": [
+        "be19733e1a397cfb389f272636ed00a4b67411dabec5b3a03bb57fd4edb2124f"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126380-multi_element-02",
+      "requirement_id": "R2",
+      "requirement_text": "차량 통신 모듈의 매입액과 전체 매입액에서 차지하는 비율은 얼마인가?",
+      "cell": "both",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [
+        "be19733e1a397cfb389f272636ed00a4b67411dabec5b3a03bb57fd4edb2124f"
+      ],
+      "bm25_unit_ids": [
+        "be19733e1a397cfb389f272636ed00a4b67411dabec5b3a03bb57fd4edb2124f"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126955-business_paragraph-03",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품이 중국에서 주력으로 판매하는 볶음면 시장은 최근 어떤 추세인가요?",
+      "cell": "both",
+      "positive_unit_count": 6,
+      "dense_unit_ids": [
+        "31bfc5cb979460f671292649c2756a72812dc7794a0597170b97e110d7fc98d3",
+        "5bc5e43a7432c65cfd3c750047cb3236dafbe193bf8b37895c9e912a42e6dd17",
+        "8377be980264c935b98ffc9e84938f7db2c2e482e3285c18ef53e4dec5856476",
+        "acfe52a397168fa8460d5b03cadd51fdd460f360889c087b456366d7191b8450",
+        "add9dfc07096430ed20c18dcba5c9398dad50b0a13aec3b1506c7f50c033f659",
+        "e0a90e147a980d45472e034d25a6adcd78d6fc0c990873436714fe308298f0fc"
+      ],
+      "bm25_unit_ids": [
+        "31bfc5cb979460f671292649c2756a72812dc7794a0597170b97e110d7fc98d3",
+        "5bc5e43a7432c65cfd3c750047cb3236dafbe193bf8b37895c9e912a42e6dd17",
+        "8377be980264c935b98ffc9e84938f7db2c2e482e3285c18ef53e4dec5856476",
+        "add9dfc07096430ed20c18dcba5c9398dad50b0a13aec3b1506c7f50c033f659",
+        "e0a90e147a980d45472e034d25a6adcd78d6fc0c990873436714fe308298f0fc"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126955-business_table-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품의 2026년 반기보고서에 나온 설비 보완 투자계획에서 총 투자예정액과 지출금액 합계는 각각 얼마인가요?",
+      "cell": "both",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [
+        "b9dd574a3934d80340f7750f321672a3f456d227e949ff9d0a1c78bd0dfe34fa"
+      ],
+      "bm25_unit_ids": [
+        "b9dd574a3934d80340f7750f321672a3f456d227e949ff9d0a1c78bd0dfe34fa"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "requirement_id": "R1",
+      "requirement_text": "제62기부터 제64기까지 매출액은 어떻게 변했는가?",
+      "cell": "both",
+      "positive_unit_count": 5,
+      "dense_unit_ids": [
+        "ae044a34c6c53572f1ebfd2ec9b3a3cfa4844a1b954224d909438f2fac9621b6"
+      ],
+      "bm25_unit_ids": [
+        "033071a893cbf18a77314662f981fcd9f4b260b73f6e637271f0602610abb3f2",
+        "0a8debc2d1e0d6c312f378acc12e0b006ef03eb004c68a14bf3b821d392ab700",
+        "1ebea5323db332d51c8917b521dd783fc7c6009678634031c7dee25b235bc147",
+        "ae044a34c6c53572f1ebfd2ec9b3a3cfa4844a1b954224d909438f2fac9621b6",
+        "dbb1c4f1c334d36904c959f63523ca7ec3da7b1c0a107ac6cbc17b155560da63"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "requirement_id": "R2",
+      "requirement_text": "제62기부터 제64기까지 영업이익은 어떻게 변했는가?",
+      "cell": "bm25_only",
+      "positive_unit_count": 5,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "0a8debc2d1e0d6c312f378acc12e0b006ef03eb004c68a14bf3b821d392ab700",
+        "1ebea5323db332d51c8917b521dd783fc7c6009678634031c7dee25b235bc147",
+        "4036001d3a52707dc152823ee891e2803307377b0cb81b560ce1034777ce611e",
+        "dbb1c4f1c334d36904c959f63523ca7ec3da7b1c0a107ac6cbc17b155560da63",
+        "fdf0566230e385fa5db1a158a10efcc2b03851da96b8abbf91391a2d8bb1200b"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R1",
+      "requirement_text": "2026년 1분기 말 단기차입금 잔액은 얼마인가?",
+      "cell": "neither",
+      "positive_unit_count": 1,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R2",
+      "requirement_text": "2026년 1분기 말 유동성장기부채 잔액은 얼마인가?",
+      "cell": "bm25_only",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "fd1f33f695cdbe70be6f5750fdc4cd123ce82e5ffc496fcef359e8605f700858"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R3",
+      "requirement_text": "반기보고서에 기재된 전기말 대출 약정 한도는 약정 유형별로 얼마인가?",
+      "cell": "neither",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126955-finance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품의 현행 기준 영업이익은 매출액에서 매출원가와 판매비와관리비를 차감해 계산하는가?",
+      "cell": "bm25_only",
+      "positive_unit_count": 4,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "75a2debaff8d9745bb451f85e045da745a1c3fe776b4d5e5ab4616e7dac11d87",
+        "960500bebfc051604a3ad24e2e7126cbb42e10a065b4d77f1dae71faae0eb50b",
+        "d44e982b7b32a347e8806990cd5626e5a1b44c4a7c392dad9a12d3e4146639d5",
+        "eac613a74f0607232be08d40be3f0c5f23fa27bcb74d50c5b8472c70e595cd43"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126955-finance_table-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품의 2026년 상반기 연결 자본변동표에서 배당금 지급은 얼마로 나타났나요?",
+      "cell": "bm25_only",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "91e33833b03d42bef5a1be027f07d136919f8ac9475aea3bd1219cc9cc52d8d2",
+        "95852718f19b8f6c3ebdbc252283b07e7773afe89676e540fbb0ff3cea68ab20"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00126955-mdna_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품이 환율변동위험, 특히 달러화 및 엔화 관련 위험에 노출되어 있는 이유를 파악한다.",
+      "cell": "both",
+      "positive_unit_count": 11,
+      "dense_unit_ids": [
+        "01e27ccf65c0d11311bf585ad0347c0b4be198749f78b6d8d6e4671b3461a4fe",
+        "8377be980264c935b98ffc9e84938f7db2c2e482e3285c18ef53e4dec5856476",
+        "9af42a0030d74e5405a94cac550323300b8b132ba8b35f327f3d11ce8b9d0204",
+        "acfe52a397168fa8460d5b03cadd51fdd460f360889c087b456366d7191b8450",
+        "cb0d33390e932ba8e9ffc5376abb443f92ab05aaffbda32d02888d10275a4043"
+      ],
+      "bm25_unit_ids": [
+        "01e27ccf65c0d11311bf585ad0347c0b4be198749f78b6d8d6e4671b3461a4fe",
+        "683ee73e6d735446065ae1f511c8eb2df027809c3dc502e607a34974bd6acff1",
+        "787df5210144ba5cb3633c53d94be3b7d9db002f6dba936b676cc89c123bc435",
+        "791ae2bbdd4c7be7f2b0efa80c9a2a92f67aa4421e0774dd8f07ae2d51a0960d",
+        "7d358d1d9e37fbd4a1bd2dd357487e72a8e54e75cc3dfe0e4872e9d9406b7ee5",
+        "9af42a0030d74e5405a94cac550323300b8b132ba8b35f327f3d11ce8b9d0204",
+        "a0e5f17cbd066d796ac787d29566a0c21c95d1ec4243f38f8eb846f65a51bebb",
+        "cb0d33390e932ba8e9ffc5376abb443f92ab05aaffbda32d02888d10275a4043",
+        "cba78735880069e6b5c27608ac3e3a539b4608069a70768dad8eee3e118fc2dc"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126955-multi_element-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼양제분의 제분부문은 연간 소맥을 어느 정도 가공할 수 있는가?",
+      "cell": "both",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [
+        "08853d7cb43880f48964e807285ed93b1a2cb4ab6b961ee3a1bf8cfc7dffb9f4",
+        "7136d5bf91169a98c19c249d3c9cb11435329fd8c2c75f36fd372365e26852fd"
+      ],
+      "bm25_unit_ids": [
+        "08853d7cb43880f48964e807285ed93b1a2cb4ab6b961ee3a1bf8cfc7dffb9f4",
+        "7136d5bf91169a98c19c249d3c9cb11435329fd8c2c75f36fd372365e26852fd"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126955-multi_element-02",
+      "requirement_id": "R2",
+      "requirement_text": "삼양제분의 정제부문은 연간 원유를 어느 정도 가공할 수 있는가?",
+      "cell": "both",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [
+        "08853d7cb43880f48964e807285ed93b1a2cb4ab6b961ee3a1bf8cfc7dffb9f4",
+        "7136d5bf91169a98c19c249d3c9cb11435329fd8c2c75f36fd372365e26852fd",
+        "ef3e658a8573bc569ea457152b24768270de4211581a0ce76805c7e51c3f0a61"
+      ],
+      "bm25_unit_ids": [
+        "08853d7cb43880f48964e807285ed93b1a2cb4ab6b961ee3a1bf8cfc7dffb9f4",
+        "7136d5bf91169a98c19c249d3c9cb11435329fd8c2c75f36fd372365e26852fd"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00126955-overview_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품의 연혁에 따르면, 삼양라운드어스(주)는 2023년 7월 어떤 상호에서 변경됐나요?",
+      "cell": "both",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [
+        "021e04a78ff6321d16f04849835aa0525155784aec169c5fa4bf14f608aa450a",
+        "a860557b2ae18e503be1e318b41a1a378e177f8af450c0a4467aa1987dcc256d",
+        "c06441b63a3c4dec7b9f2d3426d422af518844a3ced9734acf192c002e66d6fb"
+      ],
+      "bm25_unit_ids": [
+        "021e04a78ff6321d16f04849835aa0525155784aec169c5fa4bf14f608aa450a",
+        "a860557b2ae18e503be1e318b41a1a378e177f8af450c0a4467aa1987dcc256d",
+        "c06441b63a3c4dec7b9f2d3426d422af518844a3ced9734acf192c002e66d6fb"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-business_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠의 라이선스아웃 계약에서 매출은 어떤 항목으로 구분되나요?",
+      "cell": "both",
+      "positive_unit_count": 12,
+      "dense_unit_ids": [
+        "1fc20b1424a7353cc2898d5648992ff7929442528053348e4dbe7879eb87ba0e",
+        "30da2e84d72823916575bebd42bc875a6c44a9c33dbd2e881795677e63833898",
+        "357716b7a770b6cf787050eeb69583e6e15e658049dd3442988eaf266f5b43ee",
+        "7dbfce794aa6800746e70000761c9f1be7a1eb3091ae86430b9e1c451eaf8d5e",
+        "8b755c7dbe7f5861c6de64963e3ead8db4488a80791bd054968a6e527f73b000",
+        "99894315bf30b50b2811c68bb881470fa8c03e5a0e5b9d452538661832c26ae2",
+        "a154e4c670dd565b615f137a55a7eee67212c43ef2f826cae2178c83abbd8525",
+        "c053ede45c186dd51dc89598a74c7db47ee84d162438155cf44aef0b7aa908ad",
+        "e0064736f71a0ab0998fdcbed8e98000ac47f5f41f8d3bc4785c566bcd72a150",
+        "fc0aba804c880f382f09f15481af4964530d341dcb70f71b1669370c52694378"
+      ],
+      "bm25_unit_ids": [
+        "1fc20b1424a7353cc2898d5648992ff7929442528053348e4dbe7879eb87ba0e",
+        "30da2e84d72823916575bebd42bc875a6c44a9c33dbd2e881795677e63833898",
+        "357716b7a770b6cf787050eeb69583e6e15e658049dd3442988eaf266f5b43ee",
+        "a0bbfe52e4533e340fa838823c2b2f75acc6810bed18f1c03e049d084124cbf5",
+        "a154e4c670dd565b615f137a55a7eee67212c43ef2f826cae2178c83abbd8525",
+        "c053ede45c186dd51dc89598a74c7db47ee84d162438155cf44aef0b7aa908ad"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠의 2026년 1분기 연구개발 비용에서 원재료비가 차지하는 비중은 얼마인가?",
+      "cell": "both",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [
+        "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+        "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80"
+      ],
+      "bm25_unit_ids": [
+        "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+        "4c6242a91c1859dac14de284bf90eb475100a22e42ae316d18b345d7a66a81fd",
+        "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R2",
+      "requirement_text": "알테오젠의 2026년 1분기 연구개발 비용에서 인건비가 차지하는 비중은 얼마인가?",
+      "cell": "both",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [
+        "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+        "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80"
+      ],
+      "bm25_unit_ids": [
+        "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+        "4c6242a91c1859dac14de284bf90eb475100a22e42ae316d18b345d7a66a81fd",
+        "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R3",
+      "requirement_text": "알테오젠의 2026년 1분기 연구개발 비용에서 감가상각비가 차지하는 비중은 얼마인가?",
+      "cell": "both",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [
+        "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+        "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80"
+      ],
+      "bm25_unit_ids": [
+        "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+        "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R4",
+      "requirement_text": "알테오젠의 2026년 1분기 연구개발 비용에서 외주용역비가 차지하는 비중은 얼마인가?",
+      "cell": "both",
+      "positive_unit_count": 3,
+      "dense_unit_ids": [
+        "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+        "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80"
+      ],
+      "bm25_unit_ids": [
+        "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+        "4c6242a91c1859dac14de284bf90eb475100a22e42ae316d18b345d7a66a81fd",
+        "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-finance_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠은 제1118호를 언제부터 의무 적용해야 하나요?",
+      "cell": "both",
+      "positive_unit_count": 7,
+      "dense_unit_ids": [
+        "2a6f84cc231fe7634d34851cabd3dacccc26a6d3f76d2cd2bb1feccacc6eeab5",
+        "aa4c64a447701c63dbcd5e71091f414abe26aefcdd5574aa0e67675b20dd140e"
+      ],
+      "bm25_unit_ids": [
+        "02f3f749fc906c52aa5f0560f7b01dc004a505d21a074bc5830494dc3df60c7d",
+        "1456fbd94771333708e818086a583f07fb1735a353436fd1c1d08317648af7ac",
+        "2a6f84cc231fe7634d34851cabd3dacccc26a6d3f76d2cd2bb1feccacc6eeab5",
+        "38b9be90301287d6f51ae19d88680083c8b66beff20065291d55957828c15a13",
+        "3ce2b3b972407efa7e5d7b3c0c5ab0f250957ef41032be35f414a4daec11c0dc",
+        "aa4c64a447701c63dbcd5e71091f414abe26aefcdd5574aa0e67675b20dd140e"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠 분기보고서에서 기술 지원과 위탁생산 용역 기간은 언제부터 언제까지로 나와 있어?",
+      "cell": "both",
+      "positive_unit_count": 4,
+      "dense_unit_ids": [
+        "5777aa1c30dc503922bfccf33e575e2581573f63ea382211560b71d6c8cbe6de"
+      ],
+      "bm25_unit_ids": [
+        "5777aa1c30dc503922bfccf33e575e2581573f63ea382211560b71d6c8cbe6de"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-finance_table-03",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠의 전기 외화환산이익 중 금융자산과 금융부채에서 발생한 금액이 각각 전체 외화환산이익에서 차지하는 비율은 얼마인가?",
+      "cell": "both",
+      "positive_unit_count": 5,
+      "dense_unit_ids": [
+        "899ede79b6083f2651305070d0a9a3afb7f0e2a1df91c5cda434b9024cf6f898"
+      ],
+      "bm25_unit_ids": [
+        "658427dc40803fa8164c60073f34ee0e591894f10c9a50cde815b712d1810752",
+        "899ede79b6083f2651305070d0a9a3afb7f0e2a1df91c5cda434b9024cf6f898",
+        "9c4fd363e1f4f5aa2947ed45cc6f0707c7c6f6ef1a394d4a904fb16073f1582f",
+        "b8f9df8c214c8f01e735acb6bc7b983d975f4fabe0d965cba522ca2ebe2e99eb",
+        "c1d8b08e73206354e6d986c9dd02c08ce12528cb2163d188d25039ad029c2931"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-governance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠은 이번 분기에 우선주 몇 주를 보통주로 바꿨나요?",
+      "cell": "bm25_only",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "59bf1caeda932865f4ecd39c6dd7237fdd9aa475d85499d2ad4b2b1005912c4d",
+        "ea7512ea104a8b27f90c11ac016a9e18e87550993881959f7426797781fc075f"
+      ],
+      "same_unit": false
+    },
+    {
+      "query_id": "V2-00989619-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠은 사업보고서에 적은 향후 예상이 실제 결과와 다를 수 있다고 어떤 점을 주의시키나요?",
+      "cell": "both",
+      "positive_unit_count": 2,
+      "dense_unit_ids": [
+        "448cb7a794c73b267f31c06ad8f8b5d94521facfeaeff3094bfbb170ee198c04",
+        "983cfa46989ca2f2be29a94132070cb4710904148c62ba0790920fea6aeb105d"
+      ],
+      "bm25_unit_ids": [
+        "448cb7a794c73b267f31c06ad8f8b5d94521facfeaeff3094bfbb170ee198c04"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-multi_element-02",
+      "requirement_id": "R1",
+      "requirement_text": "바이오의약품은 합성의약품에 비해 크기와 제조 과정에서 어떤 차이가 있는가?",
+      "cell": "both",
+      "positive_unit_count": 7,
+      "dense_unit_ids": [
+        "0a74ad6a5d1c1059e6478632b5185ae3d2239256d8e297fa7a2b5b34e33e4786",
+        "33669dfc3718d673d1020daa650d689b25f4cf93af9ea075c404d7f06c7c73d0",
+        "4030cef9306fbe64f313730fa0a35b3f7d9fa0638985d0d3544a9b2db6c4a0c6",
+        "89d7152ba0e30d47f16075c62519f057a66671270f2057c767eb9ee9baa0cd57"
+      ],
+      "bm25_unit_ids": [
+        "07d012fe0d8bab9141f78dc6b8cb919832cf9671f2d4c05d83c10903f6c706dd",
+        "0a74ad6a5d1c1059e6478632b5185ae3d2239256d8e297fa7a2b5b34e33e4786",
+        "33669dfc3718d673d1020daa650d689b25f4cf93af9ea075c404d7f06c7c73d0",
+        "4030cef9306fbe64f313730fa0a35b3f7d9fa0638985d0d3544a9b2db6c4a0c6",
+        "5e697406fe8e96cb1dc42f4182edd26dea2bb30b1a0bb05cbcd16c99bf178e32",
+        "8176301b11542a3d661b414769ef0e84cc841f668bc979cbfbd8533a99d2ef22",
+        "89d7152ba0e30d47f16075c62519f057a66671270f2057c767eb9ee9baa0cd57"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-multi_element-02",
+      "requirement_id": "R2",
+      "requirement_text": "바이오의약품은 어떤 질환의 치료에 뛰어난 효과가 있다고 설명하는가?",
+      "cell": "both",
+      "positive_unit_count": 8,
+      "dense_unit_ids": [
+        "0a74ad6a5d1c1059e6478632b5185ae3d2239256d8e297fa7a2b5b34e33e4786",
+        "10968d5f8732149d18f90ffb6929c11b4ce4f610484d566be4e0af67f3f45a4e",
+        "33669dfc3718d673d1020daa650d689b25f4cf93af9ea075c404d7f06c7c73d0",
+        "4030cef9306fbe64f313730fa0a35b3f7d9fa0638985d0d3544a9b2db6c4a0c6",
+        "75e38f49d63a9f3df1d6250484be517eea860466fef723423928f37b50268cdc",
+        "89d7152ba0e30d47f16075c62519f057a66671270f2057c767eb9ee9baa0cd57",
+        "bef0b0dbfc5c7e5b2edba6ac3de9e17ccbafb28c697201fa625bd32788e48810",
+        "e36018fcebcffe5ad40744846d9d88987eb5c754c6e92c24a5389e1ccbdbdd21"
+      ],
+      "bm25_unit_ids": [
+        "0a74ad6a5d1c1059e6478632b5185ae3d2239256d8e297fa7a2b5b34e33e4786",
+        "10968d5f8732149d18f90ffb6929c11b4ce4f610484d566be4e0af67f3f45a4e",
+        "33669dfc3718d673d1020daa650d689b25f4cf93af9ea075c404d7f06c7c73d0",
+        "4030cef9306fbe64f313730fa0a35b3f7d9fa0638985d0d3544a9b2db6c4a0c6",
+        "89d7152ba0e30d47f16075c62519f057a66671270f2057c767eb9ee9baa0cd57",
+        "bef0b0dbfc5c7e5b2edba6ac3de9e17ccbafb28c697201fa625bd32788e48810",
+        "e36018fcebcffe5ad40744846d9d88987eb5c754c6e92c24a5389e1ccbdbdd21"
+      ],
+      "same_unit": true
+    },
+    {
+      "query_id": "V2-00989619-overview_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠의 종류주식 발행현황에 기재된 주식은 어떤 종류인가요?",
+      "cell": "bm25_only",
+      "positive_unit_count": 10,
+      "dense_unit_ids": [],
+      "bm25_unit_ids": [
+        "14a71e25cf9c71f56b1668c539e3277cf1b2e36a54545a2355cc496125b38feb",
+        "2c5406010146ca68f03acf81022a9e6806cba3660ed48ed9a5a25b15536d4bb3",
+        "3e686a33203af4c18ea214d6d6a7add68b3779945b1da53ff2fe44dc9241f690",
+        "530d9d1a7fa205d252ec7187452b4e050a0c89333fc02083965f0bfcff311829",
+        "6d392f4d3a5fe70d19bd440053060ff71934366065dd2edc7215deebbceb9570",
+        "9006561de2743dd0318aee87fb2f1af1aec7480557ee97714e49d6919038895f",
+        "a115ebf3a10cbed8bbd381a41c60c56658bc17877b5e187c78b3fe6d7c52a23f",
+        "bc667cdd22d8f0dc9e608e684b8cacf3231dd085ee9b6675f6c82f47733c9f78",
+        "c7c651f98bb1da5aae9866af37ace282461bdcad62f267914f28fcd40fd9e45e",
+        "cd7d4fe7a66cfe28a437e36ed837305ff96b086e77e9936c9d66b05dae0d7a71"
+      ],
+      "same_unit": false
+    }
+  ]
+}

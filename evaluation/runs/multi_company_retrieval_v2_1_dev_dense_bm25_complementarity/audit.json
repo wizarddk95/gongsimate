@@ -1,0 +1,358 @@
+{
+  "same_retrieval_unit_universe": true,
+  "filing_policy_equal": true,
+  "filing_policy": "resolve_search_call / select_filings with as_of, period, and report_types unset. Same helper as the v2.1 Dense-D2a rescore. Correction originals in scope are suppressed. BM25 indexes only the retrieval units inside that receipt set.",
+  "bm25_scores_element_ids": false,
+  "qrel_key": "(query_id, requirement_id, retrieval_unit_id)",
+  "legacy_element_qrel_loaded": false,
+  "query_preprocessing": {
+    "shared_input": "question text with no expansion and no shared analyzer",
+    "dense": "raw_question_text_no_instruction",
+    "dense_model": "BAAI/bge-m3",
+    "bm25_tokenizer": "ko-mixed-v1",
+    "bm25_tokenizer_rules": [
+      "Unicode NFKC",
+      "Numbers keep comma groups, then commas are removed",
+      "Hangul runs and ASCII words of length >= 2",
+      "ASCII casefold",
+      "Hangul surface form plus overlapping syllable bigrams when the run is longer than 2",
+      "Percent signs are stripped from numeric tokens",
+      "No stopword list and no morphological dictionary",
+      "Query term frequency is saturated at 1",
+      "Documents with score 0 are omitted from top-k"
+    ],
+    "difference": "Both retrievers receive the same raw question. Dense encodes it with the existing BGE-M3 query encoder and no instruction. BM25 applies NFKC and ko-mixed-v1, including Hangul syllable bigrams, and saturates query term frequency at 1."
+  },
+  "document_text": "BM25 tokenizes the D2a retrieval unit text. Dense ranks the stored D2a embedding of that same unit text. This run does not embed again.",
+  "bm25_parameters": {
+    "k1": 1.2,
+    "b": 0.75,
+    "idf": "log(1 + (N - df + 0.5) / (df + 0.5))",
+    "tuned_in_this_experiment": false,
+    "tuned_on_v21_test": false,
+    "history": "k1=1.2 and b=0.75 were introduced as pinned defaults in commit 236c2a3 and were not edited later. The only later bm25.py change added rank_all. The repository has no k1/b sweep. This run does not retune them and does not read v2.1 TEST. They are conventional BM25 defaults, not a dev-tuned operating point for this benchmark."
+  },
+  "top_k": 20,
+  "hit_k": 10,
+  "zero_score_omitted_from_bm25_topk": true,
+  "companies": [
+    {
+      "corp_code": "00107613",
+      "company_name": "이수페타시스",
+      "corpus_id": "isu_petasys_periodic_d2a",
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1",
+      "question_count": 9,
+      "effective_filing_count": 11,
+      "effective_receipt_nos": [
+        "20260814002283",
+        "20260515002006",
+        "20260323000847",
+        "20251114002130",
+        "20250814003472",
+        "20250514001051",
+        "20250320001435",
+        "20241114002025",
+        "20240814003325",
+        "20240514001613",
+        "20240321001149"
+      ],
+      "eligible_unit_count": 20592,
+      "unique_eligible_unit_count": 20592,
+      "duplicate_retrieval_unit_ids_in_universe": [],
+      "bm25_ids_equal_dense_eligible_ids": true,
+      "bm25_index": {
+        "tokenizer_version": "ko-mixed-v1",
+        "tokenizer_rules": [
+          "Unicode NFKC",
+          "Numbers keep comma groups, then commas are removed",
+          "Hangul runs and ASCII words of length >= 2",
+          "ASCII casefold",
+          "Hangul surface form plus overlapping syllable bigrams when the run is longer than 2",
+          "Percent signs are stripped from numeric tokens",
+          "No stopword list and no morphological dictionary",
+          "Query term frequency is saturated at 1",
+          "Documents with score 0 are omitted from top-k"
+        ],
+        "bm25": {
+          "k1": 1.2,
+          "b": 0.75,
+          "idf": "log(1 + (N - df + 0.5) / (df + 0.5))"
+        },
+        "document_count": 20592,
+        "average_document_length": 79.35086441336442,
+        "vocabulary_size": 35603,
+        "index_scope": {
+          "corp_code": "00107613",
+          "eligible_unit_count": 20592,
+          "effective_filing_count": 11
+        },
+        "zero_score_omitted_from_topk": true
+      },
+      "filters": {
+        "as_of": null,
+        "period": null,
+        "report_types": null
+      }
+    },
+    {
+      "corp_code": "00121941",
+      "company_name": "대상(주)",
+      "corpus_id": "generalization_00121941",
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1",
+      "question_count": 9,
+      "effective_filing_count": 4,
+      "effective_receipt_nos": [
+        "20260911000415",
+        "20260515002571",
+        "20260327000936",
+        "20250321000555"
+      ],
+      "eligible_unit_count": 10283,
+      "unique_eligible_unit_count": 10283,
+      "duplicate_retrieval_unit_ids_in_universe": [],
+      "bm25_ids_equal_dense_eligible_ids": true,
+      "bm25_index": {
+        "tokenizer_version": "ko-mixed-v1",
+        "tokenizer_rules": [
+          "Unicode NFKC",
+          "Numbers keep comma groups, then commas are removed",
+          "Hangul runs and ASCII words of length >= 2",
+          "ASCII casefold",
+          "Hangul surface form plus overlapping syllable bigrams when the run is longer than 2",
+          "Percent signs are stripped from numeric tokens",
+          "No stopword list and no morphological dictionary",
+          "Query term frequency is saturated at 1",
+          "Documents with score 0 are omitted from top-k"
+        ],
+        "bm25": {
+          "k1": 1.2,
+          "b": 0.75,
+          "idf": "log(1 + (N - df + 0.5) / (df + 0.5))"
+        },
+        "document_count": 10283,
+        "average_document_length": 102.07011572498298,
+        "vocabulary_size": 32734,
+        "index_scope": {
+          "corp_code": "00121941",
+          "eligible_unit_count": 10283,
+          "effective_filing_count": 4
+        },
+        "zero_score_omitted_from_topk": true
+      },
+      "filters": {
+        "as_of": null,
+        "period": null,
+        "report_types": null
+      }
+    },
+    {
+      "corp_code": "00126380",
+      "company_name": "삼성전자(주)",
+      "corpus_id": "generalization_00126380",
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1",
+      "question_count": 9,
+      "effective_filing_count": 3,
+      "effective_receipt_nos": [
+        "20260814003699",
+        "20260515002181",
+        "20260310002820"
+      ],
+      "eligible_unit_count": 9171,
+      "unique_eligible_unit_count": 9171,
+      "duplicate_retrieval_unit_ids_in_universe": [],
+      "bm25_ids_equal_dense_eligible_ids": true,
+      "bm25_index": {
+        "tokenizer_version": "ko-mixed-v1",
+        "tokenizer_rules": [
+          "Unicode NFKC",
+          "Numbers keep comma groups, then commas are removed",
+          "Hangul runs and ASCII words of length >= 2",
+          "ASCII casefold",
+          "Hangul surface form plus overlapping syllable bigrams when the run is longer than 2",
+          "Percent signs are stripped from numeric tokens",
+          "No stopword list and no morphological dictionary",
+          "Query term frequency is saturated at 1",
+          "Documents with score 0 are omitted from top-k"
+        ],
+        "bm25": {
+          "k1": 1.2,
+          "b": 0.75,
+          "idf": "log(1 + (N - df + 0.5) / (df + 0.5))"
+        },
+        "document_count": 9171,
+        "average_document_length": 131.66132373786937,
+        "vocabulary_size": 35021,
+        "index_scope": {
+          "corp_code": "00126380",
+          "eligible_unit_count": 9171,
+          "effective_filing_count": 3
+        },
+        "zero_score_omitted_from_topk": true
+      },
+      "filters": {
+        "as_of": null,
+        "period": null,
+        "report_types": null
+      }
+    },
+    {
+      "corp_code": "00126955",
+      "company_name": "삼양식품(주)",
+      "corpus_id": "generalization_00126955",
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1",
+      "question_count": 9,
+      "effective_filing_count": 4,
+      "effective_receipt_nos": [
+        "20260814003053",
+        "20260513000571",
+        "20260318001082",
+        "20250318001186"
+      ],
+      "eligible_unit_count": 8674,
+      "unique_eligible_unit_count": 8674,
+      "duplicate_retrieval_unit_ids_in_universe": [],
+      "bm25_ids_equal_dense_eligible_ids": true,
+      "bm25_index": {
+        "tokenizer_version": "ko-mixed-v1",
+        "tokenizer_rules": [
+          "Unicode NFKC",
+          "Numbers keep comma groups, then commas are removed",
+          "Hangul runs and ASCII words of length >= 2",
+          "ASCII casefold",
+          "Hangul surface form plus overlapping syllable bigrams when the run is longer than 2",
+          "Percent signs are stripped from numeric tokens",
+          "No stopword list and no morphological dictionary",
+          "Query term frequency is saturated at 1",
+          "Documents with score 0 are omitted from top-k"
+        ],
+        "bm25": {
+          "k1": 1.2,
+          "b": 0.75,
+          "idf": "log(1 + (N - df + 0.5) / (df + 0.5))"
+        },
+        "document_count": 8674,
+        "average_document_length": 88.77599723311044,
+        "vocabulary_size": 30319,
+        "index_scope": {
+          "corp_code": "00126955",
+          "eligible_unit_count": 8674,
+          "effective_filing_count": 4
+        },
+        "zero_score_omitted_from_topk": true
+      },
+      "filters": {
+        "as_of": null,
+        "period": null,
+        "report_types": null
+      }
+    },
+    {
+      "corp_code": "00989619",
+      "company_name": "(주)알테오젠",
+      "corpus_id": "generalization_00989619",
+      "embedding_model": "BAAI/bge-m3",
+      "representation_version": "retrieval-unit-d2a-v1",
+      "question_count": 9,
+      "effective_filing_count": 4,
+      "effective_receipt_nos": [
+        "20260814001294",
+        "20260515001517",
+        "20260323001596",
+        "20250321000557"
+      ],
+      "eligible_unit_count": 8986,
+      "unique_eligible_unit_count": 8986,
+      "duplicate_retrieval_unit_ids_in_universe": [],
+      "bm25_ids_equal_dense_eligible_ids": true,
+      "bm25_index": {
+        "tokenizer_version": "ko-mixed-v1",
+        "tokenizer_rules": [
+          "Unicode NFKC",
+          "Numbers keep comma groups, then commas are removed",
+          "Hangul runs and ASCII words of length >= 2",
+          "ASCII casefold",
+          "Hangul surface form plus overlapping syllable bigrams when the run is longer than 2",
+          "Percent signs are stripped from numeric tokens",
+          "No stopword list and no morphological dictionary",
+          "Query term frequency is saturated at 1",
+          "Documents with score 0 are omitted from top-k"
+        ],
+        "bm25": {
+          "k1": 1.2,
+          "b": 0.75,
+          "idf": "log(1 + (N - df + 0.5) / (df + 0.5))"
+        },
+        "document_count": 8986,
+        "average_document_length": 122.90518584464724,
+        "vocabulary_size": 22781,
+        "index_scope": {
+          "corp_code": "00989619",
+          "eligible_unit_count": 8986,
+          "effective_filing_count": 4
+        },
+        "zero_score_omitted_from_topk": true
+      },
+      "filters": {
+        "as_of": null,
+        "period": null,
+        "report_types": null
+      }
+    }
+  ],
+  "ranking_duplicates": {
+    "dense": {
+      "questions_with_duplicates": 0,
+      "duplicate_slots": 0,
+      "questions": []
+    },
+    "bm25": {
+      "questions_with_duplicates": 0,
+      "duplicate_slots": 0,
+      "questions": []
+    }
+  },
+  "bm25_rankings_shorter_than_10": [],
+  "positive_units_outside_candidates": [],
+  "window_states_at_10": {
+    "dense": {
+      "relevant": 2.8666666666666667,
+      "irrelevant": 7.133333333333334,
+      "unjudged": 0.0,
+      "not_returned": 0.0
+    },
+    "bm25": {
+      "relevant": 3.8666666666666667,
+      "irrelevant": 6.133333333333334,
+      "unjudged": 0.0,
+      "not_returned": 0.0
+    }
+  },
+  "judged_coverage_at_10": {
+    "dense": 1.0,
+    "bm25": 1.0,
+    "absolute_gap": 0.0
+  },
+  "judged_coverage_gap_flag": false,
+  "unjudged_is_not_relevance_0": true,
+  "dataset_file_sha256": {
+    "freeze.json": "ec5baec6185751886827bb3dbbdb71e6d16ae700e654220c0d66f314e2619463",
+    "questions.json": "7919ca4876562665ee7be25209949266b22b2c81c88cd4aaf5ac977fd6604d4b",
+    "qrels.json": "2ef0d1d179897034bf891bdad0454a8dc16004d751036b34e6517a337f7b63e3",
+    "requirements.json": "632ba0cdcb48c735ae95554aaf7cace75bc5b91096977ab6c0981c884dfdf9d5"
+  },
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "git_commit": "e119c2c5cdd0a7fe55f6649690cfd0f57f6c763a",
+  "git_dirty": true,
+  "dataset_files_written": false,
+  "dense_reproduction": {
+    "compared": true,
+    "dev_questions_compared": 45,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "role": "reproducibility of Dense-D2a on dev, not a tuning input"
+  }
+}

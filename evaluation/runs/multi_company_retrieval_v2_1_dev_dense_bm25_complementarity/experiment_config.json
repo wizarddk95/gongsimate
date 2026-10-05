@@ -1,0 +1,80 @@
+{
+  "experiment_id": "v21_dev_dense_d2a_vs_bm25",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "parent_dataset_sha256": "d3635756a57c39d6d4ef8722f5f118348c00bbc034bf5963fb7720d184e6f137",
+  "population": "dev fully_answerable",
+  "question_count": 45,
+  "split_seed": 20261005,
+  "metric_module": "disclosure_agent.evalset_v2_1.metrics",
+  "metric_policy": {
+    "all_requirements_covered": "every fully_answerable requirement of the query is covered",
+    "duplicate_unit_in_ranking": "first occurrence keeps the gain and the recall credit. A later copy occupies its rank with gain 0.",
+    "headline_population": "answerability=fully_answerable and split=test, with at least one retrieval unit whose own judged relevance is >= 1",
+    "hit": "raw top-k contains a unit with its own judged relevance >= 1",
+    "mrr": "1 / raw rank of the first unit with its own relevance >= 1, cutoff 20",
+    "ndcg_headline": "condensed: skip unjudged units, keep judged relevance 0, gain 2^relevance-1, each retrieval_unit_id gains at most once, cutoff 10 on the condensed list",
+    "ndcg_sensitivity_unjudged_as_zero": "raw top-10, unjudged gain 0 at that rank. Same unit-once rule. Not the headline. Equals condensed NDCG when the raw top-10 is fully judged.",
+    "preferred": "diagnostic. A seed retrieval unit that remains judged relevant. Otherwise one fallback unit. Non-preferred can still be relevant.",
+    "recall_denominator": "unique retrieval units with judged relevance >= 1",
+    "recall_macro": "unweighted mean of per-query recall",
+    "recall_micro": "sum of retrieved relevant units / sum of relevant units",
+    "relevance_0": "the unit was read and judged irrelevant",
+    "requirement_recall": "requirements whose own relevant unit appears in the window, divided by the requirement count. Not by source elements.",
+    "retrieval_unit": "the object the judge read and the object the retriever returns",
+    "shared_source_element": "units that share an element stay separate. A grade is not copied onto another unit.",
+    "source_element": "citation provenance only. Not a relevance row.",
+    "unjudged": "absent from qrels. Never stored as relevance 0."
+  },
+  "top_k": 20,
+  "headline_ks": [
+    1,
+    5,
+    10
+  ],
+  "hit_complementarity_k": 10,
+  "test_questions_searched": 0,
+  "test_used_for_tuning": false,
+  "hybrid_implemented": false,
+  "reranker": false,
+  "query_expansion": false,
+  "new_embedding": false,
+  "dense": {
+    "implementation": "product_catalog_dense_d2a",
+    "entry": "retrieval_baseline._search_question",
+    "model": "BAAI/bge-m3",
+    "query_encoding_policy": "raw_question_text_no_instruction",
+    "representation_version": "retrieval-unit-d2a-v1"
+  },
+  "bm25": {
+    "implementation": "disclosure_agent.bm25.Bm25Index.search",
+    "tokenizer_version": "ko-mixed-v1",
+    "k1": 1.2,
+    "b": 0.75,
+    "zero_score_omitted_from_topk": true,
+    "indexed_text": "eligible D2a retrieval unit text",
+    "parameter_history": "k1=1.2 and b=0.75 were introduced as pinned defaults in commit 236c2a3 and were not edited later. The only later bm25.py change added rank_all. The repository has no k1/b sweep. This run does not retune them and does not read v2.1 TEST. They are conventional BM25 defaults, not a dev-tuned operating point for this benchmark."
+  },
+  "query_preprocessing": {
+    "shared_input": "question text with no expansion and no shared analyzer",
+    "dense": "raw_question_text_no_instruction",
+    "dense_model": "BAAI/bge-m3",
+    "bm25_tokenizer": "ko-mixed-v1",
+    "bm25_tokenizer_rules": [
+      "Unicode NFKC",
+      "Numbers keep comma groups, then commas are removed",
+      "Hangul runs and ASCII words of length >= 2",
+      "ASCII casefold",
+      "Hangul surface form plus overlapping syllable bigrams when the run is longer than 2",
+      "Percent signs are stripped from numeric tokens",
+      "No stopword list and no morphological dictionary",
+      "Query term frequency is saturated at 1",
+      "Documents with score 0 are omitted from top-k"
+    ],
+    "difference": "Both retrievers receive the same raw question. Dense encodes it with the existing BGE-M3 query encoder and no instruction. BM25 applies NFKC and ko-mixed-v1, including Hangul syllable bigrams, and saturates query term frequency at 1."
+  },
+  "filing_policy": "resolve_search_call / select_filings with as_of, period, and report_types unset. Same helper as the v2.1 Dense-D2a rescore. Correction originals in scope are suppressed. BM25 indexes only the retrieval units inside that receipt set.",
+  "git_commit": "e119c2c5cdd0a7fe55f6649690cfd0f57f6c763a",
+  "git_dirty": true,
+  "hybrid_decision_rule": "Primary label uses DEV Hit@10 and requirement@10 only. B when BM25 recovers nothing Dense missed: BM25-only query hits are 0, BM25-only requirement recoveries are 0, and no query has crossed requirement coverage. C when that is not true and both-miss queries are at least as many as the two asymmetric query cells combined and at least one third of DEV. A otherwise, which requires BM25 to add a query hit, a requirement, or a crossed multi-requirement case without shared misses dominating. B takes precedence over C so a nested BM25 does not become a hybrid proposal. Shared-miss dominance still selects the non-hybrid follow-up."
+}

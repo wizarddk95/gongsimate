@@ -1,0 +1,122 @@
+{
+  "status": "labeled_after_reading_units",
+  "method": "DEV Hit@10의 비대칭 질의와 both-miss, 그리고 query hit 안에서 requirement가 갈라진 질의를 읽었다. 각 질의의 질문, 양성 unit 본문, 두 retriever 상위 5개를 보고 범주를 적었다. wording_style과 evidence_form만으로 범주를 부여하지 않았다.",
+  "query_cells_read": {
+    "dense_hit_bm25_miss": 1,
+    "dense_miss_bm25_hit": 10,
+    "dense_miss_bm25_miss": 2
+  },
+  "crossed_requirement_queries": [],
+  "bm25_only_success": [
+    {
+      "query_id": "V2-00121941-overview_paragraph-01",
+      "company": "대상",
+      "category": "exact_term_and_date",
+      "evidence": "양성 문장에 '현재 유통주식수는'와 '2026년 06월 30일'이 있다. BM25 1위다. Dense 상위는 최대주주 주식소유 문단이다."
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-01",
+      "company": "삼성전자",
+      "category": "exact_term",
+      "evidence": "양성 문장은 '주식매수선택권 부여로 인하여 당기에 인식한 비용(보상비용)은 없습니다.' BM25 상위 5개가 이 문장이다. Dense 상위는 성과연동 주식보상(PSU) 주석이다."
+    },
+    {
+      "query_id": "V2-00989619-overview_paragraph-01",
+      "company": "알테오젠",
+      "category": "exact_section_title",
+      "evidence": "양성 unit 제목이 '다. 종류주식 발행현황'이고 상환전환우선주식·전환우선주식을 적는다. BM25 1위다. Dense 상위는 회사 개요와 주식기준보상이다."
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-03",
+      "company": "대상",
+      "category": "accounting_phrase",
+      "evidence": "양성 문장에 '지분증권투자(종속기업, 관계기업 및 공동기업제외)'와 장부금액이 있다. wording 라벨은 paraphrase이나 일치한 것은 이 회계 구문이다. BM25 첫 양성 rank는 8이다. Dense 상위는 최대주주 대상홀딩스 설명이다."
+    },
+    {
+      "query_id": "V2-00126955-finance_table-01",
+      "company": "삼양식품",
+      "category": "statement_line_label",
+      "evidence": "질문은 '연결 자본변동표'의 '배당금 지급'이다. BM25 1–3위는 별도 자본변동표의 같은 행이고 relevance 0이다. 4위와 5위가 연결 자본변동표의 배당금 지급 행이다. Dense 상위 5에는 자본변동표가 없다."
+    },
+    {
+      "query_id": "V2-00989619-governance_paragraph-02",
+      "company": "알테오젠",
+      "category": "exact_term",
+      "evidence": "양성 문장은 '당기 중 28,055주가 보통주로 전환'이다. 질문의 '바꿨나요'는 본문에 없고 '우선주/보통주/전환'이 있다. BM25 1–2위는 종속기업 전환우선주부채이고, 4위가 이 자본금 변동 문장이다. Dense 상위도 종속기업 전환우선주부채다."
+    },
+    {
+      "query_id": "V2-00121941-finance_table-02",
+      "company": "대상",
+      "category": "formal_term_sibling_table",
+      "evidence": "질문의 '받을 돈/갚을 돈'은 양성 표에 없다. 표 제목은 '특수관계자거래의 채권·채무 잔액'이고 당분기말 연결 주석이다. BM25 7위가 그 표다. 그 앞은 같은 주제의 별도·전기 표다. Dense 상위도 특수관계자 표이나 별도 재무제표와 전기 잔액이다."
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-02",
+      "company": "대상",
+      "category": "domain_terms_and_elimination_table",
+      "evidence": "BM25 1위는 '식품 및 소재 사업 부문' 개요 문단이다. 같은 상위 10에 '부문간 제거한 금액'이 있는 영업부문 표도 있다. 질문의 '이유'에 해당하는 숫자는 그 표의 제거 금액이다. Dense 상위는 2025년 연간 경영진단으로, 식품·소재와 연결 매출을 말하지만 2026년 1분기 제거 금액은 없다."
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "company": "삼양식품",
+      "category": "partial_accounting_term",
+      "evidence": "requirement는 셋이다. BM25는 R2만 복구한다. 4위 주석에 '차감 : 유동성장기부채'가 있고 그 행의 표시 금액은 0이다. 재무상태표의 단기차입금·유동성장기부채 잔액 unit과 전기말 대출약정 unit은 양쪽 상위 10에 없다. query Hit는 requirement 하나의 복구다."
+    },
+    {
+      "query_id": "V2-00126955-finance_paragraph-02",
+      "company": "삼양식품",
+      "category": "accounting_policy_lexical",
+      "evidence": "BM25 1위는 K-IFRS 1118 손익 분류 문단이고 '현행 연결재무제표'와 '영업손익'이 있다. 발췌문에는 매출원가와 판매비와관리비의 차감식이 없다. 질문의 '빼서 계산'이 맞아 떨어진 근거로 보지 않았다. Dense 상위는 회사 개요 일반사항이다."
+    }
+  ],
+  "dense_only_success": [
+    {
+      "query_id": "V2-00126380-finance_table-02",
+      "company": "삼성전자",
+      "category": "lexical_mismatch_purchase_versus_acquisition",
+      "evidence": "질문은 '구매 관련 거래'다. 양성 표의 행 이름은 '매입 등, 특수관계자거래'이고 열에 삼성에스디에스와 '전분기'가 있다. Dense 1위가 그 표다. 질문 표면형 '구매', '전분기에', '삼성에스디에스와'는 표 본문의 부분 문자열로 남지 않는다. BM25 상위는 삼성에스디에스가 출자 열로 반복되는 계열회사 지분율 표다."
+    }
+  ],
+  "both_miss": [
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "company": "이수페타시스",
+      "category": "two_facts_two_filings",
+      "evidence": "R1은 2024 반기 주석의 투자조합 지분율 표, R2는 2024 3분기 주석의 채권 연체 표다. 둘 다 후보 unit 안에 있다. BM25 상위는 '투자조합의 경우 법인이 아닌 단체에 해당하므로 포함하지 아니하였습니다'라는 제외 문장이다. Dense 상위는 반기·3분기 표지 문장이다."
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "company": "이수페타시스",
+      "category": "right_line_wrong_period",
+      "evidence": "양성 unit은 2026 반기 별도 현금흐름표의 '영업권 이외의 무형자산의 취득'과 '투자부동산의 취득'이다. Dense 첫 양성 rank는 20이다. Dense 4위는 2025 반기 연결 현금흐름표의 같은 행 이름이다. BM25 상위는 투자부동산 장부 변동 주석이다. 상위 10의 합집합에는 양성 unit이 없다."
+    }
+  ],
+  "requirement_gap_inside_query_hit": [
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "company": "삼양식품",
+      "category": "bm25_adds_operating_income_line",
+      "evidence": "query Hit는 양쪽이다. R1 매출액은 양쪽이 복구한다. R2 영업이익은 BM25만 복구한다. Dense 상위 10의 양성 unit은 면스낵 품목 매출 표(relevance 1)다. BM25 상위는 제62–64기 손익계산서와 요약재무정보의 매출액·영업이익 행이다. 같은 질의에서 Dense만 복구하는 requirement는 없다."
+    }
+  ],
+  "categories_observed": [
+    "exact_term",
+    "exact_term_and_date",
+    "exact_section_title",
+    "accounting_phrase",
+    "statement_line_label",
+    "formal_term_sibling_table",
+    "domain_terms_and_elimination_table",
+    "partial_accounting_term",
+    "accounting_policy_lexical",
+    "lexical_mismatch_purchase_versus_acquisition",
+    "two_facts_two_filings",
+    "right_line_wrong_period",
+    "bm25_adds_operating_income_line"
+  ],
+  "hypotheses_not_assigned": [
+    "BM25-only 10건을 layperson 실패나 paraphrase 실패로 묶지 않았다. 그 라벨이 붙은 질의에서도 복구된 본문은 식품·소재, 특수관계자, 우선주·보통주, 현행 기준처럼 질문과 본문이 공유하는 표면 문자열이었다.",
+    "Dense-only를 긴 인과 서술의 성공으로 두지 않았다. 그 한 건은 구매와 매입의 어휘 차이와, 같은 회사명이 반복되는 지분율 표다.",
+    "both-miss 2건을 chunk 부재로 두지 않았다. 양성 unit은 후보 집합 안에 있었다."
+  ]
+}

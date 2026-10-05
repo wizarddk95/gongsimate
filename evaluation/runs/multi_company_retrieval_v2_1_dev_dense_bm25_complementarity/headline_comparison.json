@@ -1,0 +1,197 @@
+{
+  "table": [
+    {
+      "metric": "Hit@1",
+      "dense_numerator": 20,
+      "dense_denominator": 45,
+      "dense_value": 0.4444444444444444,
+      "bm25_numerator": 29,
+      "bm25_denominator": 45,
+      "bm25_value": 0.6444444444444445,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "Hit@5",
+      "dense_numerator": 28,
+      "dense_denominator": 45,
+      "dense_value": 0.6222222222222222,
+      "bm25_numerator": 40,
+      "bm25_denominator": 45,
+      "bm25_value": 0.8888888888888888,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "Hit@10",
+      "dense_numerator": 33,
+      "dense_denominator": 45,
+      "dense_value": 0.7333333333333333,
+      "bm25_numerator": 42,
+      "bm25_denominator": 45,
+      "bm25_value": 0.9333333333333333,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "Recall@5 macro",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.3871746771746772,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.5724279424279424,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "Recall@5 micro",
+      "dense_numerator": 78,
+      "dense_denominator": 231,
+      "dense_value": 0.33766233766233766,
+      "bm25_numerator": 113,
+      "bm25_denominator": 231,
+      "bm25_value": 0.48917748917748916,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "Recall@10 macro",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.5612228512228512,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.7673977873977874,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "Recall@10 micro",
+      "dense_numerator": 129,
+      "dense_denominator": 231,
+      "dense_value": 0.5584415584415584,
+      "bm25_numerator": 174,
+      "bm25_denominator": 231,
+      "bm25_value": 0.7532467532467533,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "MRR",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.5245943562610229,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.7418783068783069,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "NDCG@10",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.47846869834414757,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.7083985500432499,
+      "role": "headline",
+      "ndcg_variant": "condensed"
+    },
+    {
+      "metric": "preferred_hit@10",
+      "dense_numerator": 25,
+      "dense_denominator": 45,
+      "dense_value": 0.5555555555555556,
+      "bm25_numerator": 37,
+      "bm25_denominator": 45,
+      "bm25_value": 0.8222222222222222,
+      "role": "diagnostic",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "requirement_recall@10",
+      "dense_numerator": 41,
+      "dense_denominator": 58,
+      "dense_value": 0.7068965517241379,
+      "bm25_numerator": 51,
+      "bm25_denominator": 58,
+      "bm25_value": 0.8793103448275862,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "all_requirements_covered@10",
+      "dense_numerator": 32,
+      "dense_denominator": 45,
+      "dense_value": 0.7111111111111111,
+      "bm25_numerator": 41,
+      "bm25_denominator": 45,
+      "bm25_value": 0.9111111111111111,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "judged_coverage@10",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 1.0,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 1.0,
+      "role": "headline",
+      "ndcg_variant": null
+    },
+    {
+      "metric": "judged_coverage@20",
+      "dense_numerator": null,
+      "dense_denominator": 45,
+      "dense_value": 0.5355555555555556,
+      "bm25_numerator": null,
+      "bm25_denominator": 45,
+      "bm25_value": 0.5566666666666666,
+      "role": "headline",
+      "ndcg_variant": null
+    }
+  ],
+  "query_cells": {
+    "dense_hit_bm25_hit": 32,
+    "dense_hit_bm25_miss": 1,
+    "dense_miss_bm25_hit": 10,
+    "dense_miss_bm25_miss": 2
+  },
+  "requirement_cells": {
+    "both": 40,
+    "dense_only": 1,
+    "bm25_only": 11,
+    "neither": 6
+  },
+  "hybrid_decision": {
+    "primary": "A",
+    "rule": "Primary label uses DEV Hit@10 and requirement@10 only. B when BM25 recovers nothing Dense missed: BM25-only query hits are 0, BM25-only requirement recoveries are 0, and no query has crossed requirement coverage. C when that is not true and both-miss queries are at least as many as the two asymmetric query cells combined and at least one third of DEV. A otherwise, which requires BM25 to add a query hit, a requirement, or a crossed multi-requirement case without shared misses dominating. B takes precedence over C so a nested BM25 does not become a hybrid proposal. Shared-miss dominance still selects the non-hybrid follow-up.",
+    "bm25_adds_nothing": false,
+    "shared_miss_dominant": false,
+    "bidirectional_query_complementarity": true,
+    "requirement_cross_coverage_queries": 0,
+    "question_count": 45,
+    "test_used": false
+  },
+  "ndcg_sensitivity": {
+    "dense_unjudged_as_zero": {
+      "numerator": null,
+      "denominator": 45,
+      "value": 0.47846869834414757,
+      "small_n": false,
+      "role": "sensitivity_not_headline"
+    },
+    "bm25_unjudged_as_zero": {
+      "numerator": null,
+      "denominator": 45,
+      "value": 0.7083985500432499,
+      "small_n": false,
+      "role": "sensitivity_not_headline"
+    },
+    "role": "sensitivity_not_headline"
+  }
+}
