@@ -1,0 +1,72 @@
+{
+  "experiment_id": "v21_dev_top20_truncated_rrf",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "population": "dev fully_answerable",
+  "question_count": 45,
+  "test_questions_searched": 0,
+  "test_used_for_tuning": false,
+  "retrieval_reexecuted": false,
+  "intended_base_commit": "6c3fec85523545e3552a71930b56409b8be8e754",
+  "base_commit_confirmed": true,
+  "source_runs": {
+    "complementarity_dense_sha256": "1e5f88855babe6e5dbf740ace9ddba7ae2ba8ddc0d65aa1f00c2702ba03a90f2",
+    "complementarity_bm25_sha256": "9557e2f6692411838caaa1732eff634d123683ea2df0fd616772e4a649389833",
+    "full_rrf_run": "multi_company_retrieval_v2_1_dev_rrf",
+    "full_rrf_dev_sha256": "439c16dde19b31c268cbf4b6c7650708e6033fe7c3ec307fd99a815a3068fc0c"
+  },
+  "truncated_rrf": {
+    "function": "disclosure_agent.evalset_v2_1.truncated_rrf.candidate_truncated_rrf",
+    "full_ranking_function_not_used": "disclosure_agent.hybrid.reciprocal_rank_fusion",
+    "k": 60,
+    "candidate_n": 20,
+    "k_swept": false,
+    "n_swept": false,
+    "rank_base": 1,
+    "formula": "score(d) = I_dense(d)/(k + dense_rank(d)) + I_bm25(d)/(k + bm25_rank(d))",
+    "I_dense": "1 when d is in the Dense top-20, else 0",
+    "I_bm25": "1 when d is in the BM25 top-20, else 0",
+    "weights": "1:1",
+    "deep_tail_rank_used": false,
+    "ranks_outside_top_n_are_not_score_inputs": true,
+    "outside_union_is_not_a_candidate": true,
+    "duplicate_retrieval_unit_id": "one row; the two contributions add",
+    "tie_break": [
+      "score descending",
+      "retrieval_unit_id ascending"
+    ],
+    "tie_break_reason": "Stored top-20 hits have no ordinal or unit_index. retrieval_unit_id is a total order, so equal scores do not depend on dict order.",
+    "intersection_min_score": 0.025,
+    "single_list_max_score": 0.01639344262295082,
+    "intersection_precedes_single_list": true,
+    "weighted_score_fusion": false,
+    "query_routing": false,
+    "reranker": false
+  },
+  "dense": {
+    "implementation": "stored Dense-D2a top-20",
+    "model": "BAAI/bge-m3",
+    "query_encoding_policy": "raw_question_text_no_instruction"
+  },
+  "bm25": {
+    "implementation": "stored Bm25Index.search top-20",
+    "tokenizer_version": "ko-mixed-v1",
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "forbidden": {
+    "n_sweep": false,
+    "k_sweep": false,
+    "weight_tuning": false,
+    "alpha_tuning": false,
+    "query_routing": false,
+    "reranker": false,
+    "query_expansion": false,
+    "embedding_change": false,
+    "chunking_change": false
+  },
+  "git_commit": "6c3fec85523545e3552a71930b56409b8be8e754",
+  "git_dirty": true,
+  "head_subject": "eval: reject fixed-k full-ranking rrf on v2.1 dev",
+  "verdict_label": "B"
+}

@@ -2,6 +2,7 @@
 
 Neither freeze nor evaluate calls a judge. Complementarity and RRF search
 fully answerable dev only. RRF does not sweep k and does not read test.
+Truncated RRF reuses stored DEV top-20 rankings and does not search test.
 """
 
 from __future__ import annotations
@@ -16,13 +17,14 @@ from disclosure_agent.evalset_v2_1.complementarity import run_complementarity
 from disclosure_agent.evalset_v2_1.evaluate import evaluate_dense
 from disclosure_agent.evalset_v2_1.freeze import freeze_dataset
 from disclosure_agent.evalset_v2_1.rrf import run_rrf_experiment
+from disclosure_agent.evalset_v2_1.truncated_rrf import run_truncated_rrf_experiment
 
 
 def main(argv: Sequence[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="python -m disclosure_agent.evalset_v2_1")
     parser.add_argument(
         "stage",
-        choices=["freeze", "evaluate", "run", "complementarity", "rrf"],
+        choices=["freeze", "evaluate", "run", "complementarity", "rrf", "truncated-rrf"],
     )
     parser.add_argument("--root", type=Path, default=None)
     args = parser.parse_args(list(argv) if argv is not None else None)
@@ -60,6 +62,22 @@ def main(argv: Sequence[str] | None = None) -> None:
                     "question_count": payload["question_count"],
                     "verdict": payload["verdict"]["label"],
                     "rrf_hit10": payload["rrf_headline"]["at_k"]["10"]["hit"],
+                    "test_questions_searched": payload["test_questions_searched"],
+                },
+                ensure_ascii=False,
+            )
+        )
+        return
+    if args.stage == "truncated-rrf":
+        payload = run_truncated_rrf_experiment(root)
+        print(
+            json.dumps(
+                {
+                    "dataset_sha256": payload["dataset_sha256"],
+                    "question_count": payload["question_count"],
+                    "verdict": payload["verdict"]["label"],
+                    "truncated_hit10": payload["truncated_headline"]["at_k"]["10"]["hit"],
+                    "recovered_of_eight": payload["recovery"]["recovered_hit10"],
                     "test_questions_searched": payload["test_questions_searched"],
                 },
                 ensure_ascii=False,

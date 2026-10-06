@@ -1,0 +1,556 @@
+{
+  "full_rrf": {
+    "both": {
+      "prior": 40,
+      "transitions": {
+        "retained": 40
+      },
+      "lost_or_still_missing": []
+    },
+    "dense_only": {
+      "prior": 1,
+      "transitions": {
+        "recovered": 1
+      },
+      "lost_or_still_missing": []
+    },
+    "bm25_only": {
+      "prior": 11,
+      "transitions": {
+        "lost": 8,
+        "retained": 3
+      },
+      "lost_or_still_missing": [
+        "V2-00121941-business_paragraph-02/R1",
+        "V2-00121941-business_paragraph-03/R1",
+        "V2-00121941-finance_table-02/R1",
+        "V2-00121941-overview_paragraph-01/R1",
+        "V2-00126380-governance_paragraph-01/R1",
+        "V2-00126955-finance_paragraph-02/R1",
+        "V2-00989619-governance_paragraph-02/R1",
+        "V2-00989619-overview_paragraph-01/R1"
+      ]
+    },
+    "neither": {
+      "prior": 6,
+      "transitions": {
+        "recovered": 2,
+        "still_missing": 4
+      },
+      "lost_or_still_missing": [
+        "V2-00107613-cross_period-02/R1",
+        "V2-00107613-cross_period-02/R2",
+        "V2-00126955-cross_period-02/R1",
+        "V2-00126955-cross_period-02/R3"
+      ]
+    }
+  },
+  "truncated_rrf": {
+    "both": {
+      "prior": 40,
+      "transitions": {
+        "retained": 40
+      },
+      "lost_or_still_missing": []
+    },
+    "dense_only": {
+      "prior": 1,
+      "transitions": {
+        "recovered": 1
+      },
+      "lost_or_still_missing": []
+    },
+    "bm25_only": {
+      "prior": 11,
+      "transitions": {
+        "lost": 3,
+        "retained": 8
+      },
+      "lost_or_still_missing": [
+        "V2-00121941-business_paragraph-03/R1",
+        "V2-00121941-finance_table-02/R1",
+        "V2-00989619-governance_paragraph-02/R1"
+      ]
+    },
+    "neither": {
+      "prior": 6,
+      "transitions": {
+        "still_missing": 6
+      },
+      "lost_or_still_missing": [
+        "V2-00107613-cross_period-02/R1",
+        "V2-00107613-cross_period-02/R2",
+        "V2-00107613-finance_table-03/R1",
+        "V2-00107613-finance_table-03/R2",
+        "V2-00126955-cross_period-02/R1",
+        "V2-00126955-cross_period-02/R3"
+      ]
+    }
+  },
+  "requirements": [
+    {
+      "query_id": "V2-00107613-business_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "우주항공산업에서 사용되는 PCB에 극심한 온도 변화와 진동·충격에 대한 저항성, 장기적인 신뢰성이 요구되는 이유를 설명한다.",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-business_table-01",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스의 향후 투자계획에서 토지·건축물과 기계장치의 예상투자총액 및 향후투자액은 각각 얼마인가요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "requirement_id": "R1",
+      "requirement_text": "2024년 반기보고서에 기재된 투자조합의 지분율과 관련 재무 정보(순자산지분금액 및 장부금액)를 확인한다.",
+      "prior_cell": "neither",
+      "truncated_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "requirement_id": "R2",
+      "requirement_text": "2024년 3분기보고서에 기재된 받을 돈의 연체 현황과 금액을 확인한다.",
+      "prior_cell": "neither",
+      "truncated_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00107613-finance_table-01",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스의 2024년 상반기 연결 현금흐름표에서 투자활동현금흐름은 얼마였나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스의 2026년 상반기 영업권 이외의 무형자산 취득 금액은 얼마인가?",
+      "prior_cell": "neither",
+      "truncated_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "requirement_id": "R2",
+      "requirement_text": "이수페타시스의 2026년 상반기 투자부동산 취득 금액은 얼마인가?",
+      "prior_cell": "neither",
+      "truncated_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00107613-governance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스는 2025년 상반기 1인 평균 급여를 계산할 때 평균 몇 명을 기준으로 했나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스는 자금이 부족해질 위험에 대비해 어떻게 돈을 관리하고 있나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-multi_element-01",
+      "requirement_id": "R1",
+      "requirement_text": "환율 5% 상승 민감도 분석에서 어떤 변동을 가정하며, 다른 변수는 어떻게 처리하는가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-multi_element-01",
+      "requirement_id": "R2",
+      "requirement_text": "환율 5% 상승에 따른 자본 및 손익의 변동금액은 어떤 기준으로 제시하는가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-overview_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "이수페타시스의 법적ㆍ상업적 명칭은 무엇인가요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "대상은 외환거래에서 투기적 거래를 어떻게 규정하고 있나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "2026년 1분기 식품·소재 부문 매출 합계보다 연결 매출액이 낮은 이유가 연결조정 때문인지, 그렇다면 연결조정 금액은 얼마인지 확인한다.",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-03",
+      "requirement_id": "R1",
+      "requirement_text": "대상이 종속·관계·공동기업을 제외하고 보유한 지분증권 투자액은 2024년 말 장부상 얼마였나요?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": false,
+      "transition": "lost"
+    },
+    {
+      "query_id": "V2-00121941-business_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "대상 군산공장의 전분·물엿 생산 가능량은 제73기 1분기 216,000톤으로, 제72기 연간 792,000톤의 몇 퍼센트인지 계산한다.",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-cross_period-01",
+      "requirement_id": "R1",
+      "requirement_text": "연결 현금흐름표상 영업활동으로 인한 현금흐름이 2022년부터 2024년까지 어떻게 변했는지 파악한다.",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-finance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "대상네트웍스㈜ 실수요영업부문 사업양수를 결의한 날부터 실제 사업양수일까지의 경과 일수",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-finance_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "대상은 2026년 1분기 말 특수관계자 거래로 받을 돈과 갚을 돈이 각각 얼마였어?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": false,
+      "transition": "lost"
+    },
+    {
+      "query_id": "V2-00121941-multi_element-01",
+      "requirement_id": "R1",
+      "requirement_text": "대상(주) 군산 사업소의 전분·물엿 생산실적은 제73기 반기에 413,185톤, 제72기 연간에 682,139톤이다.",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-multi_element-01",
+      "requirement_id": "R2",
+      "requirement_text": "대상(주) 군산 사업소의 아미노산 제품류 생산실적은 제73기 반기에 3,115톤, 제72기 연간에 9,228톤이다.",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-overview_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "대상의 2026년 6월 30일 현재 총 유통주식수는 몇 주인가요?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-business_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 2026년 반기말 현재 통화선도 거래를 몇 건 체결하고 있나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-finance_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 금융상품의 민감도분석에서 변동을 어떤 기준으로 유리한 변동과 불리한 변동으로 구분하나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-finance_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+      "prior_cell": "dense_only",
+      "truncated_covered@10": true,
+      "transition": "recovered"
+    },
+    {
+      "query_id": "V2-00126380-finance_table-03",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자의 2025년 말 자본금에서 우선주자본금과 보통주자본금이 각각 차지하는 비중은 얼마인가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 당기에 주식매수선택권 부여로 인식한 보상비용이 있나요?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 성과조건부 주식을 언제부터 지급하나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-mdna_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자의 제57기 매출액과 영업이익은 전년 대비 각각 어떻게 변했나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼성전자는 앞으로의 실적 전망이 실제와 달라질 수 있는 이유로 어떤 점들을 들었나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-multi_element-02",
+      "requirement_id": "R1",
+      "requirement_text": "하만의 연산용 칩(SOC)의 매입액과 전체 매입액에서 차지하는 비율은 얼마인가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-multi_element-02",
+      "requirement_id": "R2",
+      "requirement_text": "차량 통신 모듈의 매입액과 전체 매입액에서 차지하는 비율은 얼마인가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-business_paragraph-03",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품이 중국에서 주력으로 판매하는 볶음면 시장은 최근 어떤 추세인가요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-business_table-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품의 2026년 반기보고서에 나온 설비 보완 투자계획에서 총 투자예정액과 지출금액 합계는 각각 얼마인가요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "requirement_id": "R1",
+      "requirement_text": "제62기부터 제64기까지 매출액은 어떻게 변했는가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "requirement_id": "R2",
+      "requirement_text": "제62기부터 제64기까지 영업이익은 어떻게 변했는가?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R1",
+      "requirement_text": "2026년 1분기 말 단기차입금 잔액은 얼마인가?",
+      "prior_cell": "neither",
+      "truncated_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R2",
+      "requirement_text": "2026년 1분기 말 유동성장기부채 잔액은 얼마인가?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R3",
+      "requirement_text": "반기보고서에 기재된 전기말 대출 약정 한도는 약정 유형별로 얼마인가?",
+      "prior_cell": "neither",
+      "truncated_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00126955-finance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품의 현행 기준 영업이익은 매출액에서 매출원가와 판매비와관리비를 차감해 계산하는가?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-finance_table-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품의 2026년 상반기 연결 자본변동표에서 배당금 지급은 얼마로 나타났나요?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-mdna_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품이 환율변동위험, 특히 달러화 및 엔화 관련 위험에 노출되어 있는 이유를 파악한다.",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-multi_element-02",
+      "requirement_id": "R1",
+      "requirement_text": "삼양제분의 제분부문은 연간 소맥을 어느 정도 가공할 수 있는가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-multi_element-02",
+      "requirement_id": "R2",
+      "requirement_text": "삼양제분의 정제부문은 연간 원유를 어느 정도 가공할 수 있는가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-overview_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "삼양식품의 연혁에 따르면, 삼양라운드어스(주)는 2023년 7월 어떤 상호에서 변경됐나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠의 라이선스아웃 계약에서 매출은 어떤 항목으로 구분되나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠의 2026년 1분기 연구개발 비용에서 원재료비가 차지하는 비중은 얼마인가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R2",
+      "requirement_text": "알테오젠의 2026년 1분기 연구개발 비용에서 인건비가 차지하는 비중은 얼마인가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R3",
+      "requirement_text": "알테오젠의 2026년 1분기 연구개발 비용에서 감가상각비가 차지하는 비중은 얼마인가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R4",
+      "requirement_text": "알테오젠의 2026년 1분기 연구개발 비용에서 외주용역비가 차지하는 비중은 얼마인가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-finance_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠은 제1118호를 언제부터 의무 적용해야 하나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠 분기보고서에서 기술 지원과 위탁생산 용역 기간은 언제부터 언제까지로 나와 있어?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-finance_table-03",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠의 전기 외화환산이익 중 금융자산과 금융부채에서 발생한 금액이 각각 전체 외화환산이익에서 차지하는 비율은 얼마인가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-governance_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠은 이번 분기에 우선주 몇 주를 보통주로 바꿨나요?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": false,
+      "transition": "lost"
+    },
+    {
+      "query_id": "V2-00989619-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠은 사업보고서에 적은 향후 예상이 실제 결과와 다를 수 있다고 어떤 점을 주의시키나요?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-multi_element-02",
+      "requirement_id": "R1",
+      "requirement_text": "바이오의약품은 합성의약품에 비해 크기와 제조 과정에서 어떤 차이가 있는가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-multi_element-02",
+      "requirement_id": "R2",
+      "requirement_text": "바이오의약품은 어떤 질환의 치료에 뛰어난 효과가 있다고 설명하는가?",
+      "prior_cell": "both",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-overview_paragraph-01",
+      "requirement_id": "R1",
+      "requirement_text": "알테오젠의 종류주식 발행현황에 기재된 주식은 어떤 종류인가요?",
+      "prior_cell": "bm25_only",
+      "truncated_covered@10": true,
+      "transition": "retained"
+    }
+  ]
+}
