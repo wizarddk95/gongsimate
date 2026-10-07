@@ -1,0 +1,995 @@
+{
+  "aggregate": {
+    "question_count": 45,
+    "structural_property_holds": 45,
+    "same_unit_pairs": 42,
+    "same_unit_rank_change_mean": 1.380952380952381,
+    "same_unit_improved": 5,
+    "same_unit_neutral": 19,
+    "same_unit_regressed": 18,
+    "first_relevant_unit_differs_from_bm25_positive": 8,
+    "intersection_count_distribution": [
+      {
+        "intersection_count": 0,
+        "queries": 7,
+        "mean_same_unit_rank_change": 2.2857142857142856,
+        "median_same_unit_rank_change": 1.0,
+        "hit10_regressions": 1,
+        "small_n": false
+      },
+      {
+        "intersection_count": 1,
+        "queries": 3,
+        "mean_same_unit_rank_change": 0.6666666666666666,
+        "median_same_unit_rank_change": 0.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 2,
+        "queries": 1,
+        "mean_same_unit_rank_change": -2.0,
+        "median_same_unit_rank_change": -2.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 3,
+        "queries": 3,
+        "mean_same_unit_rank_change": 1.3333333333333333,
+        "median_same_unit_rank_change": 1.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 4,
+        "queries": 2,
+        "mean_same_unit_rank_change": -1.5,
+        "median_same_unit_rank_change": -1.5,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 5,
+        "queries": 4,
+        "mean_same_unit_rank_change": 0.0,
+        "median_same_unit_rank_change": 0.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 6,
+        "queries": 6,
+        "mean_same_unit_rank_change": 2.0,
+        "median_same_unit_rank_change": 0.5,
+        "hit10_regressions": 0,
+        "small_n": false
+      },
+      {
+        "intersection_count": 7,
+        "queries": 3,
+        "mean_same_unit_rank_change": 4.0,
+        "median_same_unit_rank_change": 4.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 8,
+        "queries": 3,
+        "mean_same_unit_rank_change": 5.0,
+        "median_same_unit_rank_change": 7.0,
+        "hit10_regressions": 2,
+        "small_n": true
+      },
+      {
+        "intersection_count": 9,
+        "queries": 2,
+        "mean_same_unit_rank_change": 0.0,
+        "median_same_unit_rank_change": 0.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 10,
+        "queries": 3,
+        "mean_same_unit_rank_change": -0.6666666666666666,
+        "median_same_unit_rank_change": 0.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 11,
+        "queries": 1,
+        "mean_same_unit_rank_change": 3.0,
+        "median_same_unit_rank_change": 3.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 12,
+        "queries": 1,
+        "mean_same_unit_rank_change": 0.0,
+        "median_same_unit_rank_change": 0.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 13,
+        "queries": 1,
+        "mean_same_unit_rank_change": 2.0,
+        "median_same_unit_rank_change": 2.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 15,
+        "queries": 1,
+        "mean_same_unit_rank_change": 0.0,
+        "median_same_unit_rank_change": 0.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      },
+      {
+        "intersection_count": 16,
+        "queries": 1,
+        "mean_same_unit_rank_change": -1.0,
+        "median_same_unit_rank_change": -1.0,
+        "hit10_regressions": 0,
+        "small_n": true
+      }
+    ],
+    "movement_groups": [
+      {
+        "movement_vs_bm25": "improvement",
+        "queries": 5,
+        "mean_intersection_count": 7.6,
+        "median_intersection_count": 6.0,
+        "min_intersection_count": 2,
+        "max_intersection_count": 16,
+        "mean_same_unit_rank_change": -1.8,
+        "mean_dense_only_ahead": 0.0,
+        "small_n": false
+      },
+      {
+        "movement_vs_bm25": "neutral",
+        "queries": 27,
+        "mean_intersection_count": 5.888888888888889,
+        "median_intersection_count": 6.0,
+        "min_intersection_count": 0,
+        "max_intersection_count": 15,
+        "mean_same_unit_rank_change": 0.9259259259259259,
+        "mean_dense_only_ahead": 0.0,
+        "small_n": false
+      },
+      {
+        "movement_vs_bm25": "regression",
+        "queries": 10,
+        "mean_intersection_count": 4.1,
+        "median_intersection_count": 3.5,
+        "min_intersection_count": 0,
+        "max_intersection_count": 11,
+        "mean_same_unit_rank_change": 4.2,
+        "mean_dense_only_ahead": 2.0,
+        "small_n": false
+      },
+      {
+        "movement_vs_bm25": "recovered",
+        "queries": 1,
+        "mean_intersection_count": 1.0,
+        "median_intersection_count": 1.0,
+        "min_intersection_count": 1,
+        "max_intersection_count": 1,
+        "mean_same_unit_rank_change": null,
+        "mean_dense_only_ahead": null,
+        "small_n": true
+      },
+      {
+        "movement_vs_bm25": "still_missing",
+        "queries": 2,
+        "mean_intersection_count": 3.0,
+        "median_intersection_count": 3.0,
+        "min_intersection_count": 0,
+        "max_intersection_count": 6,
+        "mean_same_unit_rank_change": null,
+        "mean_dense_only_ahead": null,
+        "small_n": true
+      }
+    ],
+    "bm25_rank_bands": [
+      {
+        "bm25_positive_rank_band": "1",
+        "queries": 29,
+        "mean_bm25_positive_rank": 1.0,
+        "mean_truncated_rank_of_that_unit": 2.206896551724138,
+        "mean_same_unit_rank_change": 1.206896551724138,
+        "small_n": false
+      },
+      {
+        "bm25_positive_rank_band": "2-5",
+        "queries": 11,
+        "mean_bm25_positive_rank": 3.0,
+        "mean_truncated_rank_of_that_unit": 3.8181818181818183,
+        "mean_same_unit_rank_change": 0.8181818181818182,
+        "small_n": false
+      },
+      {
+        "bm25_positive_rank_band": "6-10",
+        "queries": 2,
+        "mean_bm25_positive_rank": 7.5,
+        "mean_truncated_rank_of_that_unit": 14.5,
+        "mean_same_unit_rank_change": 7.0,
+        "small_n": true
+      }
+    ],
+    "identity_population": 14,
+    "identity_regressions": {
+      "queries": 11,
+      "with_queue_jumps": 7,
+      "with_dense_displacement": 6,
+      "with_both": 2,
+      "reading": "counts of a DEV slice; not a causal estimate"
+    },
+    "associations": [
+      {
+        "statistic": "spearman",
+        "x": "intersection_count",
+        "y": "same_unit_rank_change",
+        "n": 42,
+        "value": -0.05844287688965968,
+        "population": "queries whose BM25 positive is inside the stored top-20",
+        "reading": "이 계수는 이 DEV 조각의 기술 통계다. 표본이 작고 질의가 한 벤치마크에 묶여 있다. 인과 추정치로 읽지 않는다."
+      },
+      {
+        "statistic": "spearman",
+        "x": "dense_only_count",
+        "y": "same_unit_rank_change",
+        "n": 42,
+        "value": 0.05844287688965968,
+        "population": "queries whose BM25 positive is inside the stored top-20",
+        "reading": "이 계수는 이 DEV 조각의 기술 통계다. 표본이 작고 질의가 한 벤치마크에 묶여 있다. 인과 추정치로 읽지 않는다."
+      },
+      {
+        "statistic": "spearman",
+        "x": "dense_only_ahead",
+        "y": "same_unit_rank_change",
+        "n": 14,
+        "value": 0.24845889923192513,
+        "population": "BM25-only positives whose displacement identity holds",
+        "reading": "이 계수는 이 DEV 조각의 기술 통계다. 표본이 작고 질의가 한 벤치마크에 묶여 있다. 인과 추정치로 읽지 않는다."
+      },
+      {
+        "statistic": "spearman",
+        "x": "bm25_positive_rank",
+        "y": "bm25_positive_truncated_rank",
+        "n": 42,
+        "value": 0.4035823851618455,
+        "population": "queries whose BM25 positive is inside the stored top-20",
+        "reading": "이 계수는 이 DEV 조각의 기술 통계다. 표본이 작고 질의가 한 벤치마크에 묶여 있다. 인과 추정치로 읽지 않는다."
+      }
+    ],
+    "association_note": "이 계수는 이 DEV 조각의 기술 통계다. 표본이 작고 질의가 한 벤치마크에 묶여 있다. 인과 추정치로 읽지 않는다."
+  },
+  "verdict": {
+    "hypothesis": "잔여 BM25 regression의 직접적인 rank-level mechanism은 deep-tail이 아니라 intersection dominance 및 symmetric rank competition이다.",
+    "decision": "Partial Support",
+    "mechanisms": [
+      "symmetric_rank_competition",
+      "intersection_dominance_and_symmetric_competition",
+      "intersection_dominance"
+    ],
+    "mechanisms_identical": false,
+    "deep_tail_clear": true,
+    "structural_property_holds_on_all_three": true,
+    "identities_hold": true,
+    "asymmetric_fusion_justified": false,
+    "weighted_rrf_implemented": false,
+    "weight_sweep_run": false,
+    "rule": "Strong Support when deep-tail contribution is 0, the intersection prefix property holds, the BM25-only displacement identity holds, and every residual case is intersection queue jumps plus Dense-only competition. Partial Support when those audits hold and every case is one or both of those mechanisms, but the three cases are not the same pair. Reject when a deep-tail rank is used, the identity fails, or a displacement is unexplained."
+  },
+  "answers": {
+    "A": "대상 지분증권(`V2-00121941-business_paragraph-03`) positive 앞에는 intersection 0개, dense_only 7개, bm25_only 7개가 있다. 그 앞 판정은 relevant 0, irrelevant 14, unjudged 0이다. BM25 양성 unit의 자리는 8위→15위, 9위→18위, 10위→19위이다. 대상 특수관계자(`V2-00121941-finance_table-02`) positive 앞에는 intersection 8개, dense_only 3개, bm25_only 2개가 있다. 그 앞 판정은 relevant 0, irrelevant 12, unjudged 1이다. 알테오젠 우선주(`V2-00989619-governance_paragraph-02`) positive 앞에는 intersection 8개, dense_only 0개, bm25_only 2개가 있다. 그 앞 판정은 relevant 0, irrelevant 9, unjudged 1이다. BM25 양성 unit의 자리는 4위→11위, 9위→17위이다.",
+    "B": "대상 지분증권의 positional intersection pressure는 0칸이고, BM25 순서 대비 추가로 앞으로 온 queue jump는 0개다. intersection을 앞에서 뺀 자리는 15위, queue jump만 뺀 자리는 15위다. A가 함께 빼는 BM25 predecessor intersection은 0개다. Top-10을 벗어나는 최소 displacement는 3이고 관측 displacement는 7이다. 대상 특수관계자의 positional intersection pressure는 8칸이고, BM25 순서 대비 추가로 앞으로 온 queue jump는 4개다. intersection을 앞에서 뺀 자리는 6위, queue jump만 뺀 자리는 10위다. A가 함께 빼는 BM25 predecessor intersection은 4개다. Top-10을 벗어나는 최소 displacement는 4이고 관측 displacement는 7이다. 알테오젠 우선주의 positional intersection pressure는 8칸이고, BM25 순서 대비 추가로 앞으로 온 queue jump는 7개다. intersection을 앞에서 뺀 자리는 3위, queue jump만 뺀 자리는 4위다. A가 함께 빼는 BM25 predecessor intersection은 1개다. Top-10을 벗어나는 최소 displacement는 7이고 관측 displacement는 7이다.",
+    "C": "대상 지분증권의 Dense-only ahead는 7개이고 그 중 displacement는 7개다. Dense-only를 빼면 자리는 8위가 되고 Hit@10 복원 여부는 True이다. BM25 원래 자리는 8위다. 대상 특수관계자의 Dense-only ahead는 3개이고 그 중 displacement는 3개다. Dense-only를 빼면 자리는 11위가 되고 Hit@10 복원 여부는 False이다. BM25 원래 자리는 7위다. 알테오젠 우선주의 Dense-only ahead는 0개이고 그 중 displacement는 0개다. Dense-only를 빼면 자리는 11위가 되고 Hit@10 복원 여부는 False이다. BM25 원래 자리는 4위다.",
+    "D": "대상 지분증권=symmetric_rank_competition, 대상 특수관계자=intersection_dominance_and_symmetric_competition, 알테오젠 우선주=intersection_dominance. 세 mechanism은 같지 않다.",
+    "E": "교집합 prefix 성질은 45/45에서 성립한다. BM25-only identity가 성립하는 same-unit regression 11건 중 queue jump가 있는 질의는 7건, Dense-only displacement가 있는 질의는 6건, 둘 다 있는 질의는 2건이다. Spearman은 intersection_count 대 same_unit_rank_change -0.058 (n=42), dense_only_count 대 same_unit_rank_change 0.058 (n=42), dense_only_ahead 대 same_unit_rank_change 0.248 (n=14), bm25_positive_rank 대 bm25_positive_truncated_rank 0.404 (n=42)이다. 이 계수는 이 DEV 조각의 기술 통계다. 표본이 작고 질의가 한 벤치마크에 묶여 있다. 인과 추정치로 읽지 않는다.",
+    "F": "H9 판정은 Partial Support이다. 세 mechanism은 symmetric_rank_competition, intersection_dominance_and_symmetric_competition, intersection_dominance이다.",
+    "G": "이 진단은 asymmetric fusion의 순위를 만들지 않았다. 관측된 pressure만으로 그 규칙을 채택할 근거는 되지 않는다. Dense rank 1을 넘는 weight ratio와 최악 intersection을 넘는 weight ratio는 크기가 다르다. 한 weight가 세 pressure를 함께 지우는지 이 진단은 점수화하지 않았다. `V2-00121941-business_paragraph-03` BM25 8위에서 Dense rank 1을 넘기려면 weight ratio 1.115, 최악 intersection을 넘기려면 5.667이다. 이 비율은 식의 경계이고 점수화하지 않았다. `V2-00121941-finance_table-02` BM25 7위에서 Dense rank 1을 넘기려면 weight ratio 1.098, 최악 intersection을 넘기려면 5.154이다. 이 비율은 식의 경계이고 점수화하지 않았다. `V2-00989619-governance_paragraph-02` BM25 4위에서 Dense rank 1을 넘기려면 weight ratio 1.049, 최악 intersection을 넘기려면 4.000이다. 이 비율은 식의 경계이고 점수화하지 않았다.",
+    "H": "Top-20 안의 등위 경쟁이 세 Hit@10 회귀의 displacement를 설명하므로, 기전 하나를 미리 못 박은 DEV 실험을 설계할 근거는 있다. 세 사례의 mechanism은 symmetric_rank_competition, intersection_dominance_and_symmetric_competition, intersection_dominance이다. 하나의 weight sweep이 세 건을 동시에 설명한다는 실험은 이 분해의 다음 단계가 아니다. 이번 작업은 그 실험을 구현하지 않는다."
+  },
+  "candidate_hypotheses": [
+    {
+      "name": "BM25-primary asymmetric fusion",
+      "status": "hypothesis_only",
+      "implemented": false,
+      "query_ids": [
+        "V2-00121941-business_paragraph-03",
+        "V2-00121941-finance_table-02"
+      ],
+      "observed_basis": "Dense-only units with a better reciprocal rank sit ahead of the BM25 positive."
+    },
+    {
+      "name": "weighted RRF",
+      "status": "hypothesis_only",
+      "implemented": false,
+      "query_ids": [
+        "V2-00121941-finance_table-02",
+        "V2-00989619-governance_paragraph-02"
+      ],
+      "observed_basis": "Intersection units with a worse BM25 rank sit ahead of the BM25-only positive.",
+      "formula_note": "At k=60 and N=20 the worst intersection unit stays ahead of a BM25-only rank r until w_bm25/w_dense exceeds (60+r)/(20-r). That ratio was not searched and no weighted list was scored."
+    }
+  ],
+  "formula_boundaries_not_scored": [
+    {
+      "query_id": "V2-00121941-business_paragraph-03",
+      "bm25_rank": 8,
+      "weight_ratio_to_beat_worst_intersection": 5.666666666666667,
+      "weight_ratio_to_beat_dense_rank_1": 1.1147540983606556,
+      "scored": false
+    },
+    {
+      "query_id": "V2-00121941-finance_table-02",
+      "bm25_rank": 7,
+      "weight_ratio_to_beat_worst_intersection": 5.153846153846154,
+      "weight_ratio_to_beat_dense_rank_1": 1.098360655737705,
+      "scored": false
+    },
+    {
+      "query_id": "V2-00989619-governance_paragraph-02",
+      "bm25_rank": 4,
+      "weight_ratio_to_beat_worst_intersection": 4.0,
+      "weight_ratio_to_beat_dense_rank_1": 1.0491803278688525,
+      "scored": false
+    }
+  ],
+  "controlled_experiment": {
+    "warranted": true,
+    "weight_sweep_warranted": false,
+    "implemented": false,
+    "reason": "Top-20 안의 등위 경쟁이 세 Hit@10 회귀의 displacement를 설명하므로, 기전 하나를 미리 못 박은 DEV 실험을 설계할 근거는 있다. 세 사례의 mechanism은 symmetric_rank_competition, intersection_dominance_and_symmetric_competition, intersection_dominance이다. 하나의 weight sweep이 세 건을 동시에 설명한다는 실험은 이 분해의 다음 단계가 아니다. 이번 작업은 그 실험을 구현하지 않는다."
+  },
+  "residual_summaries": [
+    {
+      "positive_unit_id": "6c3f2984ba262a6a78e6d1db1be108f7602d0999cdfad8177de0d12b9d9c840a",
+      "positive_category": "bm25_only",
+      "bm25_rank": 8,
+      "truncated_rank": 15,
+      "same_unit_rank_change": 7,
+      "ahead_counts": {
+        "intersection": 0,
+        "dense_only": 7,
+        "bm25_only": 7
+      },
+      "ahead_judgments": {
+        "intersection": {
+          "relevant": 0,
+          "irrelevant": 0,
+          "unjudged": 0
+        },
+        "dense_only": {
+          "relevant": 0,
+          "irrelevant": 7,
+          "unjudged": 0
+        },
+        "bm25_only": {
+          "relevant": 0,
+          "irrelevant": 7,
+          "unjudged": 0
+        }
+      },
+      "displacement_judgments": {
+        "intersection": {
+          "relevant": 0,
+          "irrelevant": 0,
+          "unjudged": 0
+        },
+        "dense_only": {
+          "relevant": 0,
+          "irrelevant": 7,
+          "unjudged": 0
+        },
+        "bm25_only": {
+          "relevant": 0,
+          "irrelevant": 0,
+          "unjudged": 0
+        }
+      },
+      "predecessor_count": 7,
+      "predecessor_counts": {
+        "intersection": 0,
+        "dense_only": 0,
+        "bm25_only": 7
+      },
+      "predecessors_missing_ahead": [],
+      "incremental_intersection_pressure": 0,
+      "positional_intersection_pressure": 0,
+      "symmetric_competition_pressure": 7,
+      "displacement_by_category": {
+        "intersection": 0,
+        "dense_only": 7,
+        "bm25_only": 0
+      },
+      "displacement_units": [
+        {
+          "retrieval_unit_id": "9ae4ddd7f9cd06b41a80e95c484f2efbbda879801bbeb18b7d49db7085c31b13",
+          "final_rank": 2,
+          "category": "dense_only",
+          "dense_rank": 1,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "1f60c34f226cd8610f37c62a93c9484cb022ba42d2fc48559caed195ef781527",
+          "final_rank": 4,
+          "category": "dense_only",
+          "dense_rank": 2,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "f20ac7a0d4a8c420159db97df8bbfa409f8281c4c99e7ff17aa57f46dd6d7933",
+          "final_rank": 6,
+          "category": "dense_only",
+          "dense_rank": 3,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "b4b2c0034056b806f4dcea48d1793f658a1f05c750fa4146d78cbf40b3e2cbbc",
+          "final_rank": 7,
+          "category": "dense_only",
+          "dense_rank": 4,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "d6465bb272972a426f872612f9e74b1390ca235a9b0da2bb850a67ef87ec9323",
+          "final_rank": 10,
+          "category": "dense_only",
+          "dense_rank": 5,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "9d54ae07a9a8f4efaae340c9d2d30ca167845c5b0130bafa7eed638146e911bc",
+          "final_rank": 11,
+          "category": "dense_only",
+          "dense_rank": 6,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "d5555de61f4a36fc3ad5147933d14b6507aabbbd323f341aaca210bc6ea28cfb",
+          "final_rank": 14,
+          "category": "dense_only",
+          "dense_rank": 7,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        }
+      ],
+      "identity_applies": true,
+      "identity_holds": true,
+      "mechanism": "symmetric_rank_competition",
+      "dense_contribution": 0.0,
+      "bm25_contribution": 0.014705882352941176,
+      "fused_score": 0.014705882352941176,
+      "counterfactual_a_rank": 15,
+      "counterfactual_a_removes_predecessors": 0,
+      "counterfactual_a_queue_jump_only_rank": 15,
+      "counterfactual_b_dense_only_ahead": 7,
+      "counterfactual_c_bm25_rank": 8,
+      "counterfactual_d": {
+        "exited_top10": true,
+        "minimum_displacement_to_exit_top10": 3,
+        "observed_displacement": 7,
+        "minimum_removals_to_restore_top10": 5,
+        "rank_if_intersection_removed": 15,
+        "rank_if_queue_jumps_removed": 15,
+        "rank_if_dense_only_removed": 8,
+        "rank_if_bm25_only_removed": 8,
+        "removal_restores_hit10": {
+          "intersection": false,
+          "queue_jumps": false,
+          "dense_only": true,
+          "bm25_only": true
+        },
+        "displacement_category_can_supply_exit": {
+          "intersection": false,
+          "dense_only": true,
+          "bm25_only": false
+        }
+      },
+      "query_id": "V2-00121941-business_paragraph-03",
+      "label": "대상 지분증권",
+      "company": "대상",
+      "question": "대상이 종속·관계·공동기업을 제외하고 보유한 지분증권 투자액은 2024년 말 장부상 얼마였나요?",
+      "structural_property_holds": true,
+      "structural_property": {
+        "holds": true,
+        "empirical_order_holds": true,
+        "scores_within_formula_bounds": true,
+        "intersection_count": 0,
+        "single_list_count": 40,
+        "dense_only_count": 20,
+        "bm25_only_count": 20,
+        "worst_intersection_score": null,
+        "best_single_list_score": 0.01639344262295082,
+        "formula_intersection_floor": 0.025,
+        "formula_single_list_ceiling": 0.01639344262295082,
+        "vacuous_intersection": true
+      },
+      "deep_tail_rank_used": false,
+      "positive_dense_contribution": 0.0,
+      "max_contributing_rank": 20,
+      "bm25_relevant_units": [
+        {
+          "retrieval_unit_id": "6c3f2984ba262a6a78e6d1db1be108f7602d0999cdfad8177de0d12b9d9c840a",
+          "bm25_rank": 8,
+          "truncated_rank": 15,
+          "relevance": 2,
+          "relevant_requirement_ids": [
+            "R1"
+          ],
+          "category": "bm25_only",
+          "ahead_counts": {
+            "intersection": 0,
+            "dense_only": 7,
+            "bm25_only": 7
+          },
+          "outside_top10": true
+        },
+        {
+          "retrieval_unit_id": "cc42b6ee74bc79a5f0bf1b8513eb58df5bf027acdd19ebbb4f7d80d5da5345b6",
+          "bm25_rank": 9,
+          "truncated_rank": 18,
+          "relevance": 2,
+          "relevant_requirement_ids": [
+            "R1"
+          ],
+          "category": "bm25_only",
+          "ahead_counts": {
+            "intersection": 0,
+            "dense_only": 9,
+            "bm25_only": 8
+          },
+          "outside_top10": true
+        },
+        {
+          "retrieval_unit_id": "2fdf19c16308af2733dc9134726f13f1c7d069218487841a915effc8343f140a",
+          "bm25_rank": 10,
+          "truncated_rank": 19,
+          "relevance": 2,
+          "relevant_requirement_ids": [
+            "R1"
+          ],
+          "category": "bm25_only",
+          "ahead_counts": {
+            "intersection": 0,
+            "dense_only": 9,
+            "bm25_only": 9
+          },
+          "outside_top10": true
+        }
+      ]
+    },
+    {
+      "positive_unit_id": "62c8564da1be79a9d8b5bad6f32b3786894d1015029ad67477f292ac03b00a86",
+      "positive_category": "bm25_only",
+      "bm25_rank": 7,
+      "truncated_rank": 14,
+      "same_unit_rank_change": 7,
+      "ahead_counts": {
+        "intersection": 8,
+        "dense_only": 3,
+        "bm25_only": 2
+      },
+      "ahead_judgments": {
+        "intersection": {
+          "relevant": 0,
+          "irrelevant": 7,
+          "unjudged": 1
+        },
+        "dense_only": {
+          "relevant": 0,
+          "irrelevant": 3,
+          "unjudged": 0
+        },
+        "bm25_only": {
+          "relevant": 0,
+          "irrelevant": 2,
+          "unjudged": 0
+        }
+      },
+      "displacement_judgments": {
+        "intersection": {
+          "relevant": 0,
+          "irrelevant": 3,
+          "unjudged": 1
+        },
+        "dense_only": {
+          "relevant": 0,
+          "irrelevant": 3,
+          "unjudged": 0
+        },
+        "bm25_only": {
+          "relevant": 0,
+          "irrelevant": 0,
+          "unjudged": 0
+        }
+      },
+      "predecessor_count": 6,
+      "predecessor_counts": {
+        "intersection": 4,
+        "dense_only": 0,
+        "bm25_only": 2
+      },
+      "predecessors_missing_ahead": [],
+      "incremental_intersection_pressure": 4,
+      "positional_intersection_pressure": 8,
+      "symmetric_competition_pressure": 3,
+      "displacement_by_category": {
+        "intersection": 4,
+        "dense_only": 3,
+        "bm25_only": 0
+      },
+      "displacement_units": [
+        {
+          "retrieval_unit_id": "bab2a7632a01b7fffd03e46f82382b3c0f0d5cfb5d98bab0abd2d122cc0b3b75",
+          "final_rank": 2,
+          "category": "intersection",
+          "dense_rank": 2,
+          "bm25_rank": 8,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "a90898b290d2038bf39dbb9fef42ae7aa35edeae6699051ba018616098620a2a",
+          "final_rank": 3,
+          "category": "intersection",
+          "dense_rank": 1,
+          "bm25_rank": 13,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "da623d2e6d34296bf75d50bcff2de78519ce5bcfb38aa78862b7b8ba05b5ff20",
+          "final_rank": 6,
+          "category": "intersection",
+          "dense_rank": 3,
+          "bm25_rank": 20,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "f5bc08e94a198d3d335a203bd51db2f0b13d2e49dd247db3eaa22b3e8e56dde9",
+          "final_rank": 8,
+          "category": "intersection",
+          "dense_rank": 19,
+          "bm25_rank": 11,
+          "relevance": null,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "67e2831447ff4e9a3845cdd444e4cbc836b8ba93e1e601eceb8a7034fe87cd62",
+          "final_rank": 10,
+          "category": "dense_only",
+          "dense_rank": 4,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "113f34e64c281db3a245b96adf54cb82f2b40b75eda20857235392b3deac04d9",
+          "final_rank": 11,
+          "category": "dense_only",
+          "dense_rank": 5,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "285f3a30a7d982ee39a6ba61f00e7e67fff4440cbda9503f53c769b25cac0e89",
+          "final_rank": 13,
+          "category": "dense_only",
+          "dense_rank": 7,
+          "bm25_rank": null,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        }
+      ],
+      "identity_applies": true,
+      "identity_holds": true,
+      "mechanism": "intersection_dominance_and_symmetric_competition",
+      "dense_contribution": 0.0,
+      "bm25_contribution": 0.014925373134328358,
+      "fused_score": 0.014925373134328358,
+      "counterfactual_a_rank": 6,
+      "counterfactual_a_removes_predecessors": 4,
+      "counterfactual_a_queue_jump_only_rank": 10,
+      "counterfactual_b_dense_only_ahead": 3,
+      "counterfactual_c_bm25_rank": 7,
+      "counterfactual_d": {
+        "exited_top10": true,
+        "minimum_displacement_to_exit_top10": 4,
+        "observed_displacement": 7,
+        "minimum_removals_to_restore_top10": 4,
+        "rank_if_intersection_removed": 6,
+        "rank_if_queue_jumps_removed": 10,
+        "rank_if_dense_only_removed": 11,
+        "rank_if_bm25_only_removed": 12,
+        "removal_restores_hit10": {
+          "intersection": true,
+          "queue_jumps": true,
+          "dense_only": false,
+          "bm25_only": false
+        },
+        "displacement_category_can_supply_exit": {
+          "intersection": true,
+          "dense_only": false,
+          "bm25_only": false
+        }
+      },
+      "query_id": "V2-00121941-finance_table-02",
+      "label": "대상 특수관계자",
+      "company": "대상",
+      "question": "대상은 2026년 1분기 말 특수관계자 거래로 받을 돈과 갚을 돈이 각각 얼마였어?",
+      "structural_property_holds": true,
+      "structural_property": {
+        "holds": true,
+        "empirical_order_holds": true,
+        "scores_within_formula_bounds": true,
+        "intersection_count": 8,
+        "single_list_count": 24,
+        "dense_only_count": 12,
+        "bm25_only_count": 12,
+        "worst_intersection_score": 0.026742734890354787,
+        "best_single_list_score": 0.01639344262295082,
+        "formula_intersection_floor": 0.025,
+        "formula_single_list_ceiling": 0.01639344262295082,
+        "vacuous_intersection": false
+      },
+      "deep_tail_rank_used": false,
+      "positive_dense_contribution": 0.0,
+      "max_contributing_rank": 20,
+      "bm25_relevant_units": [
+        {
+          "retrieval_unit_id": "62c8564da1be79a9d8b5bad6f32b3786894d1015029ad67477f292ac03b00a86",
+          "bm25_rank": 7,
+          "truncated_rank": 14,
+          "relevance": 2,
+          "relevant_requirement_ids": [
+            "R1"
+          ],
+          "category": "bm25_only",
+          "ahead_counts": {
+            "intersection": 8,
+            "dense_only": 3,
+            "bm25_only": 2
+          },
+          "outside_top10": true
+        }
+      ]
+    },
+    {
+      "positive_unit_id": "ea7512ea104a8b27f90c11ac016a9e18e87550993881959f7426797781fc075f",
+      "positive_category": "bm25_only",
+      "bm25_rank": 4,
+      "truncated_rank": 11,
+      "same_unit_rank_change": 7,
+      "ahead_counts": {
+        "intersection": 8,
+        "dense_only": 0,
+        "bm25_only": 2
+      },
+      "ahead_judgments": {
+        "intersection": {
+          "relevant": 0,
+          "irrelevant": 7,
+          "unjudged": 1
+        },
+        "dense_only": {
+          "relevant": 0,
+          "irrelevant": 0,
+          "unjudged": 0
+        },
+        "bm25_only": {
+          "relevant": 0,
+          "irrelevant": 2,
+          "unjudged": 0
+        }
+      },
+      "displacement_judgments": {
+        "intersection": {
+          "relevant": 0,
+          "irrelevant": 6,
+          "unjudged": 1
+        },
+        "dense_only": {
+          "relevant": 0,
+          "irrelevant": 0,
+          "unjudged": 0
+        },
+        "bm25_only": {
+          "relevant": 0,
+          "irrelevant": 0,
+          "unjudged": 0
+        }
+      },
+      "predecessor_count": 3,
+      "predecessor_counts": {
+        "intersection": 1,
+        "dense_only": 0,
+        "bm25_only": 2
+      },
+      "predecessors_missing_ahead": [],
+      "incremental_intersection_pressure": 7,
+      "positional_intersection_pressure": 8,
+      "symmetric_competition_pressure": 0,
+      "displacement_by_category": {
+        "intersection": 7,
+        "dense_only": 0,
+        "bm25_only": 0
+      },
+      "displacement_units": [
+        {
+          "retrieval_unit_id": "fe34f16c22a1f6f7f87190e5149a4d2094a3709bdd3bc54d3a7e23ac75623e9e",
+          "final_rank": 1,
+          "category": "intersection",
+          "dense_rank": 2,
+          "bm25_rank": 6,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "fabd7f06134a801dd16e219ca0998b9102eafe61013fb5ee6ca9fcdc01b5bc21",
+          "final_rank": 3,
+          "category": "intersection",
+          "dense_rank": 1,
+          "bm25_rank": 11,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "f6f97e0b8376f423c6b5d5f5529e218629054d10666aa284cab8cec569482f20",
+          "final_rank": 4,
+          "category": "intersection",
+          "dense_rank": 3,
+          "bm25_rank": 12,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "7c04651449c88759ade20cf68325c79ee9abc28f58eae6e5d9d8574bc1a8bc9a",
+          "final_rank": 5,
+          "category": "intersection",
+          "dense_rank": 4,
+          "bm25_rank": 14,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "261caa209e5993054c7b832aacdb38fae971166e6078816974abe67432fa42fa",
+          "final_rank": 6,
+          "category": "intersection",
+          "dense_rank": 5,
+          "bm25_rank": 15,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "7acb8b6c4d17504c52ecec748a944da65c0c710fa44c075c2bf200c331e0022b",
+          "final_rank": 7,
+          "category": "intersection",
+          "dense_rank": 6,
+          "bm25_rank": 16,
+          "relevance": 0,
+          "relevant_requirement_ids": []
+        },
+        {
+          "retrieval_unit_id": "98f728dce06c85349ac4d82141cd5e38689448e03f989881305090159580d144",
+          "final_rank": 8,
+          "category": "intersection",
+          "dense_rank": 12,
+          "bm25_rank": 13,
+          "relevance": null,
+          "relevant_requirement_ids": []
+        }
+      ],
+      "identity_applies": true,
+      "identity_holds": true,
+      "mechanism": "intersection_dominance",
+      "dense_contribution": 0.0,
+      "bm25_contribution": 0.015625,
+      "fused_score": 0.015625,
+      "counterfactual_a_rank": 3,
+      "counterfactual_a_removes_predecessors": 1,
+      "counterfactual_a_queue_jump_only_rank": 4,
+      "counterfactual_b_dense_only_ahead": 0,
+      "counterfactual_c_bm25_rank": 4,
+      "counterfactual_d": {
+        "exited_top10": true,
+        "minimum_displacement_to_exit_top10": 7,
+        "observed_displacement": 7,
+        "minimum_removals_to_restore_top10": 1,
+        "rank_if_intersection_removed": 3,
+        "rank_if_queue_jumps_removed": 4,
+        "rank_if_dense_only_removed": 11,
+        "rank_if_bm25_only_removed": 9,
+        "removal_restores_hit10": {
+          "intersection": true,
+          "queue_jumps": true,
+          "dense_only": false,
+          "bm25_only": true
+        },
+        "displacement_category_can_supply_exit": {
+          "intersection": true,
+          "dense_only": false,
+          "bm25_only": false
+        }
+      },
+      "query_id": "V2-00989619-governance_paragraph-02",
+      "label": "알테오젠 우선주",
+      "company": "알테오젠",
+      "question": "알테오젠은 이번 분기에 우선주 몇 주를 보통주로 바꿨나요?",
+      "structural_property_holds": true,
+      "structural_property": {
+        "holds": true,
+        "empirical_order_holds": true,
+        "scores_within_formula_bounds": true,
+        "intersection_count": 8,
+        "single_list_count": 24,
+        "dense_only_count": 12,
+        "bm25_only_count": 12,
+        "worst_intersection_score": 0.02758751902587519,
+        "best_single_list_score": 0.016129032258064516,
+        "formula_intersection_floor": 0.025,
+        "formula_single_list_ceiling": 0.01639344262295082,
+        "vacuous_intersection": false
+      },
+      "deep_tail_rank_used": false,
+      "positive_dense_contribution": 0.0,
+      "max_contributing_rank": 20,
+      "bm25_relevant_units": [
+        {
+          "retrieval_unit_id": "ea7512ea104a8b27f90c11ac016a9e18e87550993881959f7426797781fc075f",
+          "bm25_rank": 4,
+          "truncated_rank": 11,
+          "relevance": 2,
+          "relevant_requirement_ids": [
+            "R1"
+          ],
+          "category": "bm25_only",
+          "ahead_counts": {
+            "intersection": 8,
+            "dense_only": 0,
+            "bm25_only": 2
+          },
+          "outside_top10": true
+        },
+        {
+          "retrieval_unit_id": "59bf1caeda932865f4ecd39c6dd7237fdd9aa475d85499d2ad4b2b1005912c4d",
+          "bm25_rank": 9,
+          "truncated_rank": 17,
+          "relevance": 2,
+          "relevant_requirement_ids": [
+            "R1"
+          ],
+          "category": "bm25_only",
+          "ahead_counts": {
+            "intersection": 8,
+            "dense_only": 2,
+            "bm25_only": 6
+          },
+          "outside_top10": true
+        }
+      ]
+    }
+  ]
+}

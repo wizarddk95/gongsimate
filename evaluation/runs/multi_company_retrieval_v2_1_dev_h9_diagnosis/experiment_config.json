@@ -1,0 +1,38 @@
+{
+  "experiment_id": "v21_dev_h9_truncated_rrf_rank_pressure",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "population": "dev fully_answerable",
+  "question_count": 45,
+  "test_questions_searched": 0,
+  "retrieval_reexecuted": false,
+  "new_ranker_implemented": false,
+  "input_truncated_run": "multi_company_retrieval_v2_1_dev_truncated_rrf",
+  "input_sha256": {
+    "dense_dev": "1e5f88855babe6e5dbf740ace9ddba7ae2ba8ddc0d65aa1f00c2702ba03a90f2",
+    "bm25_dev": "9557e2f6692411838caaa1732eff634d123683ea2df0fd616772e4a649389833",
+    "truncated_rrf_dev": "c5fe70b311ad332b6140f2a501474af9f29b709cb46d490d191ae8fb3d8774ea"
+  },
+  "ranker": "disclosure_agent.evalset_v2_1.truncated_rrf.candidate_truncated_rrf",
+  "candidate_n": 20,
+  "k": 60,
+  "weights": "1:1",
+  "forbidden": {
+    "weighted_rrf": false,
+    "weight_sweep": false,
+    "n_sweep": false,
+    "k_sweep": false,
+    "score_fusion": false,
+    "alpha_tuning": false,
+    "query_routing": false,
+    "reranker": false,
+    "query_expansion": false,
+    "embedding_change": false,
+    "chunking_change": false,
+    "period_aware_ranking": false,
+    "test_execution": false
+  },
+  "verdict": "Partial Support",
+  "git_commit": "6fb8e71fdc7526f92cc71909e13b1d1309bca837",
+  "git_dirty": true
+}
