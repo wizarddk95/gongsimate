@@ -1,0 +1,1817 @@
+{
+  "baseline": "G0",
+  "queries": 45,
+  "generation_parsed": 45,
+  "generation_parse_failures": 0,
+  "requirements_total": 58,
+  "faithfulness": {
+    "score": 0.9733333333333334,
+    "numerator": 73,
+    "denominator": 75,
+    "unjudged": 0,
+    "denominator_definition": "judged_only"
+  },
+  "requirement_coverage": {
+    "score": 0.8620689655172413,
+    "numerator": 50,
+    "denominator": 58,
+    "covered": 50,
+    "omitted": 0,
+    "abstained": 8,
+    "unjudged": 0,
+    "total": 58,
+    "denominator_definition": "judged_requirements"
+  },
+  "citation_correctness": {
+    "score": 0.9726027397260274,
+    "numerator": 71,
+    "denominator": 73,
+    "supports": 71,
+    "does_not_support": 2,
+    "unjudged": 0,
+    "denominator_definition": "judged_valid_citation_pairs"
+  },
+  "citation_completeness": {
+    "score": 0.9066666666666666,
+    "numerator": 68,
+    "denominator": 75,
+    "complete": 68,
+    "factual": 75,
+    "denominator_definition": "factual_claims"
+  },
+  "citation_integrity_error_count": 0,
+  "queries_with_integrity_errors": 0,
+  "success_requirements": 49,
+  "retrieval_limited_requirements": 6,
+  "generation_limited_requirements": 3,
+  "unjudged_requirements": 0,
+  "retrieval_limited_queries": 3,
+  "generation_limited_queries": 3,
+  "generation_failure_queries": 3,
+  "retrieval_limited_only_queries": 3,
+  "generation_limited_only_queries": 3,
+  "both_limited_queries": 0,
+  "taxonomy": {
+    "retrieval_failure": 6,
+    "evidence_coverage_failure": 1,
+    "generation_omission": 0,
+    "unsupported_claim": 0,
+    "evidence_misinterpretation": 1,
+    "period_scope_confusion": 4,
+    "citation_missing": 7,
+    "citation_mismatch": 2,
+    "citation_hallucination": 0,
+    "over_abstention": 2,
+    "under_abstention": 0
+  },
+  "diagnostic_flags": {},
+  "scope_issues_on_factual_claims": {
+    "none": 70,
+    "company": 1,
+    "period": 1,
+    "filing": 3
+  },
+  "answer_relevance": {
+    "direct": 41,
+    "partial": 4
+  },
+  "generation_latency_ms": {
+    "mean": 5164.793,
+    "p50": 4071.54,
+    "count": 45
+  },
+  "judge_latency_ms": {
+    "mean": 2651.341,
+    "p50": 2298.766,
+    "count": 133
+  },
+  "tokens": {
+    "input": 526998,
+    "output": 46249,
+    "by_stage": {
+      "generation": {
+        "input": 226697,
+        "output": 21004
+      },
+      "judge_faithfulness": {
+        "input": 222309,
+        "output": 9601
+      },
+      "judge_requirements": {
+        "input": 29210,
+        "output": 7021
+      },
+      "judge_citations": {
+        "input": 48782,
+        "output": 8623
+      }
+    }
+  },
+  "estimated_cost_usd": 1.424,
+  "cost_status": "estimated",
+  "cost_known_calls": 178,
+  "cost_missing_calls": 0,
+  "hypothesis": {
+    "category": "citation_missing",
+    "count": 7,
+    "text": "사실이 claim인데 유효한 citation이 없다. 다음 실험 후보는 factual claim에 citation_id를 요구하는 schema 제약 하나다. 이번 baseline에서는 그 변경을 넣지 않았다."
+  },
+  "frozen_retrieval": {
+    "retrieval_reexecuted": false,
+    "test_questions_generated": 0,
+    "test_questions_searched": 0,
+    "dataset_id": "multi_company_retrieval_v2_1",
+    "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+    "question_count": 45,
+    "hit10": {
+      "numerator": 43,
+      "denominator": 45
+    },
+    "requirement_recall": {
+      "numerator": 52,
+      "denominator": 58
+    },
+    "all_requirements": {
+      "numerator": 42,
+      "denominator": 45
+    },
+    "h10_run": "multi_company_retrieval_v2_1_dev_h10_asymmetric",
+    "retrieval_policy": "bm25_primary_dense_head",
+    "h10_dev_sha256": "d12966021644fa63b0f7015a0ea72a294565ae61f268953c6066db6858884b0d",
+    "transition_sha256": "c87967ad25b5f56f9b389fbbc7e20ac6edfc14b1adf7caa2323e030c979f227e",
+    "questions_sha256": "7919ca4876562665ee7be25209949266b22b2c81c88cd4aaf5ac977fd6604d4b",
+    "requirements_sha256": "632ba0cdcb48c735ae95554aaf7cace75bc5b91096977ab6c0981c884dfdf9d5",
+    "qrels_sha256": "2ef0d1d179897034bf891bdad0454a8dc16004d751036b34e6517a337f7b63e3",
+    "requirement_count": 58,
+    "requirement_texts_containing_digits": 31,
+    "units_joined": 450,
+    "text_join": "stored retrieval_unit_id to index text; retrieval was not executed"
+  },
+  "representative_cases": [
+    {
+      "role": "clean_success",
+      "query_id": "V2-00107613-business_table-01",
+      "question": "이수페타시스의 향후 투자계획에서 토지·건축물과 기계장치의 예상투자총액 및 향후투자액은 각각 얼마인가요?",
+      "requirements": [
+        {
+          "requirement_id": "R1",
+          "text": "이수페타시스의 향후 투자계획에서 토지·건축물과 기계장치의 예상투자총액 및 향후투자액은 각각 얼마인가요?",
+          "primary": "success",
+          "flags": [],
+          "coverage": "covered",
+          "support": "supported",
+          "evidence_in_top10": true
+        }
+      ],
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "retrieval_unit_id": "7cf06a68274220f4af455128effc786d434fae7f67b4f9b362943da2610d37b3",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제54기 PCB사업부문 | 신규공장 건축 및 CAPA 증설 | 토지/건축물기계장치 | 352,300 | 87,679 | 264,621 | 생산능력 향상 | 2025년~2028년 CAPA 증설 및 노후시설교체 | 기계장치 | 47,700 | 47,700 | - | 생산능력 향상 및업무효율증대 | 2025년~2025년 합 계 | 400,000 | 135,379 | 264,621 | - | -"
+        },
+        {
+          "citation_id": "C2",
+          "retrieval_unit_id": "e4e321d95df21e69b41df83ea05ef202394fd60e551862e29a9258cfef878757",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제54기 PCB사업부문 | 신규공장 건축 및 CAPA 증설 | 토지/건축물기계장치 | 352,300 | 109,712 | 242,588 | 생산능력 향상 | 2025년~2028년 CAPA 증설 및 노후시설교체 | 기계장치 | 47,700 | 47,700 | - | 생산능력 향상 및업무효율증대 | 2025년~2025년 합 계 | 400,000 | 157,412 | 242,588 | - | -"
+        },
+        {
+          "citation_id": "C3",
+          "retrieval_unit_id": "8239e47b75da26a61cbd89ef97cbfec75ef4fbe7121faab2cf20ba173a35c7f3",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2023.12",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제51기 | 제52기 | 제53기 PCB사업부문 | CAPA증설, | 토지/건축물 | 21,800 | 12,961 | 8,839 | - | 생산성향상 | - 노후시설교체, | 기계장치 | 73,486 | 19,253 | 49,850 | 4,382 | 생산성향상 | - 합 계 | 95,286 | 32,215 | 58,689 | 4,382 | - | -"
+        },
+        {
+          "citation_id": "C4",
+          "retrieval_unit_id": "2e2d0c2230c0762ab12da53ff7cf3d1964dc318ac3bd0146e17bf62d89afa3ea",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2024.03",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제52기 | 제53기 | 제54기 PCB사업부문 | CAPA증설, | 토지/건축물 | 21,800 | 12,961 | 8,839 | - | - | 생산성향상 | - 노후시설교체, | 기계장치 | 73,486 | 19,254 | 49,850 | 4,382 | - | 업무효율증대 | - 합 계 | 95,286 | 32,215 | 58,689 | 4,382 | - | - | -"
+        },
+        {
+          "citation_id": "C5",
+          "retrieval_unit_id": "c85ac7c43493a18c6b00dba70e47214c10af0e6d22a0ac6b93ef4158baf76d01",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2024.06",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제51기 | 제52기 | 제53기 PCB사업부문 | CAPA증설, | 토지/건축물 | 21,800 | 12,961 | 8,839 | - | - | 생산성향상 | - 노후시설교체 | 기계장치 | 73,486 | 19,254 | 49,850 | 4,382 | - | 업무효율증대 | - 합 계 | 95,286 | 32,215 | 58,689 | 4,382 | - | - | -"
+        },
+        {
+          "citation_id": "C6",
+          "retrieval_unit_id": "7d9654bb5ab301dc88e8c7588c18648d96298dfc1fdc7c1d13d24dc888476a2c",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2024.09",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제53기 PCB사업부문 | 신규공장 건축 및 CAPA 증설 | 토지/건축물 | 141,300 | - | 141,300 | 생산성향상 | 2024년~2028년 기계장치 | 178,700 | - | 178,700 | 생산성향상 | 2026년~2028년 CAPA 증설 및 노후시설교체 | 기계장치 | 80,000 | - | 80,000 | 생산성향상 및 업무효율증대 | 2024년~2025년 합 계 | 400,000 | - |…"
+        },
+        {
+          "citation_id": "C7",
+          "retrieval_unit_id": "78a81443ce2c594772152d9b46132c6a37b365e50605ef18bd88d85a76bad025",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2024.12",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제53기 PCB사업부문 | 신규공장 건축 및 CAPA 증설 | 토지/건축물 | 141,300 | - | 141,300 | 생산능력 향상 | 2024년~2028년 기계장치 | 211,000 | - | 211,000 | 생산능력 향상 | 2026년~2028년 CAPA 증설 및 노후시설교체 | 기계장치 | 47,700 | - | 47,700 | 생산능력 향상 및 업무효율증대 | 2024년~2025년 합 계 | 400,000…"
+        },
+        {
+          "citation_id": "C8",
+          "retrieval_unit_id": "14a25cbad620d3ed49f5d92b101d9a7f45ba832726ddeffa08c44ab728f976a5",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제54기 PCB사업부문 | 신규공장 건축 및 CAPA 증설 | 토지/건축물 | 141,300 | 46,812 | 94,488 | 생산능력 향상 | 2025년~2028년 기계장치 | 211,000 | - | 211,000 | 생산능력 향상 | 2026년~2028년 CAPA 증설 및 노후시설교체 | 기계장치 | 47,700 | 47,700 | - | 생산능력 향상 및업무효율증대 | 2025년~2025년 합 계 | 400,…"
+        },
+        {
+          "citation_id": "C9",
+          "retrieval_unit_id": "04ae8b3b3b2a841eb0f6d68406bab93c2540e4e05e2cfaa925f2d97130e5ab1a",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2025.03",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제54기 1분기 PCB사업부문 | 신규공장 건축 및 CAPA 증설 | 토지/건축물 | 141,300 | 11,373 | 129,927 | 생산능력 향상 | 2025년~2028년 기계장치 | 211,000 | - | 211,000 | 생산능력 향상 | 2026년~2028년 CAPA 증설 및 노후시설교체 | 기계장치 | 47,700 | - | 47,700 | 생산능력 향상 및업무효율증대 | 2025년~2025년 합 계 |…"
+        },
+        {
+          "citation_id": "C10",
+          "retrieval_unit_id": "c20ce0094ddc87a68d1722dc38129ee9b1d6fd04be25e19fb8a14f93011d8dbb",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2025.09",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "3. 원재료 및 생산설비"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 3. 원재료 및 생산설비 ② 향후 투자계획 (단위 : 백만원) 사업부문 | 계획명칭 | 예상투자총액 | 기투자액 | 향후투자액 | 투자효과 | 비고 자산형태 | 금 액 | 제54기 분기 PCB사업부문 | 신규공장 건축 및 CAPA 증설 | 토지/건축물 | 141,300 | 29,444 | 111,856 | 생산능력 향상 | 2025년~2028년 기계장치 | 211,000 | - | 211,000 | 생산능력 향상 | 2026년~2028년 CAPA 증설 및 노후시설교체 | 기계장치 | 47,700 | 38,219 | 9,481 | 생산능력 향상 및업무효율증대 | 2025년~2025년 합 …"
+        }
+      ],
+      "answer": "2026년 반기보고서 기준, 신규공장 건축 및 CAPA 증설은 토지·건축물과 기계장치가 한 항목으로 합산 공시되어 예상투자총액 352,300백만원, 향후투자액 242,588백만원입니다. [C2] 별도 기계장치 항목인 ‘CAPA 증설 및 노후시설교체’는 예상투자총액 47,700백만원이며 향후투자액은 ‘-’로 표시되어 있습니다. [C2]",
+      "limitations": [
+        "최신 반기보고서는 신규공장 건축 및 CAPA 증설의 토지·건축물과 기계장치 투자액을 합산 공시하므로, 두 자산 종류별 예상투자총액과 향후투자액을 각각 분리해 확인할 수 없습니다."
+      ],
+      "claims": [
+        {
+          "claim_id": "K1",
+          "text": "2026년 반기보고서에서 신규공장 건축 및 CAPA 증설은 토지·건축물과 기계장치를 한 항목으로 합산해 공시했으며, 예상투자총액은 352,300백만원, 향후투자액은 242,588백만원이다.",
+          "citation_ids": [
+            "C2"
+          ],
+          "factual": true
+        },
+        {
+          "claim_id": "K2",
+          "text": "별도 기계장치 항목인 ‘CAPA 증설 및 노후시설교체’의 예상투자총액은 47,700백만원이며 향후투자액은 ‘-’로 표시되어 있다.",
+          "citation_ids": [
+            "C2"
+          ],
+          "factual": true
+        }
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "C2의 2026년 반기보고서 표에 ‘신규공장 건축 및 CAPA 증설’의 자산형태가 토지/건축물·기계장치로 함께 기재되고, 예상투자총액 352,300백만원 및 향후투자액 242,588백만원으로 나옵니다."
+          },
+          {
+            "claim_id": "K2",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "C2에서 별도 기계장치 항목 ‘CAPA 증설 및 노후시설교체’의 예상투자총액은 47,700백만원이고 향후투자액은 ‘-’로 표시되어 있습니다."
+          }
+        ]
+      },
+      "requirement_judgment": {
+        "score": 1.0,
+        "answer_relevance": "direct",
+        "items": [
+          {
+            "requirement_id": "R1",
+            "verdict": "covered",
+            "claim_ids": [
+              "K1",
+              "K2"
+            ],
+            "reason": "토지·건축물과 기계장치가 합산 공시된 항목의 예상투자총액과 향후투자액을 제시하고, 별도 기계장치 항목의 금액도 덧붙였습니다."
+          }
+        ]
+      },
+      "citation_judgment": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "citation_id": "C2",
+            "verdict": "supports",
+            "reason": "표에 ‘신규공장 건축 및 CAPA 증설’의 자산형태가 ‘토지/건축물기계장치’로 함께 기재되어 있고, 예상투자총액 352,300백만원 및 향후투자액 242,588백만원이 표시되어 있다."
+          },
+          {
+            "claim_id": "K2",
+            "citation_id": "C2",
+            "verdict": "supports",
+            "reason": "‘CAPA 증설 및 노후시설교체’는 자산형태가 기계장치이고, 예상투자총액 47,700백만원 및 향후투자액 ‘-’로 기재되어 있다."
+          }
+        ]
+      },
+      "integrity": {
+        "integrity_error_count": 0,
+        "malformed": [],
+        "unknown": []
+      },
+      "query_flags": []
+    },
+    {
+      "role": "retrieval_limited",
+      "query_id": "V2-00107613-cross_period-02",
+      "question": "이수페타시스의 2024년 반기보고서와 3분기보고서에는 투자조합의 지분 정보와 받을 돈의 연체 현황이 각각 어떻게 나와 있나요?",
+      "requirements": [
+        {
+          "requirement_id": "R1",
+          "text": "2024년 반기보고서에 기재된 투자조합의 지분율과 관련 재무 정보(순자산지분금액 및 장부금액)를 확인한다.",
+          "primary": "retrieval_limited",
+          "flags": [
+            "retrieval_failure",
+            "citation_missing"
+          ],
+          "coverage": "abstained",
+          "support": "supported",
+          "evidence_in_top10": false
+        },
+        {
+          "requirement_id": "R2",
+          "text": "2024년 3분기보고서에 기재된 받을 돈의 연체 현황과 금액을 확인한다.",
+          "primary": "retrieval_limited",
+          "flags": [
+            "retrieval_failure",
+            "citation_missing"
+          ],
+          "coverage": "abstained",
+          "support": "supported",
+          "evidence_in_top10": false
+        }
+      ],
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "retrieval_unit_id": "dd3e91081c1adb8cc545b68187c038f0f0381f5c4cf9459c3d132fd33e09798c",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2025.06",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 ※ 투자조합의 경우 법인이 아닌 단체에 해당하므로 포함하지 아니하였습니다. 3. 타법인출자 현황(요약) (기준일 : | 2025년 06월 30일 | ) | (단위 : 천원)"
+        },
+        {
+          "citation_id": "C2",
+          "retrieval_unit_id": "fd4f886c3c0af11d8578eefb55bbcfaf1c991f794f331caf9eaba02440aec175",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2023.12",
+          "section_path": [
+            "목     차",
+            "VIII. 임원 및 직원 등에 관한 사항",
+            "1. 임원 및 직원 등의 현황"
+          ],
+          "text_excerpt": "[section] 목 차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 성명 | 성별 | 출생년월 | 직위 | 등기임원여부 | 상근여부 | 담당업무 | 주요경력 | 소유주식수 | 최대주주와의관계 | 재직기간 | 임기만료일 의결권있는 주식 | 의결권없는 주식 최창복 | 남 | 1971년 08월 | 부사장 | 사내이사 | 상근 | 대표이사 | 서강대학원 MBA 석사(전) (주)이수페타시스 기획담당임원(전) (주)이수 경영기획담당임원(현) (주)이수페타시스 대표이사 | 0 | 0 | 발행회사 임원 | 20년 11개월 | 2026년 03월 30일 오욱현 | 남 | 1971년 09월 | 상무 | 사내이사 | 상근 …"
+        },
+        {
+          "citation_id": "C3",
+          "retrieval_unit_id": "f3ad796fc5604aec54b32f67628c9b2cb477794676a1fbde19c3682ddc1a6fd1",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "XII. 상세표",
+            "2. 계열회사 현황(상세)"
+          ],
+          "text_excerpt": "[section] 목 차 > XII. 상세표 > 2. 계열회사 현황(상세) * 투자조합의 경우 법인이 아닌 단체에 해당하므로 포함하지 아니하였습니다."
+        },
+        {
+          "citation_id": "C4",
+          "retrieval_unit_id": "4e98a5f6220527ee1a84877087f7f83e2f730c610783c6eb46e89b53d4adce71",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2025.06",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 ※ 투자조합의 경우 법인이 아닌 단체에 해당하므로 포함하지 아니하였습니다. 3. 타법인출자 현황(요약)"
+        },
+        {
+          "citation_id": "C5",
+          "retrieval_unit_id": "11d61fb3dff8275758909db46e7651b6456ee9ce5bcfaf37f157eab4acae875d",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 ※ 투자조합의 경우 법인이 아닌 단체에 해당하므로 포함하지 아니하였습니다. 3. 타법인출자 현황(요약)"
+        },
+        {
+          "citation_id": "C6",
+          "retrieval_unit_id": "4030150e9b41bf88e3a04f0541d17b534239c24044f302670d9eca058113dfd0",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 ※ 투자조합의 경우 법인이 아닌 단체에 해당하므로 포함하지 아니하였습니다. 3. 타법인출자 현황(요약)"
+        },
+        {
+          "citation_id": "C7",
+          "retrieval_unit_id": "5144a79648b29037fa26a8ce03bba83e334033a67da7944c3b7b2d1a07601e1a",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2024.06",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 제 53(당) 반기 2024년 1월 1일부터 2024년 6월 30일까지 제 52(전) 반기 2023년 1월 1일부터 2023년 6월 30일까지 주식회사 이수페타시스"
+        },
+        {
+          "citation_id": "C8",
+          "retrieval_unit_id": "e2f66c26c879d8514f05afb0116a4cb21e77c09b51e664363f2f55b6051acc57",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2024.06",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 제 53(당) 반기 2024년 1월 1일부터 2024년 6월 30일까지 제 52(전) 반기 2023년 1월 1일부터 2023년 6월 30일까지 주식회사 이수페타시스와 그 종속기업"
+        },
+        {
+          "citation_id": "C9",
+          "retrieval_unit_id": "a8b363a0e9aaf5cc7922806c6b97273640b467f317f2c81a5fb4bf8cec962c90",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2024.03",
+          "section_path": [
+            "목     차",
+            "VIII. 임원 및 직원 등에 관한 사항",
+            "1. 임원 및 직원 등의 현황"
+          ],
+          "text_excerpt": "[section] 목 차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 성명 | 성별 | 출생년월 | 직위 | 등기임원여부 | 상근여부 | 담당업무 | 주요경력 | 소유주식수 | 최대주주와의관계 | 재직기간 | 임기만료일 의결권있는 주식 | 의결권없는 주식 김상현 | 남 | 1971년 05월 | 상무보 | 미등기 | 상근 | 기술연구소장 | 영남대학교 응용화학 석사(전) (주)이수페타시스 연구1팀장(현) (주)이수페타시스 기술연구소장 | 0 | 0 | 발행회사 임원 | 23년 9개월 | - 정유제 | 남 | 1971년 10월 | 상무보 | 미등기 | 상근 | 인사경영담당 | 경일대학교 경영학 박사(전) (…"
+        },
+        {
+          "citation_id": "C10",
+          "retrieval_unit_id": "fee2eef7f9e82ce3636769672c38cbdfec9600dd8311211e64f3c62cd97e6327",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2024.09",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 제 53(당) 3분기 2024년 1월 1일부터 2024년 9월 30일까지 제 52(전) 3분기 2023년 1월 1일부터 2023년 9월 30일까지(검토받지 않은 재무제표) 주식회사 이수페타시스와 그 종속기업"
+        }
+      ],
+      "answer": "제공된 근거에는 2024년 반기보고서의 투자조합 지분율·순자산지분금액·장부금액이 확인되지 않습니다. 2024년 3분기보고서의 받을 돈 연체 현황과 금액도 확인할 수 없습니다.",
+      "limitations": [
+        "입력된 근거에는 요청한 투자조합 지분 정보와 받을 돈의 연체 내역·금액이 포함되어 있지 않습니다."
+      ],
+      "claims": [
+        {
+          "claim_id": "K1",
+          "text": "제공된 근거만으로는 2024년 반기보고서의 투자조합 지분율, 순자산지분금액 및 장부금액을 확인할 수 없습니다.",
+          "citation_ids": [],
+          "factual": false
+        },
+        {
+          "claim_id": "K2",
+          "text": "제공된 근거만으로는 2024년 3분기보고서의 받을 돈 연체 현황과 금액을 확인할 수 없습니다.",
+          "citation_ids": [],
+          "factual": false
+        }
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "증거에는 2024년 반기보고서의 재무제표 주석이 포함되어 있지만 투자조합의 해당 지분율·금액은 제시되지 않아, 제공된 근거만으로 확인할 수 없다는 주장은 지지됩니다."
+          },
+          {
+            "claim_id": "K2",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "증거에는 2024년 3분기보고서의 연결재무제표 주석 기간만 제시되어 있고 받을 돈 연체 현황이나 금액은 없어, 제공된 근거만으로 확인할 수 없다는 주장은 지지됩니다."
+          }
+        ]
+      },
+      "requirement_judgment": {
+        "score": 0.0,
+        "answer_relevance": "partial",
+        "items": [
+          {
+            "requirement_id": "R1",
+            "verdict": "abstained",
+            "claim_ids": [
+              "K1"
+            ],
+            "reason": "투자조합의 지분율, 순자산지분금액 및 장부금액을 확인할 수 없다고 명시했습니다."
+          },
+          {
+            "requirement_id": "R2",
+            "verdict": "abstained",
+            "claim_ids": [
+              "K2"
+            ],
+            "reason": "받을 돈의 연체 현황과 금액을 확인할 수 없다고 명시했습니다."
+          }
+        ]
+      },
+      "citation_judgment": {
+        "score": null,
+        "items": []
+      },
+      "integrity": {
+        "integrity_error_count": 0,
+        "malformed": [],
+        "unknown": []
+      },
+      "query_flags": [
+        "citation_missing"
+      ]
+    },
+    {
+      "role": "citation_mismatch",
+      "query_id": "V2-00107613-business_paragraph-02",
+      "question": "이수페타시스의 우주항공용 회로기판은 왜 극심한 온도 변화와 진동·충격을 견디고 오랫동안 믿고 쓸 수 있어야 하나요?",
+      "requirements": [
+        {
+          "requirement_id": "R1",
+          "text": "우주항공산업에서 사용되는 PCB에 극심한 온도 변화와 진동·충격에 대한 저항성, 장기적인 신뢰성이 요구되는 이유를 설명한다.",
+          "primary": "success",
+          "flags": [
+            "citation_mismatch"
+          ],
+          "coverage": "covered",
+          "support": "supported",
+          "evidence_in_top10": true
+        }
+      ],
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "retrieval_unit_id": "c4549599a9cd09f24ab3a91e0057984bf1aff3d60173869dc93e48231df1794a",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2025.03",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "7. 기타 참고사항"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 7. 기타 참고사항 이러한 우주항공산업에서 사용되는 PCB는 극심한 온도변화, 강력한 진동 및 충격에 대한 저항성, 전공 환경 적합성 등 높은 수준의 내구성이 요구되고 엄격한 품질기준과 장기적인 신뢰성이 요구됩니다.IC Tester PCB 시장은 반도체 산업의 성장과 더불어 지속적인 발전이 예상되는 시장입니다. 향후 첨단반도체의 수요 증가, 테스트 복잡도 증가, 품질 요구 수준의 증가 등으로 인해 IC Tester 시장은 지속적으로 성장할 것으로 기대되며, 이러한 성장과정에서 초고속 신호처리와 높은 신뢰성, 정밀한 임피던스 제어 등의 기술적 요구사항이 PCB에도 반영될 것으로 전망합니다…"
+        },
+        {
+          "citation_id": "C2",
+          "retrieval_unit_id": "6e46e329d42b50a94740cfb3c2b3113fca5562e50586711b62fc1179ad16bc5e",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2025.06",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "7. 기타 참고사항"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 7. 기타 참고사항 이러한 우주항공산업에서 사용되는 PCB는 극심한 온도변화, 강력한 진동 및 충격에 대한 저항성, 전공 환경 적합성 등 높은 수준의 내구성이 요구되고 엄격한 품질기준과 장기적인 신뢰성이 요구됩니다.IC Tester PCB 시장은 반도체 산업의 성장과 더불어 지속적인 발전이 예상되는 시장입니다. 향후 첨단반도체의 수요 증가, 테스트 복잡도 증가, 품질 요구 수준의 증가 등으로 인해 IC Tester 시장은 지속적으로 성장할 것으로 기대되며, 이러한 성장과정에서 초고속 신호처리와 높은 신뢰성, 정밀한 임피던스 제어 등의 기술적 요구사항이 PCB에도 반영될 것으로 전망합니다…"
+        },
+        {
+          "citation_id": "C3",
+          "retrieval_unit_id": "bc0830d2c7359c9dff3f8b635315ab6446a5658b5de29f21279f9c91928cf3c7",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2024.09",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "7. 기타 참고사항"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 7. 기타 참고사항 네트워크 인프라 시장은 데이터 전송, 통신, 그리고 연결성을 제공하는 모든 하드웨어와 소프트웨어를 포괄하는 방대한 시장입니다. 네트워크 인프라 시장은 최근 다양한 이유로 인해 급격하게 성장하고 있습니다. 인공지능(AI) 활용 증가로 인한 데이터 트래픽 및 네트워크 처리용량이 증가하고 있으며, 고해상도 컨텐츠와 대용량 파일 전송을 위한 대욕폭 수요도 확대되고 있습니다. 또한 자율주행차, 스마트시티, 실시간 IoT어플리케이션 등 5G 기술 기반의 신규 서비스가 확대되면서 네트워크 인프라에 대핸 수요가 증가하고 있습니다. 한편, 급성장하는 네트워크 인프라 시장 수요에 연동…"
+        },
+        {
+          "citation_id": "C4",
+          "retrieval_unit_id": "65cf85abed7bd54dd1f6716b7bbea7578fc23b1b98c51b0f758069dfb5b34338",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2023.12",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "1. 사업의 개요"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 1. 사업의 개요 당 사는 전자제품의 핵심부품인 인쇄회로기판(PCB)을 전문으로 생산하고 있으며, 한국 (주)이수페타시스(본사)에는 4개의 공장 및 연구소를 운영하고 있습니다.지역별로는 해외 총 2개의 생산기지(미국, 중국)을 보유, 2개의 자회사와 2개의 손자회사를 두고 사업을 운영하고 있습니다.【법인별 제품】"
+        },
+        {
+          "citation_id": "C5",
+          "retrieval_unit_id": "83f428e6e91e6f3ee4e5a5ae9b979dedfed2b9bf606aa2ae3af8febd1d5180d2",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2024.09",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "1. 사업의 개요"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 1. 사업의 개요 당사는 전자제품의 핵심부품인 인쇄회로기판(PCB)을 전문으로 생산하고 있으며, 한국 (주)이수페타시스(본사)에는 4개의 공장 및 연구소를 운영하고 있습니다.지역별로는 해외 총 2개의 생산기지(미국, 중국)을 보유, 2개의 자회사와 2개의 손자회사를 두고 사업을 운영하고 있습니다. 【 법인별 제품】"
+        },
+        {
+          "citation_id": "C6",
+          "retrieval_unit_id": "c02455e336e5756ec35e90cd36c563e64b125225db7ff5c8ce1345c84f0056c6",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2024.03",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "1. 사업의 개요"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 1. 사업의 개요 당사는 전자제품의 핵심부품인 인쇄회로기판(PCB)을 전문으로 생산하고 있으며, 한국 (주)이수페타시스(본사)에는 4개의 공장 및 연구소를 운영하고 있습니다.지역별로는 해외 총 2개의 생산기지(미국, 중국)을 보유, 2개의 자회사와 2개의 손자회사를 두고 사업을 운영하고 있습니다. 【법인별 제품】"
+        },
+        {
+          "citation_id": "C7",
+          "retrieval_unit_id": "3844a73bdddb619c0c3cec2ae9025d8fc2d67f52a130230d8e903574d0f1e63f",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2024.06",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "1. 사업의 개요"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 1. 사업의 개요 당사는 전자제품의 핵심부품인 인쇄회로기판(PCB)을 전문으로 생산하고 있으며, 한국 (주)이수페타시스(본사)에는 4개의 공장 및 연구소를 운영하고 있습니다.지역별로는 해외 총 2개의 생산기지(미국, 중국)을 보유, 2개의 자회사와 2개의 손자회사를 두고 사업을 운영하고 있습니다. 【법인별 제품】"
+        },
+        {
+          "citation_id": "C8",
+          "retrieval_unit_id": "9b56049e7781f1feff4e7a04699202c292f0ca564991975f4f19993a6686243d",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2024.06",
+          "section_path": [
+            "목     차",
+            "VIII. 임원 및 직원 등에 관한 사항",
+            "1. 임원 및 직원 등의 현황"
+          ],
+          "text_excerpt": "[section] 목 차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 성명 | 성별 | 출생년월 | 직위 | 등기임원여부 | 상근여부 | 담당업무 | 주요경력 | 소유주식수 | 최대주주와의관계 | 재직기간 | 임기만료일 의결권있는 주식 | 의결권없는 주식 김상현 | 남 | 1971년 05월 | 상무보 | 미등기 | 상근 | 기술연구소장 | 영남대학교 응용화학 석사(전) (주)이수페타시스 연구1팀장(현) (주)이수페타시스 기술연구소장 | 0 | 0 | 발행회사 임원 | 24년 | - 정유제 | 남 | 1971년 10월 | 상무보 | 미등기 | 상근 | 인사경영담당 | 경일대학교 경영학 박사(전) (주)이수…"
+        },
+        {
+          "citation_id": "C9",
+          "retrieval_unit_id": "c2fa0087f4c160dc237a01751c7b2fbf0f1c104c7c3fd12d6e26037763faaba2",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2023.12",
+          "section_path": [
+            "목     차",
+            "VIII. 임원 및 직원 등에 관한 사항",
+            "1. 임원 및 직원 등의 현황"
+          ],
+          "text_excerpt": "[section] 목 차 > VIII. 임원 및 직원 등에 관한 사항 > 1. 임원 및 직원 등의 현황 성명 | 성별 | 출생년월 | 직위 | 등기임원여부 | 상근여부 | 담당업무 | 주요경력 | 소유주식수 | 최대주주와의관계 | 재직기간 | 임기만료일 의결권있는 주식 | 의결권없는 주식 김상현 | 남 | 1971년 05월 | 상무보 | 미등기 | 상근 | 기술연구소장 | 영남대학교 응용화학 석사(전) (주)이수페타시스 연구1팀장(현) (주)이수페타시스 기술연구소장 | 0 | 0 | 발행회사 임원 | 23년 6개월 | - 정유제 | 남 | 1971년 10월 | 상무보 | 미등기 | 상근 | 인사경영담당 | 경일대학교 경영학 박사(전) (…"
+        },
+        {
+          "citation_id": "C10",
+          "retrieval_unit_id": "4229a523ee14e65a5220b65250069ebeae6d4c1b5c291596d251eb283593ff8d",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2023.12",
+          "section_path": [
+            "목     차",
+            "II. 사업의 내용",
+            "7. 기타 참고사항"
+          ],
+          "text_excerpt": "[section] 목 차 > II. 사업의 내용 > 7. 기타 참고사항 [우주.항공산업용 PCB]우주 및 항공 산업용에 사용되는 전장제품은 장기적인 신뢰성에 대해 매우 엄격한 기준이 적용 됩니다. PCB 오작동이 발생하면 치명적인 문제나 큰 사고로 이어질 수 있으므로 관리부문은 물론, 생산현장까지 품질에 대한 인식과 관리가 요구됩니다. 당사는 항공우주산업 및 방위산업관련 품질 인증인 AS9100, NADCAP을 획득하여 체계적인 품질 시스템 기반으로 고객 요구사항에 적극적으로 대응하고 있습니다.[IC Tester용 PCB]현재 반도체 제조공정에서 웨이퍼와 패키지 상태에서 반도체 칩이 제 기능을 올바로 수행할 수 있는지를 확인하고 불량유무…"
+        }
+      ],
+      "answer": "우주항공용 PCB는 극심한 온도 변화와 강한 진동·충격에 노출되는 환경에서 사용되며, 오작동하면 치명적인 문제나 큰 사고로 이어질 수 있기 때문입니다. 따라서 엄격한 품질 기준과 장기적인 신뢰성이 요구됩니다.[C1][C10]",
+      "limitations": [],
+      "claims": [
+        {
+          "claim_id": "K1",
+          "text": "우주항공용 PCB는 극심한 온도 변화와 강한 진동·충격에 견딜 수 있어야 합니다.",
+          "citation_ids": [
+            "C1"
+          ],
+          "factual": true
+        },
+        {
+          "claim_id": "K2",
+          "text": "우주·항공 산업용 PCB의 오작동은 치명적인 문제나 큰 사고로 이어질 수 있어, 엄격한 품질 기준과 장기적인 신뢰성이 요구됩니다.",
+          "citation_ids": [
+            "C1",
+            "C10"
+          ],
+          "factual": true
+        }
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "C1은 우주항공산업용 PCB에 극심한 온도 변화와 강한 진동·충격에 대한 저항성이 요구된다고 명시합니다."
+          },
+          {
+            "claim_id": "K2",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "C10은 PCB 오작동이 치명적인 문제나 큰 사고로 이어질 수 있으며, 장기 신뢰성에 엄격한 기준이 적용된다고 명시합니다. C1도 엄격한 품질 기준과 장기적인 신뢰성 요구를 확인합니다."
+          }
+        ]
+      },
+      "requirement_judgment": {
+        "score": 1.0,
+        "answer_relevance": "direct",
+        "items": [
+          {
+            "requirement_id": "R1",
+            "verdict": "covered",
+            "claim_ids": [
+              "K1",
+              "K2"
+            ],
+            "reason": "극심한 온도 변화와 진동·충격에 노출되고, 오작동 시 치명적인 문제나 큰 사고로 이어질 수 있어 엄격한 품질 기준과 장기 신뢰성이 필요하다고 설명합니다."
+          }
+        ]
+      },
+      "citation_judgment": {
+        "score": 0.6666666666666666,
+        "items": [
+          {
+            "claim_id": "K1",
+            "citation_id": "C1",
+            "verdict": "supports",
+            "reason": "증거에 우주항공용 PCB는 극심한 온도 변화와 강력한 진동·충격에 대한 저항성이 요구된다고 명시되어 있습니다."
+          },
+          {
+            "claim_id": "K2",
+            "citation_id": "C1",
+            "verdict": "does_not_support",
+            "reason": "엄격한 품질 기준과 장기 신뢰성 요구는 언급하지만, 오작동이 치명적인 문제나 큰 사고로 이어진다는 내용은 없습니다."
+          },
+          {
+            "claim_id": "K2",
+            "citation_id": "C10",
+            "verdict": "supports",
+            "reason": "증거에 PCB 오작동은 치명적인 문제나 큰 사고로 이어질 수 있고, 장기 신뢰성에 매우 엄격한 기준이 적용된다고 명시되어 있습니다."
+          }
+        ]
+      },
+      "integrity": {
+        "integrity_error_count": 0,
+        "malformed": [],
+        "unknown": []
+      },
+      "query_flags": []
+    },
+    {
+      "role": "multi_requirement_partial",
+      "query_id": "V2-00126955-cross_period-02",
+      "question": "삼양식품의 2026년 1분기 말 단기·유동성장기 차입금 잔액과 반기보고서에 나온 전기말 대출 약정 한도는 각각 얼마인가요?",
+      "requirements": [
+        {
+          "requirement_id": "R1",
+          "text": "2026년 1분기 말 단기차입금 잔액은 얼마인가?",
+          "primary": "retrieval_limited",
+          "flags": [
+            "retrieval_failure",
+            "period_scope_confusion",
+            "citation_missing"
+          ],
+          "coverage": "abstained",
+          "support": "supported",
+          "evidence_in_top10": false
+        },
+        {
+          "requirement_id": "R2",
+          "text": "2026년 1분기 말 유동성장기부채 잔액은 얼마인가?",
+          "primary": "success",
+          "flags": [],
+          "coverage": "covered",
+          "support": "supported",
+          "evidence_in_top10": true
+        },
+        {
+          "requirement_id": "R3",
+          "text": "반기보고서에 기재된 전기말 대출 약정 한도는 약정 유형별로 얼마인가?",
+          "primary": "retrieval_limited",
+          "flags": [
+            "retrieval_failure",
+            "period_scope_confusion",
+            "citation_missing"
+          ],
+          "coverage": "abstained",
+          "support": "supported",
+          "evidence_in_top10": false
+        }
+      ],
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "retrieval_unit_id": "70ab66f78e21f03592414ff594bb15f4e8c2d9a4f1ef8b165e39b3c678c5cbf8",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "IV. 이사의 경영진단 및 분석의견"
+          ],
+          "text_excerpt": "[section] 목 차 > IV. 이사의 경영진단 및 분석의견 기업공시서식 작성기준에 따라 분기 및 반기보고서에 기재하지 않으며, 사업보고서에 기재할 예정입니다."
+        },
+        {
+          "citation_id": "C2",
+          "retrieval_unit_id": "c420e970934d51d1e253c839609d20b65c139f6fa5e7db4a0ae12173ddea05c2",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "IV. 이사의 경영진단 및 분석의견"
+          ],
+          "text_excerpt": "[section] 목 차 > IV. 이사의 경영진단 및 분석의견 기업공시서식 작성기준에 따라 분기 및 반기보고서에 기재하지 않으며, 사업보고서에 기재할 예정입니다."
+        },
+        {
+          "citation_id": "C3",
+          "retrieval_unit_id": "db2145d1ff603542b9874721049ddc835b9109774b2ca30b28dd1e0adfde9428",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "13. 차입금 및 사채"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 차입금 및 사채 전기말 (단위 : 천원) | ㈜국민은행-시설자금대출 | 한국산업은행-산업시설자금대출 1 | 한국산업은행-산업시설자금대출 2 | 한국산업은행-산업시설자금대출 3 | 차입금명칭 합계 차입금, 이자율 | | | | | 장기차입금 | 160,000,000 | 1,000,000 | 32,000,000 | 43,000,000 | 236,000,000 차감 : 유동성장기부채 | | | | | 0 비유동 금융기관 차입금(사채 제외)의 비유동성 대체 부분 | | | | | 236,000,000 장기차입금에 대한 기술 | 장기차입금과 관련하여 일부 유…"
+        },
+        {
+          "citation_id": "C4",
+          "retrieval_unit_id": "fd1f33f695cdbe70be6f5750fdc4cd123ce82e5ffc496fcef359e8605f700858",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "13. 차입금 및 사채"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 차입금 및 사채 장기차입금에 대한 공시 당분기말 (단위 : 천원) | ㈜국민은행-시설자금대출 | 한국산업은행-산업시설자금대출 1 | 한국산업은행-산업시설자금대출 2 | 한국산업은행-산업시설자금대출 3 | 차입금명칭 합계 차입금, 이자율 | 0.0308 | 0.0308 | 0.0345 | 0.0328 | 장기차입금 | 160,000,000 | 1,000,000 | 32,000,000 | 43,000,000 | 236,000,000 차감 : 유동성장기부채 | | | | | 0 비유동 금융기관 차입금(사채 제외)의 비유동성 대체 부분 | | | | | 2…"
+        },
+        {
+          "citation_id": "C5",
+          "retrieval_unit_id": "55248eea7a2d4b37425579b7acad9113302cd1ade72cf36e8332f2a8c1d6a87a",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2024.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "20. 차입금 및 사채"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 20. 차입금 및 사채 전기 (단위 : 천원) | 차입금명칭 | 차입금명칭 합계 | 한국산업은행-산업운영자금대출 | 범위 | 범위 합계 | 하위범위 | 상위범위 차입금, 이자율 | | | | 비유동차입금(사채 제외) | | | 141,214,170 | 141,214,170 유동성장기부채 | | | | (16,000,590) 장기차입금 | | | | 125,213,580"
+        },
+        {
+          "citation_id": "C6",
+          "retrieval_unit_id": "4c4ad12338dbefc54d119ad66549513b330f50e47c96ddb7a952b767513efba3",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "13. 차입금 및 사채"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 차입금 및 사채 전기말 (단위 : 천원) | ㈜국민은행-시설자금대출 | 한국산업은행-산업시설자금대출 1 | 한국산업은행-산업시설자금대출 2 | 한국산업은행-산업시설자금대출 3 | 한국산업은행-산업시설자금대출 4 | 한국산업은행-산업시설자금대출 5 | 차입금 명칭 합계 차입금, 이자율 | | | | | | | 장기차입금 (사채 제외) | 160,000,000 | 1,000,000 | 32,000,000 | 43,000,000 | 0 | 0 | 236,000,000 장기차입금 (사채 제외)의 유동성 대체 부분 | | | | | | | 0 장기차입금(사채…"
+        },
+        {
+          "citation_id": "C7",
+          "retrieval_unit_id": "46b19550178621b17b3643e8b66ec35014b7d8d6de13516b37ce65718abc2c59",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "13. 차입금 및 사채"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 차입금 및 사채 전기말 (단위 : 천원) | 무보증공모사채2-1 | 차입금명칭 합계 차입금, 발행 | 2024-04-17 | 차입금, 만기 | 2026-04-17 | 차입금, 이자율 | | 사채, 명목금액 | 50,000,000 | 50,000,000 사채할인발행차금 | | (23,527) 비유동 사채의 유동성 대체 부분 | | 49,976,473 무보증공모사채2-1에 대한 기술 | 만기가 1년 이내에 도래함에 따라 유동성사채로 분류하였습니다. |"
+        },
+        {
+          "citation_id": "C8",
+          "retrieval_unit_id": "673332c2fcfa6ebb3ffde59cf90f38f157c9830c0fb07198c6c89373aef180e7",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "13. 차입금 및 사채"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 13. 차입금 및 사채 전기말 (단위 : 천원) | (주)신한은행-운영자금대출 1 | (주)신한은행-운영자금대출 2 | (주)국민은행-매입외환 | 한국수출입은행-수출성장자금대출 | KB증권(주)-기업어음 | 차입금 명칭 합계 차입금, 이자율 | | | | | | 단기차입금 (사채 제외) | 20,000,000 | 30,000,000 | 2,328,705 | | 10,000,000 | 62,328,705 단기차입금에 대한 기술 | | | 수출거래에서 일시적으로 발생한 단기차입금입니다. | | |"
+        },
+        {
+          "citation_id": "C9",
+          "retrieval_unit_id": "804e1562a1d4b3197076680c9d9fdd1122973b92fb536f9d06d03655e93aed3a",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "16. 차입금 및 사채 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 16. 차입금 및 사채 (연결) 전기말 (단위 : 천원) | ㈜국민은행-시설자금대출 | 한국산업은행-산업시설자금대출 1 | 한국산업은행-산업시설자금대출 2 | 한국산업은행-산업시설자금대출 3 | (주)국민은행-고용환경개선자금 | DBS Bank(China) Limited-시설자금대출 | 특수관계자-운전자금 | 차입금명칭 합계 차입금, 이자율 | | | | | | | | 장기차입금 | 160,000,000 | 1,000,000 | 32,000,000 | 43,000,000 | 136,000 | 869,390 | 10,000,000 | 247,005,390…"
+        },
+        {
+          "citation_id": "C10",
+          "retrieval_unit_id": "3d000b873ae0fc028b31d789b5cc6c68d57a10c37c643c588588c8931e645e8a",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "IV. 이사의 경영진단 및 분석의견",
+            "4. 유동성 및 자금조달과 지출"
+          ],
+          "text_excerpt": "[section] 목 차 > IV. 이사의 경영진단 및 분석의견 > 4. 유동성 및 자금조달과 지출 (단위: 백만원) 법인명 | 유형 | 기간 | 금액 | 금리 | 비고 삼양식품(주) | 무보증공모사채 | 2024.04.17 ~ 2026.04.17 | 50,000 | 4.057% | - 삼양식품(주) | 무보증공모사채 | 2024.04.17 ~ 2027.04.16 | 50,000 | 4.063% | -"
+        }
+      ],
+      "answer": "2026년 1분기 말 유동성장기부채는 0천원입니다.[C4] 제공된 근거에는 1분기 말 단기차입금 잔액이 확인되지 않습니다. 반기보고서에 기재된 전기말 대출 약정 한도도 약정 유형별로 확인할 수 없습니다.",
+      "limitations": [
+        "1분기 말 단기차입금 잔액을 확인할 수 있는 근거가 제공되지 않았습니다.",
+        "반기보고서 전기말 대출 약정 한도를 약정 유형별로 확인할 수 있는 근거가 제공되지 않았습니다."
+      ],
+      "claims": [
+        {
+          "claim_id": "K1",
+          "text": "2026년 1분기 말 유동성장기부채는 0천원이다.",
+          "citation_ids": [
+            "C4"
+          ],
+          "factual": true
+        },
+        {
+          "claim_id": "K2",
+          "text": "제공된 근거로는 2026년 1분기 말 단기차입금 잔액을 확인할 수 없다.",
+          "citation_ids": [],
+          "factual": false
+        },
+        {
+          "claim_id": "K3",
+          "text": "제공된 근거로는 반기보고서에 기재된 전기말 대출 약정 한도를 약정 유형별로 확인할 수 없다.",
+          "citation_ids": [],
+          "factual": false
+        }
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "분기보고서의 당분기말 장기차입금 표에 유동성장기부채가 0천원으로 기재되어 있습니다."
+          },
+          {
+            "claim_id": "K2",
+            "verdict": "supported",
+            "scope_issue": "period",
+            "reason": "제공된 분기보고서 근거는 장기차입금만 다루며, 단기차입금의 2026년 1분기 말 잔액은 확인되지 않습니다. 반기보고서의 단기차입금 수치는 전기말 기준입니다."
+          },
+          {
+            "claim_id": "K3",
+            "verdict": "supported",
+            "scope_issue": "filing",
+            "reason": "제공된 반기보고서 근거에는 전기말 차입금 잔액은 있으나 약정 한도를 유형별로 나타낸 정보는 없습니다."
+          }
+        ]
+      },
+      "requirement_judgment": {
+        "score": 0.3333333333333333,
+        "answer_relevance": "partial",
+        "items": [
+          {
+            "requirement_id": "R1",
+            "verdict": "abstained",
+            "claim_ids": [
+              "K2"
+            ],
+            "reason": "1분기 말 단기차입금 잔액을 확인할 수 없다고 명시했습니다."
+          },
+          {
+            "requirement_id": "R2",
+            "verdict": "covered",
+            "claim_ids": [
+              "K1"
+            ],
+            "reason": "1분기 말 유동성장기부채 잔액을 0천원이라고 답했습니다."
+          },
+          {
+            "requirement_id": "R3",
+            "verdict": "abstained",
+            "claim_ids": [
+              "K3"
+            ],
+            "reason": "전기말 대출 약정 한도를 약정 유형별로 확인할 수 없다고 명시했습니다."
+          }
+        ]
+      },
+      "citation_judgment": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "citation_id": "C4",
+            "verdict": "supports",
+            "reason": "당분기말 표에 단위가 천원으로 표시되어 있고, ‘차감: 유동성장기부채’ 합계가 0으로 기재되어 있습니다."
+          }
+        ]
+      },
+      "integrity": {
+        "integrity_error_count": 0,
+        "malformed": [],
+        "unknown": []
+      },
+      "query_flags": [
+        "evidence_coverage_failure",
+        "citation_missing"
+      ]
+    },
+    {
+      "role": "evidence_misinterpretation",
+      "query_id": "V2-00126380-finance_table-02",
+      "question": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+      "requirements": [
+        {
+          "requirement_id": "R1",
+          "text": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+          "primary": "generation_limited",
+          "flags": [
+            "evidence_misinterpretation",
+            "period_scope_confusion",
+            "citation_mismatch"
+          ],
+          "coverage": "covered",
+          "support": "misinterpretation",
+          "evidence_in_top10": true
+        }
+      ],
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "retrieval_unit_id": "976ae60e70fdda6d21d17e641a31b0b3c1d25c0c9c83b4271e209d4971760817",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 피출자회사＼ 출자회사 | 삼성물산(주) | 삼성바이오로직스(주) | 삼성생명보험(주) | 삼성에스디아이(주) | 삼성에스디에스(주) | 삼성에프엔위탁관리부동산투자회사(주) | 삼성에피스홀딩스(주) | 삼성이앤에이(주) | 삼성전기(주) | 삼성전자(주) | 삼성중공업(주) | 삼성증권(주) 삼성물산(주) | | 43.1 | 19.3 | | 17.1 | | 43.1 | 7.0 | | 5.1 | 0.1 | 삼성생명보험(주) | 0.1 | 0.0 | | 0.1 | 0.0 | 19.5 | 0.0 | 0.1 | 0.1 | 8.6 | 3.0 | 29.4 삼성에스디아이(주) | | | | …"
+        },
+        {
+          "citation_id": "C2",
+          "retrieval_unit_id": "65d03cbcba25bdbef5965d8fbfcde90e71b85df290117f4ea75e0c8ad69d02c9",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 피출자회사＼출자회사 | 삼성물산(주) | 삼성바이오로직스(주) | 삼성생명보험(주) | 삼성에스디아이(주) | 삼성에스디에스(주) | 삼성에프엔위탁관리부동산투자회사(주) | 삼성에피스홀딩스(주) | 삼성이앤에이(주) | 삼성전기(주) | 삼성전자(주) | 삼성중공업(주) | 삼성증권(주) | 삼성카드(주) | 삼성해상보험(주) 삼성물산(주) | | 43.1 | 19.3 | | 17.1 | | 43.1 | 7.0 | | 5.0 | 0.1 | | | 삼성생명보험(주) | 0.1 | 0.0 | | 0.1 | 0.1 | 19.5 | 0.0 | 0.2 | 0.1 | 8.6 | 3.0 |…"
+        },
+        {
+          "citation_id": "C3",
+          "retrieval_unit_id": "17de3d61309677df80c10fbca09093cef729927094836d47b975e73fe5c01503",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 피출자회사 ＼ 출자회사 | 삼성생명서비스손해사정(주) | 삼성선물(주) | 삼성액티브자산운용(주) | 삼성에스알에이자산운용(주) | 삼성웰스토리(주) | 삼성자산운용(주) | 삼성전자로제틱(주) | 삼성전자서비스(주) | 삼성전자서비스씨에스(주) | 삼성전자판매(주) | 삼성카드고객서비스(주) | 삼성어드밴스드글라스(유) 삼성물산(주) | | | | | 100.0 | | | | | | | 삼성생명보험(주) | 99.8 | | | 100.0 | | 100.0 | | | | | | 삼성에스디아이(주) | | | | | | | | | | | | 삼성에스디에스(주) | | | | | …"
+        },
+        {
+          "citation_id": "C4",
+          "retrieval_unit_id": "eba319a27df04c65bffddc9b4bcc73be80474833452e19a37985cc01871b211c",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "6. 관계기업 및 공동기업 투자 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 6. 관계기업 및 공동기업 투자 (연결) (단위 : 백만원) 구 분 | 전기 삼성전기㈜ | 삼성에스디에스㈜ | 삼성바이오로직스㈜ | 삼성에피스홀딩스㈜ | 삼성SDI㈜ | ㈜제일기획 Ⅰ. 요약 재무정보(연결재무제표 기준) 요약 재무상태표(전기말): 세후중단영업손익(*) | (448) | - | - | - | 5,621 | - 기타포괄손익(*) | 25,820 | 28,037 | (121) | - | 128,613 | 21,408 총포괄손익(*) | 159,551 | 239,533 | 375,433 | - | (91,935) | 49,735 Ⅱ. 배당(전분…"
+        },
+        {
+          "citation_id": "C5",
+          "retrieval_unit_id": "f6949865b201306d18ab0b87384ad8ea5871d25440ad9e7b7365dc24fa42a561",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "6. 관계기업 및 공동기업 투자 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 6. 관계기업 및 공동기업 투자 (연결) (단위 : 백만원) 구 분 | 전기 삼성전기㈜ | 삼성에스디에스㈜ | 삼성바이오로직스㈜ | 삼성에피스홀딩스㈜ | 삼성SDI㈜ | ㈜제일기획 Ⅰ. 요약 재무정보(연결재무제표 기준) 요약 재무상태표(전기말): 비지배지분 | 255,582 | 346,793 | - | - | 2,127,239 | 15,708 요약 포괄손익계산서(전분기): 매출 | 2,738,649 | 3,489,764 | 1,298,273 | - | 3,176,818 | 1,039,417 계속영업손익(*) | 134,179 | 211,496 | 375…"
+        },
+        {
+          "citation_id": "C6",
+          "retrieval_unit_id": "0755e0d3a753de8e756d73063aa1dc162b13671028c7a13745956201b4dae9df",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 피출자회사 ＼출자회사 | 삼성웰스토리(주) | 삼성자산운용(주) | 삼성전자로지텍(주) | 삼성전자서비스(주) | 삼성전자서비스씨에스(주) | 삼성전자판매(주) | 삼성카드고객서비스(주) | 삼성코닝어드밴스드글라스(유) | 삼성헤지자산운용(주) | 삼성화재서비스손해사정(주) | 삼성화재애니카손해사정(주) | 세메스(주) | 수원삼성축구단(주) 삼성물산(주) | 100.0 | | | | | | | | | | | | 삼성생명보험(주) | | 100.0 | | | | | | | | | | | 삼성에스디아이(주) | | | | | | | | | | | | | 삼성에스디에스(주) | |…"
+        },
+        {
+          "citation_id": "C7",
+          "retrieval_unit_id": "9fb4087b1abb706f4c38d61dee0ffab0924904e158c745ef2c3388362f72402a",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "IX. 계열회사 등에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > IX. 계열회사 등에 관한 사항 피출자회사 ＼ 출자회사 | (주)삼우건축사사무소 | (주)서울레이크사이드 | (주)시큐아이 | (주)씨브이네트 | (주)에스에이치피코퍼레이션 | (주)하만인터내셔널코리아 | (주)휴먼티에스에스 | (주)희망별숲 | - | - | - | - 삼성물산(주) | 100.0 | 100.0 | 8.7 | 40.1 | | | | | | | | 삼성생명보험(주) | | | | | | | | | | | | 삼성에스디아이(주) | | | | | | | | | | | | 삼성에스디에스(주) | | | 56.5 | 9.4 | | | | | | | | 삼성에피스홀딩스(주) | | | | | | | …"
+        },
+        {
+          "citation_id": "C8",
+          "retrieval_unit_id": "4d991b46afc537f32ca053b6dde5c7d53bc6c5db378eaccc32c2b3a8b22323f9",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "XII. 상세표",
+            "2. 계열회사 현황(상세)"
+          ],
+          "text_excerpt": "[section] 목 차 > XII. 상세표 > 2. 계열회사 현황(상세) 상장여부 | 회사수 | 기업명 | 법인등록번호 상장 | 18 | 삼성물산(주) | 1110015762 삼성바이오로직스(주) | 1110566317 삼성생명보험(주) | 1110005953 삼성에스디아이(주) | 1110394174 삼성에스디에스(주) | 1110398556 삼성에프엔위탁관리부동산투자회사(주) | 1118376893 삼성에피스홀딩스(주) | 1110149508 삼성이앤에이(주) | 1110240509 삼성전기(주) | 1110001626 삼성전자(주) | 1110006246 삼성중공업(주) | 1110168595 삼성증권(주) | 1110335649…"
+        },
+        {
+          "citation_id": "C9",
+          "retrieval_unit_id": "f655f8bace5156950441a0b9a0598a7db70769064e5b881482f53ebcaca16a80",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "XII. 상세표",
+            "2. 계열회사 현황(상세)"
+          ],
+          "text_excerpt": "[section] 목 차 > XII. 상세표 > 2. 계열회사 현황(상세) 상장여부 | 회사수 | 기업명 | 법인등록번호 상장 | 18 | 삼성물산(주) | 1101110015762 삼성바이오로직스(주) | 1201110566317 삼성생명보험(주) | 1101110005953 삼성에스디아이(주) | 1101110394174 삼성에스디에스(주) | 1101110398556 삼성에프엔위탁관리부동산투자회사(주) | 1101118376893 삼성에피스홀딩스(주) | 1201110149508 삼성이앤에이(주) | 1101110240509 삼성전기(주) | 1301110001626 삼성전자(주) | 1301110006246 삼성중공업(주) | 1…"
+        },
+        {
+          "citation_id": "C10",
+          "retrieval_unit_id": "85a98a4bddadb6d49eab49875653c980a2ce353fc30a8cda1fc63c8e1d09020e",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "28. 특수관계자와의 거래 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 28. 특수관계자와의 거래 (연결) 전분기 (단위 : 백만원) | 전체 특수관계자 | 특수관계자 | 관계기업 및 공동기업 | 그 밖의 특수관계자 | 대규모기업집단 | 삼성에스디에스㈜ | 삼성전기㈜ | 삼성SDI㈜ | ㈜제일기획 | 기타 | 삼성물산㈜ | 기타 | 삼성이앤에이㈜ | ㈜에스원 | 기타 매출 등, 특수관계자거래 | 58,947 | 38,231 | 34,745 | 36,506 | 357,386 | 2,024 | 176,810 | 1,012 | 4,922 | 62,119 비유동자산 처분, 특수관계자거래 | 61 | 0 | 0 | 0 | 124 |…"
+        }
+      ],
+      "answer": "전분기 삼성전자와 삼성에스디에스의 매입 등 구매 관련 거래액은 532,755백만원(약 5,327억 5,500만원)입니다. [C10]",
+      "limitations": [],
+      "claims": [
+        {
+          "claim_id": "K1",
+          "text": "전분기 삼성전자와 삼성에스디에스의 매입 등 구매 관련 거래액은 532,755백만원이다.",
+          "citation_ids": [
+            "C10"
+          ],
+          "factual": true
+        }
+      ],
+      "faithfulness": {
+        "score": 0.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "verdict": "misinterpretation",
+            "scope_issue": "company",
+            "reason": "표에서 532,755백만원은 전체 특수관계자 매입 등 거래액이고, 삼성에스디에스㈜ 열의 금액은 313,853백만원입니다."
+          }
+        ]
+      },
+      "requirement_judgment": {
+        "score": 1.0,
+        "answer_relevance": "direct",
+        "items": [
+          {
+            "requirement_id": "R1",
+            "verdict": "covered",
+            "claim_ids": [
+              "K1"
+            ],
+            "reason": "전분기 삼성에스디에스와의 구매 관련 거래액을 532,755백만원이라고 구체적으로 답했습니다."
+          }
+        ]
+      },
+      "citation_judgment": {
+        "score": 0.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "citation_id": "C10",
+            "verdict": "does_not_support",
+            "reason": "532,755백만원은 전체 특수관계자 항목의 금액이며, 삼성에스디에스㈜ 열의 매입 등 금액은 313,853백만원입니다."
+          }
+        ]
+      },
+      "integrity": {
+        "integrity_error_count": 0,
+        "malformed": [],
+        "unknown": []
+      },
+      "query_flags": []
+    },
+    {
+      "role": "period_scope_confusion",
+      "query_id": "V2-00989619-finance_table-02",
+      "question": "알테오젠 분기보고서에서 기술 지원과 위탁생산 용역 기간은 언제부터 언제까지로 나와 있어?",
+      "requirements": [
+        {
+          "requirement_id": "R1",
+          "text": "알테오젠 분기보고서에서 기술 지원과 위탁생산 용역 기간은 언제부터 언제까지로 나와 있어?",
+          "primary": "generation_limited",
+          "flags": [
+            "over_abstention",
+            "period_scope_confusion",
+            "citation_missing"
+          ],
+          "coverage": "abstained",
+          "support": "unsupported",
+          "evidence_in_top10": true
+        }
+      ],
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "retrieval_unit_id": "e179d21054cedcb8e790966aee9454de63b45455baadae07707e0ebc7d38ecee",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "7. 증권의 발행을 통한 자금조달에 관한 사항",
+            "7-1. 증권의 발행을 통한 자금조달 실적"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 7. 증권의 발행을 통한 자금조달에 관한 사항 > 7-1. 증권의 발행을 통한 자금조달 실적 (주1) 전환청구 기간은 발행일로 부터 1년이 경과한 날(2026년 2월 20일)부터 존속기간 만기일 1개월 전일(2030년 1월 20일)까지이며, 최초 전환가액 조정일(발행일로 부터 매 7개월 경과한 날)은 2025년 9월 20일자로, 보고서 작성기준일 현재 우선주주의 전환가액 조정 및 전환권 청구는 해당사항 없습니다.(주2) 상환청구 기간은 발행일로 부터 3년이 경과한 날(2028년 2월 20일)부터 존속기간 만기일 1개월 전일(2030년 1월 20일)까지이며, 보고서 작성기준일 현재…"
+        },
+        {
+          "citation_id": "C2",
+          "retrieval_unit_id": "b23cd4328b10404c0c32f3785a8ac9cf56ddf8d4689ce98cc840d7058752c7c4",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "III. 재무에 관한 사항",
+            "7. 증권의 발행을 통한 자금조달에 관한 사항",
+            "7-1. 증권의 발행을 통한 자금조달 실적"
+          ],
+          "text_excerpt": "[section] III. 재무에 관한 사항 > 7. 증권의 발행을 통한 자금조달에 관한 사항 > 7-1. 증권의 발행을 통한 자금조달 실적 (주1) 전환청구 기간은 발행일로 부터 1년이 경과한 날(2026년 2월 20일)부터 존속기간 만기일 1개월 전일(2030년 1월 20일)까지이며, 최초 전환가액 조정일(발행일로 부터 매 7개월 경과한 날)은 2025년 9월 20일자로, 보고서 작성기준일 현재 우선주주의 전환가액 조정 및 전환권 청구는 해당사항 없습니다.(주2) 상환청구 기간은 발행일로 부터 3년이 경과한 날(2028년 2월 20일)부터 존속기간 만기일 1개월 전일(2030년 1월 20일)까지이며, 보고서 작성기준일 현재 우선주주의…"
+        },
+        {
+          "citation_id": "C3",
+          "retrieval_unit_id": "bc789c4f919f35f36b1a9199302e1455a950333b793bf0510df0f47b8470d1d0",
+          "document_name": "반기보고서",
+          "report_type": "[첨부추가]반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "III. 재무에 관한 사항",
+            "7. 증권의 발행을 통한 자금조달에 관한 사항",
+            "7-1. 증권의 발행을 통한 자금조달 실적"
+          ],
+          "text_excerpt": "[section] III. 재무에 관한 사항 > 7. 증권의 발행을 통한 자금조달에 관한 사항 > 7-1. 증권의 발행을 통한 자금조달 실적 (주1) 전환청구 기간은 발행일로 부터 1년이 경과한 날(2026년 2월 20일)부터 존속기간 만기일 1개월 전일(2030년 1월 20일)까지이며, 최초 전환가액 조정일(발행일로 부터 매 7개월 경과한 날)은 2025년 9월 20일자로, 보고서 작성기준일 현재 우선주주의 전환가액 조정 및 전환권 청구는 해당사항 없습니다.(주2) 상환청구 기간은 발행일로 부터 3년이 경과한 날(2028년 2월 20일)부터 존속기간 만기일 1개월 전일(2030년 1월 20일)까지이며, 보고서 작성기준일 현재 우선주주의…"
+        },
+        {
+          "citation_id": "C4",
+          "retrieval_unit_id": "0cdfa5b831fbec08eb58bda4a82b63e898d9858bc1966fac7e2402f8d4dd3b43",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "38. 주요기술이전 계약 및 수익 인식 내역"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 38. 주요기술이전 계약 및 수익 인식 내역 주요기술이전계약에 대한 세부 공시 당기 (단위 : 원) | 계약의 유형 | ALT-B4 | 고객 | A사 | B사 | C사 | D사 | E사 | F사 | G사 | 재화나 용역의 이전 시기 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는…"
+        },
+        {
+          "citation_id": "C5",
+          "retrieval_unit_id": "5777aa1c30dc503922bfccf33e575e2581573f63ea382211560b71d6c8cbe6de",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "38. 주요기술이전 계약 및 수익 인식 내역"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 38. 주요기술이전 계약 및 수익 인식 내역 주요기술이전계약에 대한 세부 공시 당기 (단위 : 원) | 계약의 유형 | ALT-B4 | 고객 | A사 | B사 | C사 | D사 | E사 | F사 | G사 | 재화나 용역의 이전 시기 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는…"
+        },
+        {
+          "citation_id": "C6",
+          "retrieval_unit_id": "af4ce2730913c116f5b2c954542785c1542fe08f9d396a4703706f12cd3a9898",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "39. 주요기술이전 계약 및 수익 인식 내역 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 39. 주요기술이전 계약 및 수익 인식 내역 (연결) 주요기술이전계약에 대한 세부 공시 당기 (단위 : 원) | 계약의 유형 | ALT-B4 | 고객 | A사 | B사 | C사 | D사 | E사 | F사 | G사 | 재화나 용역의 이전 시기 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시…"
+        },
+        {
+          "citation_id": "C7",
+          "retrieval_unit_id": "c3b16479f737ff158352c78848e4adc7ca88449f3cceec0432fe38aa53fa7723",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "39. 주요기술이전 계약 및 수익 인식 내역 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 39. 주요기술이전 계약 및 수익 인식 내역 (연결) 주요기술이전계약에 대한 세부 공시 당기 (단위 : 원) | 계약의 유형 | ALT-B4 | 고객 | A사 | B사 | C사 | D사 | E사 | F사 | G사 | 재화나 용역의 이전 시기 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시점에 이전하는 재화나 서비스 | 기간에 걸쳐 이전하는 재화나 서비스 | 한 시…"
+        },
+        {
+          "citation_id": "C8",
+          "retrieval_unit_id": "d02e36a07f2c2a23a3a5da83ef09b6f5fa8e7e0c91746bbf9421c224e209913d",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "III. 재무에 관한 사항",
+            "7. 증권의 발행을 통한 자금조달에 관한 사항",
+            "7-1. 증권의 발행을 통한 자금조달 실적"
+          ],
+          "text_excerpt": "[section] III. 재무에 관한 사항 > 7. 증권의 발행을 통한 자금조달에 관한 사항 > 7-1. 증권의 발행을 통한 자금조달 실적 (*) 2025년 2월 20일자 발행한 제5회차 기명식 상환전환우선주의 미상환잔액으로, 상환청구 기간은 발행일로 부터 3년이 경과한 날(2028년 2월 20일)부터 존속기간 만기일 1개월 전일(2030년 1월 20일)까지이며, 보고서 제출일 현재 우선주주의 상환 청구는 해당사항 없습니다."
+        },
+        {
+          "citation_id": "C9",
+          "retrieval_unit_id": "59bb3c968e2ba54bb1d754a1fd39804153776eff2de3b6e254b5844c0f9ea5f3",
+          "document_name": "반기보고서",
+          "report_type": "[첨부추가]반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "III. 재무에 관한 사항",
+            "7. 증권의 발행을 통한 자금조달에 관한 사항",
+            "7-1. 증권의 발행을 통한 자금조달 실적"
+          ],
+          "text_excerpt": "[section] III. 재무에 관한 사항 > 7. 증권의 발행을 통한 자금조달에 관한 사항 > 7-1. 증권의 발행을 통한 자금조달 실적 (*) 2025년 2월 20일자 발행한 제5회차 기명식 상환전환우선주의 미상환잔액으로, 상환청구 기간은 발행일로 부터 3년이 경과한 날(2028년 2월 20일)부터 존속기간 만기일 1개월 전일(2030년 1월 20일)까지이며, 보고서 제출일 현재 우선주주의 상환 청구는 해당사항 없습니다."
+        },
+        {
+          "citation_id": "C10",
+          "retrieval_unit_id": "983cfa46989ca2f2be29a94132070cb4710904148c62ba0790920fea6aeb105d",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2024.12",
+          "section_path": [
+            "목     차",
+            "IV. 이사의 경영진단 및 분석의견"
+          ],
+          "text_excerpt": "[section] 목 차 > IV. 이사의 경영진단 및 분석의견 (주)알테오젠 이사회는 2024년 01월 01일부터 2024년 12월 31일까지 제17기 사업년도의 재무상태 및 영업실적 등에 관한 경영진의 진단 및 분석 의견을 아래와 같이 보고합니다. 1. 예측정보에 대한 주의사항당사가 동 사업보고서에서 미래에 발생할 것으로 예상/예측한 활동, 사건 또는 현상은, 당해 공시서류 작성시점의 사건 및 재무성과에 대하여 회사의 견해를 반영한 것입니다. 동 예측정보는 미래 사업환경과 관련된 다양한 가정에 기초하고 있으며, 동 가정들은 결과적으로 부정확한 것으로 판명될 수도 있습니다. 또한, 이러한 가정들에는 예측정보에서 기재한 예상치와 실제 결…"
+        }
+      ],
+      "answer": "제공된 분기보고서 근거에는 기술지원·위탁생산 용역기간이 확인되지 않습니다. 참고로 2025년 사업보고서의 용역기간 항목에는 2021.04.01~2022.12.06, 2024.07.12~2024.10.14, 2023.01.12~2025.12.31이 기재되어 있지만, 이를 분기보고서의 기간으로 볼 수는 없습니다.[C4]",
+      "limitations": [
+        "제공된 분기보고서 발췌에는 기술지원·위탁생산 용역기간이 없습니다. 사업보고서 발췌의 기간은 분기보고서 공시내용으로 대체할 수 없습니다."
+      ],
+      "claims": [
+        {
+          "claim_id": "K1",
+          "text": "제공된 분기보고서 근거에는 기술지원·위탁생산 용역기간이 확인되지 않습니다.",
+          "citation_ids": [],
+          "factual": false
+        },
+        {
+          "claim_id": "K2",
+          "text": "2025년 사업보고서의 용역기간 항목에는 2021.04.01~2022.12.06, 2024.07.12~2024.10.14, 2023.01.12~2025.12.31이 기재되어 있습니다.",
+          "citation_ids": [
+            "C4"
+          ],
+          "factual": true
+        },
+        {
+          "claim_id": "K3",
+          "text": "사업보고서에 기재된 기간을 분기보고서의 기간으로 볼 수는 없습니다.",
+          "citation_ids": [
+            "C4"
+          ],
+          "factual": false
+        }
+      ],
+      "faithfulness": {
+        "score": 0.6666666666666666,
+        "items": [
+          {
+            "claim_id": "K1",
+            "verdict": "unsupported",
+            "scope_issue": "filing",
+            "reason": "제공된 분기보고서 발췌(C2, C8)는 자금조달 항목이며, 용역기간이 없다는 점을 확인할 수 없습니다."
+          },
+          {
+            "claim_id": "K2",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "2025년 사업보고서의 용역기간 표에 세 기간이 모두 기재되어 있습니다(C4)."
+          },
+          {
+            "claim_id": "K3",
+            "verdict": "supported",
+            "scope_issue": "filing",
+            "reason": "해당 기간들은 2025년 사업보고서에 기재되어 있으며, 분기보고서의 기간이라고 명시되어 있지 않습니다. 사업보고서와 분기보고서의 범위를 구분한 진술입니다(C2, C4)."
+          }
+        ]
+      },
+      "requirement_judgment": {
+        "score": 0.0,
+        "answer_relevance": "partial",
+        "items": [
+          {
+            "requirement_id": "R1",
+            "verdict": "abstained",
+            "claim_ids": [
+              "K1",
+              "K3"
+            ],
+            "reason": "분기보고서에서 해당 용역 기간을 확인할 수 없다고 명시하고, 사업보고서의 기간은 분기보고서 기간으로 볼 수 없다고 구분합니다."
+          }
+        ]
+      },
+      "citation_judgment": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K2",
+            "citation_id": "C4",
+            "verdict": "supports",
+            "reason": "사업보고서의 ‘용역기간’ 행에 제시된 세 기간이 청구 내용과 일치합니다."
+          },
+          {
+            "claim_id": "K3",
+            "citation_id": "C4",
+            "verdict": "supports",
+            "reason": "증거는 해당 기간이 사업보고서에 기재됐음을 명시하므로, 이를 분기보고서에 기재된 기간으로 볼 근거는 제공하지 않습니다."
+          }
+        ]
+      },
+      "integrity": {
+        "integrity_error_count": 0,
+        "malformed": [],
+        "unknown": []
+      },
+      "query_flags": [
+        "citation_missing"
+      ]
+    },
+    {
+      "role": "over_abstention",
+      "query_id": "V2-00126380-finance_table-03",
+      "question": "삼성전자의 2025년 말 자본금은 우선주와 보통주가 각각 어느 정도 비중을 차지하나요?",
+      "requirements": [
+        {
+          "requirement_id": "R1",
+          "text": "삼성전자의 2025년 말 자본금에서 우선주자본금과 보통주자본금이 각각 차지하는 비중은 얼마인가?",
+          "primary": "generation_limited",
+          "flags": [
+            "over_abstention"
+          ],
+          "coverage": "abstained",
+          "support": "supported",
+          "evidence_in_top10": true
+        }
+      ],
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "retrieval_unit_id": "78cde9af4a9c40ba09d5f7e4d03134fbce88f433d0b1fcca82b49fee14b33881",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "I. 회사의 개요",
+            "4. 주식의 총수 등"
+          ],
+          "text_excerpt": "[section] 목 차 > I. 회사의 개요 > 4. 주식의 총수 등 가. 주식의 총수 2025년말 현재 당사가 발행한 기명식 보통주식(이하 \"보통주\") 및 무의결권 기명식 우선주식(이하 \"우선주\")의 수는 각각 7,780,466,850주와 1,194,671,350주입니다. 당사는 2025년말 현재까지 보통주 1,860,828,928주와 우선주 378,696,686주를 이사회 결의에 의거하여 이익으로 소각한 바 있습니다. 2025년말 현재 유통주식수는 보통주 5,827,808,935주, 우선주 802,371,203주입니다."
+        },
+        {
+          "citation_id": "C2",
+          "retrieval_unit_id": "7843d53d8aaa84e2c634a3916f047e9077646bd4b5d676a900925a7c81ba571c",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "I. 회사의 개요",
+            "4. 주식의 총수 등"
+          ],
+          "text_excerpt": "[section] 목 차 > I. 회사의 개요 > 4. 주식의 총수 등 가. 주식의 총수 2026년 반기말 현재 당사가 발행한 기명식 보통주식(이하 \"보통주\") 및 무의결권 기명식 우선주식(이하 \"우선주\")의 수는 각각 7,780,466,850주와 1,194,671,350주입니다. 당사는 2026년 반기말 현재까지 보통주 1,934,188,242주와 우선주 392,300,147주를 이사회 결의에 의거하여 이익으로 소각한 바 있습니다. 2026년 반기말 현재 유통주식수는 보통주 5,764,191,903주, 우선주 802,371,203주입니다."
+        },
+        {
+          "citation_id": "C3",
+          "retrieval_unit_id": "1943af6d7e64ab521354e5648bb54e254230215c460120c18c688a65efa1d6a9",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "15. 자본금"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 15. 자본금 | 보통주 | 우선주 기초 유통주식수(단위: 주) | 5,827,808,935 | 802,371,203 자기주식 취득주식수(단위: 주) | (45,093,671) | 0 자기주식 지급주식수(단위: 주) | 9,848,040 | 0 기말 유통주식수(단위: 주) | 5,792,563,304 | 802,371,203 소각주식 수를 제외한 발행주식수(단위: 주) | 5,919,637,922 | 815,974,664 유통주식수에 대한 기술 | 보고기간종료일 현재 회사가 발행한 보통주 및 우선주의 수(소각 주식수 제외)는 각각 5,919,637,922주…"
+        },
+        {
+          "citation_id": "C4",
+          "retrieval_unit_id": "00d91fee9e11e8a154c552c9033c3c053a28b7cdc588cf871512663e82e61303",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "15. 자본금"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 15. 자본금 주식의 분류에 대한 공시 (단위 : 백만원) | 보통주 | 우선주 | 주식 합계 회사의 정관에 의한 발행할 주식의 총수(단위: 주) | | | 25,000,000,000 주당 액면가액(원) | | | 100 발행주식 액면 총액(백만원) | 591,964 | 81,597 | 673,561 납입자본금(백만원) | | | 897,514 자본금에 대한 설명 | | | 발행주식의 액면총액은 673,561백만원(보통주 591,964백만원, 우선주 81,597백만원)으로 이익소각으로 인하여 납입자본금 897,514백만원과 상이합니다. 각 종류별 주식에 부…"
+        },
+        {
+          "citation_id": "C5",
+          "retrieval_unit_id": "777475fc47a37a5862baa33be44b0f46cf17df7a721c06f211fb464c9aa87d79",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "18. 자본금"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 18. 자본금 주식의 분류에 대한 공시 (단위 : 백만원) | 보통주 | 우선주 | 주식 합계 회사의 정관에 의한 발행할 주식의 총수(단위: 주) | | | 25,000,000,000 주당 액면가액(원) | | | 100 발행주식 액면 총액(백만원) | 591,964 | 81,597 | 673,561 납입자본금(백만원) | | | 897,514 자본금에 대한 기술 | | | 발행주식의 액면총액은 673,561백만원(보통주 591,964백만원, 우선주 81,597백만원)으로 이익소각으로 인하여 납입자본금 897,514백만원과 상이합니다. 각 종류별 주식에 부…"
+        },
+        {
+          "citation_id": "C6",
+          "retrieval_unit_id": "f264b87e9d22876754c8576855d434b2962ffc294c4ec2a0760186ff6b7ed046",
+          "document_name": "분기보고서",
+          "report_type": "분기보고서",
+          "filing_period": "2026.03",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "15. 자본금 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 15. 자본금 (연결) 주식의 분류에 대한 공시 (단위 : 백만원) | 보통주 | 우선주 | 주식 합계 회사의 정관에 의한 발행할 주식의 총수(단위: 주) | | | 25,000,000,000 주당 액면가액(원) | | | 100 발행주식 액면 총액(백만원) | 591,964 | 81,597 | 673,561 납입자본금(백만원) | | | 897,514 자본금에 대한 설명 | | | 발행주식의 액면총액은 673,561백만원(보통주 591,964백만원, 우선주 81,597백만원)으로 이익소각으로 인하여 납입자본금 897,514백만원과 상이합니다. 각 종류…"
+        },
+        {
+          "citation_id": "C7",
+          "retrieval_unit_id": "a2dc7664ad4f6b3cfab19e7ab326b4ff9d25f71f4fbc435ea080b7bf2549c2bc",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "18. 자본금 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 18. 자본금 (연결) 주식의 분류에 대한 공시 (단위 : 백만원) | 보통주 | 우선주 | 주식 합계 회사의 정관에 의한 발행할 주식의 총수(단위: 주) | | | 25,000,000,000 주당 액면가액(원) | | | 100 발행주식 액면 총액(백만원) | 591,964 | 81,597 | 673,561 납입자본금(백만원) | | | 897,514 자본금에 대한 기술 | | | 발행주식의 액면총액은 673,561백만원(보통주 591,964백만원, 우선주 81,597백만원)으로 이익소각으로 인하여 납입자본금 897,514백만원과 상이합니다. 각 종류…"
+        },
+        {
+          "citation_id": "C8",
+          "retrieval_unit_id": "ccb8f12f3992ace7dad34c0b7f072b199e056b19a0d8a24c836e225f12bc11de",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "5. 재무제표 주석",
+            "15. 자본금"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 5. 재무제표 주석 > 15. 자본금 주식의 분류에 대한 공시 (단위 : 백만원) | 보통주 | 우선주 | 주식의 종류 합계 회사의 정관에 의한 발행할 주식의 총수(단위: 주) | | | 25,000,000,000 주당 액면가액(원) | | | 100 발행주식 액면 총액(백만원) | 584,628 | 80,237 | 664,865 납입자본금(백만원) | | | 897,514 자본금에 대한 설명 | | | 발행주식의 액면총액은 664,865백만원(보통주 584,628백만원, 우선주 80,237백만원)으로 이익소각으로 인하여 납입자본금 897,514백만원과 상이합니다. 각 종류별 주…"
+        },
+        {
+          "citation_id": "C9",
+          "retrieval_unit_id": "e2a22dc5bf8600522163df4509d0ca79329f925e34e6e5306ea014e4e37a9d64",
+          "document_name": "반기보고서",
+          "report_type": "반기보고서",
+          "filing_period": "2026.06",
+          "section_path": [
+            "목     차",
+            "III. 재무에 관한 사항",
+            "3. 연결재무제표 주석",
+            "15. 자본금 (연결)"
+          ],
+          "text_excerpt": "[section] 목 차 > III. 재무에 관한 사항 > 3. 연결재무제표 주석 > 15. 자본금 (연결) 주식의 분류에 대한 공시 (단위 : 백만원) | 보통주 | 우선주 | 주식의 종류 합계 회사의 정관에 의한 발행할 주식의 총수(단위: 주) | | | 25,000,000,000 주당 액면가액(원) | | | 100 발행주식 액면 총액(백만원) | 584,628 | 80,237 | 664,865 납입자본금(백만원) | | | 897,514 자본금에 대한 설명 | | | 발행주식의 액면총액은 664,865백만원(보통주 584,628백만원, 우선주 80,237백만원)으로 이익소각으로 인하여 납입자본금 897,514백만원과 상이합니다. …"
+        },
+        {
+          "citation_id": "C10",
+          "retrieval_unit_id": "751d82665dd52a7f7a2b63dc44ede4b9e2873146ab445a4f510a86d3fe966da9",
+          "document_name": "사업보고서",
+          "report_type": "사업보고서",
+          "filing_period": "2025.12",
+          "section_path": [
+            "목     차",
+            "VII. 주주에 관한 사항"
+          ],
+          "text_excerpt": "[section] 목 차 > VII. 주주에 관한 사항 ※ 2025년 12월 31일, 보통주 기준입니다.※ 2026년 1월 2일 홍라희(증여자)와 이재용(수증자)간 지분 증여로 제출일 기준 최대주주 이재용의 지분율은 21.00%입니다."
+        }
+      ],
+      "answer": "2025년 말 공시된 발행주식 액면총액 기준으로 보통주는 591,964백만원, 우선주는 81,597백만원이며, 합계 673,561백만원 중 보통주가 약 87.9%, 우선주가 약 12.1%입니다. [C5] 공시는 납입자본금 897,514백만원의 주식 종류별 금액은 구분해 제시하지 않으므로, 위 비중은 발행주식 액면총액을 기준으로 계산했습니다. [C5]",
+      "limitations": [],
+      "claims": [
+        {
+          "claim_id": "K1",
+          "text": "2025년 말 발행주식 액면총액은 보통주 591,964백만원, 우선주 81,597백만원, 합계 673,561백만원이다.",
+          "citation_ids": [
+            "C5"
+          ],
+          "factual": true
+        },
+        {
+          "claim_id": "K2",
+          "text": "발행주식 액면총액에서 보통주는 약 87.9%, 우선주는 약 12.1%를 차지한다.",
+          "citation_ids": [
+            "C5"
+          ],
+          "factual": true
+        },
+        {
+          "claim_id": "K3",
+          "text": "공시는 납입자본금 897,514백만원을 주식 종류별로 나누어 제시하지 않으므로, 위 비중은 발행주식 액면총액 기준이다.",
+          "citation_ids": [
+            "C5"
+          ],
+          "factual": true
+        }
+      ],
+      "faithfulness": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "2025년 사업보고서에 발행주식 액면총액이 보통주 591,964백만원, 우선주 81,597백만원, 합계 673,561백만원으로 기재되어 있다."
+          },
+          {
+            "claim_id": "K2",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "공시된 금액 기준으로 계산하면 보통주 비중은 약 87.9%, 우선주는 약 12.1%이다."
+          },
+          {
+            "claim_id": "K3",
+            "verdict": "supported",
+            "scope_issue": "none",
+            "reason": "공시 표는 납입자본금 897,514백만원을 합계 열에만 표시하고, 주식 종류별 발행주식 액면총액은 별도로 제시한다."
+          }
+        ]
+      },
+      "requirement_judgment": {
+        "score": 0.0,
+        "answer_relevance": "partial",
+        "items": [
+          {
+            "requirement_id": "R1",
+            "verdict": "abstained",
+            "claim_ids": [
+              "K3"
+            ],
+            "reason": "납입자본금의 보통주·우선주별 비중은 공시에 구분되어 있지 않다고 밝히고, 대신 발행주식 액면총액 기준 비중을 제시했습니다."
+          }
+        ]
+      },
+      "citation_judgment": {
+        "score": 1.0,
+        "items": [
+          {
+            "claim_id": "K1",
+            "citation_id": "C5",
+            "verdict": "supports",
+            "reason": "표에 발행주식 액면총액이 보통주 591,964백만원, 우선주 81,597백만원, 합계 673,561백만원으로 명시되어 있습니다."
+          },
+          {
+            "claim_id": "K2",
+            "citation_id": "C5",
+            "verdict": "supports",
+            "reason": "표의 금액을 합계로 나누면 보통주는 약 87.9%, 우선주는 약 12.1%입니다."
+          },
+          {
+            "claim_id": "K3",
+            "citation_id": "C5",
+            "verdict": "supports",
+            "reason": "납입자본금 897,514백만원은 종류별 금액 없이 합계로만 제시되고, 종류별 발행주식 액면총액은 별도로 제시되어 있습니다."
+          }
+        ]
+      },
+      "integrity": {
+        "integrity_error_count": 0,
+        "malformed": [],
+        "unknown": []
+      },
+      "query_flags": []
+    }
+  ]
+}

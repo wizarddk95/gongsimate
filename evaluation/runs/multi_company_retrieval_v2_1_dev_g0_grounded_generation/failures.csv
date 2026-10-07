@@ -1,0 +1,15 @@
+query_id,requirement_id,primary,flags,coverage,evidence_in_top10,support,scope_issue,citation_missing,citation_mismatch,citation_hallucination
+V2-00107613-business_paragraph-02,R1,success,citation_mismatch,covered,true,supported,none,false,true,false
+V2-00107613-finance_table-03,R1,retrieval_limited,retrieval_failure|citation_missing,abstained,false,supported,none,true,false,false
+V2-00107613-finance_table-03,R2,retrieval_limited,retrieval_failure|citation_missing,abstained,false,supported,none,true,false,false
+V2-00107613-finance_table-03,,query,citation_missing,,,,,true,false,false
+V2-00107613-cross_period-02,R1,retrieval_limited,retrieval_failure|citation_missing,abstained,false,supported,none,true,false,false
+V2-00107613-cross_period-02,R2,retrieval_limited,retrieval_failure|citation_missing,abstained,false,supported,none,true,false,false
+V2-00107613-cross_period-02,,query,citation_missing,,,,,true,false,false
+V2-00126380-finance_table-02,R1,generation_limited,evidence_misinterpretation|period_scope_confusion|citation_mismatch,covered,true,misinterpretation,company,false,true,false
+V2-00126380-finance_table-03,R1,generation_limited,over_abstention,abstained,true,supported,none,false,false,false
+V2-00126955-cross_period-02,R1,retrieval_limited,retrieval_failure|period_scope_confusion|citation_missing,abstained,false,supported,period,true,false,false
+V2-00126955-cross_period-02,R3,retrieval_limited,retrieval_failure|period_scope_confusion|citation_missing,abstained,false,supported,filing,true,false,false
+V2-00126955-cross_period-02,,query,evidence_coverage_failure|citation_missing,,,,,true,false,false
+V2-00989619-finance_table-02,R1,generation_limited,over_abstention|period_scope_confusion|citation_missing,abstained,true,unsupported,filing,true,false,false
+V2-00989619-finance_table-02,,query,citation_missing,,,,,true,false,false

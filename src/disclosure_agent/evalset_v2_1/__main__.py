@@ -8,6 +8,7 @@ H10 reuses the stored DEV top-20 lists and does not search test.
 The H11 diagnosis reuses those stored lists and does not search test.
 The test-validation stage searches fully_answerable TEST once, then rescores
 the locked rankings without a second retrieval.
+G0 reads the stored H10 DEV top-10 and does not search.
 """
 
 from __future__ import annotations
@@ -22,6 +23,7 @@ from disclosure_agent.evalset_v2_1.asymmetric_fusion import run_asymmetric_fusio
 from disclosure_agent.evalset_v2_1.complementarity import run_complementarity
 from disclosure_agent.evalset_v2_1.evaluate import evaluate_dense
 from disclosure_agent.evalset_v2_1.freeze import freeze_dataset
+from disclosure_agent.evalset_v2_1.grounded_generation_run import run_g0
 from disclosure_agent.evalset_v2_1.ranking_failure import run_ranking_failure_diagnosis
 from disclosure_agent.evalset_v2_1.rrf import run_rrf_experiment
 from disclosure_agent.evalset_v2_1.test_validation import run_test_validation
@@ -47,6 +49,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             "asymmetric-fusion",
             "ranking-failure",
             "test-validation",
+            "g0",
         ],
     )
     parser.add_argument("--root", type=Path, default=None)
@@ -157,6 +160,30 @@ def main(argv: Sequence[str] | None = None) -> None:
                     "oracle_hit10": payload["oracle"]["hit@10"]["numerator"],
                     "h10_hit10": payload["h10_headline"]["hit@10"]["numerator"],
                     "test_questions_read": payload["test_questions_read"],
+                },
+                ensure_ascii=False,
+            )
+        )
+        return
+    if args.stage == "g0":
+        summary = run_g0(root)
+        print(
+            json.dumps(
+                {
+                    "dataset_sha256": summary["frozen_retrieval"]["dataset_sha256"],
+                    "queries": summary["queries"],
+                    "faithfulness": summary["faithfulness"],
+                    "requirement_coverage": summary["requirement_coverage"],
+                    "citation_correctness": summary["citation_correctness"],
+                    "citation_completeness": summary["citation_completeness"],
+                    "retrieval_limited_requirements": summary[
+                        "retrieval_limited_requirements"
+                    ],
+                    "generation_limited_requirements": summary[
+                        "generation_limited_requirements"
+                    ],
+                    "retrieval_reexecuted": False,
+                    "test_questions_generated": 0,
                 },
                 ensure_ascii=False,
             )

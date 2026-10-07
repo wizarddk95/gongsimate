@@ -1,0 +1,20 @@
+{
+  "provider": "openai",
+  "generator_model": "gpt-6-luna",
+  "judge_model": "gpt-6-luna",
+  "timeout_seconds": 180.0,
+  "workers": 4,
+  "max_transport_retries": 3,
+  "decoding": {
+    "temperature": null,
+    "top_p": null,
+    "max_output_tokens": null,
+    "response_format": "json_schema",
+    "store": false,
+    "note": "provider default; temperature is not sent; retries repeat the same prompt"
+  },
+  "preflight_estimated_usd": 1.3834,
+  "max_estimated_usd": 40.0,
+  "retrieval_reexecuted": false,
+  "test_questions_generated": 0
+}

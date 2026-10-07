@@ -1,0 +1,70 @@
+{
+  "baseline": "G0",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "population": "dev fully_answerable",
+  "question_count": 45,
+  "requirement_count": 58,
+  "retrieval_run_id": "multi_company_retrieval_v2_1_dev_h10_asymmetric",
+  "retrieval_policy": "bm25_primary_dense_head",
+  "retrieval_reexecuted": false,
+  "test_questions_generated": 0,
+  "generator_provider": "openai",
+  "generator_model": "gpt-6-luna",
+  "judge_provider": "openai",
+  "judge_model": "gpt-6-luna",
+  "prompt_versions": {
+    "generator": "g0-generator-v1",
+    "faithfulness": "g0-faithfulness-v1",
+    "requirements": "g0-requirements-v1",
+    "citations": "g0-citations-v1"
+  },
+  "prompt_sha256": {
+    "generator": "3f3f5ecd9df14f94d09960cb0cc64c1b2e4182a9de07df54b5aa477245b74239",
+    "faithfulness": "40353c85672e81c8665c6167eebbcf8f6edd9fd60eff9c656487d76b5b4778e1",
+    "requirements": "b3be1fa62d1be847b1ef75d6e444f90dfa8cb20469d3364ae1ce447b3a8c7d3d",
+    "citations": "bcf507a3d7c67648e772a63456b2a3ab67da022decb85d8c1433a794f26f1259"
+  },
+  "evaluator_version": "g0-answer-evaluation-v1",
+  "decoding": {
+    "temperature": null,
+    "top_p": null,
+    "max_output_tokens": null,
+    "response_format": "json_schema",
+    "store": false,
+    "note": "provider default; temperature is not sent; retries repeat the same prompt"
+  },
+  "frozen_retrieval": {
+    "retrieval_reexecuted": false,
+    "test_questions_generated": 0,
+    "test_questions_searched": 0,
+    "dataset_id": "multi_company_retrieval_v2_1",
+    "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+    "question_count": 45,
+    "hit10": {
+      "numerator": 43,
+      "denominator": 45
+    },
+    "requirement_recall": {
+      "numerator": 52,
+      "denominator": 58
+    },
+    "all_requirements": {
+      "numerator": 42,
+      "denominator": 45
+    },
+    "h10_run": "multi_company_retrieval_v2_1_dev_h10_asymmetric",
+    "retrieval_policy": "bm25_primary_dense_head",
+    "h10_dev_sha256": "d12966021644fa63b0f7015a0ea72a294565ae61f268953c6066db6858884b0d",
+    "transition_sha256": "c87967ad25b5f56f9b389fbbc7e20ac6edfc14b1adf7caa2323e030c979f227e",
+    "questions_sha256": "7919ca4876562665ee7be25209949266b22b2c81c88cd4aaf5ac977fd6604d4b",
+    "requirements_sha256": "632ba0cdcb48c735ae95554aaf7cace75bc5b91096977ab6c0981c884dfdf9d5",
+    "qrels_sha256": "2ef0d1d179897034bf891bdad0454a8dc16004d751036b34e6517a337f7b63e3",
+    "requirement_count": 58,
+    "requirement_texts_containing_digits": 31,
+    "units_joined": 450,
+    "text_join": "stored retrieval_unit_id to index text; retrieval was not executed"
+  },
+  "git_commit": "259e33e2caafb16c4fddc312ff9baf58ec8f20f7",
+  "git_dirty": true
+}
