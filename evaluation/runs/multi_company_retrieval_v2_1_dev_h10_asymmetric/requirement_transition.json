@@ -1,0 +1,447 @@
+{
+  "cells": {
+    "both": {
+      "prior": 40,
+      "transitions": {
+        "retained": 40
+      },
+      "lost_or_still_missing": []
+    },
+    "dense_only": {
+      "prior": 1,
+      "transitions": {
+        "recovered": 1
+      },
+      "lost_or_still_missing": []
+    },
+    "bm25_only": {
+      "prior": 11,
+      "transitions": {
+        "retained": 11
+      },
+      "lost_or_still_missing": []
+    },
+    "neither": {
+      "prior": 6,
+      "transitions": {
+        "still_missing": 6
+      },
+      "lost_or_still_missing": [
+        "V2-00107613-cross_period-02/R1",
+        "V2-00107613-cross_period-02/R2",
+        "V2-00107613-finance_table-03/R1",
+        "V2-00107613-finance_table-03/R2",
+        "V2-00126955-cross_period-02/R1",
+        "V2-00126955-cross_period-02/R3"
+      ]
+    }
+  },
+  "requirements": [
+    {
+      "query_id": "V2-00107613-business_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-business_table-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-finance_table-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-governance_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-multi_element-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-multi_element-01",
+      "requirement_id": "R2",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-overview_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-business_table-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-cross_period-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-finance_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-multi_element-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-multi_element-01",
+      "requirement_id": "R2",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-business_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-finance_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-finance_table-03",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-mdna_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-multi_element-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-multi_element-02",
+      "requirement_id": "R2",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-business_paragraph-03",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-business_table-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-mdna_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-multi_element-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-multi_element-02",
+      "requirement_id": "R2",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-overview_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R2",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R3",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "requirement_id": "R4",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-finance_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-finance_table-03",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-mdna_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-multi_element-02",
+      "requirement_id": "R1",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-multi_element-02",
+      "requirement_id": "R2",
+      "prior_cell": "both",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "requirement_id": "R1",
+      "prior_cell": "neither",
+      "h10_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "requirement_id": "R2",
+      "prior_cell": "neither",
+      "h10_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "requirement_id": "R1",
+      "prior_cell": "neither",
+      "h10_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "requirement_id": "R2",
+      "prior_cell": "neither",
+      "h10_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R1",
+      "prior_cell": "neither",
+      "h10_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R3",
+      "prior_cell": "neither",
+      "h10_covered@10": false,
+      "transition": "still_missing"
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-03",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-finance_table-02",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00121941-overview_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "requirement_id": "R2",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R2",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-finance_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126955-finance_table-01",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-governance_paragraph-02",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00989619-overview_paragraph-01",
+      "requirement_id": "R1",
+      "prior_cell": "bm25_only",
+      "h10_covered@10": true,
+      "transition": "retained"
+    },
+    {
+      "query_id": "V2-00126380-finance_table-02",
+      "requirement_id": "R1",
+      "prior_cell": "dense_only",
+      "h10_covered@10": true,
+      "transition": "recovered"
+    }
+  ]
+}

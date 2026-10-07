@@ -1,0 +1,495 @@
+{
+  "regressions": {
+    "bm25_only_lost": 0,
+    "bm25_only_lost_queries": [],
+    "both_hit_lost": 0,
+    "both_hit_lost_queries": [],
+    "hit10_gained_queries": [
+      {
+        "query_id": "V2-00126380-finance_table-02",
+        "company": "삼성전자",
+        "question": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+        "prior_cell": "dense_hit_bm25_miss",
+        "edit": "insertion",
+        "bm25_first_relevant_rank": null,
+        "fused_first_relevant_rank": 10,
+        "truncated_first_relevant_rank": 2,
+        "bm25_hit10": false,
+        "truncated_hit10": true,
+        "fused_hit10": true,
+        "dense_head_judgment": "relevant",
+        "displaced_bm25_rank10_judgment": "irrelevant"
+      }
+    ],
+    "residual_queries": [
+      {
+        "query_id": "V2-00121941-business_paragraph-03",
+        "company": "대상",
+        "question": "대상이 종속·관계·공동기업을 제외하고 보유한 지분증권 투자액은 2024년 말 장부상 얼마였나요?",
+        "prior_cell": "dense_miss_bm25_hit",
+        "edit": "insertion",
+        "bm25_first_relevant_rank": 8,
+        "fused_first_relevant_rank": 8,
+        "truncated_first_relevant_rank": 15,
+        "bm25_hit10": true,
+        "truncated_hit10": false,
+        "fused_hit10": true,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "relevant",
+        "name": "대상 지분증권",
+        "h9_mechanism": "symmetric_rank_competition",
+        "restoration_is_prefix_entailment": true
+      },
+      {
+        "query_id": "V2-00121941-finance_table-02",
+        "company": "대상",
+        "question": "대상은 2026년 1분기 말 특수관계자 거래로 받을 돈과 갚을 돈이 각각 얼마였어?",
+        "prior_cell": "dense_miss_bm25_hit",
+        "edit": "promotion",
+        "bm25_first_relevant_rank": 7,
+        "fused_first_relevant_rank": 7,
+        "truncated_first_relevant_rank": 14,
+        "bm25_hit10": true,
+        "truncated_hit10": false,
+        "fused_hit10": true,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "name": "대상 특수관계자",
+        "h9_mechanism": "intersection_dominance_and_symmetric_competition",
+        "restoration_is_prefix_entailment": true
+      },
+      {
+        "query_id": "V2-00989619-governance_paragraph-02",
+        "company": "알테오젠",
+        "question": "알테오젠은 이번 분기에 우선주 몇 주를 보통주로 바꿨나요?",
+        "prior_cell": "dense_miss_bm25_hit",
+        "edit": "promotion",
+        "bm25_first_relevant_rank": 4,
+        "fused_first_relevant_rank": 4,
+        "truncated_first_relevant_rank": 11,
+        "bm25_hit10": true,
+        "truncated_hit10": false,
+        "fused_hit10": true,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "name": "알테오젠 우선주",
+        "h9_mechanism": "intersection_dominance",
+        "restoration_is_prefix_entailment": true
+      }
+    ]
+  },
+  "dense_only_retention": {
+    "query_id": "V2-00126380-finance_table-02",
+    "company": "삼성전자",
+    "question": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+    "edit": "insertion",
+    "dense_first_relevant_rank": 1,
+    "bm25_first_relevant_rank": null,
+    "truncated_first_relevant_rank": 2,
+    "fused_rank": 10,
+    "fused_first_relevant_rank": 10,
+    "dense_head_id": "85a98a4bddadb6d49eab49875653c980a2ce353fc30a8cda1fc63c8e1d09020e",
+    "dense_head_judgment": "relevant",
+    "bm25_hit10": false,
+    "truncated_hit10": true,
+    "hit10": true,
+    "top10": [
+      {
+        "rank": 1,
+        "retrieval_unit_id": "976ae60e70fdda6d21d17e641a31b0b3c1d25c0c9c83b4271e209d4971760817",
+        "bm25_rank": 1,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 2,
+        "retrieval_unit_id": "65d03cbcba25bdbef5965d8fbfcde90e71b85df290117f4ea75e0c8ad69d02c9",
+        "bm25_rank": 2,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 3,
+        "retrieval_unit_id": "17de3d61309677df80c10fbca09093cef729927094836d47b975e73fe5c01503",
+        "bm25_rank": 3,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 4,
+        "retrieval_unit_id": "eba319a27df04c65bffddc9b4bcc73be80474833452e19a37985cc01871b211c",
+        "bm25_rank": 4,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 5,
+        "retrieval_unit_id": "f6949865b201306d18ab0b87384ad8ea5871d25440ad9e7b7365dc24fa42a561",
+        "bm25_rank": 5,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 6,
+        "retrieval_unit_id": "0755e0d3a753de8e756d73063aa1dc162b13671028c7a13745956201b4dae9df",
+        "bm25_rank": 6,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 7,
+        "retrieval_unit_id": "9fb4087b1abb706f4c38d61dee0ffab0924904e158c745ef2c3388362f72402a",
+        "bm25_rank": 7,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 8,
+        "retrieval_unit_id": "4d991b46afc537f32ca053b6dde5c7d53bc6c5db378eaccc32c2b3a8b22323f9",
+        "bm25_rank": 8,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 9,
+        "retrieval_unit_id": "f655f8bace5156950441a0b9a0598a7db70769064e5b881482f53ebcaca16a80",
+        "bm25_rank": 9,
+        "is_dense_head": false,
+        "judgment": "irrelevant",
+        "relevance": 0
+      },
+      {
+        "rank": 10,
+        "retrieval_unit_id": "85a98a4bddadb6d49eab49875653c980a2ce353fc30a8cda1fc63c8e1d09020e",
+        "bm25_rank": null,
+        "is_dense_head": true,
+        "judgment": "relevant",
+        "relevance": 2
+      }
+    ]
+  },
+  "edit_census": {
+    "queries": 45,
+    "edits": {
+      "none": 16,
+      "insertion": 20,
+      "promotion": 9
+    },
+    "head_judgment_when_edited": {
+      "irrelevant": 23,
+      "relevant": 6
+    },
+    "displaced_bm25_rank10_judgment": {
+      "irrelevant": 22,
+      "relevant": 7
+    },
+    "edited_queries": [
+      {
+        "query_id": "V2-00107613-business_paragraph-02",
+        "company": "이수페타시스",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "relevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00107613-cross_period-02",
+        "company": "이수페타시스",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 18,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": false,
+        "fused_hit10": false
+      },
+      {
+        "query_id": "V2-00107613-finance_table-01",
+        "company": "이수페타시스",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 17,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00107613-finance_table-03",
+        "company": "이수페타시스",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": false,
+        "fused_hit10": false
+      },
+      {
+        "query_id": "V2-00107613-governance_paragraph-02",
+        "company": "이수페타시스",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 17,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00107613-mdna_paragraph-02",
+        "company": "이수페타시스",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00121941-business_paragraph-02",
+        "company": "대상",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00121941-business_paragraph-03",
+        "company": "대상",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "relevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00121941-cross_period-01",
+        "company": "대상",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 14,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00121941-finance_paragraph-02",
+        "company": "대상",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 14,
+        "dense_head_judgment": "relevant",
+        "displaced_bm25_rank10_judgment": "relevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00121941-finance_table-02",
+        "company": "대상",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 13,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00121941-overview_paragraph-01",
+        "company": "대상",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126380-finance_table-02",
+        "company": "삼성전자",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "relevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": false,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126380-finance_table-03",
+        "company": "삼성전자",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "relevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126380-governance_paragraph-01",
+        "company": "삼성전자",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126380-mdna_paragraph-01",
+        "company": "삼성전자",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126380-mdna_paragraph-02",
+        "company": "삼성전자",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126955-business_paragraph-03",
+        "company": "삼양식품",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "relevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126955-cross_period-01",
+        "company": "삼양식품",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126955-cross_period-02",
+        "company": "삼양식품",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126955-finance_paragraph-02",
+        "company": "삼양식품",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126955-finance_table-01",
+        "company": "삼양식품",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00126955-mdna_paragraph-01",
+        "company": "삼양식품",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "relevant",
+        "displaced_bm25_rank10_judgment": "relevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00989619-finance_paragraph-01",
+        "company": "알테오젠",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 18,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "relevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00989619-finance_table-02",
+        "company": "알테오젠",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00989619-finance_table-03",
+        "company": "알테오젠",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "relevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00989619-governance_paragraph-02",
+        "company": "알테오젠",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 11,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00989619-mdna_paragraph-02",
+        "company": "알테오젠",
+        "edit": "promotion",
+        "dense_head_bm25_rank": 18,
+        "dense_head_judgment": "relevant",
+        "displaced_bm25_rank10_judgment": "irrelevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      },
+      {
+        "query_id": "V2-00989619-overview_paragraph-01",
+        "company": "알테오젠",
+        "edit": "insertion",
+        "dense_head_bm25_rank": null,
+        "dense_head_judgment": "irrelevant",
+        "displaced_bm25_rank10_judgment": "relevant",
+        "bm25_hit10": true,
+        "fused_hit10": true
+      }
+    ]
+  },
+  "requirement_delta_vs_bm25": {
+    "gained": [
+      "V2-00126380-finance_table-02/R1"
+    ],
+    "lost": [],
+    "gained_count": 1,
+    "lost_count": 0
+  }
+}

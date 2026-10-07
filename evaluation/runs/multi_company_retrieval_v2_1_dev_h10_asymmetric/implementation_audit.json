@@ -1,0 +1,44 @@
+{
+  "implementation": {
+    "rule_id": "bm25_primary_dense_head",
+    "function": "disclosure_agent.evalset_v2_1.asymmetric_fusion.bm25_primary_dense_head",
+    "semantics_document": "docs/experiments/2026-10-07_h10_asymmetric_fusion_semantics.md",
+    "candidate_n": 20,
+    "protected_prefix": 9,
+    "marginal_slot": 10,
+    "formula": "if dense_head in BM25[1..10]: fused = BM25; else fused = BM25[1..9] + [dense_head] + BM25 tail without the head",
+    "dense_ranks_read_by_placement": [
+      1
+    ],
+    "dense_ranks_2_to_20_are_placement_inputs": false,
+    "intersection_bonus": false,
+    "score_fusion": false,
+    "weights": null,
+    "k": null,
+    "alpha": null,
+    "tie_break": "no scores; the placement above is the total order",
+    "bm25_order_changes_only_when": "Dense rank 1 is outside BM25 top-10",
+    "units_whose_relative_order_stays": "BM25 ranks 1..9, on every query",
+    "query_routing": false,
+    "reranker": false,
+    "query_expansion": false,
+    "embedding_change": false,
+    "chunking_change": false,
+    "parameter_sweep": false,
+    "test_search": false
+  },
+  "semantics_sha256": "71b87fd2a0569cf2d95552e1e47783f66cc092d8a938db2d8c5ab52ea9081f8e",
+  "semantics_tokens_present": true,
+  "retrieval_reexecuted": false,
+  "dense_dev_sha256": "1e5f88855babe6e5dbf740ace9ddba7ae2ba8ddc0d65aa1f00c2702ba03a90f2",
+  "bm25_dev_sha256": "9557e2f6692411838caaa1732eff634d123683ea2df0fd616772e4a649389833",
+  "truncated_run": "multi_company_retrieval_v2_1_dev_truncated_rrf",
+  "truncated_dev_sha256": "c5fe70b311ad332b6140f2a501474af9f29b709cb46d490d191ae8fb3d8774ea",
+  "max_dense_rank_used_for_placement": 1,
+  "test_questions_searched": 0,
+  "git": {
+    "git_commit": "05a5dc9e9ba11f0ca00ad4c714782adebe1af08d",
+    "git_dirty": true
+  },
+  "head_subject": "eval: attribute residual truncated-rrf losses to top-20 rank pressure"
+}

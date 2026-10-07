@@ -4,6 +4,7 @@ Neither freeze nor evaluate calls a judge. Complementarity and RRF search
 fully answerable dev only. RRF does not sweep k and does not read test.
 Truncated RRF reuses stored DEV top-20 rankings and does not search test.
 The H9 diagnosis reuses that truncated ranking and does not search test.
+H10 reuses the stored DEV top-20 lists and does not search test.
 """
 
 from __future__ import annotations
@@ -14,6 +15,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from disclosure_agent.evalset_v2.spec import repo_root
+from disclosure_agent.evalset_v2_1.asymmetric_fusion import run_asymmetric_fusion_experiment
 from disclosure_agent.evalset_v2_1.complementarity import run_complementarity
 from disclosure_agent.evalset_v2_1.evaluate import evaluate_dense
 from disclosure_agent.evalset_v2_1.freeze import freeze_dataset
@@ -37,6 +39,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             "rrf",
             "truncated-rrf",
             "truncated-rrf-diagnosis",
+            "asymmetric-fusion",
         ],
     )
     parser.add_argument("--root", type=Path, default=None)
@@ -107,6 +110,24 @@ def main(argv: Sequence[str] | None = None) -> None:
                     "question_count": payload["question_count"],
                     "verdict": payload["verdict"]["decision"],
                     "mechanisms_identical": payload["verdict"]["mechanisms_identical"],
+                    "test_questions_searched": payload["test_questions_searched"],
+                },
+                ensure_ascii=False,
+            )
+        )
+        return
+    if args.stage == "asymmetric-fusion":
+        payload = run_asymmetric_fusion_experiment(root)
+        print(
+            json.dumps(
+                {
+                    "dataset_sha256": payload["dataset_sha256"],
+                    "question_count": payload["question_count"],
+                    "verdict": payload["verdict"]["label"],
+                    "reason": payload["verdict"]["reason"],
+                    "h10_hit10": payload["h10_headline"]["at_k"]["10"]["hit"],
+                    "bm25_only_lost": payload["regressions"]["bm25_only_lost"],
+                    "dense_only_hit10": payload["dense_only_retention"]["hit10"],
                     "test_questions_searched": payload["test_questions_searched"],
                 },
                 ensure_ascii=False,

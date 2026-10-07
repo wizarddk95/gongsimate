@@ -1,0 +1,4864 @@
+{
+  "queries": [
+    {
+      "query_id": "V2-00107613-business_paragraph-02",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 우주항공용 회로기판은 왜 극심한 온도 변화와 진동·충격을 견디고 오랫동안 믿고 쓸 수 있어야 하나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "4229a523ee14e65a5220b65250069ebeae6d4c1b5c291596d251eb283593ff8d",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": "f43c8a265337b2de6579d13b11a6e973118e6daf50fe3740010635cd3a21adc7",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "c4549599a9cd09f24ab3a91e0057984bf1aff3d60173869dc93e48231df1794a",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "6e46e329d42b50a94740cfb3c2b3113fca5562e50586711b62fc1179ad16bc5e",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "bc0830d2c7359c9dff3f8b635315ab6446a5658b5de29f21279f9c91928cf3c7",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "65cf85abed7bd54dd1f6716b7bbea7578fc23b1b98c51b0f758069dfb5b34338",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "83f428e6e91e6f3ee4e5a5ae9b979dedfed2b9bf606aa2ae3af8febd1d5180d2",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "c02455e336e5756ec35e90cd36c563e64b125225db7ff5c8ce1345c84f0056c6",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "3844a73bdddb619c0c3cec2ae9025d8fc2d67f52a130230d8e903574d0f1e63f",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "9b56049e7781f1feff4e7a04699202c292f0ca564991975f4f19993a6686243d",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "c2fa0087f4c160dc237a01751c7b2fbf0f1c104c7c3fd12d6e26037763faaba2",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "4229a523ee14e65a5220b65250069ebeae6d4c1b5c291596d251eb283593ff8d",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 1
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-business_table-01",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 향후 투자계획에서 토지·건축물과 기계장치의 예상투자총액 및 향후투자액은 각각 얼마인가요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "14a25cbad620d3ed49f5d92b101d9a7f45ba832726ddeffa08c44ab728f976a5",
+      "dense_head_bm25_rank": 8,
+      "fused_rank_of_dense_head": 8,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "7cf06a68274220f4af455128effc786d434fae7f67b4f9b362943da2610d37b3",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "e4e321d95df21e69b41df83ea05ef202394fd60e551862e29a9258cfef878757",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "8239e47b75da26a61cbd89ef97cbfec75ef4fbe7121faab2cf20ba173a35c7f3",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "2e2d0c2230c0762ab12da53ff7cf3d1964dc318ac3bd0146e17bf62d89afa3ea",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "c85ac7c43493a18c6b00dba70e47214c10af0e6d22a0ac6b93ef4158baf76d01",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "7d9654bb5ab301dc88e8c7588c18648d96298dfc1fdc7c1d13d24dc888476a2c",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "78a81443ce2c594772152d9b46132c6a37b365e50605ef18bd88d85a76bad025",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "14a25cbad620d3ed49f5d92b101d9a7f45ba832726ddeffa08c44ab728f976a5",
+          "bm25_rank": 8,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "04ae8b3b3b2a841eb0f6d68406bab93c2540e4e05e2cfaa925f2d97130e5ab1a",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "c20ce0094ddc87a68d1722dc38129ee9b1d6fd04be25e19fb8a14f93011d8dbb",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 2024년 반기보고서와 3분기보고서에는 투자조합의 지분 정보와 받을 돈의 연체 현황이 각각 어떻게 나와 있나요?",
+      "prior_cell": "dense_miss_bm25_miss",
+      "edit": "promotion",
+      "dense_head_id": "fee2eef7f9e82ce3636769672c38cbdfec9600dd8311211e64f3c62cd97e6327",
+      "dense_head_bm25_rank": 18,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "7ac6fcb8b3cfba3538419791a868d5c07d9aebc772f2109cb897509f9bf9d3f1",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": null,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": null,
+      "fused_first_relevant_rank": null,
+      "first_relevant_rank_change": null,
+      "bm25_hit10": false,
+      "dense_hit10": false,
+      "truncated_hit10": false,
+      "fused_hit10": false,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "still_missing",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "dd3e91081c1adb8cc545b68187c038f0f0381f5c4cf9459c3d132fd33e09798c",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "fd4f886c3c0af11d8578eefb55bbcfaf1c991f794f331caf9eaba02440aec175",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "f3ad796fc5604aec54b32f67628c9b2cb477794676a1fbde19c3682ddc1a6fd1",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "4e98a5f6220527ee1a84877087f7f83e2f730c610783c6eb46e89b53d4adce71",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "11d61fb3dff8275758909db46e7651b6456ee9ce5bcfaf37f157eab4acae875d",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "4030150e9b41bf88e3a04f0541d17b534239c24044f302670d9eca058113dfd0",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "5144a79648b29037fa26a8ce03bba83e334033a67da7944c3b7b2d1a07601e1a",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "e2f66c26c879d8514f05afb0116a4cb21e77c09b51e664363f2f55b6051acc57",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "a8b363a0e9aaf5cc7922806c6b97273640b467f317f2c81a5fb4bf8cec962c90",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "fee2eef7f9e82ce3636769672c38cbdfec9600dd8311211e64f3c62cd97e6327",
+          "bm25_rank": 18,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-finance_table-01",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 2024년 상반기 연결 현금흐름표에서 투자활동현금흐름은 얼마였나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "promotion",
+      "dense_head_id": "3f72dec6a97cc83c11819566c48a4d7732624c4602444a8ae673dea16754af78",
+      "dense_head_bm25_rank": 17,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "369246c97025792559845acb305d1daf89c7cf91ee0fb26f51a8a7353cf8bc49",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 3,
+      "dense_first_relevant_rank": 9,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 3,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "5e776adf8f8c70c5735505d1c31df505d91afee7717497c1244debbabf1b995d",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "04c6f788d5e11f81ecad94845a7863c968c01e61646f73a4248a532e3ce1b084",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "6b3fdbcc760b173a898dc099a097d457e0c11e60db5cb9019965b44e26170445",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "afa2a466cd69797371b01e9eed42bedfd07710969af8d45e903b52de0d5d963d",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "6ea491263e2f89c257143406446b1d23eaba89ffcb5b68b51993d15cdd5fc2d3",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "0546e1af7b171860ad70e5256c98983f9b8aaffd764434c372cd18e3a665eaf9",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "fe2099e166d24fe2978db6027739691d23d25edab5779e5a0f44d93a57b618e5",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "de1a0b42bf3b153c0f2964d95f094c347211b4a74a8570931f5fa4882f91e303",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "fa8960bbb857ad745269ac5e118fe70874452b964a7d250e2ed3d0f407867855",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "3f72dec6a97cc83c11819566c48a4d7732624c4602444a8ae673dea16754af78",
+          "bm25_rank": 17,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 2026년 상반기 투자활동에서 무형자산 취득과 투자부동산 취득은 각각 어느 정도를 차지했나요?",
+      "prior_cell": "dense_miss_bm25_miss",
+      "edit": "insertion",
+      "dense_head_id": "30191a99fdb651da162ef804b33f4bd2440ce8cc8b9e444529ca13d4e3531ca7",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "fd4f886c3c0af11d8578eefb55bbcfaf1c991f794f331caf9eaba02440aec175",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": null,
+      "dense_first_relevant_rank": 20,
+      "truncated_first_relevant_rank": 39,
+      "fused_first_relevant_rank": null,
+      "first_relevant_rank_change": null,
+      "bm25_hit10": false,
+      "dense_hit10": false,
+      "truncated_hit10": false,
+      "fused_hit10": false,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "still_missing",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "ccc21a71ba117a638e83e7324bd1c25ee18fb34059ad62b49d7215fcd6495bfc",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "9a2ddf28ffb8628a8d78983b2ed22394b39407efe5eec72f69db7e385bdbacca",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "eafcd80e1f775bf4ceb4dd9f1f9624059523a21d7491021a6fb762e89e0f4a6f",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "79f156cc60870e684501e0d5362bfabfdf7c6ee67008fb7e8bf287118f6fd04b",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "461d9d86e7a7c3dab828e3e191d3e4e08629135fcbb875654c6166d0e78e8c57",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "a3c7e308f4157bfce5c3199ca5be341913bbbd509f236b1013f442ab0f6d6f61",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "97d9b630f58f63f3aaca5e68654b8d5585fe350bc959e161edbad9e8e4000b05",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "ace349d6a1210bc848a5a30b71ce04762d5368684d38dd79c31513fe966250c0",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "622e7ff5a2979b2a4ba430e639808a682bd71f828543f469b107dd5b28fb1c57",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "30191a99fdb651da162ef804b33f4bd2440ce8cc8b9e444529ca13d4e3531ca7",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-governance_paragraph-02",
+      "company": "이수페타시스",
+      "question": "이수페타시스는 2025년 상반기 1인 평균 급여를 계산할 때 평균 몇 명을 기준으로 했나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "promotion",
+      "dense_head_id": "523dd8f43655f1418627e58a47d096c5b3254150eb2ded6c498a3fad1363309e",
+      "dense_head_bm25_rank": 17,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "f43c8a265337b2de6579d13b11a6e973118e6daf50fe3740010635cd3a21adc7",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 2,
+      "dense_first_relevant_rank": 4,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 2,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "77ac147c0f47e9780f423afc7407d000e489d27a71549c88dc3a876ceedc7692",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "3e3e09eab00c05c72fe23e985e83a7fb8e9bfe0a9dc0434661d37d8dcca13e2c",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "ab28c2e7ed81f6d5ea5c929e4f9c49c8689ecaca5221960f45138963ea69da74",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "880611f232ae5ef9c8a8c3d64345938d3b71f1869229aa86d28593bb62d47b40",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "fd4f886c3c0af11d8578eefb55bbcfaf1c991f794f331caf9eaba02440aec175",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "d85ef80c375693ce4b41723bb13e2e32c249d9ed5db2201df1d0f9da18c9f408",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "65b93f887b1d101d1fd0587072cf9f0f46f66260a7b86ef5d9b814d78d1c85e4",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "9b56049e7781f1feff4e7a04699202c292f0ca564991975f4f19993a6686243d",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "c2fa0087f4c160dc237a01751c7b2fbf0f1c104c7c3fd12d6e26037763faaba2",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "523dd8f43655f1418627e58a47d096c5b3254150eb2ded6c498a3fad1363309e",
+          "bm25_rank": 17,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-mdna_paragraph-02",
+      "company": "이수페타시스",
+      "question": "이수페타시스는 자금이 부족해질 위험에 대비해 어떻게 돈을 관리하고 있나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "0250d361603ba1efc67931b20d0881a5e479073e12fe5387f39576d6b2598848",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "a8b363a0e9aaf5cc7922806c6b97273640b467f317f2c81a5fb4bf8cec962c90",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 4,
+      "truncated_first_relevant_rank": 2,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "b16bbfa3f9572219ce05ec8e946512762330627de616e846c79abeede2f1300f",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "07b074ecce41fbd8fbaae9bd9c122bd44e613d8d32c007cce793e447994f2523",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "b6bc9fc119f92282baab7b6eab1475d3ab55169e9afb932d4e9740957da50158",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "920854745496dccb36c1fdb285c415013d2373ec4bcc626d09f400eb727830a0",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "bdb134b3d409b352e9ef3f108aa34537dc992ac68b63afb3864d5612259b9099",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "54a82a8628c5dcffc07853a9d0e516f3b7c1098e1c8dfeb4769cc0428b7e87cb",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "9b56049e7781f1feff4e7a04699202c292f0ca564991975f4f19993a6686243d",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "c2fa0087f4c160dc237a01751c7b2fbf0f1c104c7c3fd12d6e26037763faaba2",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "f43c8a265337b2de6579d13b11a6e973118e6daf50fe3740010635cd3a21adc7",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "0250d361603ba1efc67931b20d0881a5e479073e12fe5387f39576d6b2598848",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-multi_element-01",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 2024년 반기보고서에서 환율 5% 상승에 대한 민감도 분석은 어떤 조건을 가정하며, 자본과 손익의 변동금액은 어떤 기준으로 제시하나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "255f59fd6ad1b69d7380a7efc979b56baf881bcd981069523ae3396f33c80a02",
+      "dense_head_bm25_rank": 2,
+      "fused_rank_of_dense_head": 2,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 2,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 2,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "13debd150bd3ffa3bb556353c8d231d91d7e369c3d55f7944c2bf3575a09fba3",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "255f59fd6ad1b69d7380a7efc979b56baf881bcd981069523ae3396f33c80a02",
+          "bm25_rank": 2,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "e7b67f026977389c491e2b8a975298eb1db379fc943956b95567bd4c8971c7b7",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "a8554ec8c57d87b784b8ec03a869705dafd832069c4dbfa987d049acf42a1752",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "3e3a82691993f17f12f91936915567a4549168de8141581b2f2dd64e5528bb99",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "99ae5974ac0af236e7ab916dc21be043624e6c6005699496eb9ac437bb3209a9",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "12ab6e141363ac8fdc4d024ee3e029b7c8ef3869c5e6a3cb6b948564ad9aa45e",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "bc1f46783cb5ed103c94551ca2d97b46f919eaad0a73bf18b5253f44739685a6",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "4ceddf6709b7d6d716d782abdfa84750d69b50cdb5c3661428b48305c559ecfb",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "52fb92218b88bc45b8461176359daecd6967b05c1b4e00403a34ba8cdd92267c",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00107613-overview_paragraph-01",
+      "company": "이수페타시스",
+      "question": "이수페타시스의 법적ㆍ상업적 명칭은 무엇인가요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "66f6adfeb4a8db63e426edbfa14b99da4529710328e913ebff940a73c8cbe741",
+      "dense_head_bm25_rank": 4,
+      "fused_rank_of_dense_head": 4,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "f99c46d5d664db2de41c99d09416a89f206db5accb456e61438391df24bb36b5",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "40c4630ae782bfe001134f7910a0b82a0427cd13ad3deaf35e532f68f4a77151",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "4177201cea86a54432f802cea3a64c99dfcf2ccb2dd788ee944a40d5a6b6f2db",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "66f6adfeb4a8db63e426edbfa14b99da4529710328e913ebff940a73c8cbe741",
+          "bm25_rank": 4,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "776d5cdae46451ee0d99de18a69ed9eb51d3841e0a9c91dc28a337353114c693",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "18a26f106d34562f2b7716e195db5313d60bf4ca09de6aa46709b502483b91bc",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "a87c6800aeab9c84068dc5e2b2e10f1373015ff827e6172d5889e258704b7a5b",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "33696e5f5cf55270347772140e03068973cd1378ffabb402f63df31dedb4bc36",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "1d18e2288975ec49095c58aaa3b13754886f60d9965f7d189b2a38be171247fb",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "5721daa02f3297e35adddc66ddeb1ae7f1fc87967de79e271f9d70b5a9a02493",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-01",
+      "company": "대상",
+      "question": "대상은 외환거래에서 투기적 거래를 어떻게 규정하고 있나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "f16cbaba7cd5954048da57de49e12ccedd45ddc0f370ce27aefed95a65dc58be",
+      "dense_head_bm25_rank": 2,
+      "fused_rank_of_dense_head": 2,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "3f3c0f72f9eb52ee1399b6e08040d0c70e57df66403db67753089e8182fbbd58",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "f16cbaba7cd5954048da57de49e12ccedd45ddc0f370ce27aefed95a65dc58be",
+          "bm25_rank": 2,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "1351b7d917f83f45321d86d765ca63a6fdffb215d5271b4fe567c639dc8ac234",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "31c5b5ce095f68739006e0f76d10748dae93eb3f144aebd8d258b2153ab41175",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "da78add46cf1f28671598e1bc86596eb4825fb4b141dd37084d524711cca626d",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "98938e09d0a5b748dcc3aafa181fcf5811031e9ba8356aac3b4eb17e5047e9f0",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "6e1ac46888b7e76bc99b7d7029be9b6b26b5730c5f3c0cba8c093fc2070ebd82",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "a34a7017e7d8b3ed70b0817e76acc2c33a65635fefb383ab03637c07b3cf85cd",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "cb8e3abe63ec5adb7ec29af3b800c78b436306f0c6dbfbdacde35fb679688b41",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "bdcad0602ece90c99e47f4bf42aa7e413f470fa1082625e072a10271a9fc11b4",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-02",
+      "company": "대상",
+      "question": "대상의 2026년 1분기 식품·소재 부문 매출을 더한 금액보다 연결 매출액이 낮은 이유는 무엇인가요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "05bdc9d22e8f9d9679d32a76f5d7b312d3159919c3fecdb7385d22e3179ce3e0",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "f60116acdf2d8fabb6faa4b25b07c8db118bbe40a1d85cb7e532b003cdae681f",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 3,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "5b6a6247e1be4e40b4ed5b70a501a9966b7d7f978538b95d47ffe87496734628",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "3f6614f2bc869bb43398af6cbc8bdb92dab4c9505a1f708aba9b1f71c33ba2b1",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "e5ac27099992e067bc4ee2c69a6950b1cc365f9706d48b91f1e719ec3dcb1ff8",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "b78dbe06112ec7b35a25947b631f41bed384fd41787bb84f763ae61e1d64bcad",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "3210ce081dbf0f7bfd74e2ed28bbc3879ee9b9df665bdfb49bf17f66f1b9f580",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "99b7b0d2e2fd9a4b894dd76820b688345515c88efa7411cf216aec7175e73f56",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "a7750083d4e9ac1623ba8c96585ac405f1809d15a0ac3279254be42033a46580",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "6a3a60f35b154259c639849084ab83e431ed703acb456cb2866dc34f6d555567",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "90eaecdd37fb5c151176a0e22c2613fdb19a7d34fa0a0f802304eb83b72c8a6d",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "05bdc9d22e8f9d9679d32a76f5d7b312d3159919c3fecdb7385d22e3179ce3e0",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-business_paragraph-03",
+      "company": "대상",
+      "question": "대상이 종속·관계·공동기업을 제외하고 보유한 지분증권 투자액은 2024년 말 장부상 얼마였나요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "9ae4ddd7f9cd06b41a80e95c484f2efbbda879801bbeb18b7d49db7085c31b13",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "2fdf19c16308af2733dc9134726f13f1c7d069218487841a915effc8343f140a",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "relevant",
+      "bm25_first_relevant_rank": 8,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 15,
+      "fused_first_relevant_rank": 8,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": false,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "6a1ea80afb3ae5563db902d9a938a1297ef9193659117957fd435830d766e19d",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "17f9f373eb3c0bb32ce1f97d0011f10a2ad10eabbb7fc59ce18b5f5947db84f8",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "57742f45bcd93b5dae34e3b3ac7d69efbb1d40533f1a55644ac1f0dfc365932d",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "c06a074215c233b5e6316ca238470dc2b571491af559f4010feeccc8cf2f35da",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "80e7ab5b2e78d0ae9c6a2c7a10cc3e5c8fa2bcfa0351808b8786484a1b8b20d4",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "ec7acc4d54cfbeffb9b836dfbcf2ecca8f7577c70332c378daa1de94bec1c4b8",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "875fac4ae4d52552f3bfa558be2703f435e7bed97998e4d14e0b425a0421627e",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "6c3f2984ba262a6a78e6d1db1be108f7602d0999cdfad8177de0d12b9d9c840a",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "cc42b6ee74bc79a5f0bf1b8513eb58df5bf027acdd19ebbb4f7d80d5da5345b6",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "9ae4ddd7f9cd06b41a80e95c484f2efbbda879801bbeb18b7d49db7085c31b13",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-business_table-02",
+      "company": "대상",
+      "question": "대상 군산공장의 전분·물엿 생산 가능량은 제73기 1분기에 제72기 연간 생산 가능량의 몇 퍼센트였나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "3375b934ea208fc0d25ae0f807757f496dd05d56e8121ee243848d7855c77530",
+      "dense_head_bm25_rank": 6,
+      "fused_rank_of_dense_head": 6,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 2,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "773460b10376347bc11149f931c32f37fef1bf323ef942d04f193e99848ad817",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "1190b8fb07b5f730ae8337b43610e9af23129adbf45910c69c6b55b6af0f9ed5",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "45a5fae06b5c39c1b82abcbdb9e791f4742d6f19e81bbfb7bc58aefc1d01f876",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "db14e41b6c4ff9325cd8cb843c46beedc3441d1d9838ab73230256e825099ba4",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "325484e198b9251fcd964f2b68e09997bac152fe9cc27354906852b07803d65d",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "3375b934ea208fc0d25ae0f807757f496dd05d56e8121ee243848d7855c77530",
+          "bm25_rank": 6,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "34ac5da0b32f79ea0cd441ca49d2c1077c33c063b1608ec3ad3be48775b4979f",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "90dde4c6155c10e9452f83f900180846487bc416b0477e76cff4f0d003bfd5e7",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "a96bcd52d6461605fb05bfe4a38f8e5ab2140c7ed34d5e894903b3ac722698f6",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "cb6aad7a9e4c98bc57f39c943c1bc8ac69aa4e2447e3514e3bc7fed24ff4e570",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-cross_period-01",
+      "company": "대상",
+      "question": "대상의 연결 현금흐름표에서 영업활동으로인한 현금흐름은 2022년부터 2024년까지 어떻게 변했나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "promotion",
+      "dense_head_id": "76c16f5196f41353593e5562a485bf428daad6a8f2fc18c702cbde518764f456",
+      "dense_head_bm25_rank": 14,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "412524c8ab3954d71498a1f25b272028595ac1f576ba1842e56e80f696f25a2f",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 2,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "aaaf2d2ecd839bed4bb397f9658a45af564aaee66daf91f8ce2d357bba6c6726",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "4b492e527625b1df1b11e50cd7888a52c160ef5e537c8546d6f045ac6d7244ed",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "8ff13e4934f74094bcc62c9b9ab63b7fe990a744bf41e2cada36b2331e11f012",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "55481b4ee58fadecd8d7738d26a756a9c553c1e5bce8d1332de4f4fc9b23c0d4",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "491a34d2f055c4c58f03801e5f907fef489a3bc071095136fbe53370493a510e",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "55f884897a9f0177824f0934d7a63ae33a67c84e6d55a2d05419646522182633",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "e20dbfe2fedd1a1cab94fcf7fe7d8c27405d7318c6a24290dd9b5b7bc4713c0d",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "d1a133e1462563c010748a3d7900ecb4c682d393fe10a10565ff18f8cfc2e0a2",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "6128fa025497eceaab3dcdf182c3d4b4573883d54b3993922dc4a7deb1ae24da",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "76c16f5196f41353593e5562a485bf428daad6a8f2fc18c702cbde518764f456",
+          "bm25_rank": 14,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-finance_paragraph-02",
+      "company": "대상",
+      "question": "대상이 대상네트웍스의 실수요영업부문을 인수하기로 정한 뒤 실제로 인수할 때까지 며칠이 걸렸나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "promotion",
+      "dense_head_id": "b4b2c0034056b806f4dcea48d1793f658a1f05c750fa4146d78cbf40b3e2cbbc",
+      "dense_head_bm25_rank": 14,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": "c1d5a068a60148f275b18d7d35303e59a8fc79b734a90dd5b91fb09bf8175961",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "relevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "2495d7fe7c0390a9305bec173bdfe548706a51ed978a3fe8e4754cdda5ec8e77",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "3d104d1cd7e9a6b5e208e6620696b71b17e6a87d863174197d018a19cf1ff4ea",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "44863c7e87042de87c9f232e03dd780d7b1e6762e3c3f90a25a9189b185f4745",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "fc42bff6c2b27a461d09c961a914698f1986e6bbf15be77256d170dcb4e31979",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "2baeb7fd6d1d6a0d4747bc2f8307f7618e4baa0df716b4237e94c0206a004eb9",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "10582cec8ff103adc93475dcba0e08e39b99660fb9eb839d9db73e87b88a0e76",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "c6dfa64449be9077c9d0124f4e7c7fc9d1a51fd37304858abada8bd8f6e80f6d",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "363f1346b5f66430688a4388a91fa752a71e3ddd0392d3afd97025f09ee47cfa",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "e3df0b35f8cdcbba20cceb5bb98b9481ba5cfc5bb69904ad5c2dc9d9242f71d9",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "b4b2c0034056b806f4dcea48d1793f658a1f05c750fa4146d78cbf40b3e2cbbc",
+          "bm25_rank": 14,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-finance_table-02",
+      "company": "대상",
+      "question": "대상은 2026년 1분기 말 특수관계자 거래로 받을 돈과 갚을 돈이 각각 얼마였어?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "promotion",
+      "dense_head_id": "a90898b290d2038bf39dbb9fef42ae7aa35edeae6699051ba018616098620a2a",
+      "dense_head_bm25_rank": 13,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "ad7c08b9515ec094b22d1afaa143d8f4050a50512a32d48bf671b89abdd7d784",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 7,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 14,
+      "fused_first_relevant_rank": 7,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": false,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "ce4aa1a2ecfef29a73ca6e7711d45213615b28dc0b64d54886a17ac2d4ec5b6e",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "bdf51f0ec4f8e892fb94d0e92c2dfaaad5c9f92110966f47d357f9b2e1d73f30",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "5359dc99efca0728ce3c8092d17f217c3050df2696f81473445442cdfb678072",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "b4c9e1d9609513d31593780f0223413957a39d9c157f47ac67c3177db7580808",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "6ee9668f0560d30b1a2c560c0f2bc8f9cbc796aff89062453d8717e00e31b99d",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "bb322b934e9f006aa29cc7a3fc12ace9bf309508cd8b9307ab577cf185cd65c7",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "62c8564da1be79a9d8b5bad6f32b3786894d1015029ad67477f292ac03b00a86",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "bab2a7632a01b7fffd03e46f82382b3c0f0d5cfb5d98bab0abd2d122cc0b3b75",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "50f41b922e563b44f29430b07363eaa1a4cf108f61be8cffbbd4c2752c83e9c5",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "a90898b290d2038bf39dbb9fef42ae7aa35edeae6699051ba018616098620a2a",
+          "bm25_rank": 13,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-multi_element-01",
+      "company": "대상",
+      "question": "대상 군산 사업소의 전분·물엿과 아미노산 제품류 생산실적은 제73기 반기와 제72기 연간에 각각 얼마였나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "3375b934ea208fc0d25ae0f807757f496dd05d56e8121ee243848d7855c77530",
+      "dense_head_bm25_rank": 2,
+      "fused_rank_of_dense_head": 2,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 2,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 2,
+      "fused_first_relevant_rank": 2,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "325484e198b9251fcd964f2b68e09997bac152fe9cc27354906852b07803d65d",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "3375b934ea208fc0d25ae0f807757f496dd05d56e8121ee243848d7855c77530",
+          "bm25_rank": 2,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "773460b10376347bc11149f931c32f37fef1bf323ef942d04f193e99848ad817",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "1190b8fb07b5f730ae8337b43610e9af23129adbf45910c69c6b55b6af0f9ed5",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "45a5fae06b5c39c1b82abcbdb9e791f4742d6f19e81bbfb7bc58aefc1d01f876",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "db14e41b6c4ff9325cd8cb843c46beedc3441d1d9838ab73230256e825099ba4",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "34ac5da0b32f79ea0cd441ca49d2c1077c33c063b1608ec3ad3be48775b4979f",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "90dde4c6155c10e9452f83f900180846487bc416b0477e76cff4f0d003bfd5e7",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "698f7b9e9f9c4853a937feef0bec564c8a0150b37cef71c294adc42cd8398613",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "cd8653ab2919749c09cc3e298c0445cf15ac5e8c3c0a70d85681ffd0fed15170",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00121941-overview_paragraph-01",
+      "company": "대상",
+      "question": "대상의 2026년 6월 30일 현재 총 유통주식수는 몇 주인가요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "7b27a2502731d386b767372e083d45db7b1b756c81ef825b2a34f356b24c01df",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "ae82013ca7b16871a3666ffbff0a0a568f93407420608ecf935e60c10126be1f",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 7,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "2c9da1f19fce5abd18b8822a58a5305a6f70a9539ab7504e7f89de5e82dba13f",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "6bb489f3a016c2a350675bead62096886d565407f4044fff418a180cfb2a7fce",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "f785e4b17c211a4d5367d92f50f1281e45b1ea80a15454985cfa70dd392166eb",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "cb5a8f2fb912fceab0c0771d49d832afa6f44ee663c46a7f9b60cd6cdbd9953a",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "1cbc55aec25aab624d16676e387348029ae15adb0a65a7d6fa46ca0e5cb7a8ab",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "af2b76c9d63c37b162129abcb8f1c32f2ffa9e876418d73e22e96794a2d24980",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "c5cf66dbaac2a441b7bbb206f514355138e597377ead1769ef4fb1f6b946e25d",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "6704efd2c9a3580286be4bfff3d48649a6ca8b70504128f740d1a450efbdae31",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "6a8eced92a1742490eed2f966b9d87939c5827c00a099e64e851720efb8fc15a",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "7b27a2502731d386b767372e083d45db7b1b756c81ef825b2a34f356b24c01df",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-business_paragraph-01",
+      "company": "삼성전자",
+      "question": "삼성전자는 2026년 반기말 현재 통화선도 거래를 몇 건 체결하고 있나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "a90a226149117caa98d91c9c8474b17037f10a6391cb18656410a3d9a7d2fa20",
+      "dense_head_bm25_rank": 1,
+      "fused_rank_of_dense_head": 1,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "a90a226149117caa98d91c9c8474b17037f10a6391cb18656410a3d9a7d2fa20",
+          "bm25_rank": 1,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "07ce10161cff0ec73a58b093317ffd753eb1fa5926186512f949f80edb017719",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "e471b0ab0be52738e321bf7817d3d901132d8895f2b8dc323fb0d9a14c599275",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "916d307fd1a9e349c6afefefc62faa8bde7d75eabc027e562304646e49e36851",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "644922986b8b9f0d0248960935d06031df87b9118afc07faee1aa77628fe2116",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "a262247396d1eacb98302c38d1d55397bee96e32ae291ffa71653382b1ec7aeb",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "bbd58b38c8b5387025c8c401374eb880882f9bdd54a8913249b20d857b8d98fd",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "05e928290f84737cebf4db6dae0afc34e4f8597bcff8ccabf6c7bcd7c9e597aa",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "c19a6f675ba08e2c19783c482368f9a77c5f2e47f2e5ab8aabeba83cd8a7f107",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "e7a9542e3aa75d4db547c61844bcea155f4f1fdc10e0c6a8f960278a31505e7c",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-finance_paragraph-01",
+      "company": "삼성전자",
+      "question": "삼성전자는 금융상품의 민감도분석에서 변동을 어떤 기준으로 유리한 변동과 불리한 변동으로 구분하나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "7c11acd82d3011c161d3985dc997aecfee015724866b7c14bceb3cdfc877d0cd",
+      "dense_head_bm25_rank": 1,
+      "fused_rank_of_dense_head": 1,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "7c11acd82d3011c161d3985dc997aecfee015724866b7c14bceb3cdfc877d0cd",
+          "bm25_rank": 1,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "001a127e988d8cf9a5d471b9785770a5bc853ccb4fcfec47d171d9d819b8d386",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "b49672090577f93c861be0cc39443d9bef75fb1ed72f9a44bf95f3510b90d944",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "ab76ed24148495d9a04b7b22bb8a7258e0c24fcf3080b9f1792c0310ae0ebfec",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "0b06f6d82a64716a8ad7bc2f7ebb394b84967b34d05f3ac710185b90e8b7e844",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "ea9c9ebbb491824e54ae989dab349ab35f40a72f941fcb44ce66c62c0ba39599",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "28be618ec111aebb467345242f47d00dd2915b097686593d7dae4ae45b5579e4",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "6c4a7d5dfdca9adf11cd762cbcbfe9e81c41ced41f8d43148c02c2f7a456fdca",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "0572d8afddcc65995c021b40000c82e36322d5dfbc966bf97d3c954d4adaaa1e",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "7f0759dcdc89f520b5593ad955438b81219a0244054442acbbb459f31953dce4",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-finance_table-02",
+      "company": "삼성전자",
+      "question": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?",
+      "prior_cell": "dense_hit_bm25_miss",
+      "edit": "insertion",
+      "dense_head_id": "85a98a4bddadb6d49eab49875653c980a2ce353fc30a8cda1fc63c8e1d09020e",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": "72757d50ac1d22bbab3a088117f5614f2dd71fd67c9792bce442e44332536326",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": null,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 2,
+      "fused_first_relevant_rank": 10,
+      "first_relevant_rank_change": null,
+      "bm25_hit10": false,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "recovered",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "976ae60e70fdda6d21d17e641a31b0b3c1d25c0c9c83b4271e209d4971760817",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "65d03cbcba25bdbef5965d8fbfcde90e71b85df290117f4ea75e0c8ad69d02c9",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "17de3d61309677df80c10fbca09093cef729927094836d47b975e73fe5c01503",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "eba319a27df04c65bffddc9b4bcc73be80474833452e19a37985cc01871b211c",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "f6949865b201306d18ab0b87384ad8ea5871d25440ad9e7b7365dc24fa42a561",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "0755e0d3a753de8e756d73063aa1dc162b13671028c7a13745956201b4dae9df",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "9fb4087b1abb706f4c38d61dee0ffab0924904e158c745ef2c3388362f72402a",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "4d991b46afc537f32ca053b6dde5c7d53bc6c5db378eaccc32c2b3a8b22323f9",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "f655f8bace5156950441a0b9a0598a7db70769064e5b881482f53ebcaca16a80",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "85a98a4bddadb6d49eab49875653c980a2ce353fc30a8cda1fc63c8e1d09020e",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-finance_table-03",
+      "company": "삼성전자",
+      "question": "삼성전자의 2025년 말 자본금은 우선주와 보통주가 각각 어느 정도 비중을 차지하나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "751d82665dd52a7f7a2b63dc44ede4b9e2873146ab445a4f510a86d3fe966da9",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "0c85a9479abaf949bc61c8191d39a5da035355f35b8d5fe088a9d27b96f4d018",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "relevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 9,
+      "truncated_first_relevant_rank": 2,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "78cde9af4a9c40ba09d5f7e4d03134fbce88f433d0b1fcca82b49fee14b33881",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "7843d53d8aaa84e2c634a3916f047e9077646bd4b5d676a900925a7c81ba571c",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "1943af6d7e64ab521354e5648bb54e254230215c460120c18c688a65efa1d6a9",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "00d91fee9e11e8a154c552c9033c3c053a28b7cdc588cf871512663e82e61303",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "777475fc47a37a5862baa33be44b0f46cf17df7a721c06f211fb464c9aa87d79",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "f264b87e9d22876754c8576855d434b2962ffc294c4ec2a0760186ff6b7ed046",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "a2dc7664ad4f6b3cfab19e7ab326b4ff9d25f71f4fbc435ea080b7bf2549c2bc",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "ccb8f12f3992ace7dad34c0b7f072b199e056b19a0d8a24c836e225f12bc11de",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "e2a22dc5bf8600522163df4509d0ca79329f925e34e6e5306ea014e4e37a9d64",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "751d82665dd52a7f7a2b63dc44ede4b9e2873146ab445a4f510a86d3fe966da9",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-01",
+      "company": "삼성전자",
+      "question": "삼성전자는 당기에 주식매수선택권 부여로 인식한 보상비용이 있나요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "f5d47b19598257405b95f6d508e563895b1794c6bf0621d060f13bba8362fdb5",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "4b022db39ff25e128b2eead693c440b3f42bfba5c1c43dd2907c5f0e76d7ae01",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "6d7545e5308c9d89f0299f8df6f27830d8267e21a53f60ca0c9e40161932d346",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "6fe657f91d3f043c9fa511b648c1010fffba721247a7cda31c90f2e426b5fcaf",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "bae5a54a5842b26af254e7e4f3d09cd255275268b8834350696317c32025041a",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "008245b1db9a5d09d74040409a1d8bd921b66655537a5c8bcb5b573c786491e6",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "b7b266b43ca85a4e9561c53c03beb97cef977fd6589da4661ee2369eb4237669",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "3d787e1822e578dc82168477b0fcfeadc17a6755c75abaa175bf1ca934c235a3",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "93ddce1f63822bf8fa1893f6cdc7982644e477b30ba758fd6e7f3ee22cc8bd8f",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "32111d070adbf6a9bc5970654a10213336ca5afd280a6938bd6ea0088196f6fe",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "d84608339223686c7b83113852343df48133996229f6fe73c25fcf273cf19139",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "f5d47b19598257405b95f6d508e563895b1794c6bf0621d060f13bba8362fdb5",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-governance_paragraph-02",
+      "company": "삼성전자",
+      "question": "삼성전자는 성과조건부 주식을 언제부터 지급하나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "053c6bf6f234ea4e2038dc703032f0fa6418e93c4becdd67f63bff9d8a29232b",
+      "dense_head_bm25_rank": 3,
+      "fused_rank_of_dense_head": 3,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "88f9baa522237fd573ced8bc0b91b8459ada0135018a841ab869d5e57ca9a0b0",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "f727872c06d65ab9269d88c043be5b7560cc9b3761e88d51125f41a391428b34",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "053c6bf6f234ea4e2038dc703032f0fa6418e93c4becdd67f63bff9d8a29232b",
+          "bm25_rank": 3,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "cc8cb9984a23e1af50abbd8978d537d991d28b24baf406b7c384923f2fc85a80",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "faea515afa557af94cdf42657b479f121e65079f0513fe37a7fa597ee4d5c679",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "f561d899b08911660aac6ce2a5ac98746695f211585230fd34c9f9775c1f281f",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "e8f43c3ea50fe871a6e65bab3d652592af555dda9b47206c00d0fefdea6ad1a2",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "a619e92f1fac19e4b16bc76cf0fb9ddd25b75733db7d5729bac283669d4b9be6",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "7668044829aa4b27517c2c2281579901eba6d4583bdc55ac91fd526c6acf11a9",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "0991080661aaa1898e1d7be8969cc6e22e7277233a68f2b47e4b03c76c124b94",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-mdna_paragraph-01",
+      "company": "삼성전자",
+      "question": "삼성전자의 제57기 수익성 지표가 전년보다 개선된 흐름과 함께 매출액과 영업이익은 어떻게 변했나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "1c6cb9e90e0b75567e397f0d0fd183bc23c10f044f116271941265bb8cf7e87b",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "c1f20397be54df86f41862c15105c46cbf2039a1072ab470823b1eb7e7ffb0ee",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 2,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "269eb1d84d6d6d2fe7ba996c37a80b5241b2f9a236f5d3528d191402c16319fe",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "42b079620f3dc87ebd2dc7d8ee2694b04f17e1a8579d0962e7e7cc7e4a7b2228",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "22200928e9c3dc2ea2123299a602c41750b88f339a6e7024a54a17596635fcf8",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "ef3892cf6853d3ee9d15926293285c989727bf242ba10a41ccda8aad722ea6cf",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "741171bc19bfb71afbecc49e2a1acfdff3a22aad083b36a320fc8d8cd27acaae",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "24d88174f1a23fd4562defb0c646300b3ebcb3b5b5eb50a6a7ed134f4ad4d016",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "7f27bfedc6036a1878949a91d83e9e7776fa0acd05475f358fda56319f2431ac",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "23caeee168e986beb63dc9e11d3207c47cf2ab3ca17bb1fa9c14ed46238b3cb5",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "183ef1bf9dee509c2467ac6854cb2fc8380c3bf869e7b9b2b2a4482ff2384b60",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "1c6cb9e90e0b75567e397f0d0fd183bc23c10f044f116271941265bb8cf7e87b",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-mdna_paragraph-02",
+      "company": "삼성전자",
+      "question": "삼성전자는 앞으로의 실적 전망이 실제와 달라질 수 있는 이유로 어떤 점들을 들었나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "6cfe16deb151343e3ef2b3d756caa14faeb9d0e81d7cdede49343537b0cca058",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "44bd2081490eb26a7cafd7dc6860070e4597962c50565cebec5ebd8c45680c50",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 5,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "a783e79e2efdfc7fb6288dac0d4e232fdcfd194a8c3c70a70248674d128f1ebf",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "755de48d5ad36f04f95ff7d9f6f736f4be219e2b8bad086ed449270899998889",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "1272d1ceb96d87f3d95f9e0266cebed9db995c0b8a5061f0081739e095bc5864",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "a9b78b74ef1cce1ac37a6bcc2189f6fcd469851deb6867d96e8f775fb6d592bd",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "849ef10cd8f518f0061790000e253e10bec41bdf4dc22289d4c70ffbb182a717",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "526288d2c55b1e174a1456bdde0412ec0ad5fd37898a4d4fbb2c5f86bed59572",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "970b78567b3c4f48d784593ad160a14bf4a00dd779ba5be5c29500d425b256b1",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "06de180ef6cd98595ad7cad01a35cd3992be2f3aca9fa32f5806a62a10c4b33e",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "c4b038dfba8052776422713b0473c647e31ff2a3a5dc9dd7e4a626bd091bf15d",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "6cfe16deb151343e3ef2b3d756caa14faeb9d0e81d7cdede49343537b0cca058",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126380-multi_element-02",
+      "company": "삼성전자",
+      "question": "삼성전자의 2026년 1분기 보고서에서 하만의 연산용 칩과 차량 통신 모듈은 각각 매입액이 얼마였고, 전체 매입액에서 차지한 비율은 얼마인가요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "be19733e1a397cfb389f272636ed00a4b67411dabec5b3a03bb57fd4edb2124f",
+      "dense_head_bm25_rank": 2,
+      "fused_rank_of_dense_head": 2,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 2,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 2,
+      "fused_first_relevant_rank": 2,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "724d53fe7e0dc62d524d1e6ceed5aa1f78ca35bb24fbbb3a43071818ac808fe7",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "be19733e1a397cfb389f272636ed00a4b67411dabec5b3a03bb57fd4edb2124f",
+          "bm25_rank": 2,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "6b131d7499418aca687fc9b72d45dd7f43765d934957c5cdd91b73a04fd35425",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "9c2aef1a5199480a751d67391c245af941249f0f985123bc1d7b6e9d13568ac9",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "7e885e28be6c3d2f165cd312e885cb9944d6c90f37ab1fc21c7a1b79cdb551ac",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "c5cbbeb95f68f0cfdae5de880038b7f61c084dccd8249e0c018c7f32f304e07f",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "a77eb6b6338edaa7814f62d9033374c34c6572d19cc43965769fefac56dcae46",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "9cc76ad78646a2482411c680360c5265ecaa91592fa41491f8ed020b95ab0c80",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "dc50c8c6ffa72c84c8ab9006f2be6f65ee00ee517795db34157e6272262e5ed0",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "2561cd9696c5e90cbc77b1150dfb8b16a2c98295207acb4c0df75f7688b89ac7",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-business_paragraph-03",
+      "company": "삼양식품",
+      "question": "삼양식품이 중국에서 주력으로 판매하는 볶음면 시장은 최근 어떤 추세인가요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "acfe52a397168fa8460d5b03cadd51fdd460f360889c087b456366d7191b8450",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": "6dc67e48f989ff0f503946b7d9e3f802e067691f8b85037151fef6ffa6dce979",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "5bc5e43a7432c65cfd3c750047cb3236dafbe193bf8b37895c9e912a42e6dd17",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "31bfc5cb979460f671292649c2756a72812dc7794a0597170b97e110d7fc98d3",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "e0a90e147a980d45472e034d25a6adcd78d6fc0c990873436714fe308298f0fc",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "add9dfc07096430ed20c18dcba5c9398dad50b0a13aec3b1506c7f50c033f659",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "86491848b2e8b8c5c547fe9ae3577d917f001ae1727e46831ff490d19c53e380",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "70f638683560a11556de39382152594646c177226e63a29da6c647eb39b521f7",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "0d832eaa2569744311c43b689a622e0cd4e72841b6ce542947b7cd77ec91196c",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "f0256769e8a085171f49566aaf978659aed7a7de439e8f92ee3cce91d18be005",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "8377be980264c935b98ffc9e84938f7db2c2e482e3285c18ef53e4dec5856476",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "acfe52a397168fa8460d5b03cadd51fdd460f360889c087b456366d7191b8450",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 1
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-business_table-01",
+      "company": "삼양식품",
+      "question": "삼양식품의 2026년 반기보고서에 나온 설비 보완 투자계획에서 총 투자예정액과 지출금액 합계는 각각 얼마인가요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "b9dd574a3934d80340f7750f321672a3f456d227e949ff9d0a1c78bd0dfe34fa",
+      "dense_head_bm25_rank": 1,
+      "fused_rank_of_dense_head": 1,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "b9dd574a3934d80340f7750f321672a3f456d227e949ff9d0a1c78bd0dfe34fa",
+          "bm25_rank": 1,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "9ec573561297399d508f099c031f6162fdad55cd94fa76defea27022a80cd0cb",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "38e45bb890fbd542aa275007ae62dd582e845ebcfa665e4611f44b26fef54486",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "99d3ca6ec23b63e4aacdc12afc079f4abe595cb4c6d27fdfaf9352a6ceeefdf1",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "bf820cf5bde63cb875da5079a6c6e3175150962cf265afa63361ac14f488e7a5",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "70ab66f78e21f03592414ff594bb15f4e8c2d9a4f1ef8b165e39b3c678c5cbf8",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "c420e970934d51d1e253c839609d20b65c139f6fa5e7db4a0ae12173ddea05c2",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "a96cbe764235527b24018dfc63e354a3abb3b67edcaaf486a22358c91106fc20",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "951e8b47208abf7f6910e3b7de014d993b7fcc002598aa809f41a6a0a0d4e5ba",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "6f8e6157ebac7a3b16ab94049d1634af632e5f458656c62910b8bcaa8eca73e7",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-cross_period-01",
+      "company": "삼양식품",
+      "question": "삼양식품의 매출액과 영업이익은 제62기부터 제64기까지 어떻게 변했나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "8e8575dbf03ff8f6826529a8b0008b529c68d4a6811aee98b022d45a81e42dc6",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "0eb2a10044321e29719288dcee1615c800f60e34bc6b1ccfaf01dcd8a1705618",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 5,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "033071a893cbf18a77314662f981fcd9f4b260b73f6e637271f0602610abb3f2",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "dbb1c4f1c334d36904c959f63523ca7ec3da7b1c0a107ac6cbc17b155560da63",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "1ebea5323db332d51c8917b521dd783fc7c6009678634031c7dee25b235bc147",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "fdf0566230e385fa5db1a158a10efcc2b03851da96b8abbf91391a2d8bb1200b",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "4036001d3a52707dc152823ee891e2803307377b0cb81b560ce1034777ce611e",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "0a8debc2d1e0d6c312f378acc12e0b006ef03eb004c68a14bf3b821d392ab700",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "ae044a34c6c53572f1ebfd2ec9b3a3cfa4844a1b954224d909438f2fac9621b6",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "899f85b0cf9f0f20cf138322eb56abb1a3eaefb985115f674d56104334dc72be",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "7fb17ba6b8338f502ffc5b4be118bbeae5acf38f6d118cd87ee845de918542bc",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "8e8575dbf03ff8f6826529a8b0008b529c68d4a6811aee98b022d45a81e42dc6",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "company": "삼양식품",
+      "question": "삼양식품의 2026년 1분기 말 단기·유동성장기 차입금 잔액과 반기보고서에 나온 전기말 대출 약정 한도는 각각 얼마인가요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "3d000b873ae0fc028b31d789b5cc6c68d57a10c37c643c588588c8931e645e8a",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "a2bbf840296866f9b1e24766c22fb0ad7b930df468b7b2053c9ce5b2491450eb",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 4,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 8,
+      "fused_first_relevant_rank": 4,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "70ab66f78e21f03592414ff594bb15f4e8c2d9a4f1ef8b165e39b3c678c5cbf8",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "c420e970934d51d1e253c839609d20b65c139f6fa5e7db4a0ae12173ddea05c2",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "db2145d1ff603542b9874721049ddc835b9109774b2ca30b28dd1e0adfde9428",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "fd1f33f695cdbe70be6f5750fdc4cd123ce82e5ffc496fcef359e8605f700858",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "55248eea7a2d4b37425579b7acad9113302cd1ade72cf36e8332f2a8c1d6a87a",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "4c4ad12338dbefc54d119ad66549513b330f50e47c96ddb7a952b767513efba3",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "46b19550178621b17b3643e8b66ec35014b7d8d6de13516b37ce65718abc2c59",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "673332c2fcfa6ebb3ffde59cf90f38f157c9830c0fb07198c6c89373aef180e7",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "804e1562a1d4b3197076680c9d9fdd1122973b92fb536f9d06d03655e93aed3a",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "3d000b873ae0fc028b31d789b5cc6c68d57a10c37c643c588588c8931e645e8a",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-finance_paragraph-02",
+      "company": "삼양식품",
+      "question": "삼양식품의 현행 기준 영업이익은 매출액에서 어떤 비용을 빼서 계산하나요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "8e8575dbf03ff8f6826529a8b0008b529c68d4a6811aee98b022d45a81e42dc6",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "3a2bdaf1412664f9df5c707bd0f564606ec1e1dd61e007cb8ee44a86dc3164a1",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "75a2debaff8d9745bb451f85e045da745a1c3fe776b4d5e5ab4616e7dac11d87",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "d44e982b7b32a347e8806990cd5626e5a1b44c4a7c392dad9a12d3e4146639d5",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "eac613a74f0607232be08d40be3f0c5f23fa27bcb74d50c5b8472c70e595cd43",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "960500bebfc051604a3ad24e2e7126cbb42e10a065b4d77f1dae71faae0eb50b",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "899f85b0cf9f0f20cf138322eb56abb1a3eaefb985115f674d56104334dc72be",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "7fb17ba6b8338f502ffc5b4be118bbeae5acf38f6d118cd87ee845de918542bc",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "a016c6abe61615053fcbe8fe30b3e6831d3d57c2e26d2ab429ca34d48ba8d584",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "0144b88c44b4aa5c84a00284b6be640d4ba858f4b565461993a31ab1c75bbe65",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "239e2e46fbc82c70bbb79b117b87830de3381bdcd5aa168d205a8c80ddeeb619",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "8e8575dbf03ff8f6826529a8b0008b529c68d4a6811aee98b022d45a81e42dc6",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-finance_table-01",
+      "company": "삼양식품",
+      "question": "삼양식품의 2026년 상반기 연결 자본변동표에서 배당금 지급은 얼마로 나타났나요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "b18f8896abf787f9def1c70d4afdca3aacf798976c064a88be151e050aeb24ce",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "3952ef1cb2d9c53834436cc024c491c1195e8756739be21f725092224cdd2592",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 4,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 8,
+      "fused_first_relevant_rank": 4,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "4b286ae3dcef67bcc48641778d2528cc3a5873314499de730fdb3534b90c0e59",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "b5bdb630bb4a18db9b92dad5d0ced0cd017a4e52cc5d9b8b4fd263c8358d69c3",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "f295ba11023a133ce909efbd8c8468af6e79876dd663083470b03534f11bf096",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "91e33833b03d42bef5a1be027f07d136919f8ac9475aea3bd1219cc9cc52d8d2",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "95852718f19b8f6c3ebdbc252283b07e7773afe89676e540fbb0ff3cea68ab20",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "725c6ab9f5af348c9372eb54f52abc21f7b0e93eb2e7516eeec69a2781f8b806",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "93c4f4948e178728be9c781ee3174b35bfb67bec4cb0253171641b475a26ddfb",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "433a56ca050e45b66d09fa9d62af402a2ff2d7aea148efa0c80bc8011d2938fb",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "b5f8947887efc3ad673a57f6d9be69b3259cc9e7b14a2262aef0d2eb22c16c83",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "b18f8896abf787f9def1c70d4afdca3aacf798976c064a88be151e050aeb24ce",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-mdna_paragraph-01",
+      "company": "삼양식품",
+      "question": "삼양식품은 왜 환율변동위험, 특히 달러화 및 엔화 관련 위험에 노출되어 있나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "acfe52a397168fa8460d5b03cadd51fdd460f360889c087b456366d7191b8450",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": "787df5210144ba5cb3633c53d94be3b7d9db002f6dba936b676cc89c123bc435",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "relevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "683ee73e6d735446065ae1f511c8eb2df027809c3dc502e607a34974bd6acff1",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "cba78735880069e6b5c27608ac3e3a539b4608069a70768dad8eee3e118fc2dc",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "791ae2bbdd4c7be7f2b0efa80c9a2a92f67aa4421e0774dd8f07ae2d51a0960d",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "a0e5f17cbd066d796ac787d29566a0c21c95d1ec4243f38f8eb846f65a51bebb",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "9af42a0030d74e5405a94cac550323300b8b132ba8b35f327f3d11ce8b9d0204",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "cb0d33390e932ba8e9ffc5376abb443f92ab05aaffbda32d02888d10275a4043",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "01e27ccf65c0d11311bf585ad0347c0b4be198749f78b6d8d6e4671b3461a4fe",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "1189072f56534072cf4440320c85a615e90a69322b96ed7f64e5099b2a49453a",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "7d358d1d9e37fbd4a1bd2dd357487e72a8e54e75cc3dfe0e4872e9d9406b7ee5",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "acfe52a397168fa8460d5b03cadd51fdd460f360889c087b456366d7191b8450",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 1
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-multi_element-02",
+      "company": "삼양식품",
+      "question": "삼양식품의 종속회사 삼양제분은 밀을 가공하는 부문과 원유를 정제하는 부문에서 1년 동안 각각 어느 정도 처리할 수 있나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "c293b510877a0f9006c5257a24123348fd696dd9953c78530f1aa2362ca9bf6f",
+      "dense_head_bm25_rank": 4,
+      "fused_rank_of_dense_head": 4,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 2,
+      "dense_first_relevant_rank": 7,
+      "truncated_first_relevant_rank": 5,
+      "fused_first_relevant_rank": 2,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "b4e634dfc2dab89d4e5393479e53aab5367dfa41ad26e0e80870743f4d1728eb",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "08853d7cb43880f48964e807285ed93b1a2cb4ab6b961ee3a1bf8cfc7dffb9f4",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "7136d5bf91169a98c19c249d3c9cb11435329fd8c2c75f36fd372365e26852fd",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "c293b510877a0f9006c5257a24123348fd696dd9953c78530f1aa2362ca9bf6f",
+          "bm25_rank": 4,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "c32705ead1ba78fcad8cf1b985af86710f51060d17a2649eff12f63690c126a3",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "be4107c07e0f9929cca1c4f755ea9880559d82c0292f557bad5fb3c820333b77",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "0eb2a10044321e29719288dcee1615c800f60e34bc6b1ccfaf01dcd8a1705618",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "17805a095d9091d8c2152a64f15e4f4d084bc674c73d4772b6aed5cc226e63dc",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "5e0faefbc700e9946612bd9861383de39fc979293db8f19875c39f160e1e191e",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "7972159ded2eaf4dc94722f46b4190b391a269005e458c55f0d2cda37eae99e9",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00126955-overview_paragraph-01",
+      "company": "삼양식품",
+      "question": "삼양식품의 연혁에 따르면, 삼양라운드어스(주)는 2023년 7월 어떤 상호에서 변경됐나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "021e04a78ff6321d16f04849835aa0525155784aec169c5fa4bf14f608aa450a",
+      "dense_head_bm25_rank": 1,
+      "fused_rank_of_dense_head": 1,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "021e04a78ff6321d16f04849835aa0525155784aec169c5fa4bf14f608aa450a",
+          "bm25_rank": 1,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "c06441b63a3c4dec7b9f2d3426d422af518844a3ced9734acf192c002e66d6fb",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "17805a095d9091d8c2152a64f15e4f4d084bc674c73d4772b6aed5cc226e63dc",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "a860557b2ae18e503be1e318b41a1a378e177f8af450c0a4467aa1987dcc256d",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "e0022ff472811cad29ab3a55756f789a0a64b21b167077d921f01c823491b3d6",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "b2bc5ed8e08d762d7d207a12dc4aa587d199ce9c48a96952ff2d6631e3f20576",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "f6de6f651a840e72a344a2edce5de28114e87f51da56b8fc84aa49e897ad9956",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "cc547b2f5c8dbe6b9533bd478e1404e2af96a9ab016d64c40acc22d25df7050f",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "01673b0e1c0522eb506b1e6be8e4d4dee0cbc225e9992f855ea03bd559c4398c",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "99cd49af3b06079abc1c45f5c8a5a0c37671cbd7df35b8e5d864493a1531a645",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-business_paragraph-01",
+      "company": "알테오젠",
+      "question": "알테오젠의 라이선스아웃 계약에서 매출은 어떤 항목으로 구분되나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "30da2e84d72823916575bebd42bc875a6c44a9c33dbd2e881795677e63833898",
+      "dense_head_bm25_rank": 6,
+      "fused_rank_of_dense_head": 6,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "a0bbfe52e4533e340fa838823c2b2f75acc6810bed18f1c03e049d084124cbf5",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "ef0b325e1a0698e73e7b004f85ee83bd6eceeaa5186d3b877c15a353c65f0185",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "55614c3b2747e61b769b08d415e3f13237c2f708dcf369b76e4f506789d78028",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "788b477577589f62755e10f54a2565965fcb832a8ea166df7f90b1f59883d355",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "8bf0786d6ca24ec0947a24c11db2d168ca76410de02f56943a284d925b51c4ff",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "30da2e84d72823916575bebd42bc875a6c44a9c33dbd2e881795677e63833898",
+          "bm25_rank": 6,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "357716b7a770b6cf787050eeb69583e6e15e658049dd3442988eaf266f5b43ee",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "c053ede45c186dd51dc89598a74c7db47ee84d162438155cf44aef0b7aa908ad",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "a154e4c670dd565b615f137a55a7eee67212c43ef2f826cae2178c83abbd8525",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "1fc20b1424a7353cc2898d5648992ff7929442528053348e4dbe7879eb87ba0e",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-business_table-02",
+      "company": "알테오젠",
+      "question": "알테오젠의 2026년 1분기 연구개발 비용에서 재료비, 인건비, 감가상각비, 외주업체에 맡긴 비용은 각각 어느 정도 비중인가요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80",
+      "dense_head_bm25_rank": 1,
+      "fused_rank_of_dense_head": 1,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "f52044dcf99864b6e9c06014f8bb09e66bbf356d80b9625ffd2ece313abe2c80",
+          "bm25_rank": 1,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "0eaccd75927322702cff557347c9a225e6dd6f418fa8d85ff5ae669fe02fcb10",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "f03b18f87bf9f56b6b0bb27d48952bc856cb350c58282c07f04d47cef252676e",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "95885df2dfac834a33e2985ad15809b3e1c3c98dd384dc9ada821e1ca070671c",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "3f300235a6e796f56eeb27f80696022806546416fb6abd29933eaa4d7875d5d5",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "ea42d91986c07871afd1b2d01bd7c63f5be35564074100a8b036d74c34b3e3dc",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "4a4843a0fb33d84a6ab86717e032c171ccbc238355ba373a9e974a061fec7f49",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "4477e520147f7116bf9fc39f274a8ad4bd79e2a007d089e909d1f063cd5b4add",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "4c6242a91c1859dac14de284bf90eb475100a22e42ae316d18b345d7a66a81fd",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "40f9b0690eacd43b73f21bf4fa18d2cc0184aaf9fd64af37c824de10e2faf787",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-finance_paragraph-01",
+      "company": "알테오젠",
+      "question": "알테오젠은 제1118호를 언제부터 의무 적용해야 하나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "promotion",
+      "dense_head_id": "9fbe0a32b38c9d704d63eb8e7f684dd3dd24cd0d3418ef3570f4211c3553177c",
+      "dense_head_bm25_rank": 18,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "1456fbd94771333708e818086a583f07fb1735a353436fd1c1d08317648af7ac",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "relevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 2,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "3ce2b3b972407efa7e5d7b3c0c5ab0f250957ef41032be35f414a4daec11c0dc",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "38b9be90301287d6f51ae19d88680083c8b66beff20065291d55957828c15a13",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "6206bbf5fec9cf9a4a9d3d42c3e4bafcb6211779558b317a08d4968640c06ba2",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "2a6f84cc231fe7634d34851cabd3dacccc26a6d3f76d2cd2bb1feccacc6eeab5",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "aa4c64a447701c63dbcd5e71091f414abe26aefcdd5574aa0e67675b20dd140e",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "fcd65bc51d6beff0f08c417b23d28301f74099902703dc39422b36d7fa2a2f14",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "d00a0a093a5370dfa5fc725be031a6fc2d4b5e1f68a450d6830166ec3785b8b3",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "d43534c5d4d0205cac39f3d44bd02e7d12ef9cfdf8e977999a07490744e989f5",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "02f3f749fc906c52aa5f0560f7b01dc004a505d21a074bc5830494dc3df60c7d",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "9fbe0a32b38c9d704d63eb8e7f684dd3dd24cd0d3418ef3570f4211c3553177c",
+          "bm25_rank": 18,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "company": "알테오젠",
+      "question": "알테오젠 분기보고서에서 기술 지원과 위탁생산 용역 기간은 언제부터 언제까지로 나와 있어?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "983cfa46989ca2f2be29a94132070cb4710904148c62ba0790920fea6aeb105d",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "ec7a1186fc3244cd6414dfb1e985380a4644d763f92fd7621f0909b75fc38e86",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 5,
+      "dense_first_relevant_rank": 8,
+      "truncated_first_relevant_rank": 2,
+      "fused_first_relevant_rank": 5,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "e179d21054cedcb8e790966aee9454de63b45455baadae07707e0ebc7d38ecee",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "b23cd4328b10404c0c32f3785a8ac9cf56ddf8d4689ce98cc840d7058752c7c4",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "bc789c4f919f35f36b1a9199302e1455a950333b793bf0510df0f47b8470d1d0",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "0cdfa5b831fbec08eb58bda4a82b63e898d9858bc1966fac7e2402f8d4dd3b43",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "5777aa1c30dc503922bfccf33e575e2581573f63ea382211560b71d6c8cbe6de",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "af4ce2730913c116f5b2c954542785c1542fe08f9d396a4703706f12cd3a9898",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "c3b16479f737ff158352c78848e4adc7ca88449f3cceec0432fe38aa53fa7723",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "d02e36a07f2c2a23a3a5da83ef09b6f5fa8e7e0c91746bbf9421c224e209913d",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "59bb3c968e2ba54bb1d754a1fd39804153776eff2de3b6e254b5844c0f9ea5f3",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "983cfa46989ca2f2be29a94132070cb4710904148c62ba0790920fea6aeb105d",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-finance_table-03",
+      "company": "알테오젠",
+      "question": "알테오젠의 전기 외화환산이익 중 금융자산과 금융부채에서 발생한 금액은 각각 전체의 몇 퍼센트인가요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "7a96097584f6cca2a6e615e421b18d0d53c07b639a0756ac4baf4ea0c4a4a16f",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "b8f9df8c214c8f01e735acb6bc7b983d975f4fabe0d965cba522ca2ebe2e99eb",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "relevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 6,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "899ede79b6083f2651305070d0a9a3afb7f0e2a1df91c5cda434b9024cf6f898",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "c1d8b08e73206354e6d986c9dd02c08ce12528cb2163d188d25039ad029c2931",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "9c4fd363e1f4f5aa2947ed45cc6f0707c7c6f6ef1a394d4a904fb16073f1582f",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "b6811c47ca7985f0465d1d75090be9d889d2e8df5f58ea1b5c5725978d92cfd2",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "658427dc40803fa8164c60073f34ee0e591894f10c9a50cde815b712d1810752",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "786b82f35e4c94e720a751e8336c4b77399559cb7445bbf08482992d93d25a60",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "632f66d613bc3a431e89c62c3854b4624ff22027692a75e7f4c403e0e7093b87",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "55de3ee14b68195846301d87c8bb6acf8df31d7c6f14919048d4c3c7eafb3a6d",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "323bbef1e54725061873e7f154167b27e4dad76812d2d61ae82c822d8364661f",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "7a96097584f6cca2a6e615e421b18d0d53c07b639a0756ac4baf4ea0c4a4a16f",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-governance_paragraph-02",
+      "company": "알테오젠",
+      "question": "알테오젠은 이번 분기에 우선주 몇 주를 보통주로 바꿨나요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "promotion",
+      "dense_head_id": "fabd7f06134a801dd16e219ca0998b9102eafe61013fb5ee6ca9fcdc01b5bc21",
+      "dense_head_bm25_rank": 11,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "0882d6c7a9319c891c7085379e0d4cd469df5be5feb48bb09ef7d6833e5c4f1e",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 4,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 11,
+      "fused_first_relevant_rank": 4,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": false,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "0bb7635affe4315f5c455ba6945253bdd9075a11f45a92777a2df96bdf2dafb3",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "e15cd5f307cf5cec0e0b13e226fd12fe26e286277601e2b08c584cf095853d79",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "f14f61af96edcf2ff164372d2f455d14974a21fac76d84428bb92b658c57d0ee",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "ea7512ea104a8b27f90c11ac016a9e18e87550993881959f7426797781fc075f",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "fa4fd0c27a8055bae133f50aabd0f670c995486a5e7babda7b2e6ad7ffe2016d",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "fe34f16c22a1f6f7f87190e5149a4d2094a3709bdd3bc54d3a7e23ac75623e9e",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "75248bd40542d8bc36bced4ad9e7b21cd06f3ee1f0d6e6867f31dc559af50ed0",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "213c4a193e419b9b7e4ce1bd974ded7dde9794f154a666649715c140c444c1bd",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "59bf1caeda932865f4ecd39c6dd7237fdd9aa475d85499d2ad4b2b1005912c4d",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "fabd7f06134a801dd16e219ca0998b9102eafe61013fb5ee6ca9fcdc01b5bc21",
+          "bm25_rank": 11,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-mdna_paragraph-02",
+      "company": "알테오젠",
+      "question": "알테오젠은 사업보고서에 적은 향후 예상이 실제 결과와 다를 수 있다고 어떤 점을 주의시키나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "promotion",
+      "dense_head_id": "983cfa46989ca2f2be29a94132070cb4710904148c62ba0790920fea6aeb105d",
+      "dense_head_bm25_rank": 18,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": "8b52ce838ac51c33c44e9a92edf8a9ee59d01c2f49e03555e914e289d72d5898",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": 3,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 3,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "b0fa583d43c0e843e2dd4900bb1b91e1e66e779e22a58431a2c8419776b4c381",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "bff4f12f1d30be2e2eb04b70c4d34f45264061616ea585fe1dd4d2f138e48d97",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "448cb7a794c73b267f31c06ad8f8b5d94521facfeaeff3094bfbb170ee198c04",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "b84f50e51b8f10d8d5f269dd05687029af0af7a89c65f38296d6e16b8a948a02",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "f1cf155b4114d0061df9468d86b37a4f7b1bfc7d8cc545e1da4e6718574594ca",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "d68d297b6da4ac3328262b91c5ee6294f2b9cc9a781deeb8f972e1c4716923ce",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "cad34525df62878e5a76654bd4db334cef63367d8c1c4fd81ce037e1517d123a",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "4ff65099260b6ab9ca64d1c1855af3850cb842de1557de2286913b8e0448321c",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "9d3ef3122a319cd33f9ba25a125218db062a6d04e885cb38a3c27a8537124182",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "983cfa46989ca2f2be29a94132070cb4710904148c62ba0790920fea6aeb105d",
+          "bm25_rank": 18,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-multi_element-02",
+      "company": "알테오젠",
+      "question": "알테오젠은 바이오의약품이 화학적으로 만든 약과 비교해 크기와 제조 과정에서 어떤 차이가 있고, 어떤 질환 치료에 효과가 있다고 설명하나요?",
+      "prior_cell": "dense_hit_bm25_hit",
+      "edit": "none",
+      "dense_head_id": "e36018fcebcffe5ad40744846d9d88987eb5c754c6e92c24a5389e1ccbdbdd21",
+      "dense_head_bm25_rank": 7,
+      "fused_rank_of_dense_head": 7,
+      "dense_head_judgment": "relevant",
+      "displaced_unit_id": null,
+      "displaced_fused_rank": null,
+      "displaced_bm25_rank10_judgment": null,
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": 1,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": true,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "0a74ad6a5d1c1059e6478632b5185ae3d2239256d8e297fa7a2b5b34e33e4786",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "33669dfc3718d673d1020daa650d689b25f4cf93af9ea075c404d7f06c7c73d0",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "89d7152ba0e30d47f16075c62519f057a66671270f2057c767eb9ee9baa0cd57",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "4030cef9306fbe64f313730fa0a35b3f7d9fa0638985d0d3544a9b2db6c4a0c6",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "bef0b0dbfc5c7e5b2edba6ac3de9e17ccbafb28c697201fa625bd32788e48810",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "10968d5f8732149d18f90ffb6929c11b4ce4f610484d566be4e0af67f3f45a4e",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "e36018fcebcffe5ad40744846d9d88987eb5c754c6e92c24a5389e1ccbdbdd21",
+          "bm25_rank": 7,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "07d012fe0d8bab9141f78dc6b8cb919832cf9671f2d4c05d83c10903f6c706dd",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "5e697406fe8e96cb1dc42f4182edd26dea2bb30b1a0bb05cbcd16c99bf178e32",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "8176301b11542a3d661b414769ef0e84cc841f668bc979cbfbd8533a99d2ef22",
+          "bm25_rank": 10,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 1
+        }
+      ]
+    },
+    {
+      "query_id": "V2-00989619-overview_paragraph-01",
+      "company": "알테오젠",
+      "question": "알테오젠의 종류주식 발행현황에 기재된 주식은 어떤 종류인가요?",
+      "prior_cell": "dense_miss_bm25_hit",
+      "edit": "insertion",
+      "dense_head_id": "59083ba9e15c8fba848583695ab3abf22ccb7fe65ae548b2a163d1caac8bcbe2",
+      "dense_head_bm25_rank": null,
+      "fused_rank_of_dense_head": 10,
+      "dense_head_judgment": "irrelevant",
+      "displaced_unit_id": "9006561de2743dd0318aee87fb2f1af1aec7480557ee97714e49d6919038895f",
+      "displaced_fused_rank": 11,
+      "displaced_bm25_rank10_judgment": "relevant",
+      "bm25_first_relevant_rank": 1,
+      "dense_first_relevant_rank": null,
+      "truncated_first_relevant_rank": 1,
+      "fused_first_relevant_rank": 1,
+      "first_relevant_rank_change": 0,
+      "bm25_hit10": true,
+      "dense_hit10": false,
+      "truncated_hit10": true,
+      "fused_hit10": true,
+      "bm25_only_lost": false,
+      "both_hit_lost": false,
+      "movement_vs_bm25": "neutral",
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "2c5406010146ca68f03acf81022a9e6806cba3660ed48ed9a5a25b15536d4bb3",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "530d9d1a7fa205d252ec7187452b4e050a0c89333fc02083965f0bfcff311829",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "14a71e25cf9c71f56b1668c539e3277cf1b2e36a54545a2355cc496125b38feb",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "bc667cdd22d8f0dc9e608e684b8cacf3231dd085ee9b6675f6c82f47733c9f78",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "cd7d4fe7a66cfe28a437e36ed837305ff96b086e77e9936c9d66b05dae0d7a71",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "3e686a33203af4c18ea214d6d6a7add68b3779945b1da53ff2fe44dc9241f690",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "c7c651f98bb1da5aae9866af37ace282461bdcad62f267914f28fcd40fd9e45e",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "6d392f4d3a5fe70d19bd440053060ff71934366065dd2edc7215deebbceb9570",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "a115ebf3a10cbed8bbd381a41c60c56658bc17877b5e187c78b3fe6d7c52a23f",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "relevant",
+          "relevance": 2
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "59083ba9e15c8fba848583695ab3abf22ccb7fe65ae548b2a163d1caac8bcbe2",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "irrelevant",
+          "relevance": 0
+        }
+      ]
+    }
+  ]
+}
