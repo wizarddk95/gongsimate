@@ -1,0 +1,7 @@
+{
+  "experiment_id": "v21_test_h10_bm25_primary_dense_head",
+  "frozen_commit": "f9112833f83967863353c87d30fe34fc6bb08cf0",
+  "retrieval_started": true,
+  "git_commit": "f9112833f83967863353c87d30fe34fc6bb08cf0",
+  "git_dirty": true
+}

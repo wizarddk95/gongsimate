@@ -1,0 +1,599 @@
+{
+  "dense": {
+    "question_count": 55,
+    "small_n": false,
+    "metric_policy": {
+      "unit": "retrieval_unit_id",
+      "hit": "raw top-k contains a unit whose own judged relevance is >= 1",
+      "unjudged": "not a hit and not stored as 0",
+      "recall_denominator": "unique retrieval units with judged relevance >= 1",
+      "ndcg_headline": "ndcg_condensed",
+      "gain": "2^relevance - 1",
+      "mrr_cutoff": 20
+    },
+    "mrr": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.4106782106782107,
+      "small_n": false
+    },
+    "recall@5_macro": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.24581595172504264,
+      "small_n": false
+    },
+    "recall@10_macro": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.3920857929948839,
+      "small_n": false
+    },
+    "recall@5_micro": {
+      "numerator": 69,
+      "denominator": 282,
+      "value": 0.24468085106382978
+    },
+    "recall@10_micro": {
+      "numerator": 116,
+      "denominator": 282,
+      "value": 0.41134751773049644
+    },
+    "requirement_recall@10": {
+      "numerator": 37,
+      "denominator": 66,
+      "value": 0.5606060606060606
+    },
+    "all_requirements_covered@10": {
+      "numerator": 29,
+      "denominator": 55,
+      "value": 0.5272727272727272,
+      "small_n": false
+    },
+    "judged_coverage@20": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.5363636363636364,
+      "small_n": false
+    },
+    "unjudged_count@20_mean": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 9.272727272727273,
+      "small_n": false
+    },
+    "at_k": {
+      "1": {
+        "hit": {
+          "numerator": 19,
+          "denominator": 55,
+          "value": 0.34545454545454546,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 4,
+          "denominator": 55,
+          "value": 0.07272727272727272,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.2606060606060606,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.2606060606060606,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      },
+      "5": {
+        "hit": {
+          "numerator": 27,
+          "denominator": 55,
+          "value": 0.4909090909090909,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 17,
+          "denominator": 55,
+          "value": 0.3090909090909091,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.2822481693883328,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.2822481693883328,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      },
+      "10": {
+        "hit": {
+          "numerator": 32,
+          "denominator": 55,
+          "value": 0.5818181818181818,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 21,
+          "denominator": 55,
+          "value": 0.38181818181818183,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.3250898196891326,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.3250898196891326,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      }
+    },
+    "excluded_no_positive_qrel": [],
+    "excluded_count": 0
+  },
+  "bm25": {
+    "question_count": 55,
+    "small_n": false,
+    "metric_policy": {
+      "unit": "retrieval_unit_id",
+      "hit": "raw top-k contains a unit whose own judged relevance is >= 1",
+      "unjudged": "not a hit and not stored as 0",
+      "recall_denominator": "unique retrieval units with judged relevance >= 1",
+      "ndcg_headline": "ndcg_condensed",
+      "gain": "2^relevance - 1",
+      "mrr_cutoff": 20
+    },
+    "mrr": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.7165656565656565,
+      "small_n": false
+    },
+    "recall@5_macro": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.4945159386068477,
+      "small_n": false
+    },
+    "recall@10_macro": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.7012606585333858,
+      "small_n": false
+    },
+    "recall@5_micro": {
+      "numerator": 127,
+      "denominator": 282,
+      "value": 0.450354609929078
+    },
+    "recall@10_micro": {
+      "numerator": 199,
+      "denominator": 282,
+      "value": 0.7056737588652482
+    },
+    "requirement_recall@10": {
+      "numerator": 56,
+      "denominator": 66,
+      "value": 0.8484848484848485
+    },
+    "all_requirements_covered@10": {
+      "numerator": 45,
+      "denominator": 55,
+      "value": 0.8181818181818182,
+      "small_n": false
+    },
+    "judged_coverage@20": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.5345454545454545,
+      "small_n": false
+    },
+    "unjudged_count@20_mean": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 9.309090909090909,
+      "small_n": false
+    },
+    "at_k": {
+      "1": {
+        "hit": {
+          "numerator": 36,
+          "denominator": 55,
+          "value": 0.6545454545454545,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 14,
+          "denominator": 55,
+          "value": 0.2545454545454545,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.6181818181818182,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.6181818181818182,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      },
+      "5": {
+        "hit": {
+          "numerator": 45,
+          "denominator": 55,
+          "value": 0.8181818181818182,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 34,
+          "denominator": 55,
+          "value": 0.6181818181818182,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.5924632079765498,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.5924632079765498,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      },
+      "10": {
+        "hit": {
+          "numerator": 47,
+          "denominator": 55,
+          "value": 0.8545454545454545,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 38,
+          "denominator": 55,
+          "value": 0.6909090909090909,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.6404861866532413,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.6404861866532413,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      }
+    },
+    "excluded_no_positive_qrel": [],
+    "excluded_count": 0
+  },
+  "h10": {
+    "question_count": 55,
+    "small_n": false,
+    "metric_policy": {
+      "unit": "retrieval_unit_id",
+      "hit": "raw top-k contains a unit whose own judged relevance is >= 1",
+      "unjudged": "not a hit and not stored as 0",
+      "recall_denominator": "unique retrieval units with judged relevance >= 1",
+      "ndcg_headline": "ndcg_condensed",
+      "gain": "2^relevance - 1",
+      "mrr_cutoff": 20
+    },
+    "mrr": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.7183838383838385,
+      "small_n": false
+    },
+    "recall@5_macro": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.4945159386068477,
+      "small_n": false
+    },
+    "recall@10_macro": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.6933169355896629,
+      "small_n": false
+    },
+    "recall@5_micro": {
+      "numerator": 127,
+      "denominator": 282,
+      "value": 0.450354609929078
+    },
+    "recall@10_micro": {
+      "numerator": 197,
+      "denominator": 282,
+      "value": 0.6985815602836879
+    },
+    "requirement_recall@10": {
+      "numerator": 57,
+      "denominator": 66,
+      "value": 0.8636363636363636
+    },
+    "all_requirements_covered@10": {
+      "numerator": 46,
+      "denominator": 55,
+      "value": 0.8363636363636363,
+      "small_n": false
+    },
+    "judged_coverage@20": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 0.5672727272727274,
+      "small_n": false
+    },
+    "unjudged_count@20_mean": {
+      "numerator": null,
+      "denominator": 55,
+      "value": 8.654545454545454,
+      "small_n": false
+    },
+    "at_k": {
+      "1": {
+        "hit": {
+          "numerator": 36,
+          "denominator": 55,
+          "value": 0.6545454545454545,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 14,
+          "denominator": 55,
+          "value": 0.2545454545454545,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.6181818181818182,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.6181818181818182,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      },
+      "5": {
+        "hit": {
+          "numerator": 45,
+          "denominator": 55,
+          "value": 0.8181818181818182,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 34,
+          "denominator": 55,
+          "value": 0.6181818181818182,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.5924632079765498,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.5924632079765498,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      },
+      "10": {
+        "hit": {
+          "numerator": 48,
+          "denominator": 55,
+          "value": 0.8727272727272727,
+          "small_n": false
+        },
+        "preferred_hit": {
+          "numerator": 39,
+          "denominator": 55,
+          "value": 0.7090909090909091,
+          "small_n": false,
+          "role": "diagnostic"
+        },
+        "judged_coverage": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 1.0,
+          "small_n": false
+        },
+        "unjudged_count_mean": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.0,
+          "small_n": false
+        },
+        "ndcg_condensed": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.6345972294994925,
+          "small_n": false
+        },
+        "ndcg_unjudged_as_zero": {
+          "numerator": null,
+          "denominator": 55,
+          "value": 0.6345972294994925,
+          "small_n": false,
+          "role": "sensitivity_not_headline"
+        }
+      }
+    },
+    "excluded_no_positive_qrel": [],
+    "excluded_count": 0
+  },
+  "drops_vs_bm25": {
+    "recall@5_macro": 0.0,
+    "recall@10_macro": 0.00794372294372292,
+    "mrr": -0.001818181818181941,
+    "ndcg@10_condensed": 0.0058889571537488195
+  },
+  "hit_transitions": {
+    "cells": {
+      "both_hit": 47,
+      "bm25_only": 0,
+      "h10_only": 1,
+      "both_miss": 7
+    },
+    "both_hit": 47,
+    "bm25_only": 0,
+    "h10_only": 1,
+    "both_miss": 7,
+    "bm25_only_query_ids": [],
+    "h10_only_query_ids": [
+      "V2-00107613-overview_paragraph-02"
+    ],
+    "both_miss_query_ids": [
+      "V2-00107613-business_table-02",
+      "V2-00107613-finance_table-02",
+      "V2-00121941-finance_table-01",
+      "V2-00126955-governance_paragraph-02",
+      "V2-00126955-mdna_paragraph-02",
+      "V2-00126955-overview_paragraph-02",
+      "V2-00989619-overview_paragraph-02"
+    ]
+  },
+  "full_rrf_ran": false,
+  "truncated_rrf_ran": false
+}

@@ -1,0 +1,116 @@
+{
+  "systems": {
+    "dense": {
+      "judged_coverage@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 1.0,
+        "small_n": false
+      },
+      "unjudged_count_mean@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.0,
+        "small_n": false
+      },
+      "ndcg_condensed@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.3250898196891326,
+        "small_n": false
+      },
+      "ndcg_unjudged_as_zero@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.3250898196891326,
+        "small_n": false,
+        "role": "sensitivity_not_headline"
+      },
+      "preferred_hit@10": {
+        "numerator": 21,
+        "denominator": 55,
+        "value": 0.38181818181818183,
+        "small_n": false,
+        "role": "diagnostic"
+      },
+      "unjudged_is_nonrelevant": false,
+      "ndcg_headline": "ndcg_condensed",
+      "condensed_equals_zero_filled": true
+    },
+    "bm25": {
+      "judged_coverage@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 1.0,
+        "small_n": false
+      },
+      "unjudged_count_mean@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.0,
+        "small_n": false
+      },
+      "ndcg_condensed@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.6404861866532413,
+        "small_n": false
+      },
+      "ndcg_unjudged_as_zero@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.6404861866532413,
+        "small_n": false,
+        "role": "sensitivity_not_headline"
+      },
+      "preferred_hit@10": {
+        "numerator": 38,
+        "denominator": 55,
+        "value": 0.6909090909090909,
+        "small_n": false,
+        "role": "diagnostic"
+      },
+      "unjudged_is_nonrelevant": false,
+      "ndcg_headline": "ndcg_condensed",
+      "condensed_equals_zero_filled": true
+    },
+    "h10": {
+      "judged_coverage@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 1.0,
+        "small_n": false
+      },
+      "unjudged_count_mean@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.0,
+        "small_n": false
+      },
+      "ndcg_condensed@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.6345972294994925,
+        "small_n": false
+      },
+      "ndcg_unjudged_as_zero@10": {
+        "numerator": null,
+        "denominator": 55,
+        "value": 0.6345972294994925,
+        "small_n": false,
+        "role": "sensitivity_not_headline"
+      },
+      "preferred_hit@10": {
+        "numerator": 39,
+        "denominator": 55,
+        "value": 0.7090909090909091,
+        "small_n": false,
+        "role": "diagnostic"
+      },
+      "unjudged_is_nonrelevant": false,
+      "ndcg_headline": "ndcg_condensed",
+      "condensed_equals_zero_filled": true
+    }
+  },
+  "condensed_and_zero_filled_differ": false
+}

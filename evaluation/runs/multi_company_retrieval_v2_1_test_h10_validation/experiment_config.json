@@ -1,0 +1,64 @@
+{
+  "experiment_id": "v21_test_h10_bm25_primary_dense_head",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "population": "test fully_answerable",
+  "question_count": 55,
+  "headline_question_count": 55,
+  "excluded_count": 0,
+  "retrieval_execution_count": 1,
+  "dev_questions_searched_in_this_run": 0,
+  "dev_retuned": false,
+  "test_used_for_tuning": false,
+  "rule_changed_after_test": false,
+  "first_and_only_frozen_test": true,
+  "frozen_commit": "f9112833f83967863353c87d30fe34fc6bb08cf0",
+  "rule_id": "bm25_primary_dense_head",
+  "semantics_document": "docs/experiments/2026-10-07_h10_asymmetric_fusion_semantics.md",
+  "semantics_sha256": "71b87fd2a0569cf2d95552e1e47783f66cc092d8a938db2d8c5ab52ea9081f8e",
+  "policy_blob": "917ff1375e21aa355e6438c8947207657af2f138",
+  "dense_ranking_sha256": "74ce429c7859987f40078a3ab936275f1cd45bd3914572862f754b98baa6050c",
+  "bm25_ranking_sha256": "58fcd07480d882e77c5591b3f1aa93e3cc8dde4e6738451b0f239f33d9e5494d",
+  "qrels_sha256": "2ef0d1d179897034bf891bdad0454a8dc16004d751036b34e6517a337f7b63e3",
+  "judgments_sha256": "c952fd4740bc971e8c0a8e2c742712c2acb9a615ddf35fa926d0a4d524f6af51",
+  "configurations": [
+    "dense_d2a",
+    "bm25",
+    "bm25_primary_dense_head"
+  ],
+  "not_run": [
+    "full_rrf",
+    "truncated_rrf"
+  ],
+  "dense": {
+    "implementation": "product CatalogDenseSearch Dense-D2a",
+    "model": "BAAI/bge-m3",
+    "query_encoding_policy": "raw_question_text_no_instruction"
+  },
+  "bm25": {
+    "implementation": "Bm25Index.search",
+    "tokenizer_version": "ko-mixed-v1",
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "fusion": {
+    "function": "disclosure_agent.evalset_v2_1.asymmetric_fusion.bm25_primary_dense_head",
+    "candidate_n": 20,
+    "protected_prefix": 9,
+    "marginal_slot": 10,
+    "weights": null,
+    "k": null,
+    "alpha": null,
+    "intersection_bonus": false,
+    "dense_ranks_read_by_placement": [
+      1
+    ]
+  },
+  "git_commit_at_search": "f9112833f83967863353c87d30fe34fc6bb08cf0",
+  "git_dirty_at_search": true,
+  "git_commit_at_score": "f9112833f83967863353c87d30fe34fc6bb08cf0",
+  "git_dirty_at_score": true,
+  "verdict_label": "Generalization Support",
+  "verdict_reason": "bm25_preserved_and_semantic_recovery",
+  "selected_configuration": "bm25_primary_dense_head"
+}

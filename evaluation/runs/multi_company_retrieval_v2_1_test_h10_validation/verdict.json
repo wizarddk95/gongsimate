@@ -1,0 +1,31 @@
+{
+  "verdict": {
+    "label": "Generalization Support",
+    "reason": "bm25_preserved_and_semantic_recovery",
+    "failure_reasons": [],
+    "mixed_reasons": [],
+    "checks": {
+      "hit10_maintained_or_improved": true,
+      "no_query_level_bm25_hit10_loss": true,
+      "additional_recovery": true,
+      "requirement_no_loss_or_net_gain": true,
+      "ranking_drop_within_frozen_limit": true
+    },
+    "large_ranking_drops": {},
+    "drops_vs_bm25": {
+      "recall@5_macro": 0.0,
+      "recall@10_macro": 0.00794372294372292,
+      "mrr": -0.001818181818181941,
+      "ndcg@10_condensed": 0.0058889571537488195
+    },
+    "ranking_drop_limit": 0.05,
+    "dev_hit10_floors_applied": false,
+    "rule": "Support when Hit@10 is maintained or improved, no BM25 Hit@10 query is lost, at least one H10-only Hit@10 recovery exists, requirement loss is zero or the gain is strictly larger, and no ranking drop exceeds 0.05. Failure when Hit@10 falls, a ranking drop exceeds that frozen limit, or requirement losses exceed gains. Otherwise Neutral / Mixed. DEV numerator floors are not reused."
+  },
+  "decision": {
+    "selected_configuration": "bm25_primary_dense_head",
+    "retune": false,
+    "product_retrieval_changed": false,
+    "statement": "DEV에서 failure mechanism 기반으로 선택한 BM25-primary asymmetric policy가 독립 TEST에서도 BM25 baseline을 보존하면서 semantic miss를 추가 복구했다."
+  }
+}

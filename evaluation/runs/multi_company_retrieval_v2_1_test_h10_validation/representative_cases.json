@@ -1,0 +1,107 @@
+{
+  "gains": [
+    {
+      "query_id": "V2-00107613-overview_paragraph-02",
+      "company": "이수페타시스",
+      "question": "이수페타시스는 주로 어떤 제품을 만들어 판매하나요?",
+      "edit": "insertion",
+      "transition": "h10_only",
+      "dense_head_bm25_rank": null,
+      "dense_head_judgment": "relevant",
+      "displaced_bm25_rank10_judgment": "irrelevant",
+      "bm25_first_relevant_rank": null,
+      "dense_first_relevant_rank": 1,
+      "h10_first_relevant_rank": 10,
+      "bm25_hit10": false,
+      "h10_hit10": true,
+      "requirement_gained": [
+        "R1"
+      ],
+      "requirement_lost": [],
+      "top10": [
+        {
+          "rank": 1,
+          "retrieval_unit_id": "ab28c2e7ed81f6d5ea5c929e4f9c49c8689ecaca5221960f45138963ea69da74",
+          "bm25_rank": 1,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "retrieval_unit_id": "880611f232ae5ef9c8a8c3d64345938d3b71f1869229aa86d28593bb62d47b40",
+          "bm25_rank": 2,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 3,
+          "retrieval_unit_id": "d85ef80c375693ce4b41723bb13e2e32c249d9ed5db2201df1d0f9da18c9f408",
+          "bm25_rank": 3,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "retrieval_unit_id": "517b47399136a158f6a2a858f793a2c6bb8105dd8ed9f5f6771dfd8de1ecac06",
+          "bm25_rank": 4,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 5,
+          "retrieval_unit_id": "65b93f887b1d101d1fd0587072cf9f0f46f66260a7b86ef5d9b814d78d1c85e4",
+          "bm25_rank": 5,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 6,
+          "retrieval_unit_id": "9a5c4f9094e54d7d23aec1ae8bcfc30e7d8d88f38e591d12a5c6450d7638e3f6",
+          "bm25_rank": 6,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 7,
+          "retrieval_unit_id": "9b56049e7781f1feff4e7a04699202c292f0ca564991975f4f19993a6686243d",
+          "bm25_rank": 7,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 8,
+          "retrieval_unit_id": "c2fa0087f4c160dc237a01751c7b2fbf0f1c104c7c3fd12d6e26037763faaba2",
+          "bm25_rank": 8,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 9,
+          "retrieval_unit_id": "f43c8a265337b2de6579d13b11a6e973118e6daf50fe3740010635cd3a21adc7",
+          "bm25_rank": 9,
+          "is_dense_head": false,
+          "judgment": "irrelevant",
+          "relevance": 0
+        },
+        {
+          "rank": 10,
+          "retrieval_unit_id": "c20dda19329ed1d205e59d9c9f07753365e346ef069454310c3aab754032cffe",
+          "bm25_rank": null,
+          "is_dense_head": true,
+          "judgment": "relevant",
+          "relevance": 2
+        }
+      ],
+      "movement_vs_bm25": "recovered"
+    }
+  ],
+  "regressions": []
+}

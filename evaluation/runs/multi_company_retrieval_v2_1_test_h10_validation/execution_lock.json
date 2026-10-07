@@ -1,0 +1,75 @@
+{
+  "experiment_id": "v21_test_h10_bm25_primary_dense_head",
+  "frozen_commit": "f9112833f83967863353c87d30fe34fc6bb08cf0",
+  "policy_path": "src/disclosure_agent/evalset_v2_1/asymmetric_fusion.py",
+  "policy_blob": "917ff1375e21aa355e6438c8947207657af2f138",
+  "semantics_path": "docs/experiments/2026-10-07_h10_asymmetric_fusion_semantics.md",
+  "semantics_blob": "3fc59d1465261482a9f449cdd5d02d3c843d4f5c",
+  "semantics_sha256": "71b87fd2a0569cf2d95552e1e47783f66cc092d8a938db2d8c5ab52ea9081f8e",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "judgments_sha256": "c952fd4740bc971e8c0a8e2c742712c2acb9a615ddf35fa926d0a4d524f6af51",
+  "qrels_sha256": "2ef0d1d179897034bf891bdad0454a8dc16004d751036b34e6517a337f7b63e3",
+  "questions_sha256": "7919ca4876562665ee7be25209949266b22b2c81c88cd4aaf5ac977fd6604d4b",
+  "requirements_sha256": "632ba0cdcb48c735ae95554aaf7cace75bc5b91096977ab6c0981c884dfdf9d5",
+  "split_seed": 20261005,
+  "dev_question_count": 45,
+  "test_question_count": 55,
+  "test_query_ids_sha256": "a05d3c6cb63efc73b8107877c7c4511a0beb8a2a2f0919ffb064c9af13a67ce0",
+  "dev_query_ids_sha256": "9e580beaee9237bd6a4f9cbd4eb74f8341331ebe612f58553771b7ea06445234",
+  "retrieval_execution_count": 1,
+  "test_questions_searched": 55,
+  "dev_questions_searched_in_this_run": 0,
+  "configurations": [
+    "dense_d2a",
+    "bm25",
+    "bm25_primary_dense_head"
+  ],
+  "not_run": [
+    "full_rrf",
+    "truncated_rrf"
+  ],
+  "dense_ranking_sha256": "74ce429c7859987f40078a3ab936275f1cd45bd3914572862f754b98baa6050c",
+  "bm25_ranking_sha256": "58fcd07480d882e77c5591b3f1aa93e3cc8dde4e6738451b0f239f33d9e5494d",
+  "top_k": 20,
+  "git_commit_at_search": "f9112833f83967863353c87d30fe34fc6bb08cf0",
+  "git_dirty_at_search": true,
+  "company_audits": [
+    {
+      "corp_code": "00107613",
+      "question_count": 11,
+      "eligible_unit_counts": [
+        20592
+      ]
+    },
+    {
+      "corp_code": "00121941",
+      "question_count": 11,
+      "eligible_unit_counts": [
+        10283
+      ]
+    },
+    {
+      "corp_code": "00126380",
+      "question_count": 11,
+      "eligible_unit_counts": [
+        9171
+      ]
+    },
+    {
+      "corp_code": "00126955",
+      "question_count": 11,
+      "eligible_unit_counts": [
+        8674
+      ]
+    },
+    {
+      "corp_code": "00989619",
+      "question_count": 11,
+      "eligible_unit_counts": [
+        8986
+      ]
+    }
+  ],
+  "first_and_only_frozen_test": true
+}
