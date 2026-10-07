@@ -1,0 +1,25 @@
+{
+  "hit_failures": {
+    "ranking_failure": 1,
+    "candidate_generation_failure": 1,
+    "h10_hit": 43
+  },
+  "ranking_failure_query_ids": [
+    "V2-00107613-finance_table-03"
+  ],
+  "candidate_generation_failure_query_ids": [
+    "V2-00107613-cross_period-02"
+  ],
+  "ranking_failure_strata": [
+    "finance_table"
+  ],
+  "candidate_generation_failure_strata": [
+    "cross_period"
+  ],
+  "requirements": {
+    "covered": 52,
+    "ranking_missed": 2,
+    "candidate_missing": 4
+  },
+  "requirement_total": 58
+}

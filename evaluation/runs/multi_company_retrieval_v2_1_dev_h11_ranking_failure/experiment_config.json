@@ -1,0 +1,57 @@
+{
+  "experiment_id": "v21_dev_h11_ranking_failure",
+  "dataset_id": "multi_company_retrieval_v2_1",
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "population": "dev fully_answerable",
+  "question_count": 45,
+  "test_questions_searched": 0,
+  "test_questions_read": 0,
+  "test_used_for_tuning": false,
+  "retrieval_reexecuted": false,
+  "semantics_document": "docs/experiments/2026-10-07_h11_ranking_failure_semantics.md",
+  "semantics_sha256": "e900ea26a1da69ae417d35ab303202a128539394edf38f8101c0d50390412119",
+  "implementation": {
+    "pool_id": "C20",
+    "candidate_n": 20,
+    "hit_k": 10,
+    "family_key": "stratum_id",
+    "function": "disclosure_agent.evalset_v2_1.ranking_failure.diagnose_query",
+    "semantics_document": "docs/experiments/2026-10-07_h11_ranking_failure_semantics.md",
+    "current_ranker": "bm25_primary_dense_head",
+    "oracle_is_a_system": false,
+    "reranker_implemented": false,
+    "score_fusion": false,
+    "query_expansion": false,
+    "routing": false,
+    "embedding_change": false,
+    "chunking_change": false,
+    "parser_change": false,
+    "depth_sweep": false,
+    "qrel_modified": false,
+    "test_search": false,
+    "test_used_for_tuning": false
+  },
+  "source_runs": {
+    "complementarity": "multi_company_retrieval_v2_1_dev_dense_bm25_complementarity",
+    "h10": "multi_company_retrieval_v2_1_dev_h10_asymmetric",
+    "full_rrf_witness_only": "multi_company_retrieval_v2_1_dev_rrf"
+  },
+  "forbidden": {
+    "reranker": false,
+    "score_fusion": false,
+    "query_expansion": false,
+    "routing": false,
+    "embedding_change": false,
+    "chunking_change": false,
+    "parser_change": false,
+    "depth_sweep": false,
+    "qrel_modified": false,
+    "test_search": false
+  },
+  "git": {
+    "git_commit": "55fd8ca43d4993a41198ef470c8ee847b4f7ab43",
+    "git_dirty": true
+  },
+  "verdict_label": "Partial Support",
+  "verdict_reason": "candidate_generation_comparable_or_larger"
+}

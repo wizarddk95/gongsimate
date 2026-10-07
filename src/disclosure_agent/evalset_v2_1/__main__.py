@@ -5,6 +5,7 @@ fully answerable dev only. RRF does not sweep k and does not read test.
 Truncated RRF reuses stored DEV top-20 rankings and does not search test.
 The H9 diagnosis reuses that truncated ranking and does not search test.
 H10 reuses the stored DEV top-20 lists and does not search test.
+The H11 diagnosis reuses those stored lists and does not search test.
 The test-validation stage searches fully_answerable TEST once, then rescores
 the locked rankings without a second retrieval.
 """
@@ -21,6 +22,7 @@ from disclosure_agent.evalset_v2_1.asymmetric_fusion import run_asymmetric_fusio
 from disclosure_agent.evalset_v2_1.complementarity import run_complementarity
 from disclosure_agent.evalset_v2_1.evaluate import evaluate_dense
 from disclosure_agent.evalset_v2_1.freeze import freeze_dataset
+from disclosure_agent.evalset_v2_1.ranking_failure import run_ranking_failure_diagnosis
 from disclosure_agent.evalset_v2_1.rrf import run_rrf_experiment
 from disclosure_agent.evalset_v2_1.test_validation import run_test_validation
 from disclosure_agent.evalset_v2_1.truncated_rrf import run_truncated_rrf_experiment
@@ -43,6 +45,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             "truncated-rrf",
             "truncated-rrf-diagnosis",
             "asymmetric-fusion",
+            "ranking-failure",
             "test-validation",
         ],
     )
@@ -133,6 +136,27 @@ def main(argv: Sequence[str] | None = None) -> None:
                     "selected_configuration": payload["decision"]["selected_configuration"],
                     "h10_hit10": payload["h10_headline"]["at_k"]["10"]["hit"],
                     "bm25_hit10": payload["bm25_headline"]["at_k"]["10"]["hit"],
+                },
+                ensure_ascii=False,
+            )
+        )
+        return
+    if args.stage == "ranking-failure":
+        payload = run_ranking_failure_diagnosis(root)
+        print(
+            json.dumps(
+                {
+                    "dataset_sha256": payload["dataset_sha256"],
+                    "question_count": payload["question_count"],
+                    "verdict": payload["verdict"]["label"],
+                    "reason": payload["verdict"]["reason"],
+                    "ranking_failure_queries": payload["verdict"]["ranking_failure_queries"],
+                    "candidate_generation_failure_queries": payload["verdict"][
+                        "candidate_generation_failure_queries"
+                    ],
+                    "oracle_hit10": payload["oracle"]["hit@10"]["numerator"],
+                    "h10_hit10": payload["h10_headline"]["hit@10"]["numerator"],
+                    "test_questions_read": payload["test_questions_read"],
                 },
                 ensure_ascii=False,
             )

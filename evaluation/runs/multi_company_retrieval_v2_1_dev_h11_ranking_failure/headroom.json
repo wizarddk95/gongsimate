@@ -1,0 +1,39 @@
+{
+  "h10_hit@10": {
+    "numerator": 43,
+    "denominator": 45,
+    "value": 0.9555555555555556,
+    "small_n": false
+  },
+  "oracle_hit@10": {
+    "numerator": 44,
+    "denominator": 45,
+    "value": 0.9777777777777777
+  },
+  "hit@10_gap": 1,
+  "h10_requirement_recall@10": {
+    "numerator": 52,
+    "denominator": 58,
+    "value": 0.896551724137931
+  },
+  "oracle_requirement_recall@10": {
+    "numerator": 54,
+    "denominator": 58,
+    "value": 0.9310344827586207
+  },
+  "requirement_recall_gap": 2,
+  "h10_all_requirements_covered@10": {
+    "numerator": 42,
+    "denominator": 45,
+    "value": 0.9333333333333333,
+    "small_n": false
+  },
+  "oracle_all_requirements_covered@10": {
+    "numerator": 43,
+    "denominator": 45,
+    "value": 0.9555555555555556
+  },
+  "recall@10_macro_headroom": 0.10395160395160385,
+  "queries_with_unit_recall_headroom": 16,
+  "wording": "Gap은 C20을 완벽하게 재정렬할 때의 upper bound와 현재 H10의 차이다. 구현된 reranker의 개선치가 아니다."
+}

@@ -1,0 +1,23 @@
+{
+  "dataset_sha256": "2b1c372b7adaca29af831986bf5e6807c2ae2bd7835a52735690e227c1b03137",
+  "question_count": 45,
+  "population": "dev fully_answerable",
+  "benchmark_label": "LLM-judged / LLM-adjudicated benchmark",
+  "human_gold": false,
+  "qrel_primary_key": [
+    "query_id",
+    "requirement_id",
+    "retrieval_unit_id"
+  ],
+  "recomputed_h10_matches_stored_headline": true,
+  "recomputed_bm25_matches_stored_headline": true,
+  "h10_top10_subset_of_c20": true,
+  "oracle_hit_gap_equals_ranking_failures": true,
+  "test_questions_searched": 0,
+  "test_questions_read": 0,
+  "test_run_dir_read": false,
+  "retrieval_reexecuted": false,
+  "reranker_implemented": false,
+  "depth_swept": false,
+  "qrel_modified": false
+}

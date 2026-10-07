@@ -1,0 +1,15 @@
+{
+  "label": "Partial Support",
+  "reason": "candidate_generation_comparable_or_larger",
+  "hit_gap": 1,
+  "requirement_gap": 2,
+  "ranking_failure_queries": 1,
+  "candidate_generation_failure_queries": 1,
+  "ranking_failure_strata": [
+    "finance_table"
+  ],
+  "repeated_across_strata": false,
+  "majority_ranking": false,
+  "requirement_ranking_missed": 2,
+  "rule": "Strong when Hit@10 ranking failures strictly outnumber candidate-generation failures, both oracle numerators rise, and those queries cover at least two queries and two stratum_id values. Partial when an oracle numerator rises and a ranking failure or requirement ranking miss exists, including requirement-only headroom. Otherwise Reject."
+}
