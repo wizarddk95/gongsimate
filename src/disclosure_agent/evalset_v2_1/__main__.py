@@ -9,6 +9,7 @@ The H11 diagnosis reuses those stored lists and does not search test.
 The test-validation stage searches fully_answerable TEST once, then rescores
 the locked rankings without a second retrieval.
 G0 reads the stored H10 DEV top-10 and does not search.
+The G0 contract correction rereads that stored run and does not call a model.
 """
 
 from __future__ import annotations
@@ -23,6 +24,7 @@ from disclosure_agent.evalset_v2_1.asymmetric_fusion import run_asymmetric_fusio
 from disclosure_agent.evalset_v2_1.complementarity import run_complementarity
 from disclosure_agent.evalset_v2_1.evaluate import evaluate_dense
 from disclosure_agent.evalset_v2_1.freeze import freeze_dataset
+from disclosure_agent.evalset_v2_1.g0_evaluation_contract import write_correction
 from disclosure_agent.evalset_v2_1.grounded_generation_run import run_g0
 from disclosure_agent.evalset_v2_1.ranking_failure import run_ranking_failure_diagnosis
 from disclosure_agent.evalset_v2_1.rrf import run_rrf_experiment
@@ -50,6 +52,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             "ranking-failure",
             "test-validation",
             "g0",
+            "g0-contract",
         ],
     )
     parser.add_argument("--root", type=Path, default=None)
@@ -160,6 +163,24 @@ def main(argv: Sequence[str] | None = None) -> None:
                     "oracle_hit10": payload["oracle"]["hit@10"]["numerator"],
                     "h10_hit10": payload["h10_headline"]["hit@10"]["numerator"],
                     "test_questions_read": payload["test_questions_read"],
+                },
+                ensure_ascii=False,
+            )
+        )
+        return
+    if args.stage == "g0-contract":
+        payload = write_correction(root)
+        print(
+            json.dumps(
+                {
+                    "queries": payload["summary"]["queries"],
+                    "faithfulness": payload["summary"]["faithfulness"],
+                    "requirement_coverage": payload["summary"]["requirement_coverage"],
+                    "citation_correctness": payload["summary"]["citation_correctness"],
+                    "citation_completeness": payload["summary"]["citation_completeness"],
+                    "new_model_calls": 0,
+                    "retrieval_reexecuted": False,
+                    "test_questions_generated": 0,
                 },
                 ensure_ascii=False,
             )

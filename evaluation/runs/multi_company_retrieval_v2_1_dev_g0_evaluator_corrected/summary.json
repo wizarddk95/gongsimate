@@ -1,0 +1,196 @@
+{
+  "baseline": "G0",
+  "contract_version": "g0-evaluation-contract-v1",
+  "source_run": "multi_company_retrieval_v2_1_dev_g0_grounded_generation",
+  "queries": 45,
+  "generation_reused": 45,
+  "new_model_calls": 0,
+  "judge_recalled": false,
+  "requirements_total": 58,
+  "claim_types": {
+    "factual_claim": 67,
+    "abstention": 7,
+    "limitation": 1,
+    "meta": 0,
+    "unjudged": 0
+  },
+  "faithfulness": {
+    "score": 0.9850746268656716,
+    "numerator": 66,
+    "denominator": 67,
+    "unjudged_claim_types": 0,
+    "excluded_abstention": 7,
+    "excluded_limitation": 1,
+    "excluded_meta": 0,
+    "denominator_definition": "judged_factual_claims"
+  },
+  "requirement_coverage": {
+    "score": 0.8793103448275862,
+    "numerator": 51,
+    "denominator": 58,
+    "covered": 51,
+    "omitted": 0,
+    "abstained": 7,
+    "unjudged": 0,
+    "total": 58,
+    "denominator_definition": "judged_requirements"
+  },
+  "citation_correctness": {
+    "score": 0.9722222222222222,
+    "numerator": 70,
+    "denominator": 72,
+    "supports": 70,
+    "does_not_support": 2,
+    "excluded_pairs": 1,
+    "denominator_definition": "judged_factual_citation_pairs"
+  },
+  "citation_completeness": {
+    "score": 1.0,
+    "numerator": 67,
+    "denominator": 67,
+    "denominator_definition": "factual_claims_that_require_citation"
+  },
+  "citation_integrity_error_count": 0,
+  "success_requirements": 50,
+  "retrieval_limited_requirements": 6,
+  "generation_limited_requirements": 2,
+  "unjudged_requirements": 0,
+  "retrieval_limited_queries": 3,
+  "generation_limited_queries": 2,
+  "taxonomy": {
+    "retrieval_failure": 6,
+    "evidence_coverage_failure": 1,
+    "generation_omission": 0,
+    "unsupported_claim": 0,
+    "evidence_misinterpretation": 1,
+    "period_scope_confusion": 1,
+    "citation_missing": 0,
+    "citation_mismatch": 2,
+    "citation_hallucination": 0,
+    "over_abstention": 1,
+    "under_abstention": 0
+  },
+  "diagnostic_flags": {},
+  "answer_relevance": {
+    "direct": 42,
+    "partial": 3
+  },
+  "abstention_appropriateness": {
+    "appropriate": 6,
+    "inappropriate": 0,
+    "unjudged": 1,
+    "total": 7
+  },
+  "abstention_note": "V2-00989619-finance_table-02 K1은 제공된 분기보고서 근거에 대한 기권이다. Raw judge는 그 문장을 문서 부재 주장으로 읽고 unsupported로 두었다. 그 판정을 적절한 기권으로 바꾸지 않았고, faithfulness 분모에도 다시 넣지 않았다. 적절성은 unjudged로 남아 있다.",
+  "coverage_reviews": [
+    {
+      "query_id": "V2-00126380-finance_table-03",
+      "requirement_id": "R1",
+      "raw_verdict": "abstained",
+      "corrected_verdict": "covered",
+      "judge_error": true,
+      "requirement_satisfied": true,
+      "reason": "답변은 2025년 말 발행주식 액면총액 기준 보통주 약 87.9%, 우선주 약 12.1%를 말하고 C5를 붙였다. K1과 K2는 supported이고 citation도 supports다. K3는 납입자본금 897,514백만원이 종류별로 나뉘어 있지 않아 비중 기준이 액면총액이라는 한정이다. Raw judge는 K3만 연결하고, 한정이 있다는 이유로 abstained로 두었다. 요구한 비중은 답변에 있다. 값의 참과 근거의 지지는 이미 supported다. Coverage를 covered로 고친다."
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "requirement_id": "R1",
+      "raw_verdict": "abstained",
+      "corrected_verdict": "abstained",
+      "judge_error": false,
+      "requirement_satisfied": false,
+      "reason": "요구는 분기보고서에 나온 기술지원·위탁생산 용역기간이다. 답변은 제공된 분기보고서 근거에서 그 기간이 확인되지 않는다고 하고, 2025년 사업보고서의 기간을 적은 뒤 그 기간을 분기보고서 기간으로 보지 않는다. 선호 분기보고서 unit은 저장된 Top-10에 없다. 관련 사업보고서 unit은 C5로 Top-10에 있다. 요구한 분기보고서 기간은 답으로 제시되지 않았다. abstained는 그 기권과 같다. Coverage는 유지한다."
+    }
+  ],
+  "remaining_generation_failures": [
+    {
+      "query_id": "V2-00126380-finance_table-02",
+      "requirement_id": "R1",
+      "primary": "generation_limited",
+      "coverage": "covered",
+      "support": "misinterpretation",
+      "flags": [
+        "evidence_misinterpretation",
+        "period_scope_confusion",
+        "citation_mismatch"
+      ],
+      "text": "삼성전자는 전분기에 삼성에스디에스와 구매 관련 거래를 얼마만큼 했나요?"
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "requirement_id": "R1",
+      "primary": "generation_limited",
+      "coverage": "abstained",
+      "support": "not_factual",
+      "flags": [
+        "over_abstention"
+      ],
+      "text": "알테오젠 분기보고서에서 기술 지원과 위탁생산 용역 기간은 언제부터 언제까지로 나와 있어?"
+    }
+  ],
+  "remaining_citation_mismatches": [
+    {
+      "query_id": "V2-00107613-business_paragraph-02",
+      "claim_id": "K2",
+      "citation_id": "C1",
+      "verdict": "does_not_support",
+      "reason": "엄격한 품질 기준과 장기 신뢰성 요구는 언급하지만, 오작동이 치명적인 문제나 큰 사고로 이어진다는 내용은 없습니다."
+    },
+    {
+      "query_id": "V2-00126380-finance_table-02",
+      "claim_id": "K1",
+      "citation_id": "C10",
+      "verdict": "does_not_support",
+      "reason": "532,755백만원은 전체 특수관계자 항목의 금액이며, 삼성에스디에스㈜ 열의 매입 등 금액은 313,853백만원입니다."
+    }
+  ],
+  "hypothesis": {
+    "category": "retrieval_failure",
+    "count": 6,
+    "text": "가장 많은 requirement 실패는 retrieval_failure다. 그 requirement의 관련 retrieval unit이 H10 Top-10에 없다. 이 건수를 generation prompt 실패와 합치지 않는다. 다음 실험은 evidence가 Top-10에 있는 requirement만 잘라 생성 실패율을 다시 보는 것이다. Retrieval 설정은 이 결과만으로 바꾸지 않는다. 생성 쪽에서 가장 많은 flag는 citation_mismatch 2건이다."
+  },
+  "raw_metrics": {
+    "faithfulness": {
+      "numerator": 73,
+      "denominator": 75
+    },
+    "requirement_coverage": {
+      "numerator": 50,
+      "denominator": 58
+    },
+    "citation_correctness": {
+      "numerator": 71,
+      "denominator": 73
+    },
+    "citation_completeness": {
+      "numerator": 68,
+      "denominator": 75
+    },
+    "requirement_success": {
+      "numerator": 49,
+      "denominator": 58
+    },
+    "requirement_primary": {
+      "success": 49,
+      "retrieval_limited": 6,
+      "generation_limited": 3,
+      "unjudged": 0
+    },
+    "taxonomy": {
+      "retrieval_failure": 6,
+      "evidence_coverage_failure": 1,
+      "generation_omission": 0,
+      "unsupported_claim": 0,
+      "evidence_misinterpretation": 1,
+      "period_scope_confusion": 4,
+      "citation_missing": 7,
+      "citation_mismatch": 2,
+      "citation_hallucination": 0,
+      "over_abstention": 2,
+      "under_abstention": 0
+    }
+  },
+  "source_manifest_git_commit": "259e33e2caafb16c4fddc312ff9baf58ec8f20f7",
+  "source_generations_sha256": "d86032298f27da3f64b48cb1b0ffc89353e8360ca50a50e7f39d2d52d843f844",
+  "limits": "유형은 문장 규칙으로 정했다. 새 judge는 호출하지 않았다. K1 알테오젠 기권의 적절성은 unjudged다. Citation correctness의 pair verdict는 다시 판단하지 않았다. Coverage 수정은 두 사례의 기록된 재검토다. Qrel과 retrieval policy는 바꾸지 않았다."
+}

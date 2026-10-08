@@ -1,0 +1,344 @@
+{
+  "source_run": "multi_company_retrieval_v2_1_dev_g0_grounded_generation",
+  "corrected_run": "multi_company_retrieval_v2_1_dev_g0_evaluator_corrected",
+  "metrics": {
+    "faithfulness": {
+      "raw": {
+        "numerator": 73,
+        "denominator": 75
+      },
+      "corrected": {
+        "numerator": 66,
+        "denominator": 67
+      }
+    },
+    "requirement_coverage": {
+      "raw": {
+        "numerator": 50,
+        "denominator": 58
+      },
+      "corrected": {
+        "numerator": 51,
+        "denominator": 58
+      }
+    },
+    "citation_correctness": {
+      "raw": {
+        "numerator": 71,
+        "denominator": 73
+      },
+      "corrected": {
+        "numerator": 70,
+        "denominator": 72
+      }
+    },
+    "citation_completeness": {
+      "raw": {
+        "numerator": 68,
+        "denominator": 75
+      },
+      "corrected": {
+        "numerator": 67,
+        "denominator": 67
+      }
+    },
+    "requirement_success": {
+      "raw": {
+        "numerator": 49,
+        "denominator": 58
+      },
+      "corrected": {
+        "numerator": 50,
+        "denominator": 58
+      }
+    }
+  },
+  "requirement_primary": {
+    "raw": {
+      "success": 49,
+      "retrieval_limited": 6,
+      "generation_limited": 3,
+      "unjudged": 0
+    },
+    "corrected": {
+      "success": 50,
+      "retrieval_limited": 6,
+      "generation_limited": 2,
+      "unjudged": 0
+    }
+  },
+  "taxonomy": {
+    "raw": {
+      "retrieval_failure": 6,
+      "evidence_coverage_failure": 1,
+      "generation_omission": 0,
+      "unsupported_claim": 0,
+      "evidence_misinterpretation": 1,
+      "period_scope_confusion": 4,
+      "citation_missing": 7,
+      "citation_mismatch": 2,
+      "citation_hallucination": 0,
+      "over_abstention": 2,
+      "under_abstention": 0
+    },
+    "corrected": {
+      "retrieval_failure": 6,
+      "evidence_coverage_failure": 1,
+      "generation_omission": 0,
+      "unsupported_claim": 0,
+      "evidence_misinterpretation": 1,
+      "period_scope_confusion": 1,
+      "citation_missing": 0,
+      "citation_mismatch": 2,
+      "citation_hallucination": 0,
+      "over_abstention": 1,
+      "under_abstention": 0
+    }
+  },
+  "changed_claims": [
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "claim_id": "K1",
+      "claim_type": "abstention",
+      "rule": "evidence_scoped_nonconfirmation",
+      "raw_verdict": "supported",
+      "generator_factual": false,
+      "abstention_appropriateness": "appropriate",
+      "left_faithfulness_denominator": true,
+      "left_completeness_denominator": true,
+      "text": "제공된 공시 근거만으로는 이수페타시스의 2026년 상반기 영업권 이외 무형자산 취득 금액을 확인할 수 없습니다."
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "claim_id": "K2",
+      "claim_type": "abstention",
+      "rule": "evidence_scoped_nonconfirmation",
+      "raw_verdict": "supported",
+      "generator_factual": false,
+      "abstention_appropriateness": "appropriate",
+      "left_faithfulness_denominator": true,
+      "left_completeness_denominator": true,
+      "text": "제공된 공시 근거만으로는 이수페타시스의 2026년 상반기 투자부동산 취득 금액을 확인할 수 없습니다."
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "claim_id": "K1",
+      "claim_type": "abstention",
+      "rule": "evidence_scoped_nonconfirmation",
+      "raw_verdict": "supported",
+      "generator_factual": false,
+      "abstention_appropriateness": "appropriate",
+      "left_faithfulness_denominator": true,
+      "left_completeness_denominator": true,
+      "text": "제공된 근거만으로는 2024년 반기보고서의 투자조합 지분율, 순자산지분금액 및 장부금액을 확인할 수 없습니다."
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "claim_id": "K2",
+      "claim_type": "abstention",
+      "rule": "evidence_scoped_nonconfirmation",
+      "raw_verdict": "supported",
+      "generator_factual": false,
+      "abstention_appropriateness": "appropriate",
+      "left_faithfulness_denominator": true,
+      "left_completeness_denominator": true,
+      "text": "제공된 근거만으로는 2024년 3분기보고서의 받을 돈 연체 현황과 금액을 확인할 수 없습니다."
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "claim_id": "K2",
+      "claim_type": "abstention",
+      "rule": "evidence_scoped_nonconfirmation",
+      "raw_verdict": "supported",
+      "generator_factual": false,
+      "abstention_appropriateness": "appropriate",
+      "left_faithfulness_denominator": true,
+      "left_completeness_denominator": true,
+      "text": "제공된 근거로는 2026년 1분기 말 단기차입금 잔액을 확인할 수 없다."
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "claim_id": "K3",
+      "claim_type": "abstention",
+      "rule": "evidence_scoped_nonconfirmation",
+      "raw_verdict": "supported",
+      "generator_factual": false,
+      "abstention_appropriateness": "appropriate",
+      "left_faithfulness_denominator": true,
+      "left_completeness_denominator": true,
+      "text": "제공된 근거로는 반기보고서에 기재된 전기말 대출 약정 한도를 약정 유형별로 확인할 수 없다."
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "claim_id": "K1",
+      "claim_type": "abstention",
+      "rule": "evidence_scoped_nonconfirmation",
+      "raw_verdict": "unsupported",
+      "generator_factual": false,
+      "abstention_appropriateness": "unjudged",
+      "left_faithfulness_denominator": true,
+      "left_completeness_denominator": true,
+      "text": "제공된 분기보고서 근거에는 기술지원·위탁생산 용역기간이 확인되지 않습니다."
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "claim_id": "K3",
+      "claim_type": "limitation",
+      "rule": "scope_limitation",
+      "raw_verdict": "supported",
+      "generator_factual": false,
+      "abstention_appropriateness": null,
+      "left_faithfulness_denominator": true,
+      "left_completeness_denominator": true,
+      "text": "사업보고서에 기재된 기간을 분기보고서의 기간으로 볼 수는 없습니다."
+    }
+  ],
+  "excluded_citation_pairs": [
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "claim_id": "K3",
+      "claim_type": "limitation",
+      "citation_id": "C4",
+      "verdict": "supports",
+      "reason": "pair verdict kept; claim is outside the factual correctness denominator"
+    }
+  ],
+  "changed_requirements": [
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "requirement_id": "R1",
+      "raw_coverage": "abstained",
+      "coverage": "abstained",
+      "raw_primary": "retrieval_limited",
+      "primary": "retrieval_limited",
+      "raw_support": "supported",
+      "support": "not_factual",
+      "raw_flags": [
+        "retrieval_failure",
+        "citation_missing"
+      ],
+      "flags": [
+        "retrieval_failure"
+      ]
+    },
+    {
+      "query_id": "V2-00107613-finance_table-03",
+      "requirement_id": "R2",
+      "raw_coverage": "abstained",
+      "coverage": "abstained",
+      "raw_primary": "retrieval_limited",
+      "primary": "retrieval_limited",
+      "raw_support": "supported",
+      "support": "not_factual",
+      "raw_flags": [
+        "retrieval_failure",
+        "citation_missing"
+      ],
+      "flags": [
+        "retrieval_failure"
+      ]
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "requirement_id": "R1",
+      "raw_coverage": "abstained",
+      "coverage": "abstained",
+      "raw_primary": "retrieval_limited",
+      "primary": "retrieval_limited",
+      "raw_support": "supported",
+      "support": "not_factual",
+      "raw_flags": [
+        "retrieval_failure",
+        "citation_missing"
+      ],
+      "flags": [
+        "retrieval_failure"
+      ]
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "requirement_id": "R2",
+      "raw_coverage": "abstained",
+      "coverage": "abstained",
+      "raw_primary": "retrieval_limited",
+      "primary": "retrieval_limited",
+      "raw_support": "supported",
+      "support": "not_factual",
+      "raw_flags": [
+        "retrieval_failure",
+        "citation_missing"
+      ],
+      "flags": [
+        "retrieval_failure"
+      ]
+    },
+    {
+      "query_id": "V2-00126380-finance_table-03",
+      "requirement_id": "R1",
+      "raw_coverage": "abstained",
+      "coverage": "covered",
+      "raw_primary": "generation_limited",
+      "primary": "success",
+      "raw_support": "supported",
+      "support": "supported",
+      "raw_flags": [
+        "over_abstention"
+      ],
+      "flags": []
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R1",
+      "raw_coverage": "abstained",
+      "coverage": "abstained",
+      "raw_primary": "retrieval_limited",
+      "primary": "retrieval_limited",
+      "raw_support": "supported",
+      "support": "not_factual",
+      "raw_flags": [
+        "retrieval_failure",
+        "period_scope_confusion",
+        "citation_missing"
+      ],
+      "flags": [
+        "retrieval_failure"
+      ]
+    },
+    {
+      "query_id": "V2-00126955-cross_period-02",
+      "requirement_id": "R3",
+      "raw_coverage": "abstained",
+      "coverage": "abstained",
+      "raw_primary": "retrieval_limited",
+      "primary": "retrieval_limited",
+      "raw_support": "supported",
+      "support": "not_factual",
+      "raw_flags": [
+        "retrieval_failure",
+        "period_scope_confusion",
+        "citation_missing"
+      ],
+      "flags": [
+        "retrieval_failure"
+      ]
+    },
+    {
+      "query_id": "V2-00989619-finance_table-02",
+      "requirement_id": "R1",
+      "raw_coverage": "abstained",
+      "coverage": "abstained",
+      "raw_primary": "generation_limited",
+      "primary": "generation_limited",
+      "raw_support": "unsupported",
+      "support": "not_factual",
+      "raw_flags": [
+        "over_abstention",
+        "period_scope_confusion",
+        "citation_missing"
+      ],
+      "flags": [
+        "over_abstention"
+      ]
+    }
+  ]
+}
