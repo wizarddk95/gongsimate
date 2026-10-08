@@ -1,0 +1,224 @@
+{
+  "dataset_version": "gongsi_mate_a0_dev_v1",
+  "dataset_sha256": "c76224ffbddf395a9d253053bc52cc261892f6e26eff46052b721ef9eadaa11b",
+  "scenarios": {
+    "search_required": 10,
+    "insufficient_evidence": 5,
+    "additional_search": 5,
+    "no_search": 5,
+    "ambiguous": 5
+  },
+  "query_count": 30,
+  "agent_prompt_sha256": "8bd44639d3aae07b14024a7f6d2f9227b84d724084926713380151e567b0e461",
+  "judge_prompt_version": "a0-grounding-v1",
+  "model": "gpt-6-luna",
+  "provider": "openai",
+  "retrieval": {
+    "product_retriever": "dense",
+    "representation": "retrieval-unit-d2a-v1",
+    "embedding_model": "BAAI/bge-m3",
+    "closed_benchmark_policy": "bm25_primary_dense_head",
+    "note": "The product tool ranks Dense-D2a. This run does not switch it to H10."
+  },
+  "tools": [
+    {
+      "type": "function",
+      "name": "search_disclosures",
+      "description": "색인된 DART 정기공시를 검색합니다.\n사업보고서(연간), 반기보고서, 분기보고서가 있습니다.\n\nquery는 찾을 내용입니다.\nperiod, report_types, filing_date는 메타데이터 필터입니다.\n질문의 모든 뉘앙스를 hard filter로 바꿀 필요는 없습니다.\n\n- \"YYYY년 매출\"처럼 연간 실적을 물으면 year와 report_types [\"annual\"]을 지정합니다.\n- 분기 질문은 quarter(1=3월, 2=6월, 3=9월, 4=12월)를 지정합니다.\n- 반기는 half(1=상반기, 2=하반기)를 지정합니다.\n- \"최근\", \"요즘\", \"최신\", \"마지막으로 발표된\", \"현재 확인 가능한\"은\n  request_time과 corpus_as_of를 보고 period.mode를 \"latest\"로 둡니다.\n  latest는 색인 목록에서 보고기간이 가장 늦은 공시입니다.\n- 증가 이유, 배경, 원인은 그 연도 공시 밖에 후속 공시가 설명할 수 있습니다.\n  먼저 좁게 검색하고, 결과가 부족하면 범위를 넓혀 이 도구를 다시 호출합니다.\n- 미래 연도의 목표나 전망은 미래라는 이유만으로 건너뛰지 않습니다.\n  목표·전망을 query에 담아 검색합니다.\n- request_time보다 미래의 확정 실적은 이 도구를 호출하지 않습니다.\n  그 경우는 answer_directly입니다. 목표·계획·전망은 여기에 해당하지 않습니다.\n- as_of는 검색 상한 시각입니다. 비워 두면 corpus_as_of까지 검색합니다.\n  request_time이 corpus_as_of보다 늦으면 as_of에 request_time을 넣지 않습니다.\n- 확정 실적은 그 연도·보고서로 exact 필터를 겁니다.\n  맞는 공시가 없으면 없는 것입니다.\n- company_id는 입력의 canonical id만 사용합니다.\n  top_k는 1 이상 서버 상한 이하입니다.\n- 기업 사실은 검색 없이 만들지 않습니다.\n  검색이 필요 없으면 도구를 호출하지 않습니다.\n- 이 도구는 한 질문에서 최대 2번 호출할 수 있습니다.\n",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "company_id": {
+            "type": "string"
+          },
+          "period": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "year": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "quarter": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "half": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "exact",
+                      "latest",
+                      "range"
+                    ]
+                  },
+                  "year_from": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "year_to": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "year",
+                  "quarter",
+                  "half",
+                  "mode",
+                  "year_from",
+                  "year_to"
+                ]
+              }
+            ]
+          },
+          "filing_date_from": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "filing_date_to": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "report_types": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "annual",
+                    "semiannual",
+                    "quarterly"
+                  ]
+                }
+              }
+            ]
+          },
+          "as_of": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "top_k": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query",
+          "company_id",
+          "period",
+          "filing_date_from",
+          "filing_date_to",
+          "report_types",
+          "as_of",
+          "top_k"
+        ]
+      },
+      "strict": true
+    },
+    {
+      "type": "function",
+      "name": "answer_directly",
+      "description": "검색 없이 사용자에게 답합니다. 아직 오지 않은 기간의 확정 실적, 일반 대화, 시스템 설명에만 사용합니다. 공시에 있어야 하는 기업 사실을 만들지 않습니다.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "company_mention": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "text",
+          "company_mention"
+        ]
+      },
+      "strict": true
+    },
+    {
+      "type": "function",
+      "name": "ask_clarification",
+      "description": "회사나 질문이 분명하지 않을 때 사용자에게 확인을 요청합니다. company_mention은 사용자가 쓴 표면형이며 corp_code가 아닙니다.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "company_mention": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "text",
+          "company_mention"
+        ]
+      },
+      "strict": true
+    }
+  ],
+  "limits": {
+    "max_search_calls": 2,
+    "max_llm_calls": 4,
+    "timeout_seconds": 180.0,
+    "concurrency": 1
+  },
+  "request_time": "2026-10-08T12:00:00+09:00",
+  "prices_usd_per_million_tokens": {
+    "gpt-6-luna": {
+      "input": 2.0,
+      "output": 8.0
+    },
+    "gemini-3.8-flash": {
+      "input": 0.5,
+      "output": 2.0
+    },
+    "gpt-6.1-sol": {
+      "input": 5.0,
+      "output": 20.0
+    }
+  },
+  "price_source": "configured_estimate_not_invoice",
+  "max_estimated_usd": 12.0
+}

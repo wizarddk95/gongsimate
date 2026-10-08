@@ -279,6 +279,9 @@ class AgentRuntime:
             elapsed = round((time.perf_counter() - started) * 1000, 3)
             record["latency_ms"] = elapsed
             record["total_ms"] = elapsed
+            record["llm_call_count"] = budget.llm_calls
+            record["search_call_count"] = budget.search_calls
+            record["stop_reason"] = record.get("status")
             if self.run_log is not None:
                 self.run_log.append(_redact_record(record, self.redact_secrets))
 
@@ -648,10 +651,15 @@ class AgentRuntime:
                     budget=budget,
                     record=record,
                 )
-            if not hits and action.user_text and action.kind in {
-                "answer_directly",
-                "ask_clarification",
-            }:
+            if (
+                not hits
+                and action.user_text
+                and action.kind
+                in {
+                    "answer_directly",
+                    "ask_clarification",
+                }
+            ):
                 yield from self._emit_planned_speech(
                     action,
                     resolution=resolution,
@@ -856,6 +864,7 @@ class AgentRuntime:
         )
         action = planner.next_action(context)
         _add_planner_usage(record, action.usage)
+        record.setdefault("planner_actions", []).append(_planner_observation(action))
         return action
 
     def _apply_mention(
@@ -1209,6 +1218,13 @@ class AgentRuntime:
         record["abstain_reason"] = abstain_reason
         record["generator_type"] = answer.generator_type
         record["citation_ids"] = [item.citation_id for item in answer.citations]
+        record["final_answer"] = {
+            "text": answer.text,
+            "citations": [item.to_dict() for item in answer.citations],
+            "limitations": list(answer.limitations),
+            "abstain": answer.abstain,
+        }
+        record["generation_evidence"] = _generation_evidence_record(evidence)
         if include_status:
             yield StreamEvent("agent.status", {"status": "generating_answer"})
         if include_deltas:
@@ -1245,6 +1261,13 @@ class AgentRuntime:
         question = text or clarification_question(resolution)
         record["agent_action"] = "ask_clarification"
         record["status"] = status
+        record["final_answer"] = {
+            "text": question,
+            "citations": [],
+            "limitations": [],
+            "abstain": False,
+        }
+        record["generation_evidence"] = []
         yield from _emit_text(record, started, question)
         yield StreamEvent(
             "run.completed",
@@ -1295,11 +1318,60 @@ def _add_planner_usage(record: dict[str, Any], usage: object) -> None:
     current = record.get("planner_usage")
     if not isinstance(current, dict):
         current = {}
+    facts: dict[str, int] = {}
     for key in ("input_tokens", "output_tokens", "total_tokens"):
         value = usage.get(key)
         if isinstance(value, int):
             current[key] = int(current.get(key) or 0) + value
+            facts[key] = value
     record["planner_usage"] = current
+    if facts:
+        record.setdefault("llm_usages", []).append({"stage": "planner", **facts})
+
+
+def _planner_observation(action: Any) -> dict[str, Any]:
+    """Planner choice for the run log. The user-facing answer is stored separately."""
+    raw = action.raw if isinstance(getattr(action, "raw", None), dict) else None
+    arguments = None
+    if getattr(action, "kind", None) == TOOL_NAME and raw is not None:
+        arguments = {
+            key: raw.get(key)
+            for key in (
+                "query",
+                "company_id",
+                "period",
+                "filing_date_from",
+                "filing_date_to",
+                "report_types",
+                "as_of",
+                "top_k",
+            )
+        }
+    return {
+        "kind": action.kind,
+        "requests_tool": action.requests_tool,
+        "schema_error": action.schema_error,
+        "arguments": arguments,
+        "latency_ms": action.latency_ms,
+    }
+
+
+def _generation_evidence_record(evidence: list[Evidence]) -> list[dict[str, Any]]:
+    """Evidence the generator actually received, including when the answer abstains."""
+    return [
+        {
+            "evidence_id": item.evidence_id,
+            "retrieval_unit_id": item.retrieval_unit_id,
+            "receipt_no": item.receipt_no,
+            "report_name": item.report_name,
+            "filing_period": item.filing_period,
+            "receipt_date": item.receipt_date,
+            "document_name": item.document_name,
+            "section_path": list(item.section_path),
+            "text": item.text,
+        }
+        for item in evidence
+    ]
 
 
 def _require_company_hits(hits: list[SearchHit], company_id: str) -> None:
@@ -1463,10 +1535,14 @@ def _abstain_text(status: str, message: str, fiscal_year: int | None) -> str:
 def _copy_usage(record: dict[str, Any], usage: object) -> None:
     if not isinstance(usage, dict):
         return
+    facts: dict[str, int] = {}
     for key in ("input_tokens", "output_tokens", "total_tokens"):
         value = usage.get(key)
         if isinstance(value, int):
             record[key] = value
+            facts[key] = value
+    if facts:
+        record.setdefault("llm_usages", []).append({"stage": "generation", **facts})
 
 
 def _redact_record(record: dict[str, Any], secrets: tuple[str, ...]) -> dict[str, Any]:

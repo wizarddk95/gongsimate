@@ -1,0 +1,53 @@
+{
+  "run": "gongsi_mate_a0_agent_baseline",
+  "dataset_version": "gongsi_mate_a0_dev_v1",
+  "dataset_sha256": "c76224ffbddf395a9d253053bc52cc261892f6e26eff46052b721ef9eadaa11b",
+  "agent_prompt_sha256": "8bd44639d3aae07b14024a7f6d2f9227b84d724084926713380151e567b0e461",
+  "judge_prompt_version": "a0-grounding-v1",
+  "model": "gpt-6-luna",
+  "retrieval": {
+    "product_retriever": "dense",
+    "representation": "retrieval-unit-d2a-v1",
+    "embedding_model": "BAAI/bge-m3",
+    "closed_benchmark_policy": "bm25_primary_dense_head",
+    "note": "The product tool ranks Dense-D2a. This run does not switch it to H10."
+  },
+  "limits": {
+    "max_search_calls": 2,
+    "max_llm_calls": 4,
+    "timeout_seconds": 180.0,
+    "concurrency": 1
+  },
+  "request_time": "2026-10-08T12:00:00+09:00",
+  "git": {
+    "git_commit": "a2dcde7720e52ae6b85600a43bcb1ab0780e17e6",
+    "git_dirty": true
+  },
+  "task": {
+    "success": 11,
+    "partial_success": 0,
+    "appropriate_clarification": 5,
+    "appropriate_abstention": 0,
+    "failure": 14,
+    "unjudged": 0
+  },
+  "search_decision": {
+    "correct": 28,
+    "denominator": 30,
+    "missed_required_search": 2,
+    "unnecessary_search": 0
+  },
+  "files": [
+    "agent_evalset.jsonl",
+    "agent_runs.jsonl",
+    "config.json",
+    "evaluation_contract.md",
+    "evaluation_results.jsonl",
+    "failures.csv",
+    "judge_results.jsonl",
+    "product_trace.jsonl",
+    "report.md",
+    "summary.json",
+    "tool_calls.jsonl"
+  ]
+}

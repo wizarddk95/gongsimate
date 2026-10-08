@@ -1,0 +1,134 @@
+{
+  "dataset_version": "gongsi_mate_a0_dev_v1",
+  "dataset_sha256": "c76224ffbddf395a9d253053bc52cc261892f6e26eff46052b721ef9eadaa11b",
+  "scenarios": {
+    "search_required": 10,
+    "insufficient_evidence": 5,
+    "additional_search": 5,
+    "no_search": 5,
+    "ambiguous": 5
+  },
+  "query_count": 30,
+  "search_decision": {
+    "correct": 28,
+    "denominator": 30,
+    "missed_required_search": 2,
+    "unnecessary_search": 0
+  },
+  "arguments": {},
+  "clarification_appropriate": 5,
+  "clarification_denominator": 5,
+  "abstention_appropriate": 0,
+  "abstention_denominator": 5,
+  "task": {
+    "success": 11,
+    "partial_success": 0,
+    "appropriate_clarification": 5,
+    "appropriate_abstention": 0,
+    "failure": 14,
+    "unjudged": 0
+  },
+  "grounding": {
+    "faithfulness_supported": 9,
+    "faithfulness_denominator": 15,
+    "citation_correct": 10,
+    "citation_correct_denominator": 10,
+    "citation_complete": 6,
+    "citation_complete_denominator": 6,
+    "integrity_error_count": 0,
+    "requirement_success": 12,
+    "requirement_denominator": 27
+  },
+  "failures": {
+    "primary": {
+      "tool_selection_failure": 2,
+      "budget_exhaustion": 6,
+      "unsupported_claim": 5,
+      "generation_failure": 1
+    },
+    "secondary": {
+      "missed_search": 2,
+      "unsupported_claim": 1,
+      "retrieval_failure": 1,
+      "over_abstention": 2,
+      "under_abstention": 3
+    }
+  },
+  "representative_failures": [
+    {
+      "query_id": "V2-00107613-business_paragraph-02",
+      "question": "이수페타시스의 우주항공용 회로기판은 왜 극심한 온도 변화와 진동·충격을 견디고 오랫동안 믿고 쓸 수 있어야 하나요?",
+      "primary_behavior": "DIRECT_ANSWER",
+      "task_outcome": "failure",
+      "primary_cause": "tool_selection_failure",
+      "secondary_flags": [
+        "missed_search",
+        "unsupported_claim"
+      ],
+      "answer_excerpt": "우주항공용 회로기판은 발사·비행·궤도 운용 과정에서 급격한 온도 변화와 진동·충격을 겪습니다. 이런 환경은 기판과 부품의 팽창·수축, 납땜부나 배선의 균열, 접촉 불량을 일으켜 전자장비 오작동이나 고장으로 이어질 수 있습니다. 특히 우주에서는 수리·교체가 어렵고, 통신·항법·제어처럼 임무에 중요한 장비의 고장이 안전과 임무 전체에 큰 영향을 줄 수 있습니다. 그래서 극한 환경에서도 성능을 유지하고 오랜 기간 안정적으로 작동하도"
+    },
+    {
+      "query_id": "V2-00107613-finance_table-01",
+      "question": "이수페타시스의 2024년 상반기 연결 현금흐름표에서 투자활동현금흐름은 얼마였나요?",
+      "primary_behavior": "SEARCH",
+      "task_outcome": "failure",
+      "primary_cause": "budget_exhaustion",
+      "secondary_flags": [],
+      "answer_excerpt": ""
+    },
+    {
+      "query_id": "V2-00126955-finance_table-01",
+      "question": "삼양식품의 2026년 상반기 연결 자본변동표에서 배당금 지급은 얼마로 나타났나요?",
+      "primary_behavior": "ABSTAIN",
+      "task_outcome": "failure",
+      "primary_cause": "unsupported_claim",
+      "secondary_flags": [
+        "over_abstention"
+      ],
+      "answer_excerpt": "검색된 공시에서 요청한 내용을 확인하지 못했습니다."
+    }
+  ],
+  "latency_ms": {
+    "p50": 6685.831,
+    "p95": 12899.711
+  },
+  "tool_latency_ms": 44314.282,
+  "generation_latency_ms": 32049.132,
+  "llm_calls": 91,
+  "tool_calls": 30,
+  "cost": {
+    "agent_input_tokens": 147550,
+    "agent_output_tokens": 11072,
+    "judge_input_tokens": 32568,
+    "judge_output_tokens": 8029,
+    "agent_usd": 0.3837,
+    "judge_usd": 0.1294,
+    "total_usd": 0.513,
+    "usd_per_successful_task": 0.024,
+    "price_source": "configured_estimate_not_invoice"
+  },
+  "output_dir": "evaluation/runs/gongsi_mate_a0_agent_baseline",
+  "git": {
+    "git_commit": "a2dcde7720e52ae6b85600a43bcb1ab0780e17e6",
+    "git_dirty": true
+  },
+  "failure_names": [
+    "tool_selection_failure",
+    "unnecessary_search",
+    "missed_search",
+    "clarification_failure",
+    "tool_argument_failure",
+    "retrieval_failure",
+    "generation_failure",
+    "unsupported_claim",
+    "citation_failure",
+    "over_abstention",
+    "under_abstention",
+    "unnecessary_retry",
+    "budget_exhaustion",
+    "timeout",
+    "runtime_failure"
+  ],
+  "tests_note": "ruff check src/disclosure_agent/agent_a0 tests/test_agent_a0.py src/disclosure_agent/agent/runtime.py passed. pytest tests/test_agent_a0.py tests/test_agent_product.py: 30 passed.",
+  "commit_note": "이 리포트와 실행 산출물을 같은 커밋에 넣는다. manifest의 git revision은 커밋 직전 HEAD다."
+}

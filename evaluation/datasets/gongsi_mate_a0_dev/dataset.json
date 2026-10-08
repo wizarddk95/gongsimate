@@ -1,0 +1,13 @@
+{
+  "dataset_version": "gongsi_mate_a0_dev_v1",
+  "dataset_sha256": "c76224ffbddf395a9d253053bc52cc261892f6e26eff46052b721ef9eadaa11b",
+  "query_count": 30,
+  "scenarios": {
+    "search_required": 10,
+    "insufficient_evidence": 5,
+    "additional_search": 5,
+    "no_search": 5,
+    "ambiguous": 5
+  },
+  "path": "evaluation/datasets/gongsi_mate_a0_dev/agent_evalset.jsonl"
+}

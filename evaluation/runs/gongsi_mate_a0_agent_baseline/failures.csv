@@ -1,0 +1,15 @@
+query_id,scenario,task_outcome,primary_behavior,primary_cause,secondary_flags,question
+V2-00107613-business_paragraph-02,search_required,failure,DIRECT_ANSWER,tool_selection_failure,missed_search|unsupported_claim,이수페타시스의 우주항공용 회로기판은 왜 극심한 온도 변화와 진동·충격을 견디고 오랫동안 믿고 쓸 수 있어야 하나요?
+V2-00107613-finance_table-01,search_required,failure,SEARCH,budget_exhaustion,,이수페타시스의 2024년 상반기 연결 현금흐름표에서 투자활동현금흐름은 얼마였나요?
+V2-00126380-finance_table-03,search_required,failure,SEARCH,budget_exhaustion,retrieval_failure,삼성전자의 2025년 말 자본금은 우선주와 보통주가 각각 어느 정도 비중을 차지하나요?
+V2-00126955-overview_paragraph-01,search_required,failure,SEARCH,budget_exhaustion,,"삼양식품의 연혁에 따르면, 삼양라운드어스(주)는 2023년 7월 어떤 상호에서 변경됐나요?"
+V2-00126955-finance_table-01,search_required,failure,ABSTAIN,unsupported_claim,over_abstention,삼양식품의 2026년 상반기 연결 자본변동표에서 배당금 지급은 얼마로 나타났나요?
+V2-00107613-partial-02,insufficient_evidence,failure,CLARIFY,tool_selection_failure,missed_search,"2025년 상반기 ISU Petasys Asia Ltd.의 매출액은 얼마이며, 2018년 이수페타시스의 연결 매출액과 비교해 주세요."
+V2-00121941-partial-02,insufficient_evidence,failure,ABSTAIN,unsupported_claim,under_abstention,대상의 2026년 1분기 말 연결 비유동자산은 얼마인가요? 2018년 연결 매출과 비교해 주세요.
+V2-00107613-multi_element-01,additional_search,failure,SEARCH,budget_exhaustion,,"이수페타시스의 2024년 반기보고서에서 환율 5% 상승에 대한 민감도 분석은 어떤 조건을 가정하며, 자본과 손익의 변동금액은 어떤 기준으로 제시하나요?"
+V2-00107613-cross_period-02,additional_search,failure,ABSTAIN,unsupported_claim,over_abstention,이수페타시스의 2024년 반기보고서와 3분기보고서에는 투자조합의 지분 정보와 받을 돈의 연체 현황이 각각 어떻게 나와 있나요?
+V2-00126380-multi_element-02,additional_search,failure,SEARCH,budget_exhaustion,,"삼성전자의 2026년 1분기 보고서에서 하만의 연산용 칩과 차량 통신 모듈은 각각 매입액이 얼마였고, 전체 매입액에서 차지한 비율은 얼마인가요?"
+V2-00121941-multi_element-01,additional_search,failure,SEARCH,budget_exhaustion,,대상 군산 사업소의 전분·물엿과 아미노산 제품류 생산실적은 제73기 반기와 제72기 연간에 각각 얼마였나요?
+A0-abstain-01,insufficient_evidence,failure,ABSTAIN,unsupported_claim,under_abstention,이수페타시스의 2019년 연결 매출액은 얼마인가요?
+A0-abstain-02,insufficient_evidence,failure,DIRECT_ANSWER,unsupported_claim,under_abstention,이수페타시스의 2030년 확정 연결 매출은 얼마인가요?
+A0-abstain-03,insufficient_evidence,failure,CLARIFY,generation_failure,,카카오의 2024년 사업보고서 연결 매출액은 얼마인가요?
