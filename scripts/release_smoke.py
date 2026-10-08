@@ -430,7 +430,13 @@ def _probe_budget(runtime: Any, search: Any) -> dict[str, Any]:
     text = row["answer_text"]
     limitations = " ".join(row.get("limitations") or [])
     showed = "답변 모델 호출 한도" in text or "답변 모델 호출 한도" in limitations
-    ok = row["fallback"] == "generation_budget_fallback" and showed and row["citation_integrity"]["ok"]
+    leaked = "[section]" in text or "traceback" in text.lower() or "retrieval_unit" in text
+    ok = (
+        row["fallback"] == "generation_budget_fallback"
+        and showed
+        and not leaked
+        and row["citation_integrity"]["ok"]
+    )
     row["verdict"] = "PASS" if ok else "FAIL"
     return row
 
@@ -507,14 +513,14 @@ def _exposure_verdict(name: str, row: dict[str, Any], *, expect_policy: str) -> 
     if not row["citation_integrity"]["ok"]:
         return "FAIL"
     if name == "h10_unavailable":
-        told = "찾지 못했습니다" in row["answer_text"] or row["status"] in {
-            "retrieval_no_result",
-            "no_results",
-        }
-        names_policy = "h10_unavailable" in row["answer_text"]
-        if told and not names_policy:
-            return "KNOWN LIMITATION"
-        return "PASS" if told else "FAIL"
+        distinct = (
+            row["status"] == "retrieval_unavailable"
+            and row["abstain_reason"] == "h10_unavailable"
+            and "없다고 확인된 것은 아닙니다" in row["answer_text"]
+            and "h10_unavailable" not in row["answer_text"]
+            and "찾지 못했습니다" not in row["answer_text"]
+        )
+        return "PASS" if distinct else "FAIL"
     return "FAIL"
 
 
@@ -530,20 +536,28 @@ def _user_surface(event: str, data: dict[str, Any]) -> dict[str, str]:
     reason = data.get("abstain_reason")
     answer = data.get("answer") if isinstance(data.get("answer"), dict) else {}
     text = str(answer.get("text") or "")
+    stop = data.get("answer_stop")
+    cited = bool(answer.get("citations"))
     if action == "ask_clarification":
         label, kind = "확인이 필요합니다", "clarification"
     elif status in {"company_unsupported", "unsupported_company"} or reason == "unsupported_company":
         label, kind = "지원 범위 밖", "unsupported"
+    elif status == "retrieval_unavailable" or reason == "h10_unavailable":
+        label, kind = "검색을 마치지 못했습니다", "unavailable"
+    elif stop == "generation_budget_fallback" or reason == "answer_budget_exhausted":
+        label, kind = ("일부만 확인했습니다", "partial") if cited else ("답변을 마치지 못했습니다", "limited")
     elif status == "no_matching_filing" or reason == "no_matching_filing":
-        label, kind = "해당 조건의 공시 없음", "limited"
-    elif reason == "insufficient_evidence" or status == "abstained" or reason == "no_results":
-        label, kind = "공시에서 확인하지 못함", "limited"
+        label, kind = "해당 조건의 공시를 찾지 못함", "missing"
+    elif status == "retrieval_no_result" or reason == "no_results":
+        label, kind = "해당하는 내용을 찾지 못함", "empty"
+    elif reason == "insufficient_evidence" or status == "abstained":
+        label, kind = "공시에서 확인하지 못함", "abstained"
     elif action == "answer_directly":
         label, kind = "", "direct"
     elif action == "search_disclosures" and status == "completed":
         label, kind = "공시 원문 기반", "grounded"
     elif action == "abstain":
-        label, kind = "답변을 보류했습니다", "limited"
+        label, kind = "답변을 보류했습니다", "abstained"
     else:
         label, kind = "", "answer"
     return {"kind": kind, "label": label, "message": text}

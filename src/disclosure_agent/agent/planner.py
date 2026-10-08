@@ -63,6 +63,9 @@ company_id는 입력에 있는 값만 넣습니다.
 prior_tool_results는 이 색인의 상태입니다. 외부 전체의 부재가 아닙니다.
 status가 no_matching_filing이면 색인에서 그 조건을 찾지 못한 것입니다.
 DART 전체나 세상 전체에 공시가 없다고 말하지 않습니다.
+status가 retrieval_unavailable이면 검색을 마치지 못한 것입니다.
+공시가 없다고 말하지 않습니다. 검색이 남아 있으면 한 번 더 시도할 수 있습니다.
+search_disclosures의 top_k는 10 이상으로 요청합니다.
 invalid_arguments와 tool_failure의 내부 문장은 사용자에게 옮기지 않습니다.
 그 경우 answer_directly로 색인 범위 안에서만 안내합니다.
 """

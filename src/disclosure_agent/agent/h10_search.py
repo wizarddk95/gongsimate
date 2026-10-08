@@ -87,6 +87,8 @@ class H10Search:
             for hit in bm25_ranked
         }
         hits: list[SearchHit] = []
+        # Explicit slice. The product agent raises planner top_k below 10
+        # before it builds this request. This class does not raise it.
         for item in fused[: request.top_k]:
             unit_id = str(item["retrieval_unit_id"])
             unit = by_id.get(unit_id)

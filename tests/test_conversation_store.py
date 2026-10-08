@@ -44,6 +44,7 @@ def test_saved_conversation_drops_internal_metadata_and_roundtrips() -> None:
               created_at: "2026-10-04T01:05:00.000Z",
               kind: "grounded",
               label: "공시 원문 기반",
+              retry: true,
               limitations: [],
               citations: [{
                 citation_id: "1",
@@ -97,6 +98,7 @@ def test_saved_conversation_drops_internal_metadata_and_roundtrips() -> None:
         const citation = round.messages[1].citations[0];
         if (citation.citation_id !== "1" || citation.evidence_id !== "ev-1") throw new Error("ids");
         if (citation.receipt_no !== "20240321001149") throw new Error("receipt");
+        if (round.messages[1].retry !== true) throw new Error("retry");
         if (citation.blocks[0].cells[0].text !== "사업부문") throw new Error("cell");
         if (citation.blocks[0].source_sha256) throw new Error("block hash");
         const member = citation.source_locator[0].element_source_locator.member_name;

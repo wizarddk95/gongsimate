@@ -4,6 +4,29 @@ const ACTIVITY = {
   generating_answer: "답변을 작성하고 있습니다",
 };
 
+const RETRY_CODES = new Set([
+  "request_timeout",
+  "retrieval_failure",
+  "generation_failure",
+  "openai_timeout",
+  "openai_api_error",
+  "openai_rate_limit",
+  "search_limit_exceeded",
+  "llm_limit_exceeded",
+  "internal_error",
+]);
+
+const INLINE_NOTES = new Set([
+  "partial",
+  "unavailable",
+  "missing",
+  "abstained",
+  "limited",
+  "empty",
+  "timeout",
+  "error",
+]);
+
 const PROMPT_TEMPLATES = [
   (name) => `${name}의 주요 사업은 무엇인가?`,
   (name) => `${name}의 최근 실적 변동 이유를 설명해 주세요.`,
@@ -304,23 +327,24 @@ function applyEvent(assistant, eventName, data) {
     applyCompleted(assistant, data);
     renderAssistant(assistant);
     rememberAssistant(assistant);
-    setActivity("");
+    setActivity(assistant.label || "답변이 도착했습니다");
     return;
   }
   if (eventName === "error") {
-    fail(assistant, (data && data.message) || "요청을 처리하지 못했습니다.");
+    fail(assistant, (data && data.message) || "요청을 처리하지 못했습니다.", data && data.code);
   }
 }
 
-function fail(assistant, message) {
+function fail(assistant, message, code) {
   if (assistant.closed || leaving) return;
   assistant.closed = true;
-  assistant.kind = "error";
-  assistant.label = "";
+  assistant.kind = code === "request_timeout" ? "timeout" : "error";
+  assistant.label = code === "request_timeout" ? "시간이 초과되었습니다" : "요청을 처리하지 못했습니다";
+  assistant.retry = !code || RETRY_CODES.has(code);
   assistant.errorText = message;
   renderAssistant(assistant);
   rememberAssistant(assistant);
-  setActivity("");
+  setActivity(assistant.label);
   setBusy(false);
 }
 
@@ -386,6 +410,7 @@ function appendAssistant() {
     candidates: [],
     priorQuestion: "",
     errorText: "",
+    retry: false,
     closed: false,
   };
   renderAssistant(assistant);
@@ -425,6 +450,7 @@ function applyCompleted(assistant, data) {
   const view = present(data);
   assistant.kind = view.kind;
   assistant.label = view.label;
+  assistant.retry = Boolean(view.retry);
   assistant.limitations = scopeNotes(text, answer.limitations);
   assistant.candidates = data.clarification?.candidates || [];
   assistant.errorText = "";
@@ -465,29 +491,44 @@ function present(payload) {
   const action = payload.action;
   const status = payload.status;
   const reason = payload.abstain_reason;
-  if (action === "ask_clarification") return { kind: "clarification", label: "확인이 필요합니다" };
+  const stop = payload.answer_stop;
+  const cited = Array.isArray(payload.answer && payload.answer.citations)
+    && payload.answer.citations.length > 0;
+  if (action === "ask_clarification") {
+    return { kind: "clarification", label: "확인이 필요합니다", retry: false };
+  }
   if (
     status === "company_unsupported"
     || status === "unsupported_company"
     || reason === "unsupported_company"
   ) {
-    return { kind: "unsupported", label: "지원 범위 밖" };
+    return { kind: "unsupported", label: "지원 범위 밖", retry: false };
+  }
+  if (status === "retrieval_unavailable" || reason === "h10_unavailable") {
+    return { kind: "unavailable", label: "검색을 마치지 못했습니다", retry: true };
+  }
+  if (stop === "generation_budget_fallback" || reason === "answer_budget_exhausted") {
+    if (cited) return { kind: "partial", label: "일부만 확인했습니다", retry: true };
+    return { kind: "limited", label: "답변을 마치지 못했습니다", retry: true };
   }
   if (status === "no_matching_filing" || reason === "no_matching_filing") {
-    return { kind: "limited", label: "해당 조건의 공시 없음" };
+    return { kind: "missing", label: "해당 조건의 공시를 찾지 못함", retry: false };
   }
   if (status === "corpus_not_fresh_enough" || reason === "corpus_not_fresh_enough") {
-    return { kind: "limited", label: "데이터 기준 이후의 시점" };
+    return { kind: "limited", label: "데이터 기준 이후의 시점", retry: false };
   }
-  if (reason === "insufficient_evidence" || status === "abstained" || reason === "no_results") {
-    return { kind: "limited", label: "공시에서 확인하지 못함" };
+  if (status === "retrieval_no_result" || reason === "no_results") {
+    return { kind: "empty", label: "해당하는 내용을 찾지 못함", retry: false };
   }
-  if (action === "answer_directly") return { kind: "direct", label: "" };
+  if (reason === "insufficient_evidence" || status === "abstained") {
+    return { kind: "abstained", label: "공시에서 확인하지 못함", retry: false };
+  }
+  if (action === "answer_directly") return { kind: "direct", label: "", retry: false };
   if (action === "search_disclosures" && status === "completed") {
-    return { kind: "grounded", label: "공시 원문 기반" };
+    return { kind: "grounded", label: "공시 원문 기반", retry: false };
   }
-  if (action === "abstain") return { kind: "limited", label: "답변을 보류했습니다" };
-  return { kind: "answer", label: "" };
+  if (action === "abstain") return { kind: "abstained", label: "답변을 보류했습니다", retry: false };
+  return { kind: "answer", label: "", retry: false };
 }
 
 function scopeNotes(answerText, limitations) {
@@ -517,16 +558,24 @@ function renderAssistant(assistant) {
   if (assistant.kind === "pending") {
     const status = document.createElement("p");
     status.className = "pending-status";
+    status.setAttribute("role", "status");
     const dot = document.createElement("span");
     dot.className = "dot";
     dot.setAttribute("aria-hidden", "true");
     status.append(dot, document.createTextNode(assistant.label || "조사하고 있습니다"));
     node.append(status);
-  } else if (assistant.label) {
-    const status = document.createElement("p");
-    status.className = "reply-status";
-    status.textContent = assistant.label;
-    node.append(status);
+  } else {
+    const who = document.createElement("p");
+    who.className = "kicker";
+    who.textContent = "답변";
+    node.append(who);
+    if (assistant.label) {
+      const status = document.createElement("p");
+      status.className = "reply-status";
+      status.setAttribute("role", "status");
+      status.textContent = assistant.label;
+      node.append(status);
+    }
   }
   const body = document.createElement("div");
   body.className = "message-body";
@@ -540,10 +589,14 @@ function renderAssistant(assistant) {
   if (assistant.errorText) {
     const error = document.createElement("div");
     error.className = "error-line";
+    error.setAttribute("role", "alert");
     error.textContent = assistant.errorText;
     body.append(error);
   }
   if (body.childNodes.length) node.append(body);
+  if (assistant.kind === "grounded" || assistant.kind === "partial") {
+    appendAnswerTables(node, assistant);
+  }
   if (assistant.kind === "grounded" && assistant.citations.size) {
     const note = document.createElement("p");
     note.className = "evidence-note";
@@ -551,7 +604,16 @@ function renderAssistant(assistant) {
     note.textContent = `공시 원문 ${count}건 · 번호를 클릭하여 내용을 확인하세요.`;
     node.append(note);
   }
-  if (assistant.limitations.length) {
+  if (assistant.limitations.length && INLINE_NOTES.has(assistant.kind)) {
+    const notes = document.createElement("div");
+    notes.className = "limitations";
+    for (const note of assistant.limitations) {
+      const line = document.createElement("p");
+      line.textContent = note;
+      notes.append(line);
+    }
+    node.append(notes);
+  } else if (assistant.limitations.length) {
     const details = document.createElement("details");
     details.className = "scope";
     const summary = document.createElement("summary");
@@ -563,6 +625,17 @@ function renderAssistant(assistant) {
       details.append(line);
     }
     node.append(details);
+  }
+  if (assistant.retry && assistant.closed && assistant.priorQuestion) {
+    const retry = document.createElement("button");
+    retry.type = "button";
+    retry.className = "retry";
+    retry.textContent = "다시 질문하기";
+    retry.addEventListener("click", () => {
+      if (busy || !assistant.priorQuestion) return;
+      ask({ message: assistant.priorQuestion, display: assistant.priorQuestion });
+    });
+    node.append(retry);
   }
   if (assistant.candidates.length) {
     const choices = document.createElement("div");
@@ -604,6 +677,27 @@ function appendLinkedText(container, text, citations) {
     last = match.index + match[0].length;
   }
   container.append(document.createTextNode(text.slice(last)));
+}
+
+function appendAnswerTables(node, assistant) {
+  for (const citation of assistant.citations.values()) {
+    const blocks = Array.isArray(citation.blocks) ? citation.blocks : [];
+    const tables = blocks.filter(
+      (block) => block && block.type === "table" && Array.isArray(block.cells) && block.cells.length,
+    );
+    if (!tables.length) continue;
+    const wrap = document.createElement("div");
+    wrap.className = "answer-tables";
+    const caption = document.createElement("p");
+    caption.className = "answer-table-caption";
+    caption.textContent = `원문 ${citation.citation_id}의 표`;
+    wrap.append(caption);
+    for (const block of tables) {
+      const table = renderTable(block);
+      if (table) wrap.append(table);
+    }
+    if (wrap.querySelector("table")) node.append(wrap);
+  }
 }
 
 function citationButton(citation) {
@@ -894,6 +988,7 @@ function rememberAssistant(assistant) {
     limitations: assistant.limitations,
     errorText: assistant.errorText,
     priorQuestion: assistant.priorQuestion,
+    retry: Boolean(assistant.retry),
     candidates: assistant.candidates,
     citations: [...assistant.citations.values()],
   });
@@ -1039,6 +1134,7 @@ function renderStoredMessage(message) {
     candidates: message.candidates || [],
     priorQuestion: message.priorQuestion || "",
     errorText: message.errorText || "",
+    retry: Boolean(message.retry),
     closed: true,
   };
   const shown = shownCitationIds(assistant);
@@ -1121,7 +1217,7 @@ function setBusy(value) {
   form.setAttribute("aria-busy", value ? "true" : "false");
   updateSendState();
   for (const button of promptList.querySelectorAll("button")) button.disabled = value;
-  for (const button of transcript.querySelectorAll(".candidate")) button.disabled = value;
+  for (const button of transcript.querySelectorAll(".candidate, .retry")) button.disabled = value;
 }
 
 function updateSendState() {

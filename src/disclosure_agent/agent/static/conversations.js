@@ -86,6 +86,7 @@
       : [];
     row.errorText = String(source.errorText || "");
     row.priorQuestion = String(source.priorQuestion || "");
+    row.retry = source.retry === true;
     row.candidates = Array.isArray(source.candidates)
       ? source.candidates.filter((item) => item && item.company_name).map((item) => ({
         company_name: String(item.company_name),

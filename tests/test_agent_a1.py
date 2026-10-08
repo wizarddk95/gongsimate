@@ -19,9 +19,10 @@ from disclosure_agent.agent.answer import EvidenceBoundAnswerGenerator
 from disclosure_agent.agent.catalog import DenseD2aBinding
 from disclosure_agent.agent.claim_class import classify_product_claim
 from disclosure_agent.agent.clock import SEOUL
+from disclosure_agent.agent.context import ContextBuilder, evidence_token_cost
 from disclosure_agent.agent.corpus import ProductCorpus
 from disclosure_agent.agent.errors import StructuredOutputInvalid
-from disclosure_agent.agent.evidence import EvidenceBuilder
+from disclosure_agent.agent.evidence import Evidence, EvidenceBuilder
 from disclosure_agent.agent.h10_search import H10Search
 from disclosure_agent.agent.llm import OpenAIAnswerGenerator
 from disclosure_agent.agent.planner import ScriptedPlanner
@@ -34,12 +35,16 @@ from disclosure_agent.agent.search import (
     SearchDisclosuresResult,
 )
 from disclosure_agent.agent.search_catalog import SearchCatalog
-from disclosure_agent.agent.settings import AgentLimits
+from disclosure_agent.agent.settings import (
+    PRODUCT_DISCLOSURE_MIN_TOP_K,
+    AgentLimits,
+    product_search_top_k,
+)
 from disclosure_agent.agent_a0.abstention_contract import CORRECTED_RUN_DIR, write_correction
 from disclosure_agent.bm25 import Bm25Index
 from disclosure_agent.dense import EMBEDDING_DIMENSION
 from disclosure_agent.evalset_v2.spec import repo_root
-from disclosure_agent.evalset_v2_1.asymmetric_fusion import bm25_primary_dense_head
+from disclosure_agent.evalset_v2_1.asymmetric_fusion import MARGINAL_SLOT, bm25_primary_dense_head
 from disclosure_agent.evalset_v2_1.complementarity import bm25_chunks
 from disclosure_agent.retrieval_unit import D2A_VERSION, scoring_chunks
 
@@ -359,6 +364,142 @@ def test_short_h10_window_does_not_silently_use_dense(tmp_path: Path) -> None:
     assert result.retrieval_policy == "h10_unavailable"
     assert result.policy_reason == "candidate_n_not_met"
     assert result.retriever_type != "dense"
+
+
+def test_product_search_top_k_keeps_explicit_windows_at_or_above_the_dense_head() -> None:
+    assert PRODUCT_DISCLOSURE_MIN_TOP_K == MARGINAL_SLOT == 10
+    assert product_search_top_k(5, 20) == 10
+    assert product_search_top_k(10, 20) == 10
+    assert product_search_top_k(15, 20) == 15
+    assert product_search_top_k(20, 20) == 20
+    assert product_search_top_k(5, 8) == 8
+
+
+def test_product_path_raises_planner_top_k_below_the_dense_head_slot(tmp_path: Path) -> None:
+    calls: list[SearchDisclosuresRequest] = []
+    log = RunLog(tmp_path / "topk.jsonl")
+    runtime = AgentRuntime(
+        registry=registry(),
+        search=lambda request: calls.append(request) or sample_result(),
+        evidence_builder=EvidenceBuilder(),
+        planner=ScriptedPlanner([_search_step("주요 사업")]),
+        run_log=log,
+    )
+    events_of(runtime, "이수페타시스의 주요 사업이 뭐야?")
+    assert calls[0].top_k == 10
+    record = json.loads(log.path.read_text(encoding="utf-8").splitlines()[-1])
+    tool = record["tool_calls"][0]
+    assert tool["arguments"]["top_k"] == 5
+    assert tool["top_k_requested"] == 5
+    assert tool["top_k_applied"] == 10
+    wider = dict(_search_step("주요 사업"))
+    wider["top_k"] = 15
+    calls.clear()
+    runtime.planner = ScriptedPlanner([wider])
+    events_of(runtime, "이수페타시스의 주요 사업이 뭐야?")
+    assert calls[0].top_k == 15
+
+
+def test_context_budget_keeps_ten_short_hits_and_drops_a_tenth_after_a_full_prefix() -> None:
+    builder = ContextBuilder(token_budget=4096, max_evidence=20)
+    short = [_evidence(index, f"문장 {index}") for index in range(10)]
+    kept = builder.build(short)
+    assert [item.evidence_id for item in kept.evidence] == [f"ev-{index}" for index in range(10)]
+    assert kept.token_count <= 4096
+    sample = _evidence(0, "가" * 800)
+    assert evidence_token_cost(sample) > 400
+    rows = [_evidence(index, f"{index}-" + ("가" * 800)) for index in range(10)]
+    selected = builder.build(rows)
+    assert selected.evidence
+    assert len(selected.evidence) < 10
+    assert selected.token_count <= 4096
+    assert rows[-1].evidence_id not in {item.evidence_id for item in selected.evidence}
+
+
+def test_h10_unavailable_is_not_shown_as_a_missing_filing() -> None:
+    def search(request: SearchDisclosuresRequest) -> SearchDisclosuresResult:
+        del request
+        return SearchDisclosuresResult(
+            hits=[],
+            retriever_type="h10_unavailable",
+            representation_version=D2A_VERSION,
+            embedding_model="BAAI/bge-m3",
+            company_id="00107613",
+            corp_code="00107613",
+            retrieval_policy="h10_unavailable",
+            policy_reason="candidate_n_not_met",
+        )
+
+    runtime = AgentRuntime(
+        registry=registry(),
+        search=search,
+        evidence_builder=EvidenceBuilder(),
+        planner=ScriptedPlanner([_search_step("주요 사업")]),
+    )
+    done = events_of(runtime, "이수페타시스의 주요 사업이 뭐야?")[-1].data
+    assert done["status"] == "retrieval_unavailable"
+    assert done["abstain_reason"] == "h10_unavailable"
+    text = done["answer"]["text"]
+    assert "없다고 확인된 것은 아닙니다" in text
+    assert "h10_unavailable" not in text
+    assert "찾지 못했습니다" not in text
+    assert "dense" not in text.casefold()
+    assert done["answer"]["citations"] == []
+
+
+def test_budget_fallback_hides_retrieval_headers() -> None:
+    quoted = (
+        "[section] 목 차 > II. 사업의 내용\n"
+        "인쇄회로기판을 생산합니다.\n"
+        "[source] element_id=el-1 role=body kind=paragraph"
+    )
+    done = _budget_answer(quoted)
+    answer = done["answer"]["text"]
+    limitations = " ".join(done["answer"]["limitations"])
+    assert done["answer_stop"] == "generation_budget_fallback"
+    assert done["status"] == "completed"
+    assert "[section]" not in answer
+    assert "[source]" not in answer
+    assert "목 차" not in answer
+    assert "traceback" not in answer.lower()
+    assert "retrieval_unit" not in answer
+    assert "인쇄회로기판을 생산합니다." in answer
+    assert "답변 모델 호출 한도" in limitations
+    assert done["answer"]["citations"]
+
+    header_only = _budget_answer("[section] 목 차 > II. 사업의 내용")
+    bare = header_only["answer"]["text"]
+    assert "[section]" not in bare
+    assert "목 차" not in bare
+    assert header_only["answer"]["citations"]
+    assert "답변 모델 호출 한도" in " ".join(header_only["answer"]["limitations"])
+
+
+def _budget_answer(text: str) -> dict:
+    runtime = AgentRuntime(
+        registry=registry(),
+        search=lambda request: sample_result(text),
+        evidence_builder=EvidenceBuilder(),
+        answer_generator=OpenAIAnswerGenerator(FakeAnswerClient([])),
+        planner=ScriptedPlanner([_search_step("주요 사업")]),
+        limits=AgentLimits(max_search_calls=1, max_llm_calls=0),
+    )
+    return events_of(runtime, "이수페타시스의 주요 사업이 뭐야?")[-1].data
+
+
+def _evidence(index: int, text: str) -> Evidence:
+    return Evidence(
+        evidence_id=f"ev-{index}",
+        retrieval_unit_id=f"unit-{index}",
+        receipt_no="20260323000847",
+        document_name="사업보고서",
+        company_name="이수페타시스",
+        section_path=["사업의 내용"],
+        element_ids=[f"el-{index}"],
+        excerpt=text,
+        source_locator=[],
+        text=text,
+    )
 
 
 def test_abstention_sentences_are_not_factual_claims() -> None:

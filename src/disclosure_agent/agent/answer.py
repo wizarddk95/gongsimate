@@ -13,7 +13,7 @@ import re
 from dataclasses import dataclass, field
 
 from disclosure_agent.agent.citation import Citation
-from disclosure_agent.agent.evidence import Evidence
+from disclosure_agent.agent.evidence import Evidence, visible_excerpt
 from disclosure_agent.agent.settings import CITED_EVIDENCE_LIMIT
 
 _MARKER_RE = re.compile(r"\[(\d+)\]")
@@ -57,16 +57,30 @@ class EvidenceBoundAnswerGenerator:
         sentences: list[str] = []
         citations: list[Citation] = []
         truncated = False
-        for index, item in enumerate(chosen, start=1):
-            excerpt = item.excerpt.strip()
-            if excerpt.endswith("…"):
+        for item in chosen:
+            passage = visible_excerpt(item.text or item.excerpt)
+            if not passage:
+                continue
+            if passage.endswith("…"):
                 truncated = True
-            sentences.append(f"{excerpt} [{index}]")
+            index = len(citations) + 1
+            sentences.append(f"{passage} [{index}]")
             citations.append(Citation(citation_id=str(index), evidence_id=item.evidence_id))
         limitations = []
         if truncated:
             limitations.append("발췌는 검색된 구간의 앞부분입니다.")
-        text = "공시에서 확인한 내용입니다. " + " ".join(sentences)
+        if sentences:
+            text = "공시에서 확인한 내용입니다. " + " ".join(sentences)
+            return GeneratedAnswer(text=text, citations=citations, limitations=limitations)
+        for item in chosen:
+            index = len(citations) + 1
+            citations.append(Citation(citation_id=str(index), evidence_id=item.evidence_id))
+            sentences.append(f"[{index}]")
+        text = (
+            "검색된 문장을 답변으로 옮기지 못했습니다. "
+            "번호로 원문을 확인해 주세요. " + " ".join(sentences)
+        )
+        limitations.append("사용자에게 보일 문장을 분리하지 못했습니다.")
         return GeneratedAnswer(text=text, citations=citations, limitations=limitations)
 
 

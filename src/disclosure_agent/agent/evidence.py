@@ -178,6 +178,22 @@ def _evidence_id(retrieval_unit_id: str) -> str:
     return f"ev-{digest}"
 
 
+_HIDDEN_LINE_PREFIXES = ("[section]", "[context_omitted", "[source]")
+
+
+def visible_excerpt(text: str) -> str:
+    """User-facing passage. Retrieval headers and debug lines stay out."""
+    kept: list[str] = []
+    for line in str(text or "").splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith(_HIDDEN_LINE_PREFIXES):
+            continue
+        kept.append(stripped)
+    if not kept:
+        return ""
+    return _excerpt(" ".join(kept))
+
+
 def _excerpt(text: str) -> str:
     collapsed = " ".join(text.split())
     if len(collapsed) <= EXCERPT_CHARS:

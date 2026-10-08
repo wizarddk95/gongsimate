@@ -18,6 +18,12 @@ PRODUCT_RETRIEVAL_SHORT_LIST_POLICY = "h10_unavailable"
 # Dense-D2a recall was measured at 20. That depth is candidate recall.
 # How many of those candidates reach the model is a context-budget decision.
 DEFAULT_RETRIEVAL_TOP_K = 20
+# H10 keeps BM25 ranks 1–9 and may place the Dense head at fused rank 10.
+# A product disclosure search must request at least that slot. H10Search still
+# slices to the explicit ``SearchDisclosuresRequest.top_k``; only the product
+# agent raises a smaller planner value, and the tool log records both numbers.
+# A server cap below this floor cannot show fused rank 10.
+PRODUCT_DISCLOSURE_MIN_TOP_K = 10
 DEFAULT_GENERATION_CONTEXT_TOKEN_BUDGET = 4096
 DEFAULT_GENERATION_MAX_EVIDENCE = 20
 CITED_EVIDENCE_LIMIT = 3
@@ -69,6 +75,25 @@ class OpenAIConfig:
     @property
     def configured(self) -> bool:
         return bool(self.api_key)
+
+
+def product_search_top_k(requested: int, server_max: int) -> int:
+    """Top-k the product agent sends to H10.
+
+    Values of ``PRODUCT_DISCLOSURE_MIN_TOP_K`` or more are kept, up to
+    ``server_max``. A smaller planner value is raised to that floor so the
+    Dense head at fused rank 10 can enter the search response. The raise is
+    recorded as ``top_k_requested`` and ``top_k_applied``. Direct callers of
+    ``H10Search`` are unchanged: they still receive ``request.top_k`` hits.
+    If ``server_max`` is below the floor, the server max wins and rank 10
+    stays outside that call.
+    """
+    if server_max < 1:
+        raise ValueError("server max top_k must be >= 1")
+    if requested < 1:
+        requested = 1
+    floor = min(PRODUCT_DISCLOSURE_MIN_TOP_K, server_max)
+    return min(server_max, max(requested, floor))
 
 
 def load_openai_config(environ: Mapping[str, str] | None = None) -> OpenAIConfig:

@@ -58,7 +58,9 @@ period, report_types, filing_date는 메타데이터 필터입니다.
 - 확정 실적은 그 연도·보고서로 exact 필터를 겁니다.
   맞는 공시가 없으면 없는 것입니다.
 - company_id는 입력의 canonical id만 사용합니다.
-  top_k는 1 이상 서버 상한 이하입니다.
+  top_k는 10 이상, 서버 상한 이하로 요청합니다.
+  10 미만을 적어도 제품 경로는 검색 전에 10으로 올립니다.
+  검색 함수에 직접 넘긴 top_k는 그 값 그대로 잘립니다.
 - 기업 사실은 검색 없이 만들지 않습니다.
   검색이 필요 없으면 도구를 호출하지 않습니다.
 - 이 도구는 한 질문에서 최대 2번 호출할 수 있습니다.
@@ -489,6 +491,7 @@ def _sort_filings(filings: list[FilingPeriod]) -> tuple[FilingPeriod, ...]:
 PUBLIC_TOOL_REASONS: dict[str, str] = {
     "no_matching_filing": "현재 색인에서 요청한 조건의 공시를 찾지 못했습니다.",
     "no_results": "검색은 실행됐지만 색인된 본문에서 해당하는 구간을 찾지 못했습니다.",
+    "retrieval_unavailable": "검색을 마치지 못했습니다. 공시가 없다고 확인된 것은 아닙니다.",
     "invalid_arguments": "검색 조건을 확인하지 못했습니다.",
     "unsupported_company": "확인된 기업과 다른 검색 대상입니다.",
     "corpus_not_fresh_enough": "요청한 시점은 색인 기준 시각보다 뒤입니다.",

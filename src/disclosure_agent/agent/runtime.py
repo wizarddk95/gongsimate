@@ -71,14 +71,17 @@ from disclosure_agent.agent.settings import (
     DEFAULT_GENERATION_CONTEXT_TOKEN_BUDGET,
     DEFAULT_GENERATION_MAX_EVIDENCE,
     DEFAULT_RETRIEVAL_TOP_K,
+    PRODUCT_RETRIEVAL_SHORT_LIST_POLICY,
     REQUEST_TIMEOUT_SECONDS,
     STRUCTURED_OUTPUT_ATTEMPTS,
     AgentLimits,
+    product_search_top_k,
 )
 from disclosure_agent.agent.sse import StreamEvent
 from disclosure_agent.agent.temporal import FilingPeriod, period_label
 from disclosure_agent.agent.tokens import CONTEXT_TOKEN_COUNTER_ID
 from disclosure_agent.agent.tool_args import (
+    PUBLIC_TOOL_REASONS,
     TOOL_NAME,
     ToolResolution,
     arguments_record,
@@ -498,6 +501,28 @@ class AgentRuntime:
                 call["context_token_counter"] = selection.token_counter
         self._check_timeout(started)
         if not retrieved:
+            if record.get("retrieval_unavailable"):
+                answer = GeneratedAnswer(
+                    text=(
+                        "지금은 공시 검색을 마치지 못했습니다. "
+                        "해당하는 공시가 없다고 확인된 것은 아닙니다. "
+                        "잠시 후 다시 질문해 주세요."
+                    ),
+                    limitations=["검색을 마치지 못했습니다. 공시가 없다고 확인된 것은 아닙니다."],
+                    abstain=True,
+                    generator_type="retrieval_guard",
+                )
+                yield from self._emit_answer(
+                    answer,
+                    evidence=[],
+                    action="abstain",
+                    status="retrieval_unavailable",
+                    record=record,
+                    started=started,
+                    abstain_stage="pre_generation",
+                    abstain_reason="h10_unavailable",
+                )
+                return
             answer = GeneratedAnswer(
                 text="해당하는 공시 원문을 찾지 못했습니다. 확인되지 않은 내용은 답하지 않습니다.",
                 limitations=["검색 결과가 비어 있습니다."],
@@ -782,12 +807,14 @@ class AgentRuntime:
                 record["tool_calls"].append(logged)
                 continue
             yield StreamEvent("agent.status", {"status": "searching_disclosures"})
+            requested_top_k = tool.resolved.top_k
+            applied_top_k = product_search_top_k(requested_top_k, self.retrieval_top_k)
             request = SearchDisclosuresRequest(
                 query=tool.resolved.arguments.query,
                 company_id=company_id,
                 corp_code=resolution.corp_code,
                 fiscal_year=fiscal_year,
-                top_k=tool.resolved.top_k,
+                top_k=applied_top_k,
                 eligible_receipt_nos=(
                     None
                     if tool.filings is None
@@ -811,11 +838,17 @@ class AgentRuntime:
             if call_hits:
                 hits = _merge_hits(hits, call_hits)
                 last_failure = None
+                record["retrieval_unavailable"] = False
                 status = "success"
                 message = "filings matched"
+            elif result.retrieval_policy == PRODUCT_RETRIEVAL_SHORT_LIST_POLICY:
+                record["retrieval_unavailable"] = True
+                status = "retrieval_unavailable"
+                message = PUBLIC_TOOL_REASONS["retrieval_unavailable"]
+                last_failure = (status, message)
             else:
                 status = "no_results"
-                message = "검색된 공시 근거가 없습니다."
+                message = "검색된 공시 구간이 없습니다."
                 last_failure = (status, message)
             built = self.evidence_builder.build(
                 call_hits,
@@ -1187,7 +1220,7 @@ class AgentRuntime:
         )
         answer.limitations = [
             *answer.limitations,
-            "답변 모델 호출 한도가 남아 있지 않아 검색 발췌만 제시합니다.",
+            "답변 모델 호출 한도가 남아 있지 않아 확인된 문장만 제시합니다.",
         ]
         yield from self._emit_answer(
             answer,
@@ -1683,7 +1716,13 @@ def _tool_log(
         "fiscal_year": None if request is None else request.fiscal_year,
         "eligible_receipt_nos": [] if request is None else list(request.eligible_receipt_nos or ()),
         "matched_filings": summary["matched_filings"],
-        "top_k": None if tool.resolved is None else tool.resolved.top_k,
+        "top_k": (
+            request.top_k
+            if request is not None
+            else (None if tool.resolved is None else tool.resolved.top_k)
+        ),
+        "top_k_requested": None if tool.resolved is None else tool.resolved.top_k,
+        "top_k_applied": None if request is None else request.top_k,
         "latency_ms": latency_ms,
         "evidence_ids": [],
         "retrieval_unit_ids": [],
@@ -1822,6 +1861,7 @@ def _completed_payload(
         "clarification": None,
         "abstain_stage": record.get("abstain_stage"),
         "abstain_reason": record.get("abstain_reason"),
+        "answer_stop": record.get("answer_stop"),
         "public_observation": record.get("public_observation"),
     }
 

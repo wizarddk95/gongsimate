@@ -347,7 +347,15 @@ textarea:focus-visible { outline: none; }
 
 .reply.clarification .reply-status,
 .reply.unsupported .reply-status,
-.reply.limited .reply-status { color: var(--muted); }
+.reply.limited .reply-status,
+.reply.missing .reply-status,
+.reply.empty .reply-status,
+.reply.abstained .reply-status { color: var(--muted); }
+
+.reply.partial .reply-status,
+.reply.unavailable .reply-status,
+.reply.timeout .reply-status,
+.reply.error .reply-status { color: var(--danger); }
 
 .pending-status {
   display: flex;
@@ -372,6 +380,7 @@ textarea:focus-visible { outline: none; }
   line-height: 1.75;
   white-space: pre-wrap;
   overflow-wrap: break-word;
+  font-variant-numeric: tabular-nums;
 }
 
 .reply.error .error-line { color: var(--danger); }
@@ -432,7 +441,37 @@ textarea:focus-visible { outline: none; }
 
 .candidate:hover:not(:disabled) { border-color: var(--accent); }
 
-.candidate:disabled { opacity: 0.5; }
+.candidate:disabled, .retry:disabled { opacity: 0.5; }
+
+.retry {
+  margin-top: 0.85rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.retry:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+
+.limitations {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.limitations p { margin: 0; }
+
+.limitations p + p { margin-top: 0.35rem; }
+
+.answer-tables { margin-top: 0.85rem; }
+
+.answer-table-caption {
+  margin: 0 0 0.35rem;
+  color: var(--faint);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
 
 .composer {
   flex: 0 0 auto;
@@ -648,10 +687,12 @@ textarea::placeholder { color: #a8a29e; }
 }
 
 .source-table {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
   font-size: 0.92rem;
   line-height: 1.55;
+  font-variant-numeric: tabular-nums;
 }
 
 .source-table th,

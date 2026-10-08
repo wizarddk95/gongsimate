@@ -166,6 +166,34 @@ def test_static_ui_does_not_hardcode_the_supported_companies() -> None:
     assert "clear()" in store
 
 
+def test_static_ui_distinguishes_answer_states() -> None:
+    script = (_STATIC / "chat.js").read_text(encoding="utf-8")
+    style = (_STATIC / "chat.css").read_text(encoding="utf-8")
+    for label in (
+        'label: "검색을 마치지 못했습니다"',
+        'label: "일부만 확인했습니다"',
+        'label: "답변을 마치지 못했습니다"',
+        'label: "해당 조건의 공시를 찾지 못함"',
+        'label: "해당하는 내용을 찾지 못함"',
+        'label: "공시에서 확인하지 못함"',
+        'label: "확인이 필요합니다"',
+        'label: "공시 원문 기반"',
+    ):
+        assert label in script
+    assert "시간이 초과되었습니다" in script
+    assert "다시 질문하기" in script
+    assert "if (!message || busy) return" in script
+    assert 'reason === "h10_unavailable"' in script
+    assert 'textContent = "h10_unavailable"' not in script
+    assert "answer_budget_exhausted" in script
+    assert 'split("|")' not in script
+    assert 'createElement("table")' in script
+    assert "@media (max-width: 860px)" in style
+    assert "@media (max-width: 640px)" in style
+    assert "table-scroll" in style
+    assert ".retry" in style
+
+
 def test_citation_event_uses_the_same_evidence_as_the_completed_answer() -> None:
     found = events_of(make_runtime([]), "이수페타시스의 주요 사업이 뭐야?")
     completed = found[-1].data
