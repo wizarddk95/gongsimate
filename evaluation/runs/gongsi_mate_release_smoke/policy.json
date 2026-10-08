@@ -1,0 +1,21 @@
+{
+  "git_head": "d795ba6e9488d36f146163331ac4821877149b8e",
+  "product_retrieval_policy": "bm25_primary_dense_head",
+  "short_list_policy": "h10_unavailable",
+  "search_implementation": "disclosure_agent.agent.h10_search.H10Search",
+  "candidate_n": 20,
+  "protected_prefix": 9,
+  "marginal_slot": 10,
+  "server_max_top_k": 20,
+  "generation_context_token_budget": 4096,
+  "generation_max_evidence": 20,
+  "max_search_calls": 2,
+  "max_llm_calls": 4,
+  "request_timeout_seconds": 180.0,
+  "dense_head_window": "H10은 Dense와 BM25를 각각 20개 뽑은 뒤, BM25 1–9위를 유지한다. Dense 1위가 BM25 상위 10위 안에 없으면 그 후보를 융합 10위에 넣는다. 이미 BM25 1–10위에 있으면 순서는 BM25 그대로다. 검색 응답은 그 목록의 앞 top_k개다. 따라서 융합 10위의 Dense 후보는 planner가 넘긴 top_k가 10 이상일 때만 검색 응답에 남는다. 그 뒤 답변 창은 그 순서를 유지한 채 4096토큰 또는 20개에 걸릴 때까지 앞에서 자른다. 앞 9개의 프롬프트 비용이 4096을 넘으면 10위는 모델 입력에도 들어가지 않는다.",
+  "prices_usd_per_million_tokens": {
+    "input": 2.0,
+    "output": 8.0
+  },
+  "price_source": "evaluation/specs/retrieval_evalset_v2_run.json gpt-6-luna"
+}

@@ -1,0 +1,121 @@
+{
+  "run_dir": "gongsi_mate_release_smoke",
+  "git_head": "d795ba6e9488d36f146163331ac4821877149b8e",
+  "product_retrieval_policy": "bm25_primary_dense_head",
+  "scenarios": [
+    {
+      "id": "no_search",
+      "verdict": "PASS",
+      "status": "completed",
+      "retrieval_policy": null,
+      "top_k": []
+    },
+    {
+      "id": "clarify",
+      "verdict": "PASS",
+      "status": "company_ambiguous",
+      "retrieval_policy": null,
+      "top_k": []
+    },
+    {
+      "id": "cited_search",
+      "verdict": "PASS",
+      "status": "abstained",
+      "retrieval_policy": "bm25_primary_dense_head",
+      "top_k": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "additional_search",
+      "verdict": "PASS",
+      "status": "completed",
+      "retrieval_policy": "bm25_primary_dense_head",
+      "top_k": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "missing_period",
+      "verdict": "PASS",
+      "status": "no_matching_filing",
+      "retrieval_policy": null,
+      "top_k": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "future_confirmed",
+      "verdict": "PASS",
+      "status": "completed",
+      "retrieval_policy": null,
+      "top_k": []
+    },
+    {
+      "id": "unsupported_company",
+      "verdict": "PASS",
+      "status": "company_ambiguous",
+      "retrieval_policy": null,
+      "top_k": []
+    },
+    {
+      "id": "primary_business",
+      "verdict": "PASS",
+      "status": "completed",
+      "retrieval_policy": "bm25_primary_dense_head",
+      "top_k": [
+        5
+      ]
+    }
+  ],
+  "exposures": [
+    {
+      "id": "h10_unavailable",
+      "verdict": "KNOWN LIMITATION",
+      "user_message": "해당하는 공시 원문을 찾지 못했습니다. 확인되지 않은 내용은 답하지 않습니다."
+    },
+    {
+      "id": "evidence_required",
+      "verdict": "PASS",
+      "user_message": "이 질문은 특정 기업의 공시에서 확인해야 합니다. 확인된 공시 근거가 없어 그 사실을 단정하지 않습니다."
+    },
+    {
+      "id": "answer_budget_exhausted",
+      "verdict": "PASS",
+      "user_message": "공시에서 확인한 내용입니다. [section] 목 차 > II. 사업의 내용 > 2. 주요 제품 및 서비스 (1) 주요 제품 등의 현황 <연결기준> [1] [section] 목 차 > II. 사업의 내용 > 2. 주요 제품 및 서비스 (2) 주요 제품 등의 가격변동추이 [2] [section] 목 차 > II. 사업의 내용 2. 주요 제품 및 서비스 [3]"
+    },
+    {
+      "id": "request_timeout",
+      "verdict": "PASS",
+      "user_message": "요청 처리 시간이 초과되었습니다."
+    }
+  ],
+  "observed_top_k": [
+    5,
+    10
+  ],
+  "estimated_usd": 0.117904,
+  "a0_unchanged": true,
+  "a0_hashes": {
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/agent_evalset.jsonl": "0329ccdc4dec0bd5ed8aa0b9b7f89e5d7e34a5424b074cb5b90df45fdf624d16",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/agent_runs.jsonl": "7973dbb65f383575c23ab384fa97dfa8782ed008158191e6997b0be97d189ad0",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/config.json": "8e1fde6968a9773f501d791f0604ce4fbbd072aacc97532e5f6ab705fdf4b2ce",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/evaluation_contract.md": "4de3c56d1a242a6e1bb112f40e7644f82391437716d9131b9fec38d3e9f1da98",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/evaluation_results.jsonl": "75a934e9748c36ed7c1c867194b0cb86dc67f0322ca74567644065377193f44d",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/failures.csv": "9112563d0e8f0dcbd12446ac25de7f921c8331ad328107b966b83d561eb38a0f",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/judge_results.jsonl": "fe3084e4cfbd54cfa97eedc106a04e2c3f1cc56c71fcf0eff477edea284f06d9",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/manifest.json": "baa89532703ceeef66a116750557e162b4df30dc4b82be02206168f3b73b1502",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/product_trace.jsonl": "92ba4570b0f7356a862001176ed0fbcdc2e6025858ce10c57aefcaffcf506462",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/report.md": "2c28ad4231496925e1816028da56e29068c5b21458f5a3475fd3d1752e086e5b",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/summary.json": "785e5d7316bc1a0ca346cfa62809b9a795b1b9de37487f6738d90a75c26f2e02",
+    "evaluation/runs/gongsi_mate_a0_agent_baseline/tool_calls.jsonl": "404ab1ecb9d839a511b4a52bd22aeb582712e63a29338969aa986a3f38209743",
+    "evaluation/runs/gongsi_mate_a0_abstention_corrected/evaluation_contract.md": "87cf1b970b138c359928e86d80be75c888c55d55759dd10fcdc03e224a8f8b75",
+    "evaluation/runs/gongsi_mate_a0_abstention_corrected/evaluation_results.jsonl": "2d2a1cc234074612fb4de83870287a299b0f89432edae4442fc1b12ae8a4f98a",
+    "evaluation/runs/gongsi_mate_a0_abstention_corrected/manifest.json": "a26e54396e4b054d8a6e3093899ef32d839a3404284e879b7b3acd0a2e57192c",
+    "evaluation/runs/gongsi_mate_a0_abstention_corrected/report.md": "be6a6779f34a3e3a8fcb74b4ee370799053299d5c642d49593065f482c61d263",
+    "evaluation/runs/gongsi_mate_a0_abstention_corrected/summary.json": "1e45e49b94657b5db49fecb903faec223b2cacaf872c941a9a6b77ce15f69f11"
+  }
+}
