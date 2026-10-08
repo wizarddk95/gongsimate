@@ -494,6 +494,10 @@ PUBLIC_TOOL_REASONS: dict[str, str] = {
     "corpus_not_fresh_enough": "요청한 시점은 색인 기준 시각보다 뒤입니다.",
     "tool_failure": "검색을 완료하지 못했습니다.",
     "search_not_requested": "공시 검색을 수행하지 않았습니다.",
+    "evidence_required": (
+        "특정 기업의 공시 사실은 검색된 공시 근거 없이 단정하지 않습니다. "
+        "사용자 문장은 공시 근거가 아닙니다."
+    ),
 }
 
 

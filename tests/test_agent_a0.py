@@ -217,7 +217,8 @@ def test_runtime_records_answer_and_call_counts(tmp_path: Path) -> None:
     record = json.loads(log.path.read_text(encoding="utf-8").splitlines()[-1])
     assert record["final_answer"]["text"]
     assert record["generation_evidence"]
-    assert record["llm_call_count"] == 2
+    assert record["llm_call_count"] == 0
+    assert "company_resolution" in record["deterministic_operations"]
     assert record["search_call_count"] == 1
     assert record["planner_actions"]
     assert record["stop_reason"] == "completed"

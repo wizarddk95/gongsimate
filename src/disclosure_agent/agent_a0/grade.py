@@ -9,11 +9,9 @@ from __future__ import annotations
 import json
 from typing import Any
 
+from disclosure_agent.agent.claim_class import classify_product_claim
 from disclosure_agent.agent_a0.dataset import agent_input
-from disclosure_agent.evalset_v2_1.g0_evaluation_contract import (
-    citation_requirement,
-    classify_claim,
-)
+from disclosure_agent.evalset_v2_1.g0_evaluation_contract import citation_requirement
 
 FACTUAL_VERDICTS = ("supported", "unsupported", "misinterpretation")
 FAILURES = (
@@ -237,7 +235,7 @@ def citation_findings(
     claims = split_claims(str(final.get("text") or ""))
     classified = []
     for claim in claims:
-        kind = classify_claim(claim["text"])
+        kind = classify_product_claim(claim["text"])
         need = citation_requirement(kind["claim_type"])
         classified.append({**claim, **kind, **need})
     factual = [item for item in classified if item["claim_type"] == "factual_claim"]

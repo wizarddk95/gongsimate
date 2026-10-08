@@ -31,6 +31,7 @@ class GeneratedAnswer:
 
 class EvidenceBoundAnswerGenerator:
     generator_type = "deterministic_fallback"
+    uses_llm = False
 
     def generate(
         self,

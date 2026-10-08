@@ -283,16 +283,15 @@ def test_search_call_limit() -> None:
 
 
 def test_llm_call_limit() -> None:
+    """Deterministic company resolution does not consume the API budget."""
     calls: list[SearchDisclosuresRequest] = []
     found = events_of(
         make_runtime(calls, limits=AgentLimits(max_search_calls=2, max_llm_calls=1)),
         "이수페타시스의 주요 사업이 뭐야?",
     )
     assert len(calls) == 1
-    assert found[-1].event == "error"
-    assert found[-1].data["code"] == "llm_limit_exceeded"
-    assert not any(event.event == "answer.delta" for event in found)
-    assert not any(event.event == "run.completed" for event in found)
+    assert found[-1].event == "run.completed"
+    assert found[-1].data["status"] == "completed"
 
 
 def test_search_disclosures_uses_dense_d2a(monkeypatch: pytest.MonkeyPatch) -> None:

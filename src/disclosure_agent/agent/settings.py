@@ -8,6 +8,13 @@ from dataclasses import dataclass
 
 MAX_SEARCH_CALLS = 2
 MAX_LLM_CALLS = 4
+# Product retrieval is the offline H10 rule, not a second fusion.
+# Support is every Dense-D2a directory under data/product/indexes.
+# BM25 reads the same retrieval-unit text as Dense. Filing filters run first.
+# A list shorter than the candidate window does not fall back to Dense-D2a.
+PRODUCT_RETRIEVAL_POLICY = "bm25_primary_dense_head"
+PRODUCT_RETRIEVAL_SUPPORT = "all_product_dense_d2a_indexes"
+PRODUCT_RETRIEVAL_SHORT_LIST_POLICY = "h10_unavailable"
 # Dense-D2a recall was measured at 20. That depth is candidate recall.
 # How many of those candidates reach the model is a context-budget decision.
 DEFAULT_RETRIEVAL_TOP_K = 20

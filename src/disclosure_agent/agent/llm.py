@@ -288,6 +288,7 @@ class OpenAIAnswerGenerator:
     """Ask the configured model to write from the current evidence set only."""
 
     generator_type = "openai"
+    uses_llm = True
 
     def __init__(self, client: AnswerClient) -> None:
         self.client = client

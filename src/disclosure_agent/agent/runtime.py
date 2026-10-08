@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 import traceback
 from collections import Counter
@@ -23,6 +24,7 @@ from disclosure_agent.agent.answer import (
 )
 from disclosure_agent.agent.catalog import repo_root
 from disclosure_agent.agent.citation import CitationValidator
+from disclosure_agent.agent.claim_class import classify_product_claim
 from disclosure_agent.agent.clock import request_time_context, seoul_now
 from disclosure_agent.agent.company import (
     CompanyRecord,
@@ -31,6 +33,7 @@ from disclosure_agent.agent.company import (
     clarification_question,
     is_disclosure_question,
     is_smalltalk,
+    mentioned_years,
     resolution_to_dict,
 )
 from disclosure_agent.agent.context import ContextBuilder
@@ -280,6 +283,8 @@ class AgentRuntime:
             record["latency_ms"] = elapsed
             record["total_ms"] = elapsed
             record["llm_call_count"] = budget.llm_calls
+            record["deterministic_operation_count"] = budget.deterministic_calls
+            record["deterministic_operations"] = list(budget.deterministic_kinds)
             record["search_call_count"] = budget.search_calls
             record["stop_reason"] = record.get("status")
             if self.run_log is not None:
@@ -318,7 +323,12 @@ class AgentRuntime:
 
         planner = self.planner if self.planner is not None else RawQueryPlanner()
         pending_action = None
-        if planner.uses_llm and resolution.status != "resolved" and clarification is None:
+        if (
+            planner.uses_llm
+            and resolution.status != "resolved"
+            and clarification is None
+            and self._planner_room(planner, budget, terminal=False)
+        ):
             action = self._next_plan(
                 planner,
                 question=question,
@@ -359,19 +369,28 @@ class AgentRuntime:
                 )
                 return
             if resolution.status == "resolved" and direct:
-                answer = GeneratedAnswer(
-                    text=action.user_text,
-                    generator_type="llm_action",
-                )
-                yield from self._emit_answer(
-                    answer,
-                    evidence=[],
-                    action="answer_directly",
-                    status="completed",
-                    record=record,
-                    started=started,
-                )
-                return
+                if _ungrounded_company_fact(
+                    question,
+                    action.user_text,
+                    resolution,
+                    request_time,
+                ):
+                    pending_action = None
+                    record["evidence_guard"] = "rejected_ungrounded_direct_answer"
+                else:
+                    answer = GeneratedAnswer(
+                        text=action.user_text,
+                        generator_type="llm_action",
+                    )
+                    yield from self._emit_answer(
+                        answer,
+                        evidence=[],
+                        action="answer_directly",
+                        status="completed",
+                        record=record,
+                        started=started,
+                    )
+                    return
             if resolution.status == "resolved" and not action.requests_tool:
                 pending_action = None
 
@@ -430,7 +449,7 @@ class AgentRuntime:
 
         if not planner.uses_llm and not is_disclosure_question(question):
             answer = company_followup(resolution.company_name or "해당 기업")
-            budget.charge_llm()
+            budget.note_deterministic("company_followup")
             yield from self._emit_answer(
                 answer,
                 evidence=[],
@@ -520,6 +539,15 @@ class AgentRuntime:
             return
 
         self._check_timeout(started)
+        if self._generator_uses_llm() and not budget.llm_room(reserve=0):
+            yield from self._emit_generation_budget_fallback(
+                question,
+                selection.evidence,
+                record=record,
+                started=started,
+                budget=budget,
+            )
+            return
         if hasattr(self.answer_generator, "iter_answer"):
             yield from self._stream_model_answer(
                 question,
@@ -534,7 +562,10 @@ class AgentRuntime:
             )
             return
 
-        budget.charge_llm()
+        if self._generator_uses_llm():
+            budget.charge_llm()
+        else:
+            budget.note_deterministic("answer_generation")
         yield StreamEvent("agent.status", {"status": "generating_answer"})
         timings: dict[str, Any] = {
             "generation_ms": None,
@@ -594,15 +625,25 @@ class AgentRuntime:
         prior: list[dict[str, Any]] = []
         searched = False
         last_failure: tuple[str, str] | None = None
+        rejected_direct = 0
         company_id = resolution.company_id or ""
         self._bind_company_scope(resolution, record)
         filings = self._filings_for(resolution)
         corpus_as_of = self._corpus_as_of_for(company_id)
         relations = self._relations_for(company_id)
+        if record.get("evidence_guard") == "rejected_ungrounded_direct_answer":
+            prior.append(_evidence_required_observation(resolution.company_name or ""))
+            rejected_direct = 1
         while True:
             self._check_timeout(started)
             if executed >= self.limits.max_search_calls:
-                if planner.uses_llm and not hits and last_failure is not None:
+                if hits:
+                    break
+                if (
+                    planner.uses_llm
+                    and last_failure is not None
+                    and self._planner_room(planner, budget, terminal=True)
+                ):
                     action = self._next_plan(
                         planner,
                         question=question,
@@ -611,12 +652,23 @@ class AgentRuntime:
                         prior=prior,
                         budget=budget,
                         record=record,
+                        search_calls_remaining=0,
                     )
-                    if (
-                        not action.requests_tool
-                        and action.user_text
-                        and action.kind in {"answer_directly", "ask_clarification"}
-                    ):
+                    if action.requests_tool:
+                        record["search_suppressed"] = True
+                        break
+                    if action.user_text and action.kind in {"answer_directly", "ask_clarification"}:
+                        if action.kind == "answer_directly" and _ungrounded_company_fact(
+                            question,
+                            action.user_text,
+                            resolution,
+                            request_time,
+                        ):
+                            yield from self._emit_evidence_guard_abstain(
+                                record=record,
+                                started=started,
+                            )
+                            return None, None
                         yield from self._emit_planned_speech(
                             action,
                             resolution=resolution,
@@ -634,6 +686,7 @@ class AgentRuntime:
                         prior=prior,
                         budget=budget,
                         record=record,
+                        search_calls_remaining=0,
                     )
                     if action.requests_tool:
                         budget.charge_search()
@@ -642,6 +695,8 @@ class AgentRuntime:
                 action = pending_action
                 pending_action = None
             else:
+                if not self._planner_room(planner, budget, terminal=False):
+                    break
                 action = self._next_plan(
                     planner,
                     question=question,
@@ -650,6 +705,7 @@ class AgentRuntime:
                     prior=prior,
                     budget=budget,
                     record=record,
+                    search_calls_remaining=self.limits.max_search_calls - budget.search_calls,
                 )
             if (
                 not hits
@@ -660,6 +716,23 @@ class AgentRuntime:
                     "ask_clarification",
                 }
             ):
+                blocked = action.kind == "answer_directly" and _ungrounded_company_fact(
+                    question,
+                    action.user_text,
+                    resolution,
+                    request_time,
+                )
+                if blocked and rejected_direct == 0 and executed < self.limits.max_search_calls:
+                    rejected_direct = 1
+                    record["evidence_guard"] = "rejected_ungrounded_direct_answer"
+                    prior.append(_evidence_required_observation(resolution.company_name or ""))
+                    continue
+                if blocked:
+                    yield from self._emit_evidence_guard_abstain(
+                        record=record,
+                        started=started,
+                    )
+                    return None, None
                 yield from self._emit_planned_speech(
                     action,
                     resolution=resolution,
@@ -669,6 +742,9 @@ class AgentRuntime:
                 )
                 return None, None
             if not action.requests_tool:
+                break
+            if budget.search_calls >= self.limits.max_search_calls:
+                record["search_suppressed"] = True
                 break
             budget.charge_search()
             executed += 1
@@ -724,6 +800,10 @@ class AgentRuntime:
             search_ms = round((time.perf_counter() - search_started) * 1000, 3)
             record["retrieval_ms"] = search_ms
             record["search_called"] = True
+            if getattr(result, "retrieval_policy", ""):
+                record["retrieval_policy"] = result.retrieval_policy
+                record["retrieval_edit"] = result.retrieval_edit
+                record["retrieval_policy_reason"] = result.policy_reason
             searched = True
             call_hits = list(result.hits)
             if self.catalog is not None:
@@ -769,6 +849,12 @@ class AgentRuntime:
             return hits, fiscal_year
         if searched:
             return [], fiscal_year
+        if rejected_direct and last_failure is None:
+            yield from self._emit_evidence_guard_abstain(
+                record=record,
+                started=started,
+            )
+            return None, None
         status, message = last_failure or (
             "search_not_requested",
             "공시를 검색하지 않아 기업 사실을 답하지 않습니다.",
@@ -848,9 +934,15 @@ class AgentRuntime:
         prior: list[dict[str, Any]],
         budget: _Budget,
         record: dict[str, Any],
+        search_calls_remaining: int | None = None,
     ) -> Any:
         if planner.uses_llm:
             budget.charge_llm()
+        remaining = (
+            self.limits.max_search_calls - budget.search_calls
+            if search_calls_remaining is None
+            else search_calls_remaining
+        )
         context = PlannerContext(
             question=question,
             request_time=request_time,
@@ -861,6 +953,7 @@ class AgentRuntime:
             prior_results=tuple(prior),
             max_top_k=self.retrieval_top_k,
             company_resolution=resolution_to_dict(resolution),
+            search_calls_remaining=max(0, remaining),
         )
         action = planner.next_action(context)
         _add_planner_usage(record, action.usage)
@@ -1006,18 +1099,104 @@ class AgentRuntime:
     ) -> tuple[str, Resolution]:
         if clarification and clarification.selected_company_name:
             question = clarification.prior_message or message
-            budget.charge_llm()
+            budget.note_deterministic("company_resolution")
             resolution = self.registry.resolve_mention(clarification.selected_company_name)
             return question, resolution
         if is_smalltalk(message):
             return message, Resolution(status="no_mention")
-        budget.charge_llm()
+        budget.note_deterministic("company_resolution")
         mentions = self.registry.extract_mentions(message)
         return message, self.registry.resolve_mentions(mentions)
 
     def _generate_direct(self, message: str, budget: _Budget) -> GeneratedAnswer:
-        budget.charge_llm()
+        budget.note_deterministic("direct_answer")
         return direct_answer(message)
+
+    def _generator_uses_llm(self) -> bool:
+        return bool(getattr(self.answer_generator, "uses_llm", False))
+
+    def _planner_room(self, planner: SearchPlanner, budget: _Budget, *, terminal: bool) -> bool:
+        if not planner.uses_llm:
+            return True
+        reserve = 0 if terminal or not self._generator_uses_llm() else 1
+        return budget.llm_room(reserve=reserve)
+
+    def _emit_evidence_guard_abstain(
+        self,
+        *,
+        record: dict[str, Any],
+        started: float,
+    ) -> Iterator[StreamEvent]:
+        record["evidence_guard"] = "abstain_without_evidence"
+        answer = GeneratedAnswer(
+            text=(
+                "이 질문은 특정 기업의 공시에서 확인해야 합니다. "
+                "확인된 공시 근거가 없어 그 사실을 단정하지 않습니다."
+            ),
+            limitations=["허용된 공시 근거가 없습니다."],
+            abstain=True,
+            generator_type="evidence_guard",
+        )
+        yield from self._emit_answer(
+            answer,
+            evidence=[],
+            action="abstain",
+            status="abstained",
+            record=record,
+            started=started,
+            abstain_stage="pre_generation",
+            abstain_reason="evidence_required",
+        )
+
+    def _emit_generation_budget_fallback(
+        self,
+        question: str,
+        evidence: list[Evidence],
+        *,
+        record: dict[str, Any],
+        started: float,
+        budget: _Budget,
+    ) -> Iterator[StreamEvent]:
+        """Finish after retrieval when no API call remains for the answer model."""
+        budget.note_deterministic("generation_budget_fallback")
+        record["answer_stop"] = "generation_budget_fallback"
+        if not evidence:
+            answer = GeneratedAnswer(
+                text=(
+                    "검색은 마쳤지만 답변 호출 한도가 남아 있지 않습니다. "
+                    "확인되지 않은 내용은 답하지 않습니다."
+                ),
+                limitations=["답변 모델 호출 한도가 소진되었습니다."],
+                abstain=True,
+                generator_type="generation_budget",
+            )
+            yield from self._emit_answer(
+                answer,
+                evidence=[],
+                action="abstain",
+                status="abstained",
+                record=record,
+                started=started,
+                abstain_stage="pre_generation",
+                abstain_reason="answer_budget_exhausted",
+            )
+            return
+        answer = EvidenceBoundAnswerGenerator().generate(
+            question,
+            evidence,
+        )
+        answer.limitations = [
+            *answer.limitations,
+            "답변 모델 호출 한도가 남아 있지 않아 검색 발췌만 제시합니다.",
+        ]
+        yield from self._emit_answer(
+            answer,
+            evidence=evidence,
+            action="search_disclosures",
+            status="completed",
+            record=record,
+            started=started,
+        )
 
     def _generate_with_retry(
         self,
@@ -1296,6 +1475,16 @@ class _Budget:
         self.limits = limits
         self.search_calls = 0
         self.llm_calls = 0
+        self.deterministic_calls = 0
+        self.deterministic_kinds: list[str] = []
+
+    def note_deterministic(self, kind: str) -> None:
+        self.deterministic_calls += 1
+        self.deterministic_kinds.append(kind)
+
+    def llm_room(self, *, reserve: int = 0) -> bool:
+        """True when one more API call still fits, after ``reserve`` later calls."""
+        return self.llm_calls + 1 + reserve <= self.limits.max_llm_calls
 
     def charge_llm(self) -> None:
         if self.llm_calls >= self.limits.max_llm_calls:
@@ -1510,7 +1699,60 @@ def _tool_log(
         payload["retrieval_unit_ids"] = [hit.retrieval_unit_id for hit in result.hits]
         payload["retrieved_receipt_nos"] = [hit.receipt_no for hit in result.hits]
         payload["retrieved_corp_codes"] = [hit.corp_code for hit in result.hits]
+        if result.retrieval_policy:
+            payload["retrieval_policy"] = result.retrieval_policy
+            payload["retrieval_edit"] = result.retrieval_edit
+            payload["retrieval_policy_reason"] = result.policy_reason
     return payload
+
+
+def _evidence_required_observation(company_name: str) -> dict[str, Any]:
+    observation = public_tool_observation(
+        status="evidence_required",
+        company_name=company_name,
+        corpus_as_of=None,
+        requested_period=None,
+        report_types=None,
+        matched_count=0,
+        latest_available_period=None,
+    )
+    observation["hits"] = []
+    observation["message"] = observation["public_reason"]
+    return observation
+
+
+def _ungrounded_company_fact(
+    question: str,
+    answer_text: str,
+    resolution: Resolution,
+    request_time: dict[str, str],
+) -> bool:
+    """True when a direct answer states a company filing fact without evidence."""
+    if resolution.status != "resolved" or not answer_text.strip():
+        return False
+    if _future_confirmed_question(question, request_time) and not _AMOUNT_RE.search(answer_text):
+        return False
+    for part in [line.strip() for line in answer_text.splitlines() if line.strip()] or [
+        answer_text.strip()
+    ]:
+        if classify_product_claim(part)["claim_type"] == "factual_claim":
+            return True
+    return False
+
+
+_AMOUNT_RE = re.compile(r"\d{1,3}(?:,\d{3})+|\d+\s*(?:원|억|조)")
+
+
+def _future_confirmed_question(question: str, request_time: dict[str, str]) -> bool:
+    years = [int(year) for year in mentioned_years(question)]
+    if not years:
+        return False
+    request_year = int(str(request_time.get("iso") or "0000")[:4])
+    if max(years) <= request_year:
+        return False
+    if any(token in question for token in ("목표", "계획", "전망")):
+        return False
+    return "확정" in question
 
 
 def _abstain_text(status: str, message: str, fiscal_year: int | None) -> str:
@@ -1591,8 +1833,8 @@ def build_default_runtime(
 ) -> AgentRuntime:
     """Wire the cached corp list and every built product index. Does not encode documents."""
     base = root or repo_root()
+    from disclosure_agent.agent.h10_search import H10Search
     from disclosure_agent.agent.search_catalog import (
-        CatalogDenseSearch,
         CatalogEvidenceBuilder,
         load_search_catalog,
     )
@@ -1631,7 +1873,7 @@ def build_default_runtime(
         secrets = (openai_config.api_key,)
     return AgentRuntime(
         registry=registry,
-        search=CatalogDenseSearch(catalog),
+        search=H10Search(catalog),
         evidence_builder=CatalogEvidenceBuilder(catalog),
         answer_generator=generator,
         run_log=RunLog(log_path),

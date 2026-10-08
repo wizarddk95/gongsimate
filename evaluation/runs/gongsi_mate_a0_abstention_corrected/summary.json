@@ -1,0 +1,71 @@
+{
+  "contract_version": "a0-abstention-contract-v1",
+  "source_run": "gongsi_mate_a0_agent_baseline",
+  "query_count": 30,
+  "judge_recalled": 0,
+  "task": {
+    "success": 11,
+    "partial_success": 1,
+    "appropriate_clarification": 5,
+    "appropriate_abstention": 2,
+    "failure": 11,
+    "unjudged": 0
+  },
+  "raw_task": {
+    "success": 11,
+    "partial_success": 0,
+    "appropriate_clarification": 5,
+    "appropriate_abstention": 0,
+    "failure": 14,
+    "unjudged": 0
+  },
+  "faithfulness": {
+    "numerator": 9,
+    "denominator": 10
+  },
+  "raw_faithfulness_denominator": 15,
+  "abstention_appropriate": 3,
+  "abstention_denominator": 5,
+  "outcome_changes": [
+    {
+      "query_id": "V2-00126955-finance_table-01",
+      "raw_task_outcome": "failure",
+      "corrected_task_outcome": "failure",
+      "raw_primary_cause": "unsupported_claim",
+      "corrected_primary_cause": "over_abstention",
+      "factual_claim_count": 0
+    },
+    {
+      "query_id": "V2-00121941-partial-02",
+      "raw_task_outcome": "failure",
+      "corrected_task_outcome": "partial_success",
+      "raw_primary_cause": "unsupported_claim",
+      "corrected_primary_cause": null,
+      "factual_claim_count": 0
+    },
+    {
+      "query_id": "V2-00107613-cross_period-02",
+      "raw_task_outcome": "failure",
+      "corrected_task_outcome": "failure",
+      "raw_primary_cause": "unsupported_claim",
+      "corrected_primary_cause": "over_abstention",
+      "factual_claim_count": 0
+    },
+    {
+      "query_id": "A0-abstain-01",
+      "raw_task_outcome": "failure",
+      "corrected_task_outcome": "appropriate_abstention",
+      "raw_primary_cause": "unsupported_claim",
+      "corrected_primary_cause": null,
+      "factual_claim_count": 0
+    },
+    {
+      "query_id": "A0-abstain-02",
+      "raw_task_outcome": "failure",
+      "corrected_task_outcome": "appropriate_abstention",
+      "raw_primary_cause": "unsupported_claim",
+      "corrected_primary_cause": null,
+      "factual_claim_count": 0
+    }
+  ]
+}

@@ -260,7 +260,7 @@ def test_structured_output_retry_limit_and_llm_budget() -> None:
 
     limited = FakeAnswerClient([StructuredOutputInvalid("first"), _output("ev-unused")])
     limited_events = events_of(
-        _runtime(limited, limits=AgentLimits(max_search_calls=2, max_llm_calls=2)),
+        _runtime(limited, limits=AgentLimits(max_search_calls=2, max_llm_calls=1)),
         "이수페타시스의 주요 사업이 뭐야?",
     )
     assert len(limited.inputs) == 1

@@ -52,6 +52,12 @@ period와 report_types는 저장소 필터입니다.
 최근 실적은 mode "latest"로 가장 늦은 보고기간을 고릅니다.
 이유나 배경은 해당 연도 바깥의 후속 공시에 있을 수 있습니다.
 prior_tool_results가 부족하면 필터를 넓혀 한 번 더 호출할 수 있습니다.
+search_calls_remaining이 0이면 search_disclosures를 고르지 않습니다.
+그때는 answer_directly 또는 ask_clarification로 끝냅니다.
+prior_tool_results의 status가 evidence_required이면 직전 답은 전달되지 않았습니다.
+그 기업의 공시 사실을 근거 없이 단정하지 않습니다. 사용자 문장을 공시 근거로 쓰지 않습니다.
+검색이 남아 있으면 search_disclosures를 고를 수 있습니다.
+없으면 확인 질문이나 근거 없는 보류를 고릅니다.
 company_id는 입력에 있는 값만 넣습니다.
 
 prior_tool_results는 이 색인의 상태입니다. 외부 전체의 부재가 아닙니다.
@@ -73,6 +79,7 @@ class PlannerContext:
     prior_results: tuple[Mapping[str, Any], ...]
     max_top_k: int
     company_resolution: Mapping[str, Any] | None = None
+    search_calls_remaining: int = 2
 
 
 @dataclass(frozen=True)
@@ -294,6 +301,7 @@ def planner_payload(context: PlannerContext) -> dict[str, Any]:
         "prior_tool_results": [dict(item) for item in context.prior_results],
         "max_top_k": context.max_top_k,
         "max_search_calls": 2,
+        "search_calls_remaining": context.search_calls_remaining,
         "company_resolution": (
             None if context.company_resolution is None else dict(context.company_resolution)
         ),

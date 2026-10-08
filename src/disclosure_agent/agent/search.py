@@ -94,6 +94,9 @@ class SearchDisclosuresResult:
     company_id: str
     corp_code: str
     fiscal_year: int | None = None
+    retrieval_policy: str = ""
+    retrieval_edit: str | None = None
+    policy_reason: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)

@@ -1,0 +1,7 @@
+{
+  "contract_version": "a0-abstention-contract-v1",
+  "source_run": "gongsi_mate_a0_agent_baseline",
+  "judge_recalled": 0,
+  "generator_factual_flag_used": false,
+  "source_artifacts_overwritten": false
+}
